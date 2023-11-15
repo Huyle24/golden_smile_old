@@ -1,0 +1,155 @@
+"use client"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+export default function Footer(){
+    return (
+        <div className="footer">
+            <Container >
+                <Row className="text-white">
+                    <Col lg={4} md={12}>
+                        <ul>
+                            <li className="mb-4">
+                                <img src="https://nhanhtravel.com/wp-content/uploads/elementor/thumbs/A__2_-removebg-preview-1-3-e1674009239198-q0tndleazc0zdspzovdapjdg12pdz06i75ixcx0nea.png" alt="logo"/>
+                            </li>
+                            <li className="mb-2">CÔNG TY CP ĐẦU TƯ PHÁT TRIỂN VIGO</li>
+                            <li className="mb-3">1.07 và 1.08, Tầng Trệt + Lửng, Tòa nhà Ruby Garden, 2A Nguyễn Sỹ Sách, Phường 15, Quận Tân Bình, Thành phố Hồ Chí Minh, Việt Nam</li>
+                            <li>Hotline: (+84) 90 999 1205</li>
+                            <li className="mb-2">Email: balotourquocte@gmail.com</li>
+                            <li >Lĩnh vực kinh doanh chính: Lữ hành quốc tế - Tổ chức sự kiện - Golf - Tổ chức giải đấu Golf - Booking các dịch vụ liên quan đến du lịch trong và ngoài nước</li>
+                            <li className="mt-2">
+                                <img src="https://www.balotour.net/image/da_thong_bao.png" alt="bct" style={{height:'44px'}}/>
+                            </li>
+                        </ul>
+                    </Col>
+                    <Col lg={4} md={8}>
+
+                        <Row className="ft_partner">
+                            <Col md={6} xs={6}>
+                                <h6>ĐỐI TÁC</h6>
+                                <ul>
+                                    <li>Về chúng tôi</li>
+                                    <li>Đăng ký nhà cung cấp</li>
+                                    <li>Đối tác đăng nhập</li>
+                                    <li>Đối tác liên kết</li>
+                                    <li>Chương trình người nổi tiếng</li>
+                                    <li>Chương trình cho đại lý</li>
+                                    <li>Hợp tác Marketing và phân phối</li>
+                                </ul>
+                            </Col>
+                            <Col md={6} xs={6}>
+                                <h6>ĐIỀU KHOẢN SỬ DỤNG</h6>
+                                <ul>
+                                    <li>Điều khoản sử dụng</li>
+                                    <li>Chính sách bảo mật</li>
+                                    <li>Chính sách cookie</li>
+                                    <li>Tải ứng dụng tại đây</li>
+                                    <li>Chính sách quy định</li>
+                                </ul>
+                            </Col>
+                        </Row>
+                    </Col>
+
+                    <Col md={4}>
+                        <h6 className="mb-4">TẢI ỨNG DỤNG TẠI ĐÂY</h6>
+                        <div className="mb-4">
+                            <img src="https://nhanhtravel.com/wp-content/uploads/2022/11/GG.png" alt="gg" className="me-2 mb-2" style={{height:'40px'}} />
+                            <img src="https://nhanhtravel.com/wp-content/uploads/2022/11/ios.png" alt="ios" style={{height:'40px'}} className="mb-2"/>
+                        </div>
+                        <h6>KẾT NỐI VỚI CHÚNG TÔI</h6>
+                        <div>
+                            <img src="https://nhanhtravel.com/wp-content/uploads/2022/12/TS-FB-Icon1-e1670787566310.png" alt="social" style={{width:'30px'}} className="me-2"/>
+                            <img src="https://nhanhtravel.com/wp-content/uploads/2022/12/youtube.png" alt="social" style={{width:'30px'}} className="me-2"/>
+                            <img src="https://nhanhtravel.com/wp-content/uploads/2022/12/Artboard-1.png" alt="social" style={{width:'30px'}} className="me-2"/>
+                            <img src="https://nhanhtravel.com/wp-content/uploads/2022/12/instagram.png" alt="social" style={{width:'30px'}} className="me-2"/>
+                            <img src="https://nhanhtravel.com/wp-content/uploads/2022/12/iconzalo.png" alt="social" style={{width:'30px'}} className="me-2"/>
+                        </div>
+                        <div className="mt-4">
+                            <img src="https://vigomanager.com/app-assets/mobile/mau_web_3/z4664595165981_f694d7adb914ca0dd4f91eac8427d42b.jpg" alt="app" className="logo_qr me-3"/>
+                            <img src="https://vigomanager.com/app-assets/mobile/mau_web_3/z4664595165981_f694d7adb914ca0dd4f91eac8427d42b.jpg" alt="app" className="logo_qr"/>
+                        </div>
+                    </Col>
+
+                    <Col lg={3} md={6} xs={6}>
+                        <div>
+                            <span className="fw-bold fs-5">Du lịch trong nước</span>
+                        </div>
+                        <Row>
+                            <Col lg={6}>
+                                <ul className="menu">
+                                    <li>Hà Nội</li>
+                                    <li>Hạ Long</li>
+                                    <li>Huế</li>
+                                    <li>Quảng Bình</li>
+                                    <li>Đà Nẵng</li>
+                                    <li>Quảng Nam</li>
+                                    <li>Nha Trang</li>
+                                </ul>
+                            </Col>
+                            <Col lg={6}>
+                                <ul className="menu">
+                                    <li>Phan Thiết</li>
+                                    <li>Bà Rịa - Vũng Tàu</li>
+                                    <li>Phú Quốc</li>
+                                    <li>Cần Thơ</li>
+                                    <li>Bắc Kạn</li>
+                                    <li>Hà Giang</li>
+                                    <li>Côn Đảo</li>
+                                </ul>
+                            </Col>
+                        </Row>
+
+                    </Col>
+                    <Col lg={3} md={6} xs={6}>
+                        <span className="fw-bold fs-5">Du lịch nước ngoài</span>
+                        <Row>
+                            <Col lg={6} mb={6}>
+                                <ul className="menu">
+                                    <li>Thái Lan</li>
+                                    <li>Trung Quốc</li>
+                                    <li>Malaysia</li>
+                                    <li>Singapore</li>
+                                    <li>Hàn Quốc</li>
+                                    <li>Mỹ - Hoa Kỳ</li>
+                                    <li>Nhật Bản</li>
+                                </ul>
+                            </Col>
+                            <Col lg={6} md={6}>
+                                <ul className="menu">
+                                    <li>Ấn Độ</li>
+                                    <li>Philippines</li>
+                                    <li>Maldives</li>
+                                    <li>Na Uy</li>
+                                    <li>Tây Ban Nha</li>
+                                    <li>Hà Lan</li>
+                                    <li>Đức</li>
+                                </ul>
+                            </Col>
+                        </Row>
+
+                    </Col>
+                    <Col lg={3}>
+                        <span className="fw-bold fs-5">Dòng tour</span>
+                                <ul className="menu">
+                                    <li>Cao cấp</li>
+                                    <li>Tiêu chuẩn</li>
+                                    <li>Tiết kiệm</li>
+                                    <li>Giá tốt</li>
+                                </ul>
+
+                    </Col>
+                </Row>
+                <div className="copy_right text-white d-flex justify-content-center">
+                    <div className="d-flex flex-column text-center">
+                        <span className="mb-1">Số giấy phép ĐKKD: 0312469580 sở kế hoạch đầu tư - cấp ngày 20/09/2013</span>
+                        <span className="mb-1">Số Giấy phép lữ hành quốc tế: 79-734/2017/TCDL-GP LHQT cấp ngày 17/05/2017</span>
+                        <span className="mb-1">Copyright © 2022 - CÔNG TY CỔ PHẦN ĐẦU TƯ PHÁT TRIỂN VIGO</span>
+                        <span className="fs-6">Power by Nhanh Travel chuyển đổi số du lịch</span>
+                    </div>
+                </div>
+            </Container>
+        </div>
+
+    )
+}
