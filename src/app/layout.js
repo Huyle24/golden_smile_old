@@ -20,6 +20,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
+
       <body className={inter.className}>
       <Head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -52,7 +54,7 @@ export default function RootLayout({ children }) {
                   <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
                   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         </Head>
-
+        <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'></link>
           <Provider store={store}>
       <Header />
       {children}

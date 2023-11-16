@@ -18,13 +18,13 @@ export default function Home() {
 
   return (
     <main className="main_home">
-      <Carousels />
+      {/* <Carousels /> */}
       <Promotion />
-      <ProductTravel />
-      <CardList />
-      <SpecialOffers />
-      <FavoriteLocation />
-      <WhyList />
+      {/* <ProductTravel /> */}
+      {/* <CardList /> */}
+      {/* <SpecialOffers /> */}
+      {/* <FavoriteLocation /> */}
+      {/* <WhyList /> */}
     </main>
   )
 }
