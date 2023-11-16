@@ -252,7 +252,7 @@ function SearchBox(props) {
                 eventKey="link-2"
                 className="d-flex flex-column align-items-center nav_link_search "
               >
-                <FaRegBuilding className="mb-2 icon_detail_tour" />
+                <FaRegBuilding className="mb-2 icon_detail_tour"/>
                 <p className="fw-bold text-center search_box_height_title">Khách sạn</p>
               </Nav.Link>
             </Nav.Item>

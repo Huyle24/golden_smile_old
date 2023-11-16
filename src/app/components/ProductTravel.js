@@ -28,19 +28,13 @@ function ProductTravel(props){
   console.log(countListHotel)
     const showHotel = () => {
         // props.fetchHotelList(counterAdult, counterChild, counterRoom, keyWord, moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY'), moment(dateEnd, "DD-MM-YYYY").format('DD/MM/YYYY'), 5, limit);
-
-
         if(moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY') < moment(today, "DD-MM-YYYY").format('DD/MM/YYYY')){
-
             Toast.fire({
                 title: "Chọn sai ngày đi",
                 icon: "error"
             })
             return false
-
         }
-
-
 
         if(moment(dateEnd, "DD-MM-YYYY").format('YYYY-MM-DD') < moment(dateStart, "DD-MM-YYYY").format('YYYY-MM-DD')){
             Toast.fire({
@@ -50,8 +44,6 @@ function ProductTravel(props){
             return false
 
         }
-
-
         // router.push('/stay/list?adult_number=' + counterAdult + '&child_number='+ counterChild + '&room_number='+counterRoom + '&keyword=' + keywork + '&date_start=' + moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY') + '&date_end=' + moment(dateEnd, "DD-MM-YYYY").format('DD/MM/YYYY'))
     }
 

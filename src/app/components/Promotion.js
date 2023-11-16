@@ -38,7 +38,7 @@ function Promotion(props){
       return (
 
         <Container className="promotion mt-4">
-          <h4 className="color-text">Ưu đãi</h4>
+          <h4 className="color-text text-center">Ưu đãi</h4>
           <Swiper 
           cssMode={true}
           navigation={true}
