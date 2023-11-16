@@ -180,15 +180,71 @@ a{
     margin-left: 300px;
 }
 
+.navcon{
+    display: none !important;
+    z-index: 1000;
+    position: absolute;
+    background-color: #DBA73D;
+    border-radius: 5px;
+    border: 0 solid rgba(0,0,0,.15);
+    background-clip: padding-box;
+    text-align: left;
+}
+
+.item_list_header .navbar-nav .navcha .navcon > li a {
+    color: white !important;
+    top: 50%;
+    right: auto;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.navchau{
+    position: absolute;
+    background-color: #DBA73D;
+    display: none;
+    left: 100%;
+    margin-top: -29px;
+    text-align: left;
+}
+
+.navchau li >a{
+    white-space: nowrap;
+}
+
+.navbar-nav .navcha .navcon > li a:hover {
+    background-color: #B72028 !important;
+    border-radius: 5px;
+    background-clip: padding-box;
+    border: 0 solid rgba(0,0,0,.15);
+}
+
+.navcon li >a:hover .navchau{
+    display: block;
+    
+}
+
+.navcha:hover .navcon{
+    display: block !important;
+    
+}
+
 .navbar-expand-lg .navbar-nav .nav-link {
-    font-size: 13px;
+    font-size: 14px;
     color: #B72028 !important;
-    font-weight: bold;
+    font-weight: 800;
+
 }
 
 .navbar-expand-lg .navbar-nav .nav-link:hover {
     color: #DBA73D !important;
 }
+
+.navbar-nav .nav-link.active {
+    color: #DBA73D !important;
+}
+
 
 /* --------------------------------------- */
 .header_fixed{
@@ -510,11 +566,77 @@ a{
     object-fit: cover;
 }
 
+/* SearchBox components */
+
 .search_box{
     margin-top: -160px;
     z-index: 9999999 !important;
+    margin-bottom: 290px;
 }
 
+.search_box .trangchu_formsearch {
+    position: relative;
+}
+
+.trangchu_formsearch .tab_filter {
+    margin-right: 0;
+    margin-left: 0;
+    
+}
+
+.trangchu_formsearch .tab_filter .tab_filter_searchnav {
+    align-items: center;
+    justify-content: center;
+}
+
+.tab_filter .tab_filter_searchnav .li_searchnav {
+    height: 70px;
+    width: 195px;
+}
+
+.tab_filter_searchnav .li_searchnav .search_mucfilter {
+    background-color: #B72028;
+    display: inline-block;
+    width: 100%;
+    border-radius: 0;
+    letter-spacing: .89px;
+    line-height: 16px;
+    cursor: pointer;
+    font-size: 13px;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    color: white;
+}
+
+
+.li_searchnav .search_mucfilter i {
+    width: 22px;
+    margin-left: 15px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+
+.li_searchnav .search_mucfilter .search_content_nav {
+    float: left;
+    display: block;
+    text-align: center;
+    line-height: 15px;
+    white-space: nowrap;
+    letter-spacing: .89px;
+}
+
+
+.trangchu_formsearch .form_filter {
+    padding: 30px 0
+}
+
+/* <i class='bx bxl-react'></i>background-color */
+
+
+
+/* End SearchBox Components */
 @media only screen and (max-width: 992px){
     .search_box{
         margin-top: 10px;
