@@ -26,19 +26,12 @@ function CardList(props) {
 
     console.log(list_tour)
 
-
-
-
-
-
-  // useEffect(() => {
-  //   getTourList();
-  // }, []);
-
-
   return (
     <Container >
-      <h4 className="mt-4 color-text text-center">Tour trong nước</h4>
+      <div className="tourtrongnuoc">
+        <h4 className="mt-4">Tour trong nước</h4>
+        <span className="divider-Trekking"></span>
+      
       <Swiper
           cssMode={true}
           navigation={true}
@@ -167,14 +160,15 @@ function CardList(props) {
             </Card>
             </SwiperSlide>
                 ))): ''}
-      </Swiper>
-      <div className="home-page__see-all text-end mt-4">
-          <Link href='/Category'>
-              <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white">
-                  Xem tất cả <FaArrowRight className="ms-2 " />
-              </Button>
-          </Link>
+        </Swiper>
+        <div className="home-page__see-all text-end mt-4">
+            <Link href='/Category'>
+                <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white">
+                    Xem tất cả <FaArrowRight className="ms-2 " />
+                </Button>
+            </Link>
 
+        </div>
       </div>
     </Container>
   );

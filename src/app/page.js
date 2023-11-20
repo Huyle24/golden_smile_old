@@ -13,7 +13,10 @@ import WhyList from './components/WhyList'
 import {connect} from "react-redux";
 import * as actions from "../../redux/actions";
 import { Montserrat } from 'next/font/google';
-import ImagesBanner from './components/ImagesBanner'
+import ImagesBanner from './components/ImagesBanner';
+import TourTrekking from './components/TourTrekking'
+import TourPopularType from './components/TourPopularType'
+import NextDestion from './components/NextDestion'
 
 
 export default function Home() {
@@ -24,10 +27,13 @@ export default function Home() {
       <Promotion />
       {/* <ProductTravel /> */}
       <ImagesBanner />
+      <TourTrekking />
       <CardList />
       <SpecialOffers />
-      <FavoriteLocation />
-      <WhyList />
+      <TourPopularType />
+      <NextDestion />
+      {/* <FavoriteLocation /> */}
+      {/* <WhyList /> */}
     </main>
   )
 }

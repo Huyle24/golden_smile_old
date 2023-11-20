@@ -22,7 +22,9 @@ function SpecialOffers(props) {
     let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
     return (
         <Container >
-            <h4 className="mt-4 color-text">Tour nước ngoài</h4>
+            <div className="tournuocngoai">
+                <h4 className="mt-4">Tour nước ngoài</h4>
+                <span className="divider-Trekking"></span>
             <Swiper
                 cssMode={true}
                 navigation={true}
@@ -152,12 +154,13 @@ function SpecialOffers(props) {
                     </SwiperSlide>
                 ))): ''}
             </Swiper>
-            <div className="home-page__see-all text-end mt-4">
-                <Link href='/Category'>
-                    <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white">
-                        Xem tất cả <FaArrowRight className="ms-2 " />
-                    </Button>
-                </Link>
+                <div className="home-page__see-all text-end mt-4">
+                    <Link href='/Category'>
+                        <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white">
+                            Xem tất cả <FaArrowRight className="ms-2 " />
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </Container>
     );
