@@ -7,6 +7,13 @@ a{
     text-decoration: none !important;
 }
 
+.main_home {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.carousel-indicators [data-bs-target] {
+    display: none;
+}
+
 .header-first {
     background: #db2131;
     height: 53px;
@@ -569,13 +576,16 @@ a{
 /* SearchBox components */
 
 .search_box{
-    margin-top: -160px;
+    margin-top: -202px;
     z-index: 9999999 !important;
-    margin-bottom: 290px;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    background-color: transparent!important;
 }
 
 .search_box .trangchu_formsearch {
     position: relative;
+    margin-top: 12%;
 }
 
 .trangchu_formsearch .tab_filter {
@@ -609,6 +619,19 @@ a{
     color: white;
 }
 
+.tab_filter_searchnav .li_searchnav .search_mucfilter.active {
+    background-color: white;
+    color:#B72028;
+}
+
+.tab_filter_searchnav .li_searchnav:first-child .search_mucfilter {
+    border-top-left-radius: 150px;
+}
+
+.tab_filter_searchnav .li_searchnav:last-child .search_mucfilter {
+    border-top-right-radius: 150px;
+}
+
 
 .li_searchnav .search_mucfilter i {
     width: 22px;
@@ -616,6 +639,8 @@ a{
     display: block;
     float: left;
     margin-right: 10px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .li_searchnav .search_mucfilter .search_content_nav {
@@ -629,10 +654,71 @@ a{
 
 
 .trangchu_formsearch .form_filter {
-    padding: 30px 0
+    padding: 30px 0;
+    padding-left: 1.875rem !important;
+    padding-right: 1.875rem!important;
 }
 
-/* <i class='bx bxl-react'></i>background-color */
+.trangchu_formsearch .form_filter .forminfo_filter {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    align-items: center;
+}
+
+.form_filter .forminfo_filter .choose_input_tour {
+    flex-basis: 0;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.form_filter .forminfo_filter .choose_input_tour .search_label {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    color: #B72028;
+}
+
+.forminfo_filter .choose_input_tour .form_location_filter {
+    font-weight: 400;
+    width: 100%;
+    height: 36px;
+    font-size: 14px;
+    line-height: 20px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: #ededed .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.forminfo_filter .choose_input_tour .btn_search_find {
+    padding: 6px 12px;
+    background-color: #B72028;
+    line-height: 7px;
+    margin-top: 15%;
+    width: 144px;
+    height: 39px;
+    border-radius: 27px;
+    color: #fff;
+    border: 1px solid transparent;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: none;
+}
+
+.forminfo_filter .choose_input_tour .btn_search_find:hover {
+    color: #fff;
+    border-color: #af1a27;
+    background-color: #af1a27;
+   text-decoration: none;
+}
+/*  */
 
 
 
@@ -2687,6 +2773,7 @@ tr td{
     .main_plane_list,.main_tour_list,.main_payment_plane,.main_hotel,
     .main_hotel_list,.main_hotel_detail,.main_order_summary,.main_payment_method,.main_order_view,.main_search,.main_car_list,.main_tintuc,.main_camnang,.main_blogs_detail,.main_home,.main_hotel,.tour_model{
         padding-top: 60px;
+
     }
     .navbar-collapse{
         position: relative;

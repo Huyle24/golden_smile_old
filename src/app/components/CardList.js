@@ -38,7 +38,7 @@ function CardList(props) {
 
   return (
     <Container >
-      <h4 className="mt-4 color-text">Tour trong nước</h4>
+      <h4 className="mt-4 color-text text-center">Tour trong nước</h4>
       <Swiper
           cssMode={true}
           navigation={true}

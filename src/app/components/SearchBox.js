@@ -36,6 +36,10 @@ function SearchBox(props) {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
+
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+
     const [value, onChange] = useState(new Date());
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
@@ -216,8 +220,7 @@ function SearchBox(props) {
             <div className="row tab_filter">
                 <div className="col-md-12">
                   <Nav className="tab_filter_searchnav"
-                    activeKey="/home"
-                    onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+                         variant="pills" defaultActiveKey="link-1"
                   >
                     <Nav.Item className="li_searchnav">
                       <Nav.Link className="search_mucfilter" eventKey="link-1">
@@ -247,7 +250,49 @@ function SearchBox(props) {
                 </div>
             </div>
             <div className="form_filter">
-
+                <div className="forminfo_filter">
+                    <div className="col choose_input_tour">
+                        <label className="search_label">Điểm khởi hành</label>
+                        <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                            <option>Tất cả</option>
+                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                            <option value="Nhật bản">Nhật bản</option>
+                            <option value="Mỹ">Mỹ</option>
+                        </Form.Select>
+                    </div>
+                    <div className="col choose_input_tour">
+                        <label className="search_label">Điểm đến</label>
+                        <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                            <option>Tất cả</option>
+                            <option value="Hà Nội">Hà Nội</option>
+                            <option value="Spa">Spa</option>
+                            <option value="Vương Quốc Anh">Vương Quốc Anh</option>
+                        </Form.Select>
+                    </div>
+                    <div className="col choose_input_tour">
+                        <label className="search_label">Ngày khởi hành </label>
+                        <DatePicker  className="form_location_filter form-control"
+                              selected={null}
+                              onChange={(date) => setStartDate(date)}
+                              minDate={new Date()}
+                              disabledKeyboardNavigation
+                              startDate={startDate}
+                              endDate={endDate}
+                        />
+                    </div>
+                    <div className="col choose_input_tour">
+                        <label className="search_label">Khoảng giá</label>
+                        <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                            <option>Tất cả</option>
+                            <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
+                            <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
+                            <option value="Dưới 4 triệu">Dưới 4 triệu</option>
+                        </Form.Select>
+                    </div>
+                    <div className="col choose_input_tour">
+                            <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
+                    </div>
+                </div>
             </div>
          </Form>
       </div>
