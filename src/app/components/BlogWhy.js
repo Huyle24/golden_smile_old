@@ -29,7 +29,7 @@ function BlogWhy() {
                     </div>
                 </Row>
                 <Row className="number_reason">
-                    <div className="col-6 col-md-4">
+                    <div className="col-6 col-md-4 reason_hangdau">
                         <div className="vong_tron_trang">
                             <div className="vong_tron_do">
                                 <span className="vong_tron_title">1.</span>
@@ -38,7 +38,7 @@ function BlogWhy() {
                         <div className="content_reason_child">SẢN PHẨM</div>
                         <div className="reason_des">Độc đáo, mới lạ</div>
                     </div>
-                    <div className="col-6 col-md-4">
+                    <div className="col-6 col-md-4 reason_hangdau">
                         <div className="vong_tron_trang">
                             <div className="vong_tron_do">
                                 <span className="vong_tron_title">2.</span>
@@ -47,7 +47,7 @@ function BlogWhy() {
                         <div className="content_reason_child">CHẤT LƯỢNG</div>
                         <div className="reason_des">Đảm bảo tuyệt đối</div>
                     </div>
-                    <div className="col-6 col-md-4">
+                    <div className="col-6 col-md-4 reason_hangdau">
                         <div className="vong_tron_trang">
                             <div className="vong_tron_do">
                                 <span className="vong_tron_title">3.</span>
@@ -56,7 +56,7 @@ function BlogWhy() {
                         <div className="content_reason_child">GIÁ CẢ</div>
                         <div className="reason_des">Phải chăng và hợp lí theo yêu cầu</div>
                     </div>
-                    <div className="col-6 col-md-6">
+                    <div className="col-6 col-md-6 reason_hangsau">
                         <div className="reason_item">
                             <div className="vong_tron_trang">
                                 <div className="vong_tron_do">
@@ -67,7 +67,7 @@ function BlogWhy() {
                             <div className="reason_des">Nhanh chóng, đơn giản và chuyên nghiệp</div>
                         </div>
                     </div>
-                    <div className="col-6 col-md-6">
+                    <div className="col-6 col-md-6 reason_hangsau">
                         <div className="reason_item">
                             <div className="vong_tron_trang">
                                 <div className="vong_tron_do">

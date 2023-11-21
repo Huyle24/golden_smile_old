@@ -97,6 +97,11 @@
     padding-top: 10px;
 }
 
+.trekking_card .info_trekking {
+    display: block;
+    float: left;
+    padding: 24px;
+}
 
 .trekking_card .info_trekking .trekking_content {
     display: block;
@@ -697,10 +702,19 @@
 
 .Blog_Why_content .reason_choose .number_reason {
     width: 100%;
-    padding-right: 15px;
-    /* padding-left: 15px; */
-    margin-right: auto;
-    margin-left: 82px;
+    display: flex;
+    margin-left: 19%;
+    flex-wrap: wrap;
+}
+
+.Blog_Why_content .reason_choose .number_reason .reason_hangdau {
+    flex: 0 0 23%;
+    width: 34%;
+}
+
+.Blog_Why_content .reason_choose .number_reason .reason_hangsau {
+        flex: 0 0 36%;
+        width: 19%;
 }
 
 .reason_choose .vong_tron_trang {

@@ -100,7 +100,7 @@ function CardList(props) {
                        </Card.Text>
                        <div className="d-flex min-height-46 align-items-center">
                         <CiLocationOn />
-                            <span className="color-text  ms-2">
+                            <span className="color-text ms-2">
                             {item.city_name}
                             </span>
                         </div>
@@ -123,8 +123,8 @@ function CardList(props) {
                     </Card.Text>
                 </div>
                 <div className="d-flex justify-content-between py-2">
-                  <div>
-                      Số chỗ còn <span className="fw-bold text-danger fs-5">9</span>
+                  <div className="socho">
+                      Số chỗ còn <span className="fw-bold text-danger">9</span>
                   </div>
                     <Link href={"/Tour?id=" + item.id}>
                         <Button className="bg-danger border border-0">

@@ -29,9 +29,9 @@ export default function Home() {
       <Promotion />
       {/* <ProductTravel /> */}
       <ImagesBanner />
-      <TourTrekking />
-      <CardList />
       <SpecialOffers />
+      <CardList />
+      <TourTrekking />
       <TourPopularType />
       <NextDestion />
       <BlogWhy />

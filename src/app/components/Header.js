@@ -252,10 +252,12 @@ function Header(props){
                                 </li>
                                 <li><Nav.Link>TOUR TREKKING</Nav.Link></li>
                               </ul>
-                            </Nav.Link>                
-                            <Nav.Link href="#action3">VÉ MÁY BAY</Nav.Link>
-                            <Nav.Link href="#action4">VOUCHER - COMBO</Nav.Link>
-                            <Nav.Link href="#action5" className='navcha'>NHẬT KÝ
+                            </Nav.Link>
+                            <Nav.Link href="#action3">FLASHPACKING</Nav.Link>
+                            <Nav.Link href="#action4">VISA</Nav.Link>                
+                            <Nav.Link href="#action5">VÉ MÁY BAY</Nav.Link>
+                            <Nav.Link href="#action6">VOUCHER - COMBO</Nav.Link>
+                            <Nav.Link href="#action7" className='navcha'>NHẬT KÝ
                               <ul className='navcon'>
                                 <li><Nav.Link>KHÁCH LẺ GHÉP ĐOÀN</Nav.Link></li>
                                 <li><Nav.Link>BẤT ĐỘNG SẢN</Nav.Link></li>
@@ -273,8 +275,8 @@ function Header(props){
                             </Nav.Link>
 
                           
-                            <Nav.Link href="#action6">TIN TỨC</Nav.Link>
-                            <Nav.Link href="#action7">REVIEW</Nav.Link>
+                            <Nav.Link href="#action8">TIN TỨC</Nav.Link>
+                            <Nav.Link href="#action9">REVIEW</Nav.Link>
                           </Nav>
                         </Navbar.Collapse>
                     </Container>

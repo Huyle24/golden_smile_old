@@ -288,7 +288,7 @@ a{
 /* Footer Components */
 .footer{
     width: 100%;
-    max-width: 1480px;
+    max-width: 99%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -331,7 +331,9 @@ a{
     display: block;
     transition: all .2s;
     color: #000;
+    font-size: 14px;
 }
+
 
 .footer .row .footer_address_info .address_contact i {
     color: #000;
@@ -369,7 +371,7 @@ a{
 .footer .row .info-chung .info-item-chung a{
     color: #000 !important;
     font-weight: 400;
-    line-height: 2.6!important;
+    line-height: 1.6!important;
     transition: all .2s;
     cursor: pointer;
     text-decoration: none;
@@ -407,7 +409,7 @@ a{
 .footer .info_first .list_item_about .listitem_vechungtoi a{
     color: #000 !important;
     font-weight: 400;
-    line-height: 2.6!important;
+    line-height: 1.6!important;
     transition: all .2s;
     cursor: pointer;
     text-decoration: none !important;
@@ -581,6 +583,7 @@ a{
     background-color: transparent;
     transition: all .2s;
     color: #000;
+    font-size: 14px;
 }
 
 /* Đường sọc trên chứng nhận */
@@ -1531,6 +1534,20 @@ tr td{
     max-width: 125px;
 }
 
+.promotion h4 {
+    color: #B72028;
+    text-align: center;
+}
+
+.promotion .divider-Trekking {
+    display: block;
+    height: 3px;
+    width: 234px;
+    background-color: inherit;
+    background-image: url(https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/bg-heading.png);
+    margin: 0 auto 30px;
+}
+
 @media  only screen and (max-width: 1200px) {
     .input_code_promotion{
         max-width: 100% !important;
@@ -1608,6 +1625,11 @@ tr td{
 
 .color-text{
     color: #2d4271;
+    font-size: 14px;
+}
+
+.socho {
+    font-size: 14px !important;
 }
 
 .img_prcode img{

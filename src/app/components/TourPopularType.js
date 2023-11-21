@@ -12,7 +12,7 @@ import { Container, Row } from "react-bootstrap";
 
 function TourPopularType(props) {
     return (
-        <Container>
+       
             <div className="Tour_type_popular">
                 <div className="tour_popular">
                     <div className="T_popular_bi">
@@ -71,7 +71,7 @@ function TourPopularType(props) {
                     </div>
                 </div>
             </div>
-        </Container>
+        
     )
 }
 

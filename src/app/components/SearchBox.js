@@ -224,26 +224,26 @@ function SearchBox(props) {
                   >
                     <Nav.Item className="li_searchnav">
                       <Nav.Link className="search_mucfilter" eventKey="link-1">
-                        <i class='bx bxl-react'></i>
+                      <i class='bx bx-home-alt' ></i>
                         <div className="search_content_nav">Tour <br></br> trong nước</div>
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="li_searchnav">
                       <Nav.Link className="search_mucfilter" eventKey="link-2">
-                        <i class='bx bxl-react'></i>
-                        <div className="search_content_nav">Tour <br></br> trong nước</div>
+                        <i class='bx bxs-building-house' ></i>
+                        <div className="search_content_nav">Tour <br></br> nước ngoài</div>
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="li_searchnav">
                       <Nav.Link className="search_mucfilter" eventKey="link-3"> 
-                        <i class='bx bxl-react'></i>
-                        <div className="search_content_nav">Tour <br></br> trong nước</div>
+                        <i class='bx bx-buildings' ></i>
+                        <div className="search_content_nav">Tour <br></br> TREKKING</div>
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="li_searchnav">
                       <Nav.Link className="search_mucfilter" eventKey="link-4">
-                        <i class='bx bxl-react'></i>
-                        <div className="search_content_nav">Tour <br></br> trong nước</div>
+                        <i class='bx bxs-building' ></i>
+                        <div className="search_content_nav">Tour <br></br> theo yêu cầu</div>
                       </Nav.Link>
                     </Nav.Item>
                   </Nav>

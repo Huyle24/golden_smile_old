@@ -116,8 +116,8 @@ function SpecialOffers(props) {
                                     </Card.Text>
                                 </div>
                                 <div className="d-flex justify-content-between py-2">
-                                    <div>
-                                        Số chỗ còn <span className="fw-bold text-danger fs-5">9</span>
+                                    <div className="socho">
+                                        Số chỗ còn <span className="fw-bold text-danger">9</span>
                                     </div>
                                     <Link href={"/Tour?id=" + item.id}>
                                         <Button className="bg-danger border border-0">
