@@ -98,18 +98,6 @@
 }
 
 
-
-// .trekking_card .info_trekking .trekking_content {
-//     display: block;
-//     margin-bottom: 20px;
-//     font-style: normal;
-//     font-weight: 700;
-//     font-size: 18px;
-//     line-height: 26px;
-//     height: 79px;
-//     overflow: hidden;
-// } 
-
 .trekking_card .info_trekking .trekking_content {
     display: block;
     margin-bottom: 20px;
@@ -220,6 +208,7 @@
 
 // TourPopularType components
 .Tour_type_popular {
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -537,6 +526,7 @@
 }
 
 .next_target .card_tour_nextdestion {
+    overflow: hidden;
     position: relative;
     transition: all .2s;
     display: flex;
@@ -551,9 +541,10 @@
 }
 
 .next_target .card_tour_nextdestion:before {
+    transition: 1s ease-in-out;
     content: "";
     position: absolute;
-    top: -6%;
+    top: -5%;
     left: 2%;
     width: 96%;
     height: 100%;
@@ -564,60 +555,19 @@
 
 
 .next_target .card_tour_nextdestion img {
+    overflow: hidden;
     transition: 1s ease-in-out;
     width: 100%;
     max-width: 100%;
     height: auto;
 }
 
+.next_target .card_tour_nextdestion:hover:before,
 .hover-zoom-in:hover .images_next,
 .hover-zoom-in:hover img {
     transform: scale(1.05);
+    color: #B72028;
 }
-
-
-
-
-
-// .next_target .image_next {
-//     overflow: hidden;
-//     border-radius: inherit;
-//     max-width: 100%;
-//     height: auto;
-//     border-style: none;
-// }
-
-// .next_target .image_next:before {
-//     background: #000;
-//     opacity: 0.5;
-//     background-image: linear-gradient(transparent 42%, #000) !important;
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 3%;
-//     width: 91%;
-//     height: 95%;
-//     z-index: 1;
-//     border-radius: inherit;
-// }
-
-// .next_target .image_next:hover:before {
-//     transform: scale(1.05);
-//     transition: 1s ease-in-out;
-//     z-index: 1;
-//     border-radius: inherit;
-// }
-
-// .next_target .image_next img {
-//     // filter: brightness(60%);
-//     // background: #000;
-//     max-width: 100%;
-//     height: auto;
-//     cursor: pointer;
-// }
-
-
-
 
 .next_target .name_next {
     z-index: 1;
@@ -651,6 +601,7 @@
 }
 
 .next_target .number_total_visit .trip_number {
+    transition: all 0.3s ease-in;
     text-align: center;
     position: absolute;
     padding-left: 15px;
@@ -660,6 +611,10 @@
     left: 17%;
     color: #fff;
     font-weight: 500 !important;
+}
+
+.next_target .number_total_visit .trip_number:hover {
+    color: #B72028;
 }
 
 .next_target .number_total_visit .trip_number:before {
@@ -673,5 +628,176 @@
     border-radius: 50%;
 }
 
+// End NextDestion components
+
+// Components BlogWhy
+
+.Blog_Why_content {
+    background: #e5e5e5;
+    display: block;
+    position: relative;
+    height: 606px;
+    margin-bottom: 100px;
+    max-width: 100%;
+}
+
+.Blog_Why_content .why_choose {
+    position: absolute;
+    width: 161px;
+    height: 161px;
+}
+
+.Blog_Why_content .taisao_chon_left_top {
+    top: 0;
+    transform: rotate(90deg);
+    left: 0;
+    background: url(https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/left_top.png) no-repeat;
+}
+
+.Blog_Why_content .taisao_chon_left_bottom {
+    bottom: 0;
+    transform: rotate(1turn);
+    left: 0;
+    background: url(https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/left_bottom.png) no-repeat;
+}
+
+.Blog_Why_content .taisao_chon_right_top {
+    top: 0;
+    right: 0;
+    transform: rotate(180deg);
+    background: url(https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/right_top.png) no-repeat;
+}
+
+.Blog_Why_content .taisao_chon_right_bottom {
+    bottom: 0;
+    transform: rotate(270deg);
+    right: 0;
+    background: url(https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/right_bottom.png) no-repeat;
+}
+
+.Blog_Why_content .reason_choose {
+    max-width: 100%;
+    justify-content: center;
+}
+
+.Blog_Why_content .reason_choose .question_choose {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 53px;
+    text-align: center;
+    max-width: 437px;
+    color: #B72028;
+    margin: 30px auto 44px;
+
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.Blog_Why_content .reason_choose .number_reason {
+    width: 100%;
+    padding-right: 15px;
+    /* padding-left: 15px; */
+    margin-right: auto;
+    margin-left: 82px;
+}
+
+.reason_choose .vong_tron_trang {
+    width: 65px;
+    height: 65px;
+    background: #fff;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.reason_choose .vong_tron_trang .vong_tron_do {
+    width: 43.33px;
+    height: 43.33px;
+    background: #B72028 ;
+    box-shadow: 4px 0 4px rgba(0,0,0,.25);
+    border-radius: 50%;
+    margin: 10.83px;
+    display: inline-block;
+    text-align: center;
+} 
+
+.reason_choose .vong_tron_trang .vong_tron_do .vong_tron_title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+    display: inline-block;
+}
+
+.reason_choose .content_reason_child {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 35px;
+    color: #db2131;
+}
+
+.reason_choose .reason_des {
+    font-size: 18px;
+    line-height: 25px;
+    color: #000;
+    margin-bottom: 30px;
+} 
+
+.reason_choose .reason_item {
+    display: block;
+    max-width: 210px;
+    margin: 0 20%;
+}
+
+// End BlogWhy
+
+/* Banner Components */
+.backgroundBanner {
+    background-image: url("https://demo2.themelexus.com/bexper/wp-content/uploads/2023/07/about-bg-left.png");
+  }
+  .img-tilted-left {
+    transform: rotate(-10deg);
+    transform-origin: top left;
+  }
+
+.customer_tellme img{
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+  
+  .img-tilted-right {
+    transform: rotate(10deg);
+    transform-origin: top right;
+  }
+  .img-tilted-left:hover {
+    transform: rotate(-8deg);
+    transform-origin: top left;
+  }
+  .img-tilted-right:hover {
+    transform: rotate(12deg);
+    transform-origin: top right;
+  }
+  .Banner-Heading{
+    font-size: 36px;
+    font-weight: 600;
+    color: #B72028;
+  }
+  .Banner-Title{
+    font-size: 2.25rem;
+    color: #B72028 ;
+  }
+  .Banner-list-Date{
+    color: #DBA73D;
+    font-size: 14px;
+  }
+  .Banner-list-Content{
+    font-size: 24px;
+    font-weight: 500;
+  
+  }
+/* End Banner Components */
 
 

@@ -17,6 +17,8 @@ import ImagesBanner from './components/ImagesBanner';
 import TourTrekking from './components/TourTrekking'
 import TourPopularType from './components/TourPopularType'
 import NextDestion from './components/NextDestion'
+import BlogWhy from './components/BlogWhy'
+import Banner from './components/Banner'
 
 
 export default function Home() {
@@ -32,6 +34,8 @@ export default function Home() {
       <SpecialOffers />
       <TourPopularType />
       <NextDestion />
+      <BlogWhy />
+      <Banner />
       {/* <FavoriteLocation /> */}
       {/* <WhyList /> */}
     </main>
