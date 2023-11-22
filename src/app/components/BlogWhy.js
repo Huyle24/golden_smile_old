@@ -16,7 +16,7 @@ function BlogWhy() {
     ]
     
     return (
-        <section className="Blog_Why_content">
+         <section className="Blog_Why_content">
             <div className="why_choose taisao_chon_left_top"></div>
             <div className="why_choose taisao_chon_left_bottom"></div>
             <div className="reason_choose">

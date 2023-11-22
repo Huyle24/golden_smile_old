@@ -23,39 +23,43 @@ function TourTrekking(props) {
         arrows: true, // hiển thị hai đấu mũi tên điều hướng
         responsive: [
           {
-            breakpoint: 1000,
+            breakpoint: 1300,
             settings: {
               slidesToShow: 4,
-              slidesToScroll: 3,
+              slidesToScroll: 4,
               infinite: true,
             }
           },
           {
-            breakpoint: 998,
+            breakpoint: 1200,
             settings: {
-              slidesToShow: 4,
-              slidesToScroll: 2,
-              infinite: 2,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            }
+          },
+          {
+            breakpoint: 990,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
             }
           },
           {
             breakpoint: 880,
             settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              initialSlide: 2
-            }
-          },
-          {
-            breakpoint: 550,
-            settings: {
               slidesToShow: 2,
               slidesToScroll: 1,
-              initialSlide: 2
             }
           },
           {
-            breakpoint: 400,
+            breakpoint: 574,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            }
+          },
+          {
+            breakpoint: 300,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1

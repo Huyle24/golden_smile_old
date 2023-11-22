@@ -1,0 +1,389 @@
+
+
+
+@media screen and (min-width: 280px) and (max-width: 575px) {
+    // TourTrekking components
+    .trekking_tour_slide .slick-track .slick-slide {
+        width: 100% !important;
+        height: 100%;
+    }
+
+    .Tour_trekking_content .TheTourTrekking {
+        font-size: 24px;
+    }
+    
+    .trekking_card {
+        max-width: 100%;
+        height: 100%;
+        /* min-height: 1px; */
+        /* height: 429.5px; */
+        /* box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); */
+        /* position: relative; */
+    }
+
+    .trekking_card .info_trekking .trekking_content .trekking_contentname {
+        font-size: 100%;
+    }
+
+    .trekking_card .info_trekking {
+        padding: 12px;
+    }
+
+    .trekking_card .info_trekking .tour_trekking_content {
+        margin-top: -5px;
+    }
+
+    // End TourTrekking components
+
+    // TourPopularType components
+    .Tour_type_popular {
+        position: relative;
+        display: block;
+        margin: 0px;
+    }
+
+    .Tour_type_popular .tour_popular {
+        width: 100%;
+    }
+    .Tour_type_popular .tour_popular:first-child, .Tour_type_popular .tour_popular:nth-child(2), .Tour_type_popular .tour_popular:nth-child(3) {
+        width: 100%;
+        height: 320px;
+        margin: 0px 0px;
+    }
+    
+    .Tour_type_popular .tour_popular .T_popular_bi {
+        transform: none;
+    }
+
+    .Tour_type_popular .tour_popular .T_popular_bi .T_image_top {
+        position: absolute;
+        width: 0;
+    }
+    
+    .tt-slideinfo .tt-item__bg .tt-item__bg-img {
+        transform: none;
+        width: 100%;
+    }
+    
+    .Tour_type_popular .tour_popular:first-child .T_popular_bi .T_backgroundImage,
+    .Tour_type_popular .tour_popular:nth-child(2) .T_popular_bi .T_backgroundImage,
+    .Tour_type_popular .tour_popular:nth-child(3) .T_popular_bi .T_backgroundImage {
+        width: 100%;
+        transform: none;
+        height: 320px;
+    }
+
+    .Tour_type_popular .tour_popular .T_popular_content .Tour_p_title {
+        font-size: 22px;
+    }
+
+    .Tour_type_popular .tour_popular .T_popular_content .Tour_p_btn {
+        margin-top: 4px;
+    }
+
+    .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
+        left: 30%;
+    }
+
+    // End TourPopularType components
+
+    // NextDestion components
+    .NextDestion_tour .Next_title {
+        font-size: 24px;
+    }
+
+    .next_target {
+        width: 100%;
+    }
+
+    .next_target .card_tour_nextdestion:before {
+        top: -3%;
+        left: 1%;
+        width: 98%;
+    }
+
+    .next_target .number_total_visit .trip_number {
+        top: 85%;
+        left: 34%;
+    }
+    // End NextDestion components
+
+    // BlogWhy components
+    .Blog_Why_content {
+        height: auto;
+        padding: 100px 0;
+    }
+
+    .Blog_Why_content .reason_choose .number_reason {
+        margin-left: 3%;
+    }
+
+    .Blog_Why_content .reason_choose .number_reason .reason_hangdau {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+
+    .reason_choose .reason_des {
+        font-size: 15px;
+        line-height: 20px; 
+    }
+
+    //End BlogWhy components
+
+    // Banner components
+    .customer_banner {
+        width: 100%;
+    }
+
+    .banner_image {
+        width: 100%;
+        padding-right: 100px;
+    }
+
+    .img-tilted-left {
+        width: 100%;
+        margin-left: 15%;
+    }
+
+    .img-tilted-right {
+        width: 100%;
+        margin-left: 24px;
+    }
+    // End Banner components
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
+    // Tour Trekking components
+    .trekking_card .Trekking-img .item-content-price .price_trekking {
+        width: 153px;
+        height: 34px;
+        font-size: 13px;
+        position: absolute;
+        top: -6%;
+        left: -1%;
+        padding-top: 11px;
+    }
+
+    .trekking_card {
+        height: 364.5px;
+    }
+
+    .trekking_card .info_trekking {
+        padding: 11px;
+    }
+
+    .trekking_card .info_trekking .trekking_content {
+        margin-bottom: 14px;
+        font-size: 11px;
+        line-height: 15px;
+        height: 44px;
+        overflow: hidden;
+    }
+
+    .trekking_card .info_trekking .tour_trekking_content .trekking_item {
+        font-size: 14px;
+        margin-top: -3px;
+    }
+
+    .tour_trekking_content .trekking_item .row_info .item_label {
+        font-size: 12px;
+    }
+
+    // End Tour Trekking components
+
+    // TourPopularType components
+    .Tour_type_popular {
+        margin-top: 11px;
+        margin-left: 22px;
+        margin-right: -23px;
+        margin-bottom: 14px;
+    }
+
+    .Tour_trekking_content .TheTourTrekking {
+        font-size: 23px;
+    }
+
+    .Tour_type_popular .tour_popular:first-child {
+        width: 28.333%;
+    }
+
+    .Tour_type_popular .tour_popular:nth-child(2) {
+        width: 33.333%;
+        /* z-index: 1; */
+        margin-left: 3px;
+        margin-right: -6px;
+    }
+
+    .Tour_type_popular .tour_popular:nth-child(3) {
+        /* z-index: 0; */
+        padding-right: 60px;
+        width: 32.333%;
+    }
+    
+    .Tour_type_popular .tour_popular .T_popular_bi {
+        transform: skew(9deg, 0);
+    }
+
+    .Tour_type_popular .tour_popular .T_popular_content .Tour_p_title {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
+        position: absolute;
+        top: -11px;
+        left: 10%;
+        right: 10%;
+    }
+
+    .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
+        width: 152px;
+        font-size: 13px;
+        height: 23px;
+        margin-top: -2px;
+    }
+
+    // End TourPopularType components
+
+    // NextDestion components
+    .NextDestion_tour .Next_title {
+        font-size: 23px;
+    }
+
+    .next_target {
+        width: 50%;
+        /* position: relative; */
+        /* transition: all 0.2s; */
+        /* color: #fff !important; */
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* padding-left: 0.625rem !important; */
+        /* padding-right: 0.625rem !important; */
+    }
+
+    .next_target .number_total_visit .trip_number {
+        left: 26%;
+    }
+
+    // End NextDestion components
+
+    // BlogWhy components
+
+    .Blog_Why_content .reason_choose .question_choose {
+        font-size: 23px;
+        line-height: 34px;
+    }
+
+    .reason_choose .content_reason_child {
+        font-size: 19px;
+        line-height: 32px;
+    }
+
+    .reason_choose .vong_tron_trang {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .reason_choose .vong_tron_trang .vong_tron_do {
+        width: 41.33px;
+        height: 41.33px;
+        margin: 8.83px;
+    }
+
+    .reason_choose .reason_des {
+        font-size: 15px;
+        line-height: 24px;
+        color: #000;
+        margin-bottom: 30px;
+    }
+    // End BlogWhy components
+
+    // Banner components
+    .customer_banner {
+        width: 100%;
+    }
+
+    .img-tilted-left {
+        transform: rotate(-10deg);
+        transform-origin: top left;
+        margin-left: -156px;
+    }
+
+    .banner_image {
+        margin-top: 80px;
+        margin-left: 199px;
+    }
+
+    // End Banner components
+}
+
+@media screen and (min-width: 833px) and (max-width: 991px){
+    .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
+        right: -38%;
+    }
+
+    .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
+        margin-top: 14px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1290px){
+
+    // TourTrekking components
+    .trekking_tour_slide .slick-track .slick-slide {
+        width: 346px !important;
+        height: 100%;
+    }
+
+    .trekking_card .info_trekking {
+        padding: 4px;
+    }
+
+    .trekking_card .Trekking-img .item-content-price .price_trekking {
+        width: 161px;
+        height: 37px;
+        font-size: 15px;
+        position: absolute;
+        top: -5%;
+        left: 1%;
+        padding-top: 13px;
+    }
+
+    .trekking_card .info_trekking .trekking_content {
+        margin-bottom: 10px;
+        font-size: 11px;
+        line-height: 19px;
+        height: 51px;
+    }
+
+    .trekking_card .info_trekking .tour_trekking_content .trekking_item {
+        font-size: 17px;
+        margin-top: 10px;
+    }
+    // End component TourTrekking
+
+    // components NextDestion
+    .next_target .number_total_visit .trip_number {
+        left: 8%;
+    }
+    // End NextDestion components
+
+    // Banner components
+    .customer_banner {
+        width: 100%;
+    }
+    
+    .img-tilted-left {
+        transform: rotate(-10deg);
+        transform-origin: top left;
+        margin-left: -20%;
+    }
+    
+    .banner_image {
+        margin-top: 80px;
+        margin-left: 29%;
+    }
+    
+    // End Banner components
+}

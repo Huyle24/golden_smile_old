@@ -16,8 +16,8 @@ function Banner() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToScroll: 2,
-          slidesToShow: 2,
+          slidesToScroll: 1,
+          slidesToShow: 1,
         },
       },
       {

@@ -283,7 +283,7 @@ function Header(props){
                   </Navbar>
               </div>
               </Container>
-          </Navbar>
+        </Navbar>
       </>
 
     )
