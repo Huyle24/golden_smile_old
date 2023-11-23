@@ -1,5 +1,130 @@
+@media (min-width: 1025px) {
+    .Tour_type_popular {
+        margin-bottom: -13px
+    }
+
+    .Tour_type_popular:after,
+    .Tour_type_popular:before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: #fff;
+        transition: height .13s ease
+    }
+
+    .Tour_type_popular:before {
+        top: 0
+    }
+
+    .Tour_type_popular:after {
+        bottom: 0
+    }
+
+    .Tour_type_popular:hover:before {
+        height: 0
+    }
+
+    .Tour_type_popular:hover:after {
+        height: 1px
+    }
+
+}
+
+@media (max-width: 1024.98px) {
+    .Tour_type_popular {
+        margin-left: -15px;
+        margin-right: -15px
+    }
+
+    .Tour_type_popular .tour_popular:nth-child(2) {
+        margin-left: 0;
+        margin-right: 0
+    }
+}
 
 
+@media (min-width: 767px) {
+    .Tour_type_popular {
+        margin-left: -75px;
+        margin-right: -75px
+    }
+
+    .Tour_type_popular .tour_popular:nth-child(2) {
+        margin-left: -4px;
+        margin-right: -4px
+    }
+
+    .Tour_type_popular:not(.slick-initialized) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start
+    }
+
+    .Tour_type_popular .tour_popular {
+        transition: width .13s ease;
+        position: relative
+    }
+
+    .Tour_type_popular .tour_popular:not(.active) {
+        width: 33.333%
+    }
+
+    .Tour_type_popular .tour_popular.wide {
+        width: calc(33.333% + 30px)
+    }
+
+    .Tour_type_popular .tour_popular.short {
+        width: calc(33.333% - 15px)
+    }
+
+    .Tour_type_popular .tour_popular .T_popular_bi {
+        margin-left: -76px;
+        width: calc(100% + 76px)
+    }
+
+    .Tour_type_popular .tour_popular:first-child {
+        z-index: 2
+    }
+
+    .Tour_type_popular .tour_popular:nth-child(2) {
+        z-index: 1
+    }
+
+    .Tour_type_popular .tour_popular:nth-child(3) {
+        z-index: 0
+    }
+
+    .Tour_type_popular .tour_popular:first-child {
+        padding-left: 70px
+    }
+
+    .Tour_type_popular .tour_popular:nth-child(3) {
+        padding-right: 70px
+    }
+}
+
+@media (min-width: 767px) and (max-width:1024px) {
+    .Tour_type_popular {
+        margin-left: -52px;
+        margin-right: -52px
+    }
+}
+
+@media (max-width: 766px) {
+    .Tour_type_popular {
+        margin-left: 0;
+        margin-right: 0
+    }
+}
+
+/// TourPopular2
 
 @media screen and (min-width: 280px) and (max-width: 575px) {
     // TourTrekking components
@@ -36,54 +161,56 @@
     // End TourTrekking components
 
     // TourPopularType components
-    .Tour_type_popular {
-        position: relative;
-        display: block;
-        margin: 0px;
-    }
+    // .Tour_type_popular {
+    //     position: relative;
+    //     display: block;
+    //     margin: 0px;
+    // }
 
-    .Tour_type_popular .tour_popular {
-        width: 100%;
-    }
-    .Tour_type_popular .tour_popular:first-child, .Tour_type_popular .tour_popular:nth-child(2), .Tour_type_popular .tour_popular:nth-child(3) {
-        width: 100%;
-        height: 320px;
-        margin: 0px 0px;
-    }
+    // .Tour_type_popular .tour_popular {
+    //     width: 100%;
+    // }
+    // .Tour_type_popular .tour_popular:first-child, .Tour_type_popular .tour_popular:nth-child(2), .Tour_type_popular .tour_popular:nth-child(3) {
+    //     width: 100%;
+    //     height: 320px;
+    //     margin: 0px 0px;
+    // }
     
-    .Tour_type_popular .tour_popular .T_popular_bi {
-        transform: none;
-    }
+    // .Tour_type_popular .tour_popular .T_popular_bi {
+    //     transform: none;
+    // }
 
-    .Tour_type_popular .tour_popular .T_popular_bi .T_image_top {
-        position: absolute;
-        width: 0;
-    }
+    // .Tour_type_popular .tour_popular .T_popular_bi .T_image_top {
+    //     position: absolute;
+    //     width: 0;
+    // }
     
-    .tt-slideinfo .tt-item__bg .tt-item__bg-img {
-        transform: none;
-        width: 100%;
-    }
+    // .tt-slideinfo .tt-item__bg .tt-item__bg-img {
+    //     transform: none;
+    //     width: 100%;
+    // }
     
-    .Tour_type_popular .tour_popular:first-child .T_popular_bi .T_backgroundImage,
-    .Tour_type_popular .tour_popular:nth-child(2) .T_popular_bi .T_backgroundImage,
-    .Tour_type_popular .tour_popular:nth-child(3) .T_popular_bi .T_backgroundImage {
-        width: 100%;
-        transform: none;
-        height: 320px;
-    }
+    // .Tour_type_popular .tour_popular:first-child .T_popular_bi .T_backgroundImage,
+    // .Tour_type_popular .tour_popular:nth-child(2) .T_popular_bi .T_backgroundImage,
+    // .Tour_type_popular .tour_popular:nth-child(3) .T_popular_bi .T_backgroundImage {
+    //     width: 100%;
+    //     transform: none;
+    //     height: 320px;
+    // }
 
-    .Tour_type_popular .tour_popular .T_popular_content .Tour_p_title {
-        font-size: 22px;
-    }
+    // .Tour_type_popular .tour_popular .T_popular_content .Tour_p_title {
+    //     font-size: 22px;
+    // }
 
-    .Tour_type_popular .tour_popular .T_popular_content .Tour_p_btn {
-        margin-top: 4px;
-    }
+    // .Tour_type_popular .tour_popular .T_popular_content .Tour_p_btn {
+    //     margin-top: 4px;
+    // }
 
-    .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
-        left: 30%;
-    }
+    // .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
+    //     left: 23%;
+    // }
+
+
 
     // End TourPopularType components
 
@@ -131,6 +258,39 @@
     //End BlogWhy components
 
     // Banner components
+
+    .Banner-Title {
+        font-size: 20px;
+        color: #B72028;
+    }
+
+    .Banner-Heading {
+        font-size: 26px;
+        /* font-weight: 600; */
+        /* color: #B72028; */
+    }
+
+    .Banner-list-Content {
+        font-size: 19px;
+        font-weight: 500;
+    }
+
+    .customer_tellme img {
+        width: 95px;
+        height: 95px;
+        border-radius: 999px;
+        object-fit: cover;
+    }
+
+    .Banner-list-Date .name_company{
+        color: #DBA73D;
+        font-size: 18px;
+    }
+
+    .Banner-list-Date .name_sir {
+        font-size: 16px;
+    }
+
     .customer_banner {
         width: 100%;
     }
@@ -192,56 +352,56 @@
     // End Tour Trekking components
 
     // TourPopularType components
-    .Tour_type_popular {
-        margin-top: 11px;
-        margin-left: 22px;
-        margin-right: -23px;
-        margin-bottom: 14px;
-    }
+    // .Tour_type_popular {
+    //     margin-top: 11px;
+    //     margin-left: 22px;
+    //     margin-right: -23px;
+    //     margin-bottom: 14px;
+    // }
 
-    .Tour_trekking_content .TheTourTrekking {
-        font-size: 23px;
-    }
+    // .Tour_trekking_content .TheTourTrekking {
+    //     font-size: 23px;
+    // }
 
-    .Tour_type_popular .tour_popular:first-child {
-        width: 28.333%;
-    }
+    // .Tour_type_popular .tour_popular:first-child {
+    //     width: 28.333%;
+    // }
 
-    .Tour_type_popular .tour_popular:nth-child(2) {
-        width: 33.333%;
-        /* z-index: 1; */
-        margin-left: 3px;
-        margin-right: -6px;
-    }
+    // .Tour_type_popular .tour_popular:nth-child(2) {
+    //     width: 33.333%;
+    //     /* z-index: 1; */
+    //     margin-left: 3px;
+    //     margin-right: -6px;
+    // }
 
-    .Tour_type_popular .tour_popular:nth-child(3) {
-        /* z-index: 0; */
-        padding-right: 60px;
-        width: 32.333%;
-    }
+    // .Tour_type_popular .tour_popular:nth-child(3) {
+    //     /* z-index: 0; */
+    //     padding-right: 60px;
+    //     width: 32.333%;
+    // }
     
-    .Tour_type_popular .tour_popular .T_popular_bi {
-        transform: skew(9deg, 0);
-    }
+    // .Tour_type_popular .tour_popular .T_popular_bi {
+    //     transform: skew(9deg, 0);
+    // }
 
-    .Tour_type_popular .tour_popular .T_popular_content .Tour_p_title {
-        font-size: 22px;
-        line-height: 1;
-    }
+    // .Tour_type_popular .tour_popular .T_popular_content .Tour_p_title {
+    //     font-size: 22px;
+    //     line-height: 1;
+    // }
 
-    .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
-        position: absolute;
-        top: -11px;
-        left: 10%;
-        right: 10%;
-    }
+    // .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
+    //     position: absolute;
+    //     top: -11px;
+    //     left: 10%;
+    //     right: 10%;
+    // }
 
-    .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
-        width: 152px;
-        font-size: 13px;
-        height: 23px;
-        margin-top: -2px;
-    }
+    // .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
+    //     width: 152px;
+    //     font-size: 13px;
+    //     height: 23px;
+    //     margin-top: -2px;
+    // }
 
     // End TourPopularType components
 
@@ -304,6 +464,27 @@
         width: 100%;
     }
 
+    .Banner-Title {
+        font-size: 20px;
+        color: #B72028;
+    }
+
+    .Banner-Heading {
+        font-size: 26px;
+    }
+
+    .Banner-list-Content {
+        font-size: 19px;
+        font-weight: 500;
+    }
+
+    .customer_tellme img {
+        width: 95px;
+        height: 95px;
+        border-radius: 999px;
+        object-fit: cover;
+    }
+
     .img-tilted-left {
         transform: rotate(-10deg);
         transform-origin: top left;
@@ -315,17 +496,29 @@
         margin-left: 199px;
     }
 
+    .Banner-list-Date .name_company{
+        color: #DBA73D;
+        font-size: 18px;
+    }
+
+    .Banner-list-Date .name_sir {
+        font-size: 16px;
+    }
+
+    .img-tilted-right {
+        margin-left: 24px;
+    }
     // End Banner components
 }
 
 @media screen and (min-width: 833px) and (max-width: 991px){
-    .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
-        right: -38%;
-    }
+    // .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
+    //     right: -38%;
+    // }
 
-    .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
-        margin-top: 14px;
-    }
+    // .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
+    //     margin-top: 14px;
+    // }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1290px){
@@ -369,21 +562,220 @@
     }
     // End NextDestion components
 
-    // Banner components
+
+   // Banner components
     .customer_banner {
         width: 100%;
     }
-    
+
+    .Banner-Title {
+        font-size: 20px;
+        color: #B72028;
+    }
+
+    .Banner-Heading {
+        font-size: 26px;
+    }
+
+    .Banner-list-Content {
+        font-size: 19px;
+        font-weight: 500;
+    }
+
+    .customer_tellme img {
+        width: 95px;
+        height: 95px;
+        border-radius: 999px;
+        object-fit: cover;
+    }
+
     .img-tilted-left {
         transform: rotate(-10deg);
         transform-origin: top left;
         margin-left: -20%;
     }
-    
+
     .banner_image {
         margin-top: 80px;
         margin-left: 29%;
     }
-    
+
+    .Banner-list-Date .name_company{
+        color: #DBA73D;
+        font-size: 18px;
+    }
+
+    .Banner-list-Date .name_sir {
+        font-size: 16px;
+    }
+
+    .img-tilted-right {
+        margin-left: 24px;
+    }
     // End Banner components
+
+
+}
+
+// TourPopular2
+
+
+
+@media (max-width: 1500px) {
+    .tour_popular .tt-item__description {
+        max-width: 337px
+    }
+}
+
+@media (max-width: 1229.98px) {
+    .tour_popular {
+        height: 600px
+    }
+
+    .tour_popular .Tour_p_title {
+        font-size: 33px
+    }
+}
+
+@media (max-width: 1024px) {
+    .tour_popular {
+        height: 411px
+    }
+
+    .tour_popular .tt-item__description {
+        max-width: 250px
+    }
+
+    .tour_popular.slick-slide {
+        height: 411px
+    }
+
+    .tour_popular .Tour_p_title {
+        font-size: 24px
+    }
+
+    .tour_popular .Tour_p_title .tt-icon {
+        top: -53px
+    }
+
+    .tour_popular .Tour_p_title .tt-icon img {
+        max-width: 46px
+    }
+
+    .tour_popular .T_popular_content {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    .tour_popular .Tour_p_btn {
+        margin-top: 15px;
+        width: 100%
+    }
+
+    .tour_popular .Tour_p_btn a {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        line-height: 20px
+    }
+
+    .tour_popular .Tour_p_btn a:hover {
+        background-color: #fff;
+        color: #f47629
+    }
+
+    .tour_popular .T_popular_bi .T_image_top:after,
+    .tour_popular .T_popular_bi .T_image_top:before,
+    .tour_popular .Tour_p_btn a:hover:after {
+        display: none
+    }
+}
+
+@media (max-width: 766px) {
+
+    .tour_popular,
+    .tour_popular.slick-slide {
+        height: 411px
+    }
+
+    .tour_popular .Tour_p_title {
+        font-size: 24px
+    }
+
+    .tour_popular .Tour_p_title .tt-icon {
+        top: -53px
+    }
+
+    .tour_popular .Tour_p_title .tt-icon img {
+        max-width: 46px
+    }
+
+    .tour_popular .T_popular_bi {
+        transform: skew(0deg, 0)
+    }
+
+    .tour_popular .T_popular_bi .T_backgroundImage {
+        transform: none;
+        width: 100%
+    }
+
+    .tour_popular .T_popular_content {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    .tour_popular .Tour_p_btn {
+        margin-top: 15px;
+        width: 100%
+    }
+
+    .tour_popular .Tour_p_btn a {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        line-height: 16px
+    }
+
+    .Tour_button_title {
+        padding-top: 7px
+    }
+
+    .tour_popular .Tour_p_btn a:hover {
+        background-color: #fff;
+        color: #f47629
+    }
+
+    .tour_popular .Tour_p_btn a:hover:after {
+        display: none
+    }
+
+    .tour_popular .T_popular_bi {
+        transform: none
+    }
+
+
+
+    .tour_popular .T_popular_bi .T_image_top {
+        transform: skew(0deg, 0)
+    }
+
+    .tour_popular .T_popular_bi .T_image_top:after,
+    .tour_popular .T_popular_bi .T_image_top:before {
+        display: none
+    }
+
+    .tour_popular .tt-item__description {
+        max-width: 337px
+    }
+}
+
+@media (max-width: 575px) {
+    .tour_popular {
+        height: 310px !important
+    }
+
+    .tour_popular .T_popular_content {
+        padding-left: 0;
+        padding-right: 0
+    }
 }

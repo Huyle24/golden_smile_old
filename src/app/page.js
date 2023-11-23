@@ -32,6 +32,7 @@ export default function Home() {
       <CardList />
       <TourTrekking />
       <TourPopularType />
+      {/* <TourPopularType2 /> */}
       <NextDestion />
       <BlogWhy />
       <Banner />

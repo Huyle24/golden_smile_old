@@ -10,7 +10,7 @@ import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { Container, Row } from "react-bootstrap";
 
-function TourPopularType(props) {
+function TourPopularType2(props) {
     return (
         <div className="section-indent overflow-hidden mb-6" data-animated-id="10">
         <div className="Tour_type_popular">
@@ -82,4 +82,4 @@ function TourPopularType(props) {
         )
     }
     
-export default TourPopularType;
+export default TourPopularType2;
