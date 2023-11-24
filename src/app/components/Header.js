@@ -214,17 +214,15 @@ function Header(props){
         <Navbar expand="lg" className="bg-body-tertiary header position-relative text-center">
             <Container fluid className='navbar_goodsmile'>
               <div className="d-flex header_moblie">
-                <Link href="/" className='navbar_logo_images'>
-                  <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
-                </Link>
-
+              <Link href="/" className='navbar_logo_images'>
+                      <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
+                    </Link>
                   <Navbar expand="lg" className="item_list_header">
+                   
                     <Container fluid>
-                      <Navbar.Toggle aria-controls="navbarScroll" />
-                        <Navbar.Collapse id="navbarScroll">
-                          <Nav
+                        <Navbar.Collapse id="navbarScroll" className='navbar_tongsoxuong'>
+                            <Nav
                             className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: '100px' }}
                             navbarScroll
                           >
                             <Nav.Link href="#action1">TRANG CHỦ</Nav.Link>
@@ -282,6 +280,54 @@ function Header(props){
                     </Container>
                   </Navbar>
               </div>
+
+              <Button className="menu_mobile" onClick={handleShow}>
+                <FaBars/>
+              </Button>
+              <Offcanvas show={showNav} onHide={handleCloseNav} placement="top" className="menu_mobile_canva">
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title>
+                    <Link href="/">
+                    <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
+                    </Link>
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <Nav>
+                    <Nav.Link href="#action1">TRANG CHỦ</Nav.Link>
+                    <NavDropdown
+                        id="nav-dropdown-tour-"
+                        title="TOUR"
+
+                    >
+                      <NavDropdown.Item>TOUR GIÁP THÌN</NavDropdown.Item>
+                      <NavDropdown.Item>TOUR NƯỚC NGOÀI</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.3">TOUR TREKKING</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.4">TOUR THEO YÊU CẦU</NavDropdown.Item>
+                    </NavDropdown>
+                    <Link href="/about">FLASHPACKING</Link>
+                    <Link href="/about">VISA</Link>
+                    <Link href="/about">VÉ MÁY BAY -VOUCHER COMBO</Link>
+                    <NavDropdown id="nav-dropdown-tour-nn" title="NHẬT KÝ">
+                      <NavDropdown.Item>KHÁCH LẺ GHÉP ĐOÀN</NavDropdown.Item>
+                      <NavDropdown.Item>BẤT ĐỘNG SẢN</NavDropdown.Item>
+                      <NavDropdown.Item>SỨC KHỎE - BẢO HIỂM</NavDropdown.Item>
+                      <NavDropdown.Item>GIẢI TRÍ - SHOWBIZ</NavDropdown.Item>
+                        <NavDropdown.Item>CÔNG NGHỆ CAO</NavDropdown.Item>
+                        <NavDropdown.Item>TÀI CHÍNH - NGÂN HÀNG</NavDropdown.Item>
+                       <NavDropdown.Item>SẢN XUẤT - CHẾ BIẾN</NavDropdown.Item>
+                       <NavDropdown.Item>THẨM MỸ - LÀM ĐẸP</NavDropdown.Item>
+                       <NavDropdown.Item>GIA ĐÌNH - NHÓM BẠN BÈ</NavDropdown.Item>
+                      <NavDropdown.Item>TÔN GIÁO - THIỆN NGUYỆN</NavDropdown.Item>
+                      <NavDropdown.Item>CƠ QUAN NHÀ NƯỚC</NavDropdown.Item>
+                    </NavDropdown>
+                    <Link href="/about">TIN TỨC </Link>
+                    <Link href="/Contact">REVIEW</Link>
+
+
+                  </Nav>
+                </Offcanvas.Body>
+              </Offcanvas>
               </Container>
         </Navbar>
       </>

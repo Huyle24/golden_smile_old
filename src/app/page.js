@@ -26,13 +26,11 @@ export default function Home() {
     <main className="{Montserrat.main_home}">
       <Carousels />
       <Promotion />
-      {/* <ProductTravel /> */}
       <ImagesBanner />
       <SpecialOffers />
       <CardList />
       <TourTrekking />
       <TourPopularType />
-      {/* <TourPopularType2 /> */}
       <NextDestion />
       <BlogWhy />
       <Banner />

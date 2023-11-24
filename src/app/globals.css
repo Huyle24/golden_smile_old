@@ -23,8 +23,8 @@ a{
 }
 
 .hotline_firsttop {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-left: 15px;
+    padding-right: 15px;
     position: relative;
 }
 
@@ -279,8 +279,52 @@ a{
         display: none !important;
     }
 
-    .header .header_moblie{
-        justify-content: space-between;
+    .header-first .line_stripe .line_stripe_wrap {
+        display: none;
+    }
+
+    .navbar_goodsmile .item_list_header {
+        margin-left: 0px !important;
+    }
+    
+    .menu_mobile {
+        background-color: #DBA73D !important;
+        --bs-btn-border-color: #DBA73D !important;
+    }
+
+    .button-siderbar:not(:disabled) {
+        cursor: pointer;
+    }
+
+    .button-siderbar {
+        cursor: pointer;
+        position: relative;
+        text-align: end;
+    }
+
+    .navbar > .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: space-between!important;
+    }
+
+    .navbar-collapse {
+        text-align: left;
+        position: relative;
+        max-height: 412px;
+        overflow-y: scroll;
+        padding: 10px 0;
+    }
+
+    .offcanvas.offcanvas-top {
+        background-color: #DBA73D;
+    }
+
+    .navbar-nav a {
+        color: #B72028 ;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none !important;
     }
 }
 
@@ -991,8 +1035,8 @@ a{
 
 .trangchu_formsearch .form_filter {
     padding: 30px 0;
-    padding-left: 1.875rem !important;
-    padding-right: 1.875rem!important;
+    padding-left: 1.875rem ;
+    padding-right: 1.875rem;
 }
 
 .trangchu_formsearch .form_filter .forminfo_filter {
@@ -1018,7 +1062,7 @@ a{
     text-transform: uppercase;
     font-style: normal;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 9px;
     line-height: 19px;
     color: #B72028;
 }
@@ -1026,11 +1070,11 @@ a{
 .forminfo_filter .choose_input_tour .form_location_filter {
     font-weight: 400;
     width: 100%;
-    height: 36px;
-    font-size: 14px;
+    height: 31px;
+    font-size: 12px;
     line-height: 20px;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    transition: #ededed .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: #ededed .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .forminfo_filter .choose_input_tour .btn_search_find {
@@ -1827,7 +1871,7 @@ tr td{
 
 @media only screen and (max-width: 992px) {
     .item_list_header{
-        display: none !important;
+        /* display: none !important; */
     }
 }
 
