@@ -119,7 +119,6 @@ export const fetchOrderHistory = () => {
     return { type: actionTypes.ORDER_HISTORY};
 };
 
-
 export const addToCartAction = (item = [], number_adutl = '', number_child = '') => {
     return {type: actionTypes.ADD_TO_CART, item: item};
 }
@@ -127,9 +126,6 @@ export const addToCartAction = (item = [], number_adutl = '', number_child = '')
 export const getToCartAction = () => {
     return {type: actionTypes.GET_TO_CART}
 }
-
-
-
 
 export const fetchBlogDetail = (id = '') => {
     return {type: actionTypes.BLOG_DETAIL, id: id};
@@ -149,4 +145,12 @@ export const removeCartAction = (id = '') => {
 
 export const fetchCountHotelList = () => {
     return {type: actionTypes.COUNT_HOTEL}
+}
+
+export const addToWatchedAction = (item = []) => {
+    return {type: actionTypes.ADD_PRODUCT_WATCHED, item: item};
+}
+
+export const getToProductWatchedAction = () => {
+    return {type: actionTypes.GET_PRODUCT_WATCHED}
 }

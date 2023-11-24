@@ -22,23 +22,17 @@ import hotelListReducer from './hotelListReducer';
 import hotelDetailReducer from './hotelDetailReducer';
 import hotelPriceReducer from './hotelPriceReducer';
 import languageListReducer from './languageListReducer';
+import tourDetailW3Reducer from "./tourDetailW3Reducer";
 import languageDetailReducer from './languageDetailReducer';
 import addCartDetailReducer from './addCartDetailReducer';
 import orderViewDetailReducer from './orderViewDetailReducer';
 import setupAddressReducer from './setupAddressReducer';
-
-
-
-
 import cityListReducer from './cityListReducer';
 import setupAddressDetailReducer from './setupAddressDetailReducer';
 import orderHistoryReducer from './orderHistoryReducer';
 import addToCartReducer from "./addToCartReducer";
-import blogDeTailReducer from  "./blogDetailReducer"
-import blogListReducer from "./blogListReducer";
-import tourDetailW3Reducer from "./tourDetailW3Reducer";
-import removeCartItemReducer from "./removeCartItemReducer";
-import countHotelListReducer from "./countHotelListReducer";
+import addProductWatchedReducer from './addProductWatchedReducer';
+
 
 
 
@@ -52,7 +46,6 @@ export default combineReducers({
     golfDetailInfo: golfDetailReducer,
     golfListInfo: golfListReducer,
     addCartInfo : addCartListReducer,
-
     addCartDetailInfo : addCartDetailReducer,
     nameScorecardInfo:nameScorecardReducer,
     countryUserInfo:countryUserReducer,
@@ -72,12 +65,9 @@ export default combineReducers({
     cityListInfo:cityListReducer,
     orderViewDetailInfo:orderViewDetailReducer,
     setupAddressInfo:setupAddressReducer,
+    tourDetailInfoW3: tourDetailW3Reducer,
     setupAddressDetailInfo:setupAddressDetailReducer,
     orderHistoryInfo:orderHistoryReducer,
-    getToCart:addToCartReducer,
-    blogDetailInfo: blogDeTailReducer,
-    blogListInfo : blogListReducer,
-    tourDetailInfoW3: tourDetailW3Reducer,
-    removeCartItemInfo : removeCartItemReducer,
-    countHotelListInfo: countHotelListReducer
+    getToCart: addToCartReducer,
+    getToProductWatch: addProductWatchedReducer,
 });

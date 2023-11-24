@@ -17,6 +17,7 @@ const ajaxControl = (user_token, action) =>
         headers: {
             "X-API-KEY": actionTypes.REST_KEY,
             'USER-TOKEN': user_token,
+            "Content-Type": "application/x-www-form-urlencoded",
         },
         body: {
 
@@ -40,7 +41,6 @@ const slideImageListEpic = (action$, store) => action$.pipe(
         map(res => {
             let keyword='';
             api_url = actionTypes.BASE_URL_API + "Balotour/SlideMain/slideImageList";
-
 
         })
     ).pipe(switchMap(act => ajaxControl(token))))

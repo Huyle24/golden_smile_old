@@ -66,6 +66,35 @@ a{
     position: relative;
 }
 
+.muc_menu .dropdown {
+    position: relative;
+    margin-left: 22%;
+}
+
+.muc_menu a {
+    color: #fff;
+}
+
+.muc_menu .dropdown_user {
+    background-color: #DBA73D;
+}
+
+.muc_menu .dropdown_user .dropdown-item a {
+    color: #B72028;
+}
+
+.muc_menu .avatar {
+    background-color: #DBA73D;
+}
+
+.muc_menu .avatar .dropdown-item a {
+    color: #B72028;
+}
+
+.muc_menu .avatar .dropdown-item .img-info{
+    width: 30%;
+}
+
 .danhmuc_firsttop .menu-info .muc_menu i {
     float: left;
     margin-top: 10px;

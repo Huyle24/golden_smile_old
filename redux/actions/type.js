@@ -1,3 +1,4 @@
+
 export const BASE_URL = 'https://demo.nhanhtravel.com/';
 export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
 // export const BASE_URL = 'https://vigomanager.com/';
@@ -5,6 +6,7 @@ export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
 // export const BASE_URL = 'http://localhost/vigolf_web/';
 // export const BASE_URL_API = 'http://localhost/vigolf_web/api/';
 export const REST_KEY = "api_key";
+
 export const GET_TOKEN = () => {
   return localStorage.getItem("token");
 };
@@ -138,8 +140,10 @@ export const ORDER_HISTORY = "ORDER_HISTORY";
 export const ORDER_HISTORY_SUCCESS = "ORDER_HISTORY_SUCCESS";
 export const ORDER_HISTORY_ERROR = "ORDER_HISTORY_ERROR";
 
+
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_TO_CART = 'GET_TO_CART';
+
 
 export const BLOG_DETAIL = "BLOG_DETAIL"
 export const BLOG_DETAIL_SUCCESS = "BLOG_DETAIL_SUCCESS"
@@ -160,5 +164,5 @@ export const COUNT_HOTEL = 'COUNT_HOTEL';
 export const COUNT_HOTEL_SUCCESS = 'COUNT_HOTEL_SUCCESS';
 export const COUNT_HOTEL_ERROR = 'COUNT_HOTEL_ERROR'
 
-
-
+export const ADD_PRODUCT_WATCHED = "ADD_PRODUCT_WATCHED";
+export const GET_PRODUCT_WATCHED = 'GET_PRODUCT_WATCHED';

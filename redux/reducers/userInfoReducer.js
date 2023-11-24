@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
                 ...action.payload,
                 isLoading: false,
             };
-
+            
         default:
             return state;
     }

@@ -24,7 +24,10 @@ function CardList(props) {
 
     let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
 
-    console.log(list_tour)
+    const Product_watched = (item) => {
+        // alert(item.id);
+            props.addToWatchedAction(item);
+      }
 
   return (
     <Container >
@@ -70,7 +73,7 @@ function CardList(props) {
             <SwiperSlide lg="4" className="mt-4" key={index}>
             <Card>
                 <Card className="position-relative border border-0 header_tour_img">
-                <Link href={"/Tour?id="+ item.id}>
+                <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                   <Card.Img
                       variant="top"
                       src={item.img}
@@ -88,7 +91,7 @@ function CardList(props) {
                 </div>
                 </Card>
                 <Card.Body>
-                <Link href={"/Tour?id=" + item.id}>
+                <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                   <Card.Title className="card_title_tour">{item.name}</Card.Title>
                 </Link>
                 <div className="d-flex justify-content-between align-items-center">
@@ -126,7 +129,7 @@ function CardList(props) {
                   <div className="socho">
                       Số chỗ còn <span className="fw-bold text-danger">9</span>
                   </div>
-                    <Link href={"/Tour?id=" + item.id}>
+                    <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                         <Button className="bg-danger border border-0">
                             Xem chi tiết
                         </Button>

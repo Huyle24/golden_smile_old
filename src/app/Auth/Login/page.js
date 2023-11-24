@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
 import * as actions from "../../../../redux/actions";
 import { connect } from "react-redux";
-
+import "../auth.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import {useState} from "react";
@@ -58,29 +58,25 @@ function Login(props) {
                     title: "Đăng nhập thành công",
                     icon: "success"
                 })
-
-
                 await localStorage.setItem('token', JSON.stringify(response.data.user_token))
                 await props.getUserInfo()
                 await props.fetchAddCartList()
                 // window.location.replace('/')
-
-                history.back()
+                // history.back()
+                window.location.replace('/')
             }
-
-
         })
             .catch(function (error) {
                 console.log(error);
             });
     }
+
     const keydownLogin = (event) => {
-
         if (event.keyCode === 13) {
-
             handleLogin()
         }
     }
+
     const changeInput = ({phone,country}) => {
 
         setPhone(phone)
@@ -88,48 +84,43 @@ function Login(props) {
     }
 
     return (
-
         <main>
-            <div className='main_login' style={{ backgroundImage: `url("https://res.klook.com/image/upload/f_auto/v1640070799/UED%20Team%EF%BC%88for%20DE%20only%EF%BC%89/other/2021%20%E5%93%81%E7%89%8C%E6%9B%B4%E6%96%B0%E7%99%BB%E9%99%86%E6%B3%A8%E5%86%8C%E8%83%8C%E6%99%AF%E5%9B%BE/%E6%B3%B3%E6%B1%A0%E5%85%A8%E6%99%AF_2880%E5%8E%8B%E7%BC%A9%E7%89%88.jpg")` }}>
+            <div className='main_login' style={{ backgroundImage: `url("https://namecard.nhanhtravel.com/app-assets/mobile/mau_web_4/%E6%B3%B3%E6%B1%A0%E5%85%A8%E6%99%AF_2880%E5%8E%8B%E7%BC%A9%E7%89%88.jpg")` }}>
                 <div className='container'>
-                    <div className=' singn_loigin'>
+                    <div className='singn_loigin'>
                         <div>
                             <div className='login_item'>
                                 <h2 className='title'>Đăng nhập</h2>
                                 <div className='mb-3 text-small'>Đăng nhập tài khoản Nhanhtravel ngay!</div>
                                 <div>
-
                                     <div className="phone_input mb-3">
-
                                         <PhoneInput
-
                                             country={phoneCode}
                                             onChange={(phone,country) => changeInput({ phone ,country})}
                                             onKeyDown={(event) => keydownLogin(event)}
                                         />
-
-
                                     </div>
                                     <button type='button' onClick={() => handleLogin()} className="btn btn-primary form-control mb-3">
                                         <span>Đăng nhập</span>
                                     </button>
-
                                 </div>
+
                                 <div className='bot-item-login'>
                                     <span>Bạn chưa có tài khoản?
                                         <Link href='/Auth/Register' className="text-primary">
-                                        Đăng kí ngay!
+                                        Đăng ký ngay!
                                         </Link>
                                     </span>
-
                                 </div>
                             </div>
+
                             <div className='text-small-bot-pc'>
                                 <div className='text-center text-white'>Bằng cách đăng ký hoặc đăng nhập, bạn đã hiểu và đồng ý với </div>
                                 <div className='text-center text-white '>
                                     <a href="#" className='text-white text-small-bot-login'>Điều Khoản Sử Dụng Chung</a> và <a href="#" className='text-white text-small-bot-login'> Chính Sách Bảo Mật</a>  của Nhanhtravel.
                                 </div>
                             </div>
+                            
                             <div className='text-small-bot-mb'>
                                 <div className='text-white'>
                                     Bằng cách đăng ký hoặc đăng nhập, bạn đã hiểu và đồng ý với

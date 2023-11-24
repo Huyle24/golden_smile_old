@@ -40,7 +40,7 @@ const tourDetailEpic = (action$, store) => action$.pipe(
     ofType(actionTypes.TOUR_DETAIL_W3),
     concatMap(action => of('').pipe(
         map(res => {
-            api_url = actionTypes.BASE_URL_API + "customer/Tour/tour_detail?id=" + action.id;
+            api_url = "https://balotour.nhanhtravel.com/api/customer/Tour/tour_detail?id=" + action.id;
         })
     ).pipe(switchMap(act => ajaxControl(token))))
 );

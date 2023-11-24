@@ -29,11 +29,8 @@ import setupAddressEpic from './setupAddressEpic'
 
 import cityListEpic from './cityListEpic'
 import setupAddressDetailEpic from './setupAddressDetailEpic'
-import orderHistoryEpic from './orderHistoryEpic'
-import blogDetailEpic from "./blogDetailEpic";
-import blogListEpic from "./blogListEpic";
 import fetchTourDetailW3Epic from "./fetchTourDetailW3Epic";
-import countHotelListEpic from "./countHotelListEpic";
+import orderHistoryEpic from './orderHistoryEpic'
 
 export default combineEpics(
     userInfoEpic,
@@ -65,9 +62,6 @@ export default combineEpics(
     orderViewDetailEpic,
     setupAddressEpic,
     setupAddressDetailEpic,
-    orderHistoryEpic,
-    blogDetailEpic,
-    blogListEpic,
     fetchTourDetailW3Epic,
-    countHotelListEpic,
+    orderHistoryEpic
 )   

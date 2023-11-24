@@ -19,7 +19,16 @@ import Swal from "sweetalert2";
 import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
 function SpecialOffers(props) {
 
-    let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+    useEffect(() => {
+        props.fetchTourList('', '', '', '', '', '', '', '',1)
+      },[])
+      let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+      // console.log(props.tourListInfo);
+    
+      const Product_watched = (item) => {
+        // alert(item.id);
+            props.addToWatchedAction(item);
+      };
     return (
         <Container >
             <div className="tournuocngoai">
@@ -63,7 +72,7 @@ function SpecialOffers(props) {
                     <SwiperSlide lg="4" className="mt-4" key={index}>
                         <Card >
                             <Card className="position-relative border border-0 header_tour_img">
-                                <Link href={"/Tour?id="+ item.id}>
+                                <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                                     <Card.Img
                                         variant="top"
                                         src={item.img}
@@ -81,7 +90,7 @@ function SpecialOffers(props) {
                                 </div>
                             </Card>
                             <Card.Body>
-                                <Link href={"/Tour?id=" + item.id}>
+                                <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                                     <Card.Title className="card_title_tour">{item.name}</Card.Title>
                                 </Link>
                                 <div className="d-flex justify-content-between align-items-center">
@@ -119,7 +128,7 @@ function SpecialOffers(props) {
                                     <div className="socho">
                                         Số chỗ còn <span className="fw-bold text-danger">9</span>
                                     </div>
-                                    <Link href={"/Tour?id=" + item.id}>
+                                    <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                                         <Button className="bg-danger border border-0">
                                             Xem chi tiết
                                         </Button>

@@ -13,19 +13,22 @@ import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import { GET_TOKEN,GET_LANG_CODE } from '../../../redux/actions/type';
 import { GET_LANG_vi,GET_LANG_ko } from '../../../js/lang';
-import {addToCartAction, deleteCartAction, getToCartAction, removeCartAction} from "../../../redux/actions";
 import * as GlobalJs from "../../../js/global";
+import {useRouter, useSearchParams} from "next/navigation";
+import Swal from "sweetalert2";
+import {addToCartAction, deleteCartAction, getToCartAction, removeCartAction} from "../../../redux/actions";
+
 import DropdownMenu from "react-bootstrap/DropdownMenu";
 
 function Header(props){
 
   const [isLogin, setIsLogin] = useState(false)
   const [textShow, setTextShow] = useState('')
+  const router =useRouter()
 
   const [imageCountry, setImageCountry] = useState('')
 
   const [menuIcon, setMenuIcon] = useState(false)
-
   const [menuImage, setMenuImage] = useState(false)
   useEffect(() => {
     props.getToCartAction()
@@ -51,6 +54,23 @@ function Header(props){
     props.getUserInfo()
     window.location.replace("/")
   }
+
+  const toggle = () => {
+    setDropdownOpen(prevState => !prevState);
+  };
+
+    const handleDropdownItemClick = () => {
+        checkToken();
+        if (isLogin) {
+            setDropdownOpen(prevState => !prevState);
+            router.push('/cart/');
+        } else {
+            setDropdownOpen(prevState => !prevState);
+            router.push('/Auth/login/');
+        }
+
+    }
+
   const removeItemCart = (id) => {
     props.removeCartAction;
     let newCart = [];
@@ -173,11 +193,66 @@ function Header(props){
               </div>
               <div className="col-8 danhmuc_firsttop">
                 <div className="menu-info">
+                  
                     <div className='muc_menu'>
-                        <div className='users_images'>
-                          <img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon-login.png' alt='user_icons' />
-                        </div>
+                        <Dropdown>
+                          <Dropdown.Toggle id="dropdown-basic" className="bg-transparent border-0 text-black ">
+                          <div className='users_images'>
+                            <img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon-login.png' alt='user_icons' />
+                          </div>
+                          </Dropdown.Toggle>
+                          {
+                    !user_data  ?
+                      <Dropdown.Menu className="dropdown_user">
+                          <>
+                            <Dropdown.Item>
+                              <div className='d-flex justify-content-center align-items-center'>
+                                <Link href='/Auth/Login'>
+                                  {textShow ? textShow.Log_In : ''}
+                                </Link>
+                              </div>
+                            </Dropdown.Item>
+                            <Dropdown.Item>
+                              <div className='d-flex justify-content-center align-items-center'>
+                                <Link href='/Auth/Register'>
+                                  {textShow ? textShow.Register : ''}
+                                </Link>
+                              </div>
+                              </Dropdown.Item>
+                          </>
+                      </Dropdown.Menu>
+                       :
+                      <Dropdown.Menu className='avatar' show={menuImage} onClick={()=>clickMenu('image')}
+                      title={<img src={ user_data ? user_data.image : 'https://vigomanager.com/assets_front/images/no_image.jpg'} className="img-avatar" />}> 
+                        <>
+                          <Dropdown.Item>
+                            <Link href="/InfoUser" passHref>
+                                <div className='d-flex justify-content-center align-items-center'>
+                                    <img className='img-info' src='https://vigomanager.com/app-assets/mobile/balotour/icon/profile.png'  />
+                                    <div className=''>{textShow ? textShow.Information : ''}</div>
+                                </div>
+                            </Link>
+                          </Dropdown.Item>
+                          <Dropdown.Item>
+                            <div className='d-flex justify-content-center align-items-center log-out'>
+                              <img className='img-info' src='https://vigomanager.com/app-assets/mobile/balotour/icon/turn-off.png'  />
+                              <a onClick={handleLogout} >
+                                  <span>{textShow ? textShow.Log_Out : ''}</span>
+                              </a>
+                            </div>
+                          </Dropdown.Item>
+                          <Dropdown.Item>
+                            <Link href="/TourWatched">
+                                Các Tour đã xem qua
+                            </Link>
+                          </Dropdown.Item>
+                        </>
+                      </Dropdown.Menu>
+                }
+                  
+                </Dropdown>
                     </div>
+                 
                     <div className='line-vertical'>
                         |
                     </div>
@@ -191,16 +266,23 @@ function Header(props){
                         |
                     </div>
                     <div className='muc_menu'>
-                      <i class='bx bx-basket'></i>
-                        <span className='title_menu'>Giỏ hàng</span>
-                        <div className='quantity_cart'>
-                            <span className='soluong_cart'>0</span>
-                        </div>
+                      <Nav.Link  onClick={(event)=>{
+                        event.preventDefault()
+                        router.push('/CartBackup')
+                      }}>
+                        <i class='bx bx-basket'></i>
+                          <span className='title_menu'>Giỏ hàng</span>
+                          <div className='quantity_cart'>
+                              <span className='soluong_cart'>0</span>
+                          </div>
+                      </Nav.Link>
                     </div>
-                    <div className='muc_menu'>
-                      <i class='bx bx-paper-plane'></i>
-                        <span className='title_menu'>Tour đã xem</span>
-                    </div>
+                      <div className='muc_menu'>
+                        <Link href="/TourWatched">
+                          <i class='bx bx-paper-plane'></i>
+                          <span className='title_menu'>Tour đã xem</span>
+                        </Link>
+                      </div>
                 </div>
               </div>
             </div>
