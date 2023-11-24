@@ -20,7 +20,7 @@ function TourTrekking(props) {
         autoplay: false, // ảnh tự chuyển động
         autoplaySpeed: 5000,
         cssEase: "linear",
-        arrows: true, // hiển thị hai đấu mũi tên điều hướng
+        arrows: false, // hiển thị hai đấu mũi tên điều hướng
         responsive: [
           {
             breakpoint: 1300,

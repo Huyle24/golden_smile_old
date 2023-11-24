@@ -28,7 +28,7 @@ function BlogWhy() {
                         </div>
                     </div>
                 </Row>
-                <Row className="number_reason">
+                <div className="number_reason">
                     <div className="col-6 col-md-4 reason_hangdau">
                         <div className="vong_tron_trang">
                             <div className="vong_tron_do">
@@ -78,7 +78,7 @@ function BlogWhy() {
                             <div className="reason_des">Khẳng định đẳng cấp thông qua từng dịch vụ</div>
                         </div>
                     </div>
-                </Row>
+                </div>
             </div>
             <div className="why_choose taisao_chon_right_top"></div>
             <div className="why_choose taisao_chon_right_bottom"></div>

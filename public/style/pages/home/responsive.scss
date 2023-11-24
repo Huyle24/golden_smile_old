@@ -2,7 +2,16 @@
 
 @media screen and (min-width: 280px) and (max-width: 575px) {
      // Header first
-     .hotline_firsttop {
+
+     .danhmuc_firsttop .menu-info .line-vertical {
+        left: 45%;
+    }
+
+    .danhmuc_firsttop .menu-info .line-vertical_2 {
+        left: 75%;
+    }
+
+    .hotline_firsttop {
         padding-left: 0px;
         padding-right: 0px;
         /* position: relative; */
@@ -48,6 +57,10 @@
         float: left;
         text-align: center;
         line-height: 13px;
+    }
+
+    .search_box {
+        margin-top: -43px;
     }
 
     .trangchu_formsearch .form_filter {
@@ -153,8 +166,18 @@
         padding: 100px 0;
     }
 
+    .Blog_Why_content .reason_choose .number_reason .reason_hangsau {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    // .Blog_Why_content .reason_choose .number_reason .reason_hangsau:last-child {
+    //     width: 50%;
+    //     flex: 0 0 auto;
+    // }
+    
     .Blog_Why_content .reason_choose .number_reason {
-        margin-left: 3%;
+        margin-left: 0%;
     }
 
     .Blog_Why_content .reason_choose .number_reason .reason_hangdau {
@@ -225,7 +248,50 @@
 }
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
-   
+    // Header 
+
+    .danhmuc_firsttop .menu-info .line-vertical {
+        left: 37%;
+    }
+
+    .danhmuc_firsttop .menu-info .line-vertical_2 {
+        left: 76%;
+    }
+
+    .li_searchnav .search_mucfilter i {
+        width: 22px;
+        margin-left: 2px;
+        display: block;
+        float: left;
+        margin-right: 10px;
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    .tab_filter .tab_filter_searchnav .li_searchnav {
+        height: 70px;
+        width: 155px;
+    }
+
+    .tab_filter_searchnav .li_searchnav .search_mucfilter {  
+        font-size: 12px;
+    }
+
+    .forminfo_filter .choose_input_tour .btn_search_find {
+        padding: 6px 0px;
+        width: 81px;
+        height: 31px;
+        font-size: 11px;
+    }
+
+    // Searchbox Components
+    .search_box {
+        margin-top: -42px;
+    }
+    
+    // End SearchBox Components
+
+    // End Header components
     // Tour Trekking components
     .trekking_card .Trekking-img .item-content-price .price_trekking {
         width: 153px;
@@ -285,6 +351,15 @@
     // End NextDestion components
 
     // BlogWhy components
+    .Blog_Why_content .reason_choose .number_reason {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        // margin-left: 0% !important;
+        // margin-right: 0% !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
     .Blog_Why_content .reason_choose .question_choose {
         font-size: 23px;
@@ -294,6 +369,11 @@
     .reason_choose .content_reason_child {
         font-size: 19px;
         line-height: 32px;
+    }
+
+    .Blog_Why_content .reason_choose .number_reason .reason_hangdau {
+        flex: 0 0 34%;
+        width: 50%;
     }
 
     .reason_choose .vong_tron_trang {
@@ -345,12 +425,12 @@
     .img-tilted-left {
         transform: rotate(-10deg);
         transform-origin: top left;
-        margin-left: -156px;
+        margin-left: 0px;
     }
 
     .banner_image {
         margin-top: 80px;
-        margin-left: 199px;
+        display: contents;
     }
 
     .Banner-list-Date .name_company{
@@ -363,10 +443,48 @@
     }
 
     .img-tilted-right {
-        margin-left: 24px;
+        margin-left: -39px;
     }
     // End Banner components
 }
+
+@media screen and (min-width: 576px) and (max-width: 650px) {
+    // SearchBox components
+    .tab_filter .tab_filter_searchnav .li_searchnav {
+        height: 70px;
+        width: 116px;
+    }
+    .li_searchnav .search_mucfilter i {
+        margin-left: 6px;
+        margin-right: -26px;
+        font-size: 12px;
+    }
+
+
+    .tab_filter_searchnav .li_searchnav .search_mucfilter {
+        font-size: 11px;
+    }
+
+    .li_searchnav .search_mucfilter .search_content_nav {
+        display: block;
+        text-align: center;
+        line-height: 12px;
+    }
+
+    .form_filter .forminfo_filter .choose_input_tour .search_label {
+        font-size: 10px;
+        line-height: 11px;
+    }
+
+    .forminfo_filter .choose_input_tour .form_location_filter {
+        width: 123%;
+        height: 36px;
+        font-size: 10px;
+        line-height: 8px;
+    }
+    // End searchBox components
+}
+
 
 @media screen and (min-width: 833px) and (max-width: 991px){
     // .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
@@ -379,7 +497,11 @@
 }
 
 @media screen and (min-width: 992px) and (max-width: 1290px){
-
+    // Header components
+    .search_box {
+        margin-top: -159px;
+    }
+    // End header components
     // TourTrekking components
     .trekking_tour_slide .slick-track .slick-slide {
         width: 346px !important;
@@ -474,6 +596,18 @@
 
 }
 
+@media screen and (min-width: 1200px) and (max-width: 1290px){
+    .navbar_goodsmile .navbar_logo_images {
+        padding-top: 1.5%;
+        position: absolute;
+        right: 81%;
+    }
+
+    .search_box {
+        margin-top: -180px;
+    }
+    
+}
 // TourPopular components responsive
 @media (min-width: 1025px) {
     .Tour_type_popular {

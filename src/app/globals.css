@@ -1133,9 +1133,6 @@ a{
 
 /* End SearchBox Components */
 @media only screen and (max-width: 992px){
-    .search_box{
-        margin-top: 10px;
-    }
 
     .carousel-control-next,.carousel-control-prev{
         display: none !important;

@@ -33,7 +33,7 @@ export default function Home() {
       <TourPopularType />
       <NextDestion />
       <BlogWhy />
-      <Banner />
+      {/* <Banner /> */}
     </main>
   )
 }

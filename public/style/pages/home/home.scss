@@ -923,7 +923,7 @@
     background: #e5e5e5;
     display: block;
     position: relative;
-    height: 606px;
+    height: 100%;
     margin-bottom: 100px;
     width: 100%;
     max-width: 100%;
@@ -966,6 +966,10 @@
 .Blog_Why_content .reason_choose {
     max-width: 100%;
     justify-content: center;
+}
+
+.Blog_Why_content .reason_choose .row {
+    --bs-gutter-x: 0 !important;
 }
 
 .Blog_Why_content .reason_choose .question_choose {
