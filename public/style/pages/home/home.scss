@@ -925,6 +925,7 @@
     position: relative;
     height: 606px;
     margin-bottom: 100px;
+    width: 100%;
     max-width: 100%;
 }
 
@@ -985,8 +986,9 @@
 .Blog_Why_content .reason_choose .number_reason {
     width: 100%;
     display: flex;
-    margin-left: 19%;
+    margin-left: 0%;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .Blog_Why_content .reason_choose .number_reason .reason_hangdau {

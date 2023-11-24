@@ -95,12 +95,14 @@ function BookingLeft(props){
         }, 0);
         setTot(totalPrice);
     }, [listCart]);
+    
     const removeItemCart = (id) => {
         let newCart = [];
         newCart = listCart.filter((item) => item.id !== id)
         setListCart(newCart);
 
-        localStorage.setItem("cartItems",JSON.stringify(newCart));}
+        localStorage.setItem("cartItems",JSON.stringify(newCart));
+    }
 
     const handelIncreseNumberAdult = (item, index) => {
         const updatedCartItems = [...listCart];

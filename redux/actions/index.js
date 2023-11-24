@@ -154,3 +154,7 @@ export const addToWatchedAction = (item = []) => {
 export const getToProductWatchedAction = () => {
     return {type: actionTypes.GET_PRODUCT_WATCHED}
 }
+
+export const removeWatchedAction = (id = '') => {
+    return {type: actionTypes.REMOVE_ITEM_WATCHED, id:''}
+}

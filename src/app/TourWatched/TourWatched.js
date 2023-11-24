@@ -14,9 +14,10 @@ import {useRouter, useSearchParams} from "next/navigation";
 
 function TourWatched(props){
     const searchParams = useSearchParams();
+    const [tot, setTot] = useState(0);
+    const [listTourWat, setListTourWat] = useState([])
     useEffect(()=> {
         props.getToProductWatchedAction();
-        
     },[])
     let listTourWatched = props.getToProductWatch ? props.getToProductWatch : '';
 
@@ -24,12 +25,30 @@ function TourWatched(props){
         props.fetchTourDetailW3(searchParams.get('id'))
     },[searchParams.get('id')])
 
-    const [listTourWat, setListTourWat] = useState([])
+   
+
+    useEffect(() => {
+        let totalPrice = listTourWat.reduce(function (accumulator, item) {
+            return accumulator + parseInt(item.total_price) ;
+        }, 0);
+        setTot(totalPrice);
+    }, [listTourWat]);
+
+    const removeItemWatched = (id) => {
+        let newWatched = [];
+        newWatched = listTourWat.filter((item) => item.id !== id)
+        setListTourWat(newWatched);
+        localStorage.setItem("productWatched",JSON.stringify(newWatched));
+    }
+
+
+   
 
     useEffect(()=> {
         setListTourWat(listTourWatched)
     },[listTourWatched])
-    console.log(listTourWatched);
+
+
     return (
         <Container >
             <Row>
@@ -61,7 +80,15 @@ function TourWatched(props){
                                 Dịch vụ tùy chọn  <span className="color-text fw-bold">Bay hàng không Tway Air - 4 đêm khách sạn 3 sao đia phương</span>
                             </div>
                         </Col>
-                        
+                        <Col lg={12}>
+                            <div className="d-flex justify-content-between align-items-center mt-3 border-top p-2">
+                                {/*<span className="color-text fw-bold">TỔNG CỘNG</span>*/}
+                                <div onClick={() => removeItemWatched(item.id)} className="btn-delete">
+                                    Xóa
+                                </div>
+
+                            </div>
+                        </Col>
                     </Row>
                     ))) : ''}
                 </Col>
