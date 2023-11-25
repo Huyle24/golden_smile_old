@@ -117,8 +117,6 @@ function Header(props){
   let languageDetail = props.languageDetailInfo.data && props.languageDetailInfo.isLoading == false ? props.languageDetailInfo.data : '';
 
 
-
-
   let numberItem = listCart ? listCart.length : '0'
   // const cartItems = localStorage.getItem('cartItems');
 
@@ -273,7 +271,7 @@ function Header(props){
                         <i class='bx bx-basket'></i>
                           <span className='title_menu'>Giỏ hàng</span>
                           <div className='quantity_cart'>
-                              <span className='soluong_cart'>0</span>
+                              <span className='soluong_cart'>{numberItem}</span>
                           </div>
                       </Nav.Link>
                     </div>

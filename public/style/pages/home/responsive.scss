@@ -3,12 +3,20 @@
 @media screen and (min-width: 280px) and (max-width: 575px) {
      // Header first
 
-     .danhmuc_firsttop .menu-info .line-vertical {
-        left: 45%;
+    .danhmuc_firsttop .menu-info .line-vertical {
+        left: 51%;
     }
 
     .danhmuc_firsttop .menu-info .line-vertical_2 {
-        left: 75%;
+        left: 85%;
+    }
+
+    
+
+    .phone-hotline .num-line {
+        /* display: flex; */
+        /* float: none; */
+        font-size: 8px;
     }
 
     .hotline_firsttop {
@@ -20,7 +28,26 @@
     .header-first .danhmuc_firsttop {
         padding-right: 0px;
         padding-left: 0px;
+        flex: 0 0 auto;
+        width: 47%;
     }
+       
+    .muc_menu .dropdown {
+        position: relative;
+        margin-left: -224%;
+    }
+
+    .danhmuc_firsttop .menu-info .muc_menu .flags_images {
+        width: 15px;
+        height: 15px;
+        margin-top: 13px;
+        padding: 1px;
+    }
+
+    .phone-hotline .text-hotline {
+        font-size: 9px;
+    }
+
     .hotline_firsttop .phone-hotline {
         margin-left: 10%;
     }
@@ -28,6 +55,27 @@
     .phone-hotline .num-line {
         display: flex;
         float: none;
+    }
+
+    .menu-info .muc_menu:first-child {
+        position: relative;
+        float: right;
+        margin-right: -41%;
+    }
+
+    .menu-info .muc_menu {
+        font-size: 8px;
+        padding: 0px 0px;
+    }
+
+    .header-first .menu-info {
+        position: relative;
+        float: right;
+        margin-right: -41%;
+    }
+
+    .header-first .line_stripe {
+        display: none;
     }
 
     .navbar_goodsmile .navbar_logo_images {
@@ -249,15 +297,44 @@
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
     // Header 
-
-    .danhmuc_firsttop .menu-info .line-vertical {
-        left: 37%;
+    .hotline_firsttop .phone-hotline {
+        float: left;
+        margin-right: -138%;
+        margin-left: 0%;
     }
 
-    .danhmuc_firsttop .menu-info .line-vertical_2 {
-        left: 76%;
+    .header-first .hotline_firsttop {
+        flex: 0 0 auto;
+        width: 13%;
     }
 
+.header-first .menu-info {
+    position: relative;
+    float: right;
+    margin-right: 7%;
+}
+
+.menu-info .muc_menu {
+    font-size: 11px;
+    padding: 0px 0px;
+    float: right;
+    position: relative;
+}
+
+.danhmuc_firsttop .menu-info .line-vertical {
+    left: 27%;
+}
+
+.danhmuc_firsttop .menu-info .line-vertical_2 {
+    left: 80%;
+}
+
+  
+  
+.header-first .danhmuc_firsttop {
+    flex: 0 0 auto;
+    width: 82%;
+}
     .li_searchnav .search_mucfilter i {
         width: 22px;
         margin-left: 2px;
@@ -285,8 +362,52 @@
     }
 
     // Searchbox Components
+
     .search_box {
-        margin-top: -42px;
+        margin-top: -43px;
+    }
+
+    .trangchu_formsearch .form_filter {
+        padding: 20px 0;
+        padding-left: 27px;
+        padding-right: 61px;
+    }
+
+    .forminfo_filter .choose_input_tour .form_location_filter {
+        font-weight: 400;
+        width: 100%;
+        height: 31px;
+        font-size: 12px;
+        line-height: 20px;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        transition: #ededed .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+    
+    .form_filter .forminfo_filter .choose_input_tour .search_label {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 9px;
+        line-height: 13px;
+    }
+
+    .trangchu_formsearch .form_filter .forminfo_filter {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .form_filter .forminfo_filter .choose_input_tour {
+        padding-right: 11px;
+        padding-left: 0px;
+    }
+    
+    .forminfo_filter .choose_input_tour .btn_search_find {
+        line-height: 0px;
+        width: 73px;
+        height: 30px;
+        border-radius: 73px;
+        color: #fff;
+        font-size: 10px;
     }
     
     // End SearchBox Components
@@ -335,19 +456,11 @@
 
     .next_target {
         width: 50%;
-        /* position: relative; */
-        /* transition: all 0.2s; */
-        /* color: #fff !important; */
-        /* display: flex; */
-        /* flex-direction: column; */
-        /* padding-left: 0.625rem !important; */
-        /* padding-right: 0.625rem !important; */
     }
 
     .next_target .number_total_visit .trip_number {
-        left: 26%;
+        left: 11%;
     }
-
     // End NextDestion components
 
     // BlogWhy components
@@ -486,15 +599,15 @@
 }
 
 
-@media screen and (min-width: 833px) and (max-width: 991px){
-    // .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
-    //     right: -38%;
-    // }
+// @media screen and (min-width: 833px) and (max-width: 991px){
+//     // .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact {
+//     //     right: -38%;
+//     // }
 
-    // .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
-    //     margin-top: 14px;
-    // }
-}
+//     // .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
+//     //     margin-top: 14px;
+//     // }
+// }
 
 @media screen and (min-width: 992px) and (max-width: 1290px){
     // Header components
@@ -735,7 +848,6 @@
     }
 }
 
-
 @media (max-width: 1500px) {
     .tour_popular .tt-item__description {
         max-width: 337px
@@ -806,6 +918,25 @@
     }
 }
 
+
+@media (max-width: 990px) {
+    .tour_popular .Tour_p_title {
+        font-size: 18px;
+    }
+
+    .tour_popular .Tour_p_btn a {
+        font-size: 13px;
+        line-height: 27px;
+    }
+
+    .Tour_button_contact {
+        position: absolute;
+        top: 0;
+        left: 13%;
+    }
+}
+
+
 @media (max-width: 766px) {
 
     .tour_popular,
@@ -832,6 +963,12 @@
     .tour_popular .T_popular_bi .T_backgroundImage {
         transform: none;
         width: 100%
+    }
+
+    .Tour_button_contact {
+        position: absolute;
+        top: 0;
+        left: 25%;
     }
 
     .tour_popular .T_popular_content {
