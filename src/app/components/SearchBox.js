@@ -37,10 +37,10 @@ function SearchBox(props) {
         }
     })
 
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(new Date());
-
     const [value, onChange] = useState(new Date());
+
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
             id: 1,
@@ -90,11 +90,6 @@ function SearchBox(props) {
         }
     ]);
     const [textShow, setTextShow] = useState('');
-
-    const [today, setToday] = useState(new Date());
-    const [dateStart, setDateStart] = useState(new Date());
-    const [dateEnd, setDateEnd] = useState(new Date(moment(dateStart, "DD-MM-YYYY").add(1, 'days')));
-
     const [limit, setLimit] = useState(0)
     const [loadingPage, setLoadingPage] = useState(false)
 
@@ -104,16 +99,16 @@ function SearchBox(props) {
     const [keyWord, setKeyWord] = useState('');
     const router = useRouter()
 
-    const choose_date_start = (date) => {
-        let date_start =  new Date(date)
-        setDateStart(date_start)
+    // const choose_date_start = (date) => {
+    //     let date_start =  new Date(date)
+    //     setDateStart(date_start)
 
-    }
-    const choose_date_end = (date) => {
-        let date_end =  new Date(date)
-        setDateEnd(date_end)
+    // }
+    // const choose_date_end = (date) => {
+    //     let date_end =  new Date(date)
+    //     setDateEnd(date_end)
 
-    }
+    // }
     const tree_view = (index) => {
         tourFilterTmp[index]['is_click'] = !tourFilterTmp[index]['is_click'];
         setTourFilterTmp(tourFilterTmp)
@@ -272,7 +267,7 @@ function SearchBox(props) {
                     <div className="col choose_input_tour">
                         <label className="search_label">Ngày khởi hành </label>
                         <DatePicker  className="form_location_filter form-control"
-                              selected={null}
+                              selected={startDate}
                               onChange={(date) => setStartDate(date)}
                               minDate={new Date()}
                               disabledKeyboardNavigation
