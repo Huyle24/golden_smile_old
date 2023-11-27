@@ -2,16 +2,17 @@
 
 @media screen and (min-width: 280px) and (max-width: 575px) {
      // Header first
+     .navbar_goodsmile .navbar_logo_images img {
+        width: 130px !important;
+    }
 
-    .danhmuc_firsttop .menu-info .line-vertical {
+     .danhmuc_firsttop .menu-info .line-vertical {
         left: 51%;
     }
-
-    .danhmuc_firsttop .menu-info .line-vertical_2 {
-        left: 85%;
-    }
-
     
+    .danhmuc_firsttop .menu-info .line-vertical_2 {
+        left: 80%;
+    }
 
     .phone-hotline .num-line {
         /* display: flex; */
@@ -26,15 +27,15 @@
     }
 
     .header-first .danhmuc_firsttop {
-        padding-right: 0px;
-        padding-left: 0px;
-        flex: 0 0 auto;
-        width: 47%;
+        /* width: 66%; */
+        justify-content: end;
+        display: flex;
     }
+    
        
     .muc_menu .dropdown {
         position: relative;
-        margin-left: -224%;
+        margin-left: 0%;
     }
 
     .danhmuc_firsttop .menu-info .muc_menu .flags_images {
@@ -60,18 +61,19 @@
     .menu-info .muc_menu:first-child {
         position: relative;
         float: right;
-        margin-right: -41%;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .menu-info .muc_menu {
-        font-size: 8px;
+        font-size: 10px;
         padding: 0px 0px;
-    }
+    }    
 
     .header-first .menu-info {
         position: relative;
         float: right;
-        margin-right: -41%;
+        margin-right: 4%;
     }
 
     .header-first .line_stripe {
@@ -142,6 +144,7 @@
 
     .form_filter .forminfo_filter .choose_input_tour {
         padding-right: 11px;
+        flex: 0 0 50%;
         padding-left: 0px;
     }
     
@@ -215,21 +218,16 @@
     }
 
     .Blog_Why_content .reason_choose .number_reason .reason_hangsau {
-        flex: 0 0 auto;
+        flex: 0 0 45%;
         width: 50%;
     }
 
-    // .Blog_Why_content .reason_choose .number_reason .reason_hangsau:last-child {
-    //     width: 50%;
-    //     flex: 0 0 auto;
-    // }
-    
     .Blog_Why_content .reason_choose .number_reason {
         margin-left: 0%;
     }
 
     .Blog_Why_content .reason_choose .number_reason .reason_hangdau {
-        flex: 0 0 50%;
+        flex: 0 0 46%;
         width: 50%;
     }
 
@@ -295,6 +293,97 @@
     // End Banner components
 }
 
+@media screen and (min-width: 280px) and (max-width: 426px) {
+    .header-first .menu-info {
+        margin-right: -4%;
+    }
+
+    .danhmuc_firsttop .menu-info .muc_menu .title_menu {
+        display: none;
+    }
+    
+    .menu-info .muc_menu {
+        padding: 0px 8px;
+    }
+    
+    .danhmuc_firsttop .menu-info .line-vertical {
+        left: 33%;
+    }
+
+    .danhmuc_firsttop .menu-info .line-vertical_2 {
+        left: 57%;
+    }
+    
+    .trangchu_formsearch .tab_filter {
+        display: none;
+    }
+    
+    .navbar_goodsmile .navbar_logo_images img {
+        width: 110px !important;
+    }
+    
+    .tab_filter .tab_filter_searchnav .li_searchnav {
+        width: 25%;
+    }
+    
+    .li_searchnav .search_mucfilter i {
+        font-size: 10px;
+        margin-left: 0px;
+        margin-right: -36px;
+    }
+    
+    
+    .form_filter .forminfo_filter .choose_input_tour {
+        flex: 0 0 100%;
+        width: 100%;
+        /* padding-right: 11px; */
+        /* padding-left: 0px; */
+    }
+    
+    .li_searchnav .search_mucfilter .search_content_nav {
+        float: left;
+        text-align: center;
+        line-height: 12px;
+    }
+    
+    .form_filter .forminfo_filter .choose_input_tour .search_label {
+        /* text-transform: uppercase; */
+        /* font-weight: 700; */
+        font-size: 10px;
+        line-height: 9px;
+    }
+    
+    .forminfo_filter .choose_input_tour .form_location_filter {
+        /* font-weight: 400; */
+        width: 81%;
+        height: 33px;
+        font-size: 12px;
+        line-height: 19px;
+        /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
+        transition: #ededed 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .next_target .number_total_visit .trip_number {
+        /* top: 85%; */
+        left: 13%;
+    }
+
+    // Whyblogs Components
+    .Blog_Why_content .reason_choose .number_reason .reason_hangsau {
+        flex: 0 0 53%;
+        width: 50%;
+    }
+    
+    .Blog_Why_content .reason_choose .number_reason .reason_hangdau {
+        flex: 0 0 43%;
+        width: 50%;
+    }
+    
+    // End Whyblogs components
+    
+    
+}
+
 @media screen and (min-width: 576px) and (max-width: 991px) {
     // Header 
     .hotline_firsttop .phone-hotline {
@@ -308,58 +397,61 @@
         width: 13%;
     }
 
-.header-first .menu-info {
-    position: relative;
-    float: right;
-    margin-right: 7%;
-}
+        .header-first .menu-info {
+            position: relative;
+            float: right;
+            margin-right: 7%;
+        }
 
-.menu-info .muc_menu {
-    font-size: 11px;
-    padding: 0px 0px;
-    float: right;
-    position: relative;
-}
+        .menu-info .muc_menu {
+            font-size: 11px;
+            padding: 0px 0px;
+            float: right;
+            position: relative;
+        }
 
-.danhmuc_firsttop .menu-info .line-vertical {
-    left: 27%;
-}
+        .danhmuc_firsttop .menu-info .line-vertical {
+            left: 27%;
+        }
 
-.danhmuc_firsttop .menu-info .line-vertical_2 {
-    left: 80%;
-}
+        .danhmuc_firsttop .menu-info .line-vertical_2 {
+            left: 80%;
+        }
 
-  
-  
-.header-first .danhmuc_firsttop {
-    flex: 0 0 auto;
-    width: 82%;
-}
-    .li_searchnav .search_mucfilter i {
-        width: 22px;
-        margin-left: 2px;
-        display: block;
-        float: left;
-        margin-right: 10px;
-        font-size: 17px;
-        font-weight: 700;
-    }
+        
+        
+        .header-first .danhmuc_firsttop {
+            flex: 0 0 auto;
+            width: 82%;
+        }
 
-    .tab_filter .tab_filter_searchnav .li_searchnav {
-        height: 70px;
-        width: 155px;
-    }
+            .li_searchnav .search_mucfilter i {
+                width: 12px;
+                margin-left: 3px;
+                display: block;
+                float: left;
+                margin-right: -11px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+        
+        
 
-    .tab_filter_searchnav .li_searchnav .search_mucfilter {  
-        font-size: 12px;
-    }
+            .tab_filter .tab_filter_searchnav .li_searchnav {
+                /* height: 70px; */
+                width: 122px;
+            }
 
-    .forminfo_filter .choose_input_tour .btn_search_find {
-        padding: 6px 0px;
-        width: 81px;
-        height: 31px;
-        font-size: 11px;
-    }
+            .tab_filter_searchnav .li_searchnav .search_mucfilter {  
+                font-size: 12px;
+            }
+
+            .forminfo_filter .choose_input_tour .btn_search_find {
+                padding: 6px 0px;
+                width: 81px;
+                height: 31px;
+                font-size: 11px;
+            }
 
     // Searchbox Components
 
@@ -374,13 +466,9 @@
     }
 
     .forminfo_filter .choose_input_tour .form_location_filter {
-        font-weight: 400;
-        width: 100%;
-        height: 31px;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 20px;
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-        transition: #ededed .15s ease-in-out, box-shadow .15s ease-in-out;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     }
     
     .form_filter .forminfo_filter .choose_input_tour .search_label {
@@ -590,7 +678,7 @@
     }
 
     .forminfo_filter .choose_input_tour .form_location_filter {
-        width: 123%;
+        width: 105%;
         height: 36px;
         font-size: 10px;
         line-height: 8px;
