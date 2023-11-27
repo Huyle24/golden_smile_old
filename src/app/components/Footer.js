@@ -67,10 +67,10 @@ export default function Footer(){
                             <div className='col-xs-12 col-md-4'>
                                 <h4 className='footer_title_about'>Về chúng tôi</h4>
                                 <ul className='list_item_about'>
-                                    <li className='listitem_vechungtoi'><Link href={''} className='ilabouus'>Giới thiệu chung</Link></li>
-                                    <li className='listitem_vechungtoi'><Link href={''} className='ilabouus'>Tin tức về chúng tôi</Link></li>
-                                    <li className='listitem_vechungtoi'><Link href={''} className='ilabouus'>Hồ sơ năng lực</Link></li>
-                                    <li className='listitem_vechungtoi'><Link href={''} className='ilabouus'>Báo chí nói về chúng tôi</Link></li>
+                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Giới thiệu chung</Link></li>
+                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Tin tức về chúng tôi</Link></li>
+                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Hồ sơ năng lực</Link></li>
+                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Báo chí nói về chúng tôi</Link></li>
                                 </ul>
                             </div>
                             <div className='col-xs-12 col-md-4'>

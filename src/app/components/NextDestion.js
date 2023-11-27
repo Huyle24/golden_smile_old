@@ -64,15 +64,17 @@ function NextDestion(props) {
                 <Row className="mt-3">
                     {Next_List ? (Next_List.map((item, index) =>
                         <div className="col-xs-6 col-md-3 next_target">
-                            <div className="card_tour_nextdestion hover-zoom-in">
-                                <img src={item.images} className="images_next" alt="Hình ảnh điểm đến" />
-                                <div className="name_next">
-                                    <h2>{item.country}</h2>
+                            <Link href="/Category">
+                                <div className="card_tour_nextdestion hover-zoom-in">
+                                    <img src={item.images} className="images_next" alt="Hình ảnh điểm đến" />
+                                    <div className="name_next">
+                                        <h2>{item.country}</h2>
+                                    </div>
+                                    <div className="number_total_visit">
+                                        <span className="trip_number">{item.chuyen_number}</span>
+                                    </div>
                                 </div>
-                                <div className="number_total_visit">
-                                    <span className="trip_number">{item.chuyen_number}</span>
-                                </div>
-                            </div>
+                            </Link>
                         </div>
                     )) : ''}
                 </Row>

@@ -1,6 +1,5 @@
 'use client'
 import Slider from "react-slick";
-import {connect} from "react-redux";
 import React, { Component, useEffect, useState } from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -9,8 +8,25 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { Row } from "react-bootstrap";
+import * as actionType from "../../../redux/actions/type";
+import * as actions from "../../../redux/actions";
+import {connect} from "react-redux";
+import {event} from "next/dist/build/output/log";
+import {addToCartAction, fetchTourList} from "../../../redux/actions";
+import Swal from "sweetalert2";
 
 function TourTrekking(props) {
+    useEffect(() => {
+        props.fetchTourList('', '', '', '', '', '', '', '',1)
+    },[])
+
+    let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+
+    const Product_watched = (item) => {
+        // alert(item.id);
+            props.addToWatchedAction(item);
+      }
+
     const settings = {
         dots: false, // hiển thị chỉ số ảnh
         infinite: true,
@@ -68,80 +84,7 @@ function TourTrekking(props) {
         ],
       };
 
-    const trekking_tour = [
-        {
-            price: '2,650,000',
-            images: "https://goldensmiletravel.com/zoom/480x360/uploads/images/tour/2021/05/14/bu-gia-map-1620963307.jpeg",
-            name: "VƯỜN QUỐC GIA BÙ GIA MẬP (SUỐI ĐAK KA - THÁC LƯU LY)",
-            period: "2N1Đ",
-            people: 16,
-            coppyright: "GST-TK-BGM",
-            timestart: "25/11/2023",
-            location_start: "Hồ Chí Minh",
-        },
-        {
-            price: 'Liên hệ',
-            images: "https://goldensmiletravel.com/zoom/480x360/uploads/images/tour/2021/07/22/sapa-trong-may-mu-1626939876.jpeg",
-            name: "LIÊN TUYẾN MIỀN BẮC (HÀ NỘI - HẠ LONG - YÊN TỬ - SA PA - HÀ NỘI)",
-            period: "5N4D",
-            people: 40,
-            coppyright: "GST-ĐTB-HN-HL-SP",
-            timestart: "2/12/2023",
-            location_start: "Hồ Chí Minh",
-        },
-        {
-            price: '3,450,000',
-            images: "https://goldensmiletravel.com/zoom/480x360/uploads/images/tour/admingst/2023/02/23/dong-phong-nha-1677142315.jpg",
-            name: "QUẢNG BÌNH | ĐỘNG PHONG NHA ( HANG OZO – HANG HOÀN MỸ ) | 4N3Đ",
-            period: "4N3Đ",
-            people: 15,
-            coppyright: "GST-TKK-BQ-PN",
-            timestart: "23/11/2023",
-            location_start: "Hồ Chí Minh",
-        },
-        {
-            price: '2,650,000',
-            images: "https://goldensmiletravel.com/zoom/480x360/uploads/images/tour/2021/11/12/1800x1206-gs-banner-tnpd-102021-1636708263.jpg",
-            name: "CUNG ĐƯỜNG THANH XUÂN (TREKKING TÀ NĂNG - PHAN DŨNG - CỔ THẠCH)",
-            period: "2N2Đ",
-            people: 15,
-            coppyright: "GST-TKK-TN-PD",
-            timestart: "02/12/2023",
-            location_start: "Hồ Chí Minh",
-        },
-
-        {
-            price: '750,000',
-            images: "https://goldensmiletravel.com/zoom/480x360/uploads/images/tour/admingst/2022/10/08/gst-nui-dinh-8-1665202950.jpg",
-            name: "TREKKING NÚI DINH | SƠN THUỶ HỮU TÌNH",
-            period: "1N0Đ",
-            people: 15,
-            coppyright: "GST-TKK-ND-STHT",
-            timestart: "25/11/2023",
-            location_start: "Hồ Chí Minh",
-        },
-        {
-            price: '3,450,000',
-            images: "https://goldensmiletravel.com/zoom/480x360/uploads/images/tour/2021/05/14/bidoup-2-1620959928.jpeg",
-            name: "XUYÊN RỪNG CHINH PHỤC NÓC NHÀ CAO NGUYÊN LÂM VIÊN (BIDOUP - NÚI BÀ)",
-            period: "2N2Đ",
-            people: 20,
-            coppyright: "GST-TK-BIDOUP",
-            timestart: "25/11/2023",
-            location_start: "Hồ Chí Minh",
-        },
-        {
-            price: '3,550,000',
-            images: "https://goldensmiletravel.com/zoom/480x360/uploads/images/tour/admingst/2022/10/08/gst-lao-than-2-1665203255.jpg",
-            name: "TREKKING CHINH PHỤC LẢO THẨN | NÓC NHÀ Y TÝ",
-            period: "2N2Đ",
-            people: 15,
-            coppyright: "GST-TKK-TL-NHYT",
-            timestart: "25/12/2023",
-            location_start: "Hồ Chí Minh",
-        }
-
-    ];
+    
     return (
         <div className="Tour_trekking_content">
           <div className="text-center pt-9">
@@ -150,22 +93,20 @@ function TourTrekking(props) {
           </div>
           <div className="container">
             <Slider {...settings} className="trekking_tour_slide">
-                {trekking_tour ? (trekking_tour.map((item,index) =>(
+                {list_tour ? (list_tour.map((item,index) =>(
                     <>
                         <div className="card mx-2 mt-2 trekking_card" >
-                                
-                                <div className="card-image Trekking-img">  
-                                    <Link href={"/Tour?id="+ item.id}>
-                                        <img src={item.images} />
-                                    </Link>
-                                    <div className="item-content-price">
-                                        <span className="item-label price_trekking">{item.price}đ</span>
-                                    </div>
+                            <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
+                            <div className="card-image Trekking-img">    
+                                <img src={item.img} />
+                                <div className="item-content-price">
+                                    <span className="item-label price_trekking">{item.price_1_person}đ</span>
                                 </div>
-
+                            </div>
+                            </Link>
                                 <div className="row info_trekking">
                                     <h2 className="trekking_content">
-                                        <Link className="trekking_contentname" href={"/Tour?id="+ item.id}>
+                                        <Link className="trekking_contentname" href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                                             {item.name}
                                         </Link>
                                     </h2>
@@ -177,7 +118,7 @@ function TourTrekking(props) {
                                                         <i class='bx bx-calendar-alt'></i>
                                                     </div>
                                                     <div className="item_label">
-                                                        {item.period}
+                                                       {item.date_type_name}
                                                     </div>
                                                 </div>
 
@@ -186,7 +127,7 @@ function TourTrekking(props) {
                                                         <i class='bx bx-user-circle'></i>
                                                     </div>
                                                     <div className="item_label">
-                                                        {item.people}
+                                                       16
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,7 +137,7 @@ function TourTrekking(props) {
                                                         <i class='bx bx-user-circle'></i>
                                                     </div>
                                                     <div className="item_label">
-                                                        {item.people}
+                                                        16
                                                     </div>
                                                 </div>
                                             </div>
@@ -204,10 +145,10 @@ function TourTrekking(props) {
                                            
                                             <div className="row_info">
                                                 <div className="item_icons">
-                                                    <i class='bx bx-calendar-alt'></i>
+                                                    <i class='bx bxs-copyright'></i>
                                                 </div>
                                                 <div className="item_label">
-                                                    {item.period}
+                                                    GST-TKK-BQ-PN
                                                 </div>
                                             </div>
 
@@ -216,7 +157,7 @@ function TourTrekking(props) {
                                                     <i class='bx bxs-calendar' ></i>
                                                 </div>
                                                 <div className="item_label">
-                                                    Ngày khởi hành {item.timestart}
+                                                    Ngày khởi hành 19/07/2023
                                                 </div>
                                             </div>
 
@@ -225,7 +166,7 @@ function TourTrekking(props) {
                                                     <i class='bx bxs-edit-location' ></i>
                                                 </div>
                                                 <div className="item_label">
-                                                    Điểm khởi hành {item.location_start}
+                                                    Điểm khởi hành  {item.city_name}
                                                 </div>
                                             </div>
                                         </div>
@@ -240,4 +181,8 @@ function TourTrekking(props) {
     );
 }
 
-export default TourTrekking;
+const mapStateToProps = state => ({
+    tourListInfo: state.tourListInfo
+});
+
+export default  connect(mapStateToProps, actions)(TourTrekking);

@@ -55,7 +55,7 @@
 .trekking_card .Trekking-img {
     overflow: hidden;
     position: relative;
-   
+   cursor: pointer;
 }
 
 .trekking_card .Trekking-img img{
@@ -808,6 +808,7 @@
     flex-direction: column;
     padding-left: 0.625rem !important;
     padding-right: 0.625rem !important;
+    cursor: pointer;
 }
 
 .next_target .hover-zoom-in {

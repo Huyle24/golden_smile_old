@@ -33,7 +33,7 @@ export default function Home(){
     return (
         <main className="main_blogs_detail">
             <Breadcrumbs/>
-            <ArticleDetail/>
+            <ArticleDetail {...data}/>
         </main>
     )
 }

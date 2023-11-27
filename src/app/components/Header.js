@@ -294,7 +294,7 @@ function Header(props){
         <Navbar expand="lg" className="bg-body-tertiary header position-relative text-center">
             <Container fluid className='navbar_goodsmile'>
               <div className="d-flex header_moblie">
-              <Link href="/" className='navbar_logo_images'>
+                    <Link href="/" className='navbar_logo_images'>
                       <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
                     </Link>
                   <Navbar expand="lg" className="item_list_header">
@@ -305,8 +305,10 @@ function Header(props){
                             className="me-auto my-2 my-lg-0"
                             navbarScroll
                           >
-                            <Nav.Link href="#action1">TRANG CHỦ</Nav.Link>
-                            <Nav.Link href="#action2" className='navcha'>TOUR
+                            <Nav.Link>
+                              <Link href="/">TRANG CHỦ</Link>
+                            </Nav.Link>
+                            <Nav.Link className='navcha'><Link  href="/" >TOUR</Link>
                               <ul className='navcon'>
                                 <li><Nav.Link>TOUR GIÁP THÌN 2024</Nav.Link></li>
                                 <li><Nav.Link>TOUR NƯỚC NGOÀI
@@ -331,11 +333,11 @@ function Header(props){
                                 <li><Nav.Link>TOUR TREKKING</Nav.Link></li>
                               </ul>
                             </Nav.Link>
-                            <Nav.Link href="#action3">FLASHPACKING</Nav.Link>
-                            <Nav.Link href="#action4">VISA</Nav.Link>                
-                            <Nav.Link href="#action5">VÉ MÁY BAY</Nav.Link>
-                            <Nav.Link href="#action6">VOUCHER - COMBO</Nav.Link>
-                            <Nav.Link href="#action7" className='navcha'>NHẬT KÝ
+                            <Nav.Link><Link href="/">FLASHPACKING</Link></Nav.Link>
+                            <Nav.Link><Link href="/">VISA</Link></Nav.Link>                
+                            <Nav.Link><Link href="/">VÉ MÁY BAY</Link></Nav.Link>
+                            <Nav.Link><Link href="/">VOUCHER - COMBO</Link></Nav.Link>
+                            <Nav.Link className='navcha'><Link href='/Camnang'>NHẬT KÝ</Link>
                               <ul className='navcon'>
                                 <li><Nav.Link>KHÁCH LẺ GHÉP ĐOÀN</Nav.Link></li>
                                 <li><Nav.Link>BẤT ĐỘNG SẢN</Nav.Link></li>
@@ -353,8 +355,8 @@ function Header(props){
                             </Nav.Link>
 
                           
-                            <Nav.Link href="#action8">TIN TỨC</Nav.Link>
-                            <Nav.Link href="#action9">REVIEW</Nav.Link>
+                            <Nav.Link><Link href='/Tintuc'>TIN TỨC</Link></Nav.Link>
+                            <Nav.Link><Link href='/about'>REVIEW</Link></Nav.Link>
                           </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -374,7 +376,7 @@ function Header(props){
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav>
-                    <Nav.Link href="#action1">TRANG CHỦ</Nav.Link>
+                    <Nav.Link href="/">TRANG CHỦ</Nav.Link>
                     <NavDropdown
                         id="nav-dropdown-tour-"
                         title="TOUR"
@@ -382,12 +384,12 @@ function Header(props){
                     >
                       <NavDropdown.Item>TOUR GIÁP THÌN</NavDropdown.Item>
                       <NavDropdown.Item>TOUR NƯỚC NGOÀI</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">TOUR TREKKING</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.4">TOUR THEO YÊU CẦU</NavDropdown.Item>
+                      <NavDropdown.Item href="/">TOUR TREKKING</NavDropdown.Item>
+                      <NavDropdown.Item href="/">TOUR THEO YÊU CẦU</NavDropdown.Item>
                     </NavDropdown>
-                    <Link href="/about">FLASHPACKING</Link>
-                    <Link href="/about">VISA</Link>
-                    <Link href="/about">VÉ MÁY BAY -VOUCHER COMBO</Link>
+                    <Link href="/">FLASHPACKING</Link>
+                    <Link href="/">VISA</Link>
+                    <Link href="/">VÉ MÁY BAY -VOUCHER COMBO</Link>
                     <NavDropdown id="nav-dropdown-tour-nn" title="NHẬT KÝ">
                       <NavDropdown.Item>KHÁCH LẺ GHÉP ĐOÀN</NavDropdown.Item>
                       <NavDropdown.Item>BẤT ĐỘNG SẢN</NavDropdown.Item>
