@@ -211,6 +211,7 @@ function SearchBox(props) {
   return (
     <Container className="position-relative">
       <div className="search_box">
+        <Tab.Container id="left-tabs-example" animation={true} defaultActiveKey="link-1">
          <Form className="trangchu_formsearch">
             <div className="row tab_filter">
                 <div className="col-md-12">
@@ -244,53 +245,204 @@ function SearchBox(props) {
                   </Nav>
                 </div>
             </div>
-            <div className="form_filter">
-                <div className="forminfo_filter">
-                    <div className="col choose_input_tour">
-                        <label className="search_label">Điểm khởi hành</label>
-                        <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                            <option>Tất cả</option>
-                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                            <option value="Nhật bản">Nhật bản</option>
-                            <option value="Mỹ">Mỹ</option>
-                        </Form.Select>
-                    </div>
-                    <div className="col choose_input_tour">
-                        <label className="search_label">Điểm đến</label>
-                        <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                            <option>Tất cả</option>
-                            <option value="Hà Nội">Hà Nội</option>
-                            <option value="Spa">Spa</option>
-                            <option value="Vương Quốc Anh">Vương Quốc Anh</option>
-                        </Form.Select>
-                    </div>
-                    <div className="col choose_input_tour">
-                        <label className="search_label">Ngày khởi hành </label>
-                        <DatePicker  className="form_location_filter form-control"
-                              selected={startDate}
-                              onChange={(date) => setStartDate(date)}
-                              minDate={new Date()}
-                              disabledKeyboardNavigation
-                              startDate={startDate}
-                              endDate={endDate}
-                        />
-                    </div>
-                    <div className="col choose_input_tour">
-                        <label className="search_label">Khoảng giá</label>
-                        <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                            <option>Tất cả</option>
-                            <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
-                            <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
-                            <option value="Dưới 4 triệu">Dưới 4 triệu</option>
-                        </Form.Select>
-                    </div>
-                    <div className="col choose_input_tour">
-                            <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
+
+            <Tab.Content>
+                <Tab.Pane eventKey="link-1">
+                <div className="form_filter">
+                    <div className="forminfo_filter">
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm khởi hành</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                <option value="Nhật bản">Nhật bản</option>
+                                <option value="Mỹ">Mỹ</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm đến</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Spa">Spa</option>
+                                <option value="Vương Quốc Anh">Vương Quốc Anh</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Ngày khởi hành </label>
+                            <DatePicker  className="form_location_filter form-control"
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
+                                minDate={new Date()}
+                                disabledKeyboardNavigation
+                                startDate={startDate}
+                                endDate={endDate}
+                            />
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Khoảng giá</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
+                                <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
+                                <option value="Dưới 4 triệu">Dưới 4 triệu</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                                <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
+                        </div>
                     </div>
                 </div>
-            </div>
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="link-2">
+                <div className="form_filter">
+                    <div className="forminfo_filter">
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm khởi hành</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                <option value="Nhật bản">Nhật bản</option>
+                                <option value="Mỹ">Mỹ</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm đến</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Spa">Spa</option>
+                                <option value="Vương Quốc Anh">Vương Quốc Anh</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Ngày khởi hành </label>
+                            <DatePicker  className="form_location_filter form-control"
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
+                                minDate={new Date()}
+                                disabledKeyboardNavigation
+                                startDate={startDate}
+                                endDate={endDate}
+                            />
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Khoảng giá</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
+                                <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
+                                <option value="Dưới 4 triệu">Dưới 4 triệu</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                                <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
+                        </div>
+                    </div>
+                </div>
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="link-3">
+                <div className="form_filter">
+                    <div className="forminfo_filter">
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm khởi hành</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                <option value="Nhật bản">Nhật bản</option>
+                                <option value="Mỹ">Mỹ</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm đến</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Spa">Spa</option>
+                                <option value="Vương Quốc Anh">Vương Quốc Anh</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Ngày khởi hành </label>
+                            <DatePicker  className="form_location_filter form-control"
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
+                                minDate={new Date()}
+                                disabledKeyboardNavigation
+                                startDate={startDate}
+                                endDate={endDate}
+                            />
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Khoảng giá</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
+                                <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
+                                <option value="Dưới 4 triệu">Dưới 4 triệu</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                                <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
+                        </div>
+                    </div>
+                </div>
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="link-4">
+                <div className="form_filter">
+                    <div className="forminfo_filter">
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm khởi hành</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                <option value="Nhật bản">Nhật bản</option>
+                                <option value="Mỹ">Mỹ</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Điểm đến</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Spa">Spa</option>
+                                <option value="Vương Quốc Anh">Vương Quốc Anh</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Ngày khởi hành </label>
+                            <DatePicker  className="form_location_filter form-control"
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
+                                minDate={new Date()}
+                                disabledKeyboardNavigation
+                                startDate={startDate}
+                                endDate={endDate}
+                            />
+                        </div>
+                        <div className="col choose_input_tour">
+                            <label className="search_label">Khoảng giá</label>
+                            <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
+                                <option>Tất cả</option>
+                                <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
+                                <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
+                                <option value="Dưới 4 triệu">Dưới 4 triệu</option>
+                            </Form.Select>
+                        </div>
+                        <div className="col choose_input_tour">
+                                <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
+                        </div>
+                    </div>
+                </div>
+                </Tab.Pane>
+            </Tab.Content>
          </Form>
+        </Tab.Container>
       </div>
+      
     </Container>
   );
 }

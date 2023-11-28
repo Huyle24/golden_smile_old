@@ -129,14 +129,6 @@ function Header(props){
 
     return intValue;
   }
-  // let totalPrice = 0;
-  //
-  // for (let i = 0; i < listItemCart.length; i++) {
-  //   if (listItemCart[i].hasOwnProperty('price')) {
-  //     totalPrice += formatToInt(listItemCart[i].price);
-  //   }
-  // }
-  // console.log(totalPrice);
 
   const getCartItems = () => {
     props.getToCartAction()
@@ -255,32 +247,90 @@ function Header(props){
                         |
                     </div>
                     <div className='muc_menu'>
-                        <div className='flags_images'>
-                          <img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/flag_icons.png' alt='flag_icons' />
+                      <NavDropdown  className="flat" show={menuIcon} onClick={()=>clickMenu('icon')} title={
+                       <>
+                        <span className='title_menu'>{textShow ? textShow.language : 'Ngôn Ngữ'}</span> 
+                         <div className='flags_images'>
+                          <img src={imageCountry ? imageCountry : 'https://vigomanager.com/app-assets/mobile/manager/image/flag_ko.png'} alt='flag_icons' />
                         </div>
-                        <span className='title_menu'>Ngôn ngữ</span>
+                       
+                       </>}
+                      >
+                        
+                        {
+                          languageList ? languageList.map((item,index)=>{
+                          return (
+                            <NavDropdown.Item key={index} onClick={()=> choose_country(item)}>
+                            <div className='d-flex ' >
+                              <img className="icon_country " src={item.image} />
+                              <span>{item.name}</span>
+                            </div>
+                          </NavDropdown.Item>
+                          )}):''
+                        }
+                      </NavDropdown>
                     </div>
                     <div className='line-vertical_2'>
                         |
                     </div>
+
                     <div className='muc_menu'>
-                      <Nav.Link  onClick={(event)=>{
-                        event.preventDefault()
-                        router.push('/CartBackup')
-                      }}>
-                        <i class='bx bx-basket'></i>
-                          <span className='title_menu'>Giỏ hàng</span>
-                          <div className='quantity_cart'>
-                              <span className='soluong_cart'>{numberItem}</span>
-                          </div>
-                      </Nav.Link>
+                      <Dropdown>
+                        <Nav.Link>
+                            <Dropdown.Toggle id="dropdown-basic" className="bg-transparent border-0 position-relative ms-2" >
+                              <i class='bx bx-basket'></i>
+                              <span className='title_menu'>Giỏ hàng</span>
+                              <div className='quantity_cart'>
+                                  <span className='soluong_cart'>{numberItem}</span>
+                              </div>
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu className="dropdown_user">
+                              <div>
+                                <div className="cart_list">
+                                  {listCart ? (listCart.map((item,index) =>
+                                      <div className="cart-item-header d-flex justify-content-between align-items-center" key={index}>
+                                        <div className="d-flex">
+                                          <div className="image">
+                                            <img src={item.image ? item.image[0] : ''} alt="cart"/>
+                                          </div>
+                                          <div className="info text-black">
+                                            <div className="title ">{item.name}</div>
+                                            <div>{item.name}</div>
+                                            <div>{item.adult} Người lớn , {item.child} Trẻ em</div>
+                                            <div className="text-danger">{GlobalJs.format_currency(item.total_price)} VNĐ</div>
+                                          </div>
+                                        </div>
+
+                                        <div id="delete-btn">
+                                          <span  className="text-danger ps-3" onClick={() => removeItemCart(item.id)}>Xóa</span>
+                                        </div>
+                                      </div>
+
+                                  )) : []}
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                  <div className="output px-4">
+                                    <div>Tổng tiền ({numberItem} items)</div> 
+                                    <div className="text-danger">{GlobalJs.format_currency(tot)} VNĐ</div>
+                                  </div>
+                                  <div className="entry px-4">
+                                    <Link href="/CartBackup">
+                                      <span className="">Xem giỏ hàng</span>
+                                    </Link>
+                                  </div>
+                                </div>
+                              </div>
+                            </Dropdown.Menu>
+                        </Nav.Link>
+                      </Dropdown>
                     </div>
-                      <div className='muc_menu'>
-                        <Link href="/TourWatched">
-                          <i class='bx bx-paper-plane'></i>
-                          <span className='title_menu'>Tour đã xem</span>
-                        </Link>
-                      </div>
+
+                    <div className='muc_menu'>
+                      <Link href="/TourWatched">
+                        <i class='bx bx-paper-plane'></i>
+                        <span className='title_menu'>Tour đã xem</span>
+                      </Link>
+                    </div>
                 </div>
               </div>
             </div>
@@ -306,9 +356,9 @@ function Header(props){
                             navbarScroll
                           >
                             <Nav.Link>
-                              <Link href="/">TRANG CHỦ</Link>
+                              <Link href="/">{textShow ? textShow.Home_Page : 'Ngôn Ngữ'}</Link>
                             </Nav.Link>
-                            <Nav.Link className='navcha'><Link  href="/" >TOUR</Link>
+                            <Nav.Link className='navcha'><Link  href="/" >{textShow ? textShow.Tour : 'TOUR'}</Link>
                               <ul className='navcon'>
                                 <li><Nav.Link>TOUR GIÁP THÌN 2024</Nav.Link></li>
                                 <li><Nav.Link>TOUR NƯỚC NGOÀI
@@ -333,11 +383,11 @@ function Header(props){
                                 <li><Nav.Link>TOUR TREKKING</Nav.Link></li>
                               </ul>
                             </Nav.Link>
-                            <Nav.Link><Link href="/">FLASHPACKING</Link></Nav.Link>
-                            <Nav.Link><Link href="/">VISA</Link></Nav.Link>                
-                            <Nav.Link><Link href="/">VÉ MÁY BAY</Link></Nav.Link>
-                            <Nav.Link><Link href="/">VOUCHER - COMBO</Link></Nav.Link>
-                            <Nav.Link className='navcha'><Link href='/Camnang'>NHẬT KÝ</Link>
+                            <Nav.Link><Link href="/">{textShow ? textShow.Visa : 'VISA'}</Link></Nav.Link>
+                            <Nav.Link><Link href="/">{textShow ? textShow.Flashpacking : 'VOUCHER-COMBO'}</Link></Nav.Link>                
+                            <Nav.Link><Link href="/">{textShow ? textShow.tickets_plane : 'VÉ MÁY BAY'}</Link></Nav.Link>
+                            <Nav.Link><Link href="/">{textShow ? textShow.voucher_combo : 'VOUCHER-COMBO'}</Link></Nav.Link>
+                            <Nav.Link className='navcha'><Link href='/Camnang'>{textShow ? textShow.diary : 'NHẬT KÝ'}</Link>
                               <ul className='navcon'>
                                 <li><Nav.Link>KHÁCH LẺ GHÉP ĐOÀN</Nav.Link></li>
                                 <li><Nav.Link>BẤT ĐỘNG SẢN</Nav.Link></li>
@@ -355,8 +405,8 @@ function Header(props){
                             </Nav.Link>
 
                           
-                            <Nav.Link><Link href='/Tintuc'>TIN TỨC</Link></Nav.Link>
-                            <Nav.Link><Link href='/about'>REVIEW</Link></Nav.Link>
+                            <Nav.Link><Link href='/Tintuc'>{textShow ? textShow.news : 'Tin Tức'}</Link></Nav.Link>
+                            <Nav.Link><Link href='/about'>{textShow ? textShow.review : 'REVIEW'}</Link></Nav.Link>
                           </Nav>
                         </Navbar.Collapse>
                     </Container>

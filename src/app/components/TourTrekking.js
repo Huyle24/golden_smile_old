@@ -33,7 +33,7 @@ function TourTrekking(props) {
         speed: 1000,
         slidesToShow: 4, //hiển thị số ảnh xuất hiện
         slidesToScroll: 1, // scoll từng ảnh
-        autoplay: false, // ảnh tự chuyển động
+        autoplay: true, // ảnh tự chuyển động
         autoplaySpeed: 5000,
         cssEase: "linear",
         arrows: false, // hiển thị hai đấu mũi tên điều hướng

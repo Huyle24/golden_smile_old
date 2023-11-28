@@ -66,7 +66,7 @@ function CardList(props) {
               delay: 4000,
               disableOnInteraction: false,
           }}
-      modules={[Navigation]}
+      modules={[Navigation,Autoplay]}
       >
             {list_tour ? (list_tour.map((item,index) =>(
 

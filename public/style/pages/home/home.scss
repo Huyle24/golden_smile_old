@@ -85,17 +85,17 @@
 }
 
 .trekking_card .Trekking-img .item-content-price .price_trekking {
-    width: 160px;
+    width: 159px;
     background: url(https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/bg_price.png);
-    height: 50px;
+    height: 29px;
     color: #fff;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 12px;
     position: absolute;
     top: -10px;
-    left: 10px;
+    left: 8px;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 11px;
 }
 
 .trekking_card .info_trekking {
@@ -211,290 +211,6 @@
     margin: 0 auto 30px;
 }
 // End SpecialOffers Components
-
-// TourPopularType components
-// .Tour_type_popular {
-//     max-width: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: nowrap;
-//     justify-content: flex-start;
-//     align-content: flex-start;
-//     align-items: flex-start;
-//     margin-left: -75px;
-//     margin-right: -75px;
-//     overflow: hidden;
-//     position: relative;
-// }
-// .Tour_type_popular:after {
-//     bottom: 0;
-// }
-
-// .Tour_type_popular:before {
-//     top: 0;
-// }
-
-// .Tour_type_popular:after,
-// .Tour_type_popular:before {
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     z-index: 3;
-//     left: 0;
-//     width: 100%;
-//     height: 20px;
-//     background-color: #fff;
-//     transition: height .13s ease;
-//     top: 0;
-// }
-
-// .Tour_type_popular .tour_popular {
-//     transition: width .13s ease;
-//     position: relative;
-//     height: 475px;
-// }
-
-// .Tour_type_popular .tour_popular:first-child {
-//     padding-left: 70px;
-//     z-index: 2;
-//     width: 33.333%;
-// }
-
-// .Tour_type_popular .tour_popular:nth-child(2) {
-//     width: 33.333%;
-//     z-index: 1;
-//     margin-left: -4px;
-//     margin-right: -4px;
-// }
-
-// .Tour_type_popular .tour_popular:nth-child(3) {
-//     z-index: 0;
-//     padding-right: 70px;
-//     width: 33.333%;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_bi{
-//     margin-left: -76px;
-//     width: calc(100% + 76px);
-//     position: absolute;
-//     z-index: 0;
-//     top: 0;
-//     left: 0;
-//     height: 100%;
-//     transform: skew(12deg,0);
-//     overflow: hidden;
-//     background-color: #333;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_bi:before {
-//     content: "";
-//     z-index: 1;
-//     position: absolute;
-//     left: -100%;
-//     top: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.25) 50%,hsla(0,0%,100%,0));
-//     transition: 0s ease-in-out;
-//     pointer-events: none;
-//     opacity: .5;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_bi .T_image_top {
-//     position: absolute;
-//     z-index: 2;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_bi .T_image_top:before {
-//     top: 0;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_bi .T_image_top:after {
-//     bottom: 0;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_bi .T_image_top:before,
-// .Tour_type_popular .tour_popular .T_popular_bi .T_image_top:after {
-//     content: "";
-//     width: calc(100% + 4px);
-//     height: 20px;
-//     background-color: #fff;
-//     display: block;
-//     position: absolute;
-//     left: -2px;
-//     transition: height .13s ease;
-// }
-
-// .Tour_type_popular .tour_popular:first-child .T_popular_bi .T_backgroundImage {
-//     background-image: url(https://goldensmiletravel.com/uploads/images/tuvan/2021/09/28/team-b-1632797391.png);
-//     position: absolute;
-//     z-index: 0;
-//     top: 0;
-//     left: 0;
-//     width: 130%;
-//     height: 100%;
-//     opacity: .6;
-//     background-size: cover;
-//     background-position: top;
-//     background-repeat: no-repeat;
-//     transition: opacity .2s ease;
-//     transform: skew(-12deg);
-//     -webkit-backface-visibility: hidden;
-//     backface-visibility: hidden;
-// }
-
-// .Tour_type_popular .tour_popular:nth-child(2) .T_popular_bi .T_backgroundImage {
-//     background-image: url(https://goldensmiletravel.com/uploads/images/tuvan/2021/09/28/anh-111-cltn-1632797449.jpeg);
-//     position: absolute;
-//     z-index: 0;
-//     top: 0;
-//     left: 0;
-//     width: 130%;
-//     height: 100%;
-//     opacity: .6;
-//     background-size: cover;
-//     background-position: top;
-//     background-repeat: no-repeat;
-//     transition: opacity .2s ease;
-//     transform: skew(-12deg);
-//     -webkit-backface-visibility: hidden;
-//     backface-visibility: hidden;
-// }
-
-// .Tour_type_popular .tour_popular:nth-child(3) .T_popular_bi .T_backgroundImage {
-//     background-image: url(https://goldensmiletravel.com/uploads/images/tuvan/2021/09/28/event-1632797649.jpeg);
-//     position: absolute;
-//     z-index: 0;
-//     top: 0;
-//     left: 0;
-//     width: 130%;
-//     height: 100%;
-//     opacity: .6;
-//     background-size: cover;
-//     background-position: top;
-//     background-repeat: no-repeat;
-//     transition: opacity .2s ease;
-//     transform: skew(-12deg);
-//     -webkit-backface-visibility: hidden;
-//     backface-visibility: hidden;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_content {
-//     position: absolute;
-//     z-index: 1;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-content: center;
-//     align-items: center;
-//     color: #fff;
-//     text-align: center;
-//     padding-left: 25px;
-//     padding-right: 25px;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_content .Tour_p_title {
-//     font-size: 36px;
-//     line-height: 1;
-//     width: 100%;
-//     font-weight: 600;
-//     position: relative;
-// }
-
-// .tour_popular .T_popular_content .Tour_p_title .t_title_text {
-//     position: relative;
-//     z-index: 2;
-//     color: #fff;
-// }
-
-// .Tour_type_popular .tour_popular .T_popular_content .Tour_p_btn {
-//     margin-top: 28px;
-//     width: 100%;
-//     position: relative;
-// }
-
-// .tour_popular .T_popular_content .Tour_p_btn .Tour_button_contact{
-//     position: absolute;
-//     top: 0;
-//     left: 25%;
-//     transition: all .2s;
-//     color: #B72028 ;
-//     text-decoration: none;
-//     background-color: transparent;
-// }
-
-// .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_call {
-//     background: url(https://goldensmiletravel.com/themes/webtour/public/images/slide/call_now.png) no-repeat 50%;
-//     display: inline-block;
-//     width: 50px;
-//     height: 50px;
-//     border-radius: 50%;
-//     font-size: 30px;
-//     line-height: 30px;
-//     color: #fff;
-//     position: relative;
-//     transition: background-color .3s,color .3s;
-//     float: left;
-// }
-
-// .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_call:after {
-//     content: "";
-//     position: absolute;
-//     z-index: 1;
-//     top: 50%;
-//     left: 50%;
-//     width: 100%;
-//     height: 100%;
-//     border-radius: 50%;
-//     background: #db2131;
-//     opacity: .3;
-//     -webkit-animation: pulse 1.3s linear infinite;
-//     animation: pulse 1.3s linear infinite;
-//     transform: translate(-50%,-50%);
-//     transition: all .3s;
-//     pointer-events: none;
-// }
-
-// @keyframes pulse {
-//     0% {
-//         width: 100%;
-//         height: 100%;
-//         opacity: .8;
-//     }
-//     50% {
-//         width: 140%;
-//         height: 140%;
-//         opacity: 0;
-//     }
-
-//     100% {
-//         width: 100%;
-//     height: 100%;
-//     opacity: 0;
-//     }
-// }
-
-// .T_popular_content .Tour_p_btn .Tour_button_contact .Tour_button_title {
-//     display: inline-block;
-//     width: 169px;
-//     height: 28px;
-//     background: #fff;
-//     border-radius: 41px;
-//     float: left;
-//     margin-left: -20px;
-//     margin-top: 8px;
-//     color: #db2131;
-//     font-weight: 700;
-// }
 
 .overflow-hidden {
     overflow: hidden
@@ -847,6 +563,8 @@
 .next_target .card_tour_nextdestion img {
     overflow: hidden;
     transition: 1s ease-in-out;
+    aspect-ratio: 428/304;
+    object-fit: cover;
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -872,11 +590,11 @@
     padding: 0.625rem;
 }
 
-.next_target .name_next h2 {
+.next_target .name_next p {
     text-align: center;
     font-weight: 700;
     font-style: normal;
-    font-size: 24px;
+    font-size: 13px;
     line-height: 35px;
     color: #DBA73D;
 }

@@ -3,13 +3,22 @@ import page from "../src/app/page";
 export const GET_LANG_vi = () => {
     let array ={
       header:{
-        Home_Page: 'Trang chủ',
+        language: 'Ngôn Ngữ',
+        Home_Page: 'TRANG CHỦ',
+        diary: 'NHẬT KÝ',
+        Visa: 'VISA',
+        Tour: "TOUR",
+        Flashpacking: 'FLASHPACKING',
+        voucher_combo: 'VOUCHER-COMBO',
+        tickets_plane: 'VÉ MÁY BAY',
+        news: 'TIN TỨC',
+        review: 'REVIEW',
         All: 'Tất cả',
         Golf:'Golf',
         Golf_Course:'Sân golf',
         Golf_Package:'Gói golf',
         Tour_Travel:'Tour du lịch',
-        Tour:'Tour',
+        // Tour:'Tour',
         Lodging:'Lưu trú',
         Hotel:'Khách sạn',
         Move:'Di chuyển',
@@ -503,10 +512,18 @@ export const GET_LANG_vi = () => {
     return array
   };
 
-  export const GET_LANG_ko = () => {
+export const GET_LANG_ko = () => {
     let array ={
       header:{
+        language: '언어',
         Home_Page: '홈페이지',
+        diary: '다이어리',
+        Visa: '비자',
+        Flashpacking: '플래시패킹',
+        voucher_combo: '바우처 콤보',
+        tickets_plane: '항공권',
+        review: '검토',
+        news: '소식',
         All: '모두',
         Golf:'골프',
         Golf_Course:'골프장',

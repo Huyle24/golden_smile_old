@@ -68,7 +68,8 @@ a{
 
 .muc_menu .dropdown {
     position: relative;
-    margin-left: 22%;
+    /* margin-left: 22%; */
+    margin-left: -2%;
 }
 
 .muc_menu a {
@@ -101,6 +102,10 @@ a{
     padding: 2px;
 }
 
+.danhmuc_firsttop .menu-info .muc_menu .dropdown i{
+    margin-top: 4px;
+}
+
 .menu-info .muc_menu .quantity_cart {
     background: #fff;
     border-radius: 10px;
@@ -116,12 +121,28 @@ a{
 
 .menu-info .muc_menu .quantity_cart .soluong_cart {
     position: absolute;
-    top: -16px;
+    top: -2px;
     left: 9px;
     font-weight: 700;
     display: inline-block;
     font-size: 9px;
 }
+
+.flat .dropdown-menu {
+    background-color: #DBA73D;
+}
+
+.flat .dropdown-menu .dropdown-item span {
+    color: #db2131;
+    font-size: 14px;
+}
+
+.flat .dropdown-menu .dropdown-item img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
 
 .danhmuc_firsttop .menu-info .muc_menu .title_menu{
     float: right;
@@ -168,7 +189,6 @@ a{
 
 .danhmuc_firsttop .menu-info .muc_menu img {
     max-width: 100%;
-    height: auto;
     display: inherit;
 } 
 
@@ -1939,11 +1959,6 @@ tr td{
     object-fit: cover;
 }
 
-.flat img{
-    width: 30px;
-    height: 20px;
-    object-fit: cover;
-}
 
 
 .mega_menu{
@@ -3128,6 +3143,14 @@ tr td{
 .hide{
     display: none !important;
 }
+
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 5 !important;
+  }
+  
 
 .overview_right{
     top: 56px !important;
