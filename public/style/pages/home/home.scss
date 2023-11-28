@@ -64,6 +64,8 @@
     transition: all 0.6s ease;
     border-radius: 5px!important;
     width: 100%;
+    aspect-ratio: 428/304;
+    object-fit: cover;
 }
 
 .trekking_card .Trekking-img:hover img {
@@ -711,9 +713,9 @@
 .Blog_Why_content .reason_choose .number_reason {
     width: 100%;
     display: flex;
-    margin-left: 0%;
+    /* margin-left: 0px; */
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: inherit;
 }
 
 .Blog_Why_content .reason_choose .number_reason .reason_hangdau {
