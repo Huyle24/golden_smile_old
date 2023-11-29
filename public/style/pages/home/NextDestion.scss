@@ -1,0 +1,379 @@
+// /*! CSS Used from: https://goldensmiletravel.com/themes/webtour/public/js/animate.css */
+// .fadeIn {
+//     -webkit-animation-name: fadeIn;
+//     animation-name: fadeIn;
+// }
+
+// .animated {
+//     -webkit-animation-duration: 1s;
+//     animation-duration: 1s;
+//     -webkit-animation-fill-mode: both;
+//     animation-fill-mode: both;
+// }
+
+// @media (print),
+// (prefers-reduced-motion: reduce) {
+//     .animated {
+//         -webkit-animation-duration: 1ms !important;
+//         animation-duration: 1ms !important;
+//         -webkit-transition-duration: 1ms !important;
+//         transition-duration: 1ms !important;
+//         -webkit-animation-iteration-count: 1 !important;
+//         animation-iteration-count: 1 !important;
+//     }
+// }
+
+// /*! CSS Used from: https://goldensmiletravel.com/themes/webtour/public/css/app.css?ver=1695713780 */
+// .name_number,
+// div,
+// .name_next,
+// .images_next,
+// .trip_generality,
+// .trip_number {
+//     margin: 0;
+//     padding: 0;
+//     border: 0;
+//     font-size: 100%;
+//     font: inherit;
+//     vertical-align: baseline;
+// }
+
+// *,
+// :after,
+// :before {
+//     box-sizing: border-box;
+// }
+
+// .name_next {
+//     margin-top: 0;
+//     margin-bottom: .5rem;
+// }
+
+// .trip_generality {
+//     margin-top: 0;
+//     margin-bottom: 1rem;
+// }
+
+// .name_number {
+//     color: #db2131;
+//     text-decoration: none;
+//     background-color: transparent;
+// }
+
+// .name_number:hover {
+//     color: #991722;
+//     text-decoration: underline;
+// }
+
+// .images_next {
+//     border-style: none;
+// }
+
+// .images_next {
+//     vertical-align: middle;
+// }
+
+// .name_next {
+//     margin-bottom: .5rem;
+//     font-weight: 500;
+//     line-height: 1.2;
+//     color: #333;
+// }
+
+// .name_next {
+//     font-size: 2rem;
+// }
+
+// .row {
+//     display: flex;
+//     flex-wrap: wrap;
+//     margin-right: -15px;
+//     margin-left: -15px;
+// }
+
+// .no-gutters {
+//     margin-right: 0;
+//     margin-left: 0;
+// }
+
+// .no-gutters>[class*=col-] {
+//     padding-right: 0;
+//     padding-left: 0;
+// }
+
+// .col-md-3 {
+//     position: relative;
+//     width: 100%;
+//     padding-right: 15px;
+//     padding-left: 15px;
+// }
+
+// @media (min-width:768px) {
+//     .col-md-3 {
+//         flex: 0 0 25%;
+//         max-width: 25%;
+//     }
+// }
+
+// .card_tour_nextdestion {
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     min-width: 0;
+//     word-wrap: break-word;
+//     background-color: #fff;
+//     background-clip: border-box;
+//     border: 1px solid #eee;
+//     border-radius: 5px;
+// }
+
+// .name_next {
+//     margin-bottom: .75rem;
+// }
+
+// .trip_number:last-child {
+//     margin-bottom: 0;
+// }
+
+// .images_next-overlay {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     padding: .625rem;
+// }
+
+// .images_next {
+//     flex-shrink: 0;
+//     width: 100%;
+// }
+
+// .images_next {
+//     border-top-left-radius: 4px;
+//     border-top-right-radius: 4px;
+// }
+
+// .images_next {
+//     border-bottom-right-radius: 4px;
+//     border-bottom-left-radius: 4px;
+// }
+
+// .d-flex {
+//     display: flex !important;
+// }
+
+// .flex-column {
+//     flex-direction: column !important;
+// }
+
+// .justify-content-end {
+//     justify-content: flex-end !important;
+// }
+
+// .justify-content-center {
+//     justify-content: center !important;
+// }
+
+// .mb-0 {
+//     margin-bottom: 0 !important;
+// }
+
+// .mt-3 {
+//     margin-top: 1rem !important;
+// }
+
+// .px-2 {
+//     padding-right: .625rem !important;
+// }
+
+// .px-2 {
+//     padding-left: .625rem !important;
+// }
+
+// .text-center {
+//     text-align: center !important;
+// }
+
+// .nextion_item .text-white {
+//     color: #fff !important;
+// }
+
+// @media print {
+
+//     *,
+//     :after,
+//     :before {
+//         text-shadow: none !important;
+//         box-shadow: none !important;
+//     }
+
+//     .name_number:not(.btn) {
+//         text-decoration: underline;
+//     }
+
+//     .images_next {
+//         page-break-inside: avoid;
+//     }
+
+//     .name_next,
+//     .trip_generality {
+//         orphans: 3;
+//         widows: 3;
+//     }
+
+//     .name_next {
+//         page-break-after: avoid;
+//     }
+// }
+
+// .images_next-overlay {
+//     z-index: 1;
+// }
+
+// .name_next {
+//     color: inherit;
+// }
+
+// .card_tour_nextdestion {
+//     transition: all .2s;
+// }
+
+// .card_tour_nextdestion:focus {
+//     outline: none;
+// }
+
+// .fs-13 {
+//     font-size: 13px !important;
+// }
+
+// .class-dark-nexttour {
+//     position: relative;
+// }
+
+// .class-dark-nexttour:before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 1;
+//     border-radius: inherit;
+// }
+
+// .class-dark-nexttour:before {
+//     background-image: linear-gradient(transparent -11%, #000) !important;
+// }
+
+// .images_next-overlay .trip_generality {
+//     letter-spacing: .87px !important;
+// }
+
+// .font-weight-500 {
+//     font-weight: 500 !important;
+// }
+
+// .hover-zoom-info {
+//     overflow: hidden;
+// }
+
+// .hover-zoom-info .images_next,
+// .hover-zoom-info .images_next {
+//     transform: scale(1);
+//     transition: 1s ease-in-out;
+//     width: 100%;
+// }
+
+// .hover-zoom-info:hover .images_next,
+// .hover-zoom-info:hover .images_next {
+//     transform: scale(1.3);
+// }
+
+// .name_number {
+//     transition: all .2s;
+// }
+
+// .name_number:hover {
+//     text-decoration: none;
+// }
+
+// .images_next {
+//     max-width: 100%;
+//     height: auto;
+// }
+
+// [data-animate] {
+//     opacity: 0;
+// }
+
+// [data-animate].animated {
+//     opacity: 1;
+// }
+
+// .tour_location__container .card_tour_nextdestion,
+// .tour_location__container .images_next {
+//     border-radius: inherit;
+// }
+
+// .tour_location__container .class-dark-nexttour:before {
+//     background: #000;
+//     opacity: .5;
+// }
+
+// .nextion_item {
+//     margin-bottom: 20px;
+// }
+
+// .nextion_item:hover .trip_number {
+//     color: #db2131 !important;
+// }
+
+// .nextion_item .name_next {
+//     text-align: center;
+//     font-weight: 700;
+//     font-style: normal;
+//     font-size: 24px;
+//     line-height: 35px;
+// }
+
+// .nextion_item .trip_number {
+//     text-align: center;
+//     position: relative;
+//     padding-left: 15px;
+//     font-size: 14px;
+//     line-height: 19px;
+//     color: #fff;
+// }
+
+// .nextion_item .trip_number:before {
+//     content: "";
+//     position: absolute;
+//     top: 35%;
+//     left: 0;
+//     width: 7px;
+//     height: 7px;
+//     background-color: #fff;
+//     border-radius: 50%;
+// }
+
+// /*! CSS Used keyframes */
+// @-webkit-keyframes fadeIn {
+//     from {
+//         opacity: 0;
+//     }
+
+//     to {
+//         opacity: 1;
+//     }
+// }
+
+// @keyframes fadeIn {
+//     from {
+//         opacity: 0;
+//     }
+
+//     to {
+//         opacity: 1;
+//     }
+// }
