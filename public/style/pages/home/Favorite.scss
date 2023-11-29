@@ -1,0 +1,379 @@
+/*! CSS Used from: https://goldensmiletravel.com/themes/webtour/public/js/animate.css */
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@media (print),
+(prefers-reduced-motion: reduce) {
+    .animated {
+        -webkit-animation-duration: 1ms !important;
+        animation-duration: 1ms !important;
+        -webkit-transition-duration: 1ms !important;
+        transition-duration: 1ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/*! CSS Used from: https://goldensmiletravel.com/themes/webtour/public/css/app.css?ver=1695713780 */
+a,
+div,
+h2,
+img,
+p,
+span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #db2131;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #991722;
+    text-decoration: underline;
+}
+
+img {
+    border-style: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+h2 {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #333;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-gutters>[class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.col-md-3 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width:768px) {
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.card-title {
+    margin-bottom: .75rem;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .625rem;
+}
+
+.card-img {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.card-img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.card-img {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.px-2 {
+    padding-right: .625rem !important;
+}
+
+.px-2 {
+    padding-left: .625rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+@media print {
+
+    *,
+    :after,
+    :before {
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    a:not(.btn) {
+        text-decoration: underline;
+    }
+
+    img {
+        page-break-inside: avoid;
+    }
+
+    h2,
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2 {
+        page-break-after: avoid;
+    }
+}
+
+.card-img-overlay {
+    z-index: 1;
+}
+
+.card-title {
+    color: inherit;
+}
+
+.card {
+    transition: all .2s;
+}
+
+.card:focus {
+    outline: none;
+}
+
+.fs-13 {
+    font-size: 13px !important;
+}
+
+.bg-overlay-gradient-6 {
+    position: relative;
+}
+
+.bg-overlay-gradient-6:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: inherit;
+}
+
+.bg-overlay-gradient-6:before {
+    background-image: linear-gradient(transparent 42%, #000) !important;
+}
+
+.letter-spacing-087 {
+    letter-spacing: .87px !important;
+}
+
+.font-weight-500 {
+    font-weight: 500 !important;
+}
+
+.hover-zoom-in {
+    overflow: hidden;
+}
+
+.hover-zoom-in .card-img,
+.hover-zoom-in img {
+    transform: scale(1);
+    transition: 1s ease-in-out;
+    width: 100%;
+}
+
+.hover-zoom-in:hover .card-img,
+.hover-zoom-in:hover img {
+    transform: scale(1.3);
+}
+
+a {
+    transition: all .2s;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+[data-animate] {
+    opacity: 0;
+}
+
+[data-animate].animated {
+    opacity: 1;
+}
+
+.tour_location__container .card,
+.tour_location__container .card-img {
+    border-radius: inherit;
+}
+
+.tour_location__container .bg-overlay-gradient-6:before {
+    background: #000;
+    opacity: .5;
+}
+
+.location_item {
+    margin-bottom: 20px;
+}
+
+.location_item:hover .card-text {
+    color: #db2131 !important;
+}
+
+.location_item .card-title {
+    text-align: center;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 35px;
+}
+
+.location_item .card-text {
+    text-align: center;
+    position: relative;
+    padding-left: 15px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #fff;
+}
+
+.location_item .card-text:before {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+/*! CSS Used keyframes */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

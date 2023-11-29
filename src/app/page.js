@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import '../../public/style/pages/home/home.scss'
 import '../../public/style/pages/home/responsive.scss'
+import '../../public/style/pages/home/searchbox.scss'
+import '../../public/style/pages/home/Favorite.scss'
 import Carousels from './components/Carousels'
 import SearchBox from './components/SearchBox'
 import Promotion from './components/Promotion'
@@ -18,6 +20,7 @@ import TourPopularType from './components/TourPopularType'
 import NextDestion from './components/NextDestion'
 import BlogWhy from './components/BlogWhy'
 import Banner from './components/Banner'
+import Favorite from './components/Favorite'
 
 
 export default function Home() {
