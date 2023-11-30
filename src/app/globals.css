@@ -340,8 +340,28 @@ body {
     display: none !important;
 }
 
+.navbar {
+    padding: 0 !important;
+}
+.menu_mobile {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 25px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+#check {
+    display: none;
+}
+
 @media only screen and (max-width: 992px) {
     .header .user_search{
+        display: none !important;
+    }
+
+    .navbar_goodsmile .header_moblie {
         display: none !important;
     }
 
@@ -353,9 +373,11 @@ body {
         margin-left: 0px !important;
     }
     
-    .menu_mobile {
-        background-color: #DBA73D !important;
-        --bs-btn-border-color: #DBA73D !important;
+    .navbar .navbar_goodsmile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between!important;
+        padding: 0 !important;
     }
 
     .button-siderbar:not(:disabled) {
@@ -368,11 +390,11 @@ body {
         text-align: end;
     }
 
-    .navbar > .container-fluid {
+    /* .navbar > .container-fluid {
         display: flex;
         align-items: center;
         justify-content: space-between!important;
-    }
+    } */
 
     .navbar-collapse {
         text-align: left;
@@ -386,13 +408,34 @@ body {
         background-color: #DBA73D;
     }
 
+    .menumobile_phone .card-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: unset;
+    }
+
     .navbar-nav a {
-        color: #B72028 ;
+        color: #B72028;
+        font-weight: bold;
     }
     .navbar-toggler:focus {
         box-shadow: none !important;
     }
 
+     /* Menu mobile */
+     .navbar_goodsmile .menumobile_phone {
+        background-color: #DBA73D;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0px;
+        border-color: #DBA73D;
+    }
+
+    .menumobile_phone .content-menu-phone .title-menuphone {
+        text-align: left;
+    } 
 }
 
 @media only screen and (max-width: 991px) {
@@ -1933,10 +1976,9 @@ tr td{
 }
 
 @media only screen and (min-width: 991px) {
-    .menu_mobile{
+    /* .menu_mobile{
         display: none !important;
-    }
-
+    } */
 }
 
 @media only screen and (max-width: 992px) {

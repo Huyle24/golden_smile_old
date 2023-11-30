@@ -1,7 +1,3 @@
-.heritage-search-mobile {
- 
-}
-
 .search_container .search_box__filters {
     padding: 30px 0;
 }
@@ -13,6 +9,7 @@
 
 .heritage-search .btn.improve-search:after {
     // font-family: Font Awesome\ 5 Pro;
+    font-family: "Material Icons";
     font-size: 24px;
     font-weight: 400;
     margin-left: 15px;
@@ -20,27 +17,28 @@
 }
 
 .heritage-search .btn.improve-search:not(.collapsed):after {
-    content: "\F4FA";
+    content: "\e15b";
     color: #DBA73D;
 }
 
 .heritage-search .btn.improve-search.collapsed:after {
-    content: "\F4FA";
+    content: "\e145";
 }
 
 .heritage-search .other-feature:before {
     // font-family: Font Awesome\ 5 Pro;
+    font-family: "Material Icons";
     font-size: 20px;
     margin-right: 5px
 }
 
 .heritage-search .other-feature:not(.collapsed):before {
-    content: "\F4FA";
+    content: "\e15b";
     color: #DBA73D;
 }
 
 .heritage-search .other-feature.collapsed:before {
-    content: "\F4FA";
+    content: "\e15b";
     color: #DBA73D;
 }
 
@@ -52,14 +50,14 @@
 }
 
 .heritage-search .btn.improve-search:after {
-    // font-family: Font Awesome\ 5 Pro;
+    font-family: "Material Icons";
     font-size: 24px;
     font-weight: 400;
     margin-left: 15px
 }
 
 .heritage-search .btn.improve-search:not(.collapsed):after {
-    content: "\F4FA";
+    content: "\e15b";
     color: #DBA73D;
 }
 
@@ -67,7 +65,7 @@
     border-color: #ddd !important;
 }
 .heritage-search .btn.improve-search.collapsed:after {
-    content: "\F4FA"
+    content: "\e145"
 }
 
 .tt-item-btn--block {

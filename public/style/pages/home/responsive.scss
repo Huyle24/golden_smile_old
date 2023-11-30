@@ -443,70 +443,83 @@
     // Header 
     .hotline_firsttop .phone-hotline {
         float: left;
-        margin-right: -138%;
-        margin-left: 0%;
+        margin: 0px -40px;
+    }
+
+    .line_stripe {
+        display: none;
+    }
+
+    .header-first .header-content {
+        position: relative;
     }
 
     .header-first .hotline_firsttop {
         flex: 0 0 auto;
         width: 13%;
+        position: absolute;
+        left: 2%;
     }
 
-        .header-first .menu-info {
-            position: relative;
-            float: right;
-            margin-right: 7%;
-        }
+    .header-first .menu-info {
+        position: relative;
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
 
-        .menu-info .muc_menu {
-            font-size: 11px;
-            padding: 0px 0px;
-            float: right;
-            position: relative;
-        }
+    .menu-info .muc_menu {
+        font-size: 11px;
+        padding: 0px 0px;
+        float: right;
+        position: relative;
+    }
 
-        .danhmuc_firsttop .menu-info .line-vertical {
-            left: 27%;
-        }
+    .danhmuc_firsttop .menu-info .line-vertical {
+        left: 27%;
+    }
 
-        .danhmuc_firsttop .menu-info .line-vertical_2 {
-            left: 80%;
-        }
+    .danhmuc_firsttop .menu-info .line-vertical_2 {
+        left: 80%;
+    }
+ 
+    .header-first .danhmuc_firsttop {
+        width: 82%;
+        padding: 0;
+        margin: 0;
+        flex: 0 0 auto;
+        position: absolute;
+        right: -5%;
+    }
+    
 
+    .li_searchnav .search_mucfilter i {
+        width: 12px;
+        margin-left: 3px;
+        display: block;
+        float: left;
+        margin-right: -11px;
+        font-size: 14px;
+        font-weight: 700;
+    }
         
         
-        .header-first .danhmuc_firsttop {
-            flex: 0 0 auto;
-            width: 82%;
-        }
 
-            .li_searchnav .search_mucfilter i {
-                width: 12px;
-                margin-left: 3px;
-                display: block;
-                float: left;
-                margin-right: -11px;
-                font-size: 14px;
-                font-weight: 700;
-            }
-        
-        
-
-            .tab_filter .tab_filter_searchnav .li_searchnav {
+    .tab_filter .tab_filter_searchnav .li_searchnav {
                 /* height: 70px; */
-                width: 122px;
-            }
+        width: 122px;
+    }
 
-            .tab_filter_searchnav .li_searchnav .search_mucfilter {  
-                font-size: 12px;
-            }
+    .tab_filter_searchnav .li_searchnav .search_mucfilter {  
+        font-size: 12px;
+    }
 
-            .forminfo_filter .choose_input_tour .btn_search_find {
-                padding: 6px 0px;
-                width: 81px;
-                height: 31px;
-                font-size: 11px;
-            }
+    .forminfo_filter .choose_input_tour .btn_search_find {
+        padding: 6px 0px;
+        width: 81px;
+        height: 31px;
+        font-size: 11px;
+    }
 
     // Searchbox Components
 
@@ -762,6 +775,9 @@
         right: 78%;
     }
 
+    .menumobile_phone.card{
+        display: none;
+    }
     // End header components
     // TourTrekking components
     .trekking_tour_slide .slick-track .slick-slide {

@@ -451,49 +451,6 @@ function SearchBox(props) {
             </Tab.Container>
         </div>
 
-        {/* <form action="https://goldensmiletravel.com/search"
-            className="heritage-search heritage-search-mobile d-lg-none z-index-2 position-relative bg-white rounded mx-md-10">
-            <div id="search-bar-mobie" className="row align-items-lg-center">
-                <div className="col-12">
-                    <div className="form-group mb-0 position-relative"><a href="#improve-search-bar-mobie"
-                            data-bs-toggle="collapse" data-bs-target="#improve-search-bar-mobie" aria-expanded="false"
-                            aria-controls="improve-search-bar-mobie"
-                            className="text-secondary btn improve-search shadow-none pr-3 pl-0 position-absolute bos-fited-left-center py-0 h-100 border-right"></a>
-                        <input type="text" name="search" placeholder="Nhập tên tour..."
-                            className="form-control form-control-lg border shadow-none pr-9 pl-11 bg-white placeholder-muted" />
-                        <button type="submit"
-                            className="btn position-absolute bos-fited-right-center p-0 text-heading fs-20 px-3 shadow-none h-100 border-left"><i
-                                className="far fa-search"></i></button>
-                    </div>
-                </div>
-                <div id="improve-search-bar-mobie" data-parent="#search-bar-mobie"
-                    className="col-12 pt-2 px-7 collapse show">
-                    <div className="row mx-n2">
-                        <div className="col-sm-6 pt-4 px-2"><select title="Điểm khởi hành"
-                                data-style="btn-lg py-2 h-52 bg-transparent" name="where_from" id="option_location_from"
-                                className="form-control border shadow-none form-control-lg select2 bg-transparent">
-                                <option value="">Tất cả Điểm khởi hành</option>
-                            </select></div>
-                        <div className="col-sm-6 pt-4 px-2"><select name="where_to" title="Điểm đến"
-                                data-style="btn-lg py-2 h-52 bg-transparent" id="option_location_to"
-                                className="form-control border shadow-none form-control-lg select2 bg-transparent">
-                                <option value="">Tất cả Điểm đến</option>
-                            </select></div>
-                        <div className="col-sm-6 pt-4 px-2"><input type="text" autocomplete="off" name="begin_date"
-                                placeholder="Ngày khởi hành"
-                                className="form-control border shadow-none form-control-lg selectpicker bg-transparent" /></div>
-                        <div className="col-sm-6 pt-4 px-2 mb-4"><select title="Khoảng giá"
-                                data-style="btn-lg py-2 h-52 bg-transparent" name="price_quota"
-                                className="form-control border shadow-none form-control-lg select2 bg-transparent">
-                                <option value="">Tất cả Khoảng giá</option>
-                                <option value="8000000-16000000">Từ 8tr trở lên</option>
-                                <option value="4000000-8000000">Từ 4tr đến 8tr</option>
-                                <option value="0-4000000">Dưới 4tr</option>
-                            </select></div>
-                    </div>
-                </div>
-            </div>
-        </form> */}
         <form action="https://goldensmiletravel.com/search"
             className="heritage-search heritage-search-mobile d-lg-none z-index-2 position-relative bg-white rounded mx-md-10">
             <Col className=" ml-auto" md="12">

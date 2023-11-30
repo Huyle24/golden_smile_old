@@ -71,7 +71,7 @@ function NextDestion(props) {
                 
 
                 <Row className="mt-3 no-gutters">
-                     {list_tour ? (list_tour.filter((item, idx) => idx < 8).map((item) => ( 
+                     {/* {list_tour ? (list_tour.filter((item, idx) => idx < 8).map((item) => ( 
                         <div className="col-xs-6 col-md-3">
                         <Link href="/Category">
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
@@ -90,9 +90,9 @@ function NextDestion(props) {
                         </div>
                          </Link>
                     </div>
-                     ))) : ''}
+                     ))) : ''} */}
                    
-                {/* <div className="col-xs-6 col-md-3">
+                <div className="col-xs-6 col-md-3">
                     <div data-animate="fadeIn" className="nextion_item px-2 fadeIn animated">
                         <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                 src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/img-7847-1675392344-1676988222.jfif"
@@ -280,7 +280,7 @@ function NextDestion(props) {
                             </a>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 </Row>
             </div>
         </Container>

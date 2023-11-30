@@ -50,6 +50,7 @@ x
                   
         </Head>
         <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
         <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
 
 <script

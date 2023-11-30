@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import {FaUserAlt, FaSearch, FaBars, FaCartPlus} from 'react-icons/fa';
 import Link from 'next/link';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Dropdown, Offcanvas, Row} from "react-bootstrap";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
@@ -17,7 +17,7 @@ import * as GlobalJs from "../../../js/global";
 import {useRouter, useSearchParams} from "next/navigation";
 import Swal from "sweetalert2";
 import {addToCartAction, deleteCartAction, getToCartAction, removeCartAction} from "../../../redux/actions";
-
+import { Card, CardHeader, CardBody, Collapse} from "reactstrap";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
 
 function Header(props){
@@ -25,7 +25,7 @@ function Header(props){
   const [isLogin, setIsLogin] = useState(false)
   const [textShow, setTextShow] = useState('')
   const router =useRouter()
-
+  const [openedCollapse, setOpenedCollapse] = React.useState("");
   const [imageCountry, setImageCountry] = useState('')
 
   const [menuIcon, setMenuIcon] = useState(false)
@@ -172,7 +172,7 @@ function Header(props){
       <>
         <div className="header-first">
           <div className="container">
-            <div className="row">
+            <div className="row header-content">
               <div className="col-4 hotline_firsttop">
                 <div className="area-info">
                   <div className='phone-hotline'>
@@ -185,7 +185,7 @@ function Header(props){
                 <div className="menu-info">
                   
                     <div className='muc_menu'>
-                        <Dropdown>
+                      <Dropdown>
                           <Dropdown.Toggle id="dropdown-basic" className="bg-transparent border-0 text-black ">
                           <div className='users_images'>
                             <img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon-login.png' alt='user_icons' />
@@ -240,7 +240,7 @@ function Header(props){
                       </Dropdown.Menu>
                 }
                   
-                </Dropdown>
+                      </Dropdown>
                     </div>
                  
                     <div className='line-vertical'>
@@ -342,7 +342,7 @@ function Header(props){
             </div>
         </div>
         <Navbar expand="lg" className="bg-body-tertiary header position-relative text-center">
-            <Container fluid className='navbar_goodsmile'>
+            <Container fluid className='navbar_goodsmile'  id="accordionExample">
               <div className="d-flex header_moblie">
                     <Link href="/" className='navbar_logo_images'>
                       <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
@@ -412,55 +412,88 @@ function Header(props){
                     </Container>
                   </Navbar>
               </div>
-
-              <Button className="menu_mobile" onClick={handleShow}>
+              
+              {/*<Button className="menu_mobile" onClick={handleShow}>
                 <FaBars/>
-              </Button>
-              <Offcanvas show={showNav} onHide={handleCloseNav} placement="top" className="menu_mobile_canva">
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>
-                    <Link href="/">
-                    <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
-                    </Link>
-                  </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <Nav>
-                    <Nav.Link href="/">TRANG CHỦ</Nav.Link>
-                    <NavDropdown
-                        id="nav-dropdown-tour-"
-                        title="TOUR"
-
+              </Button> */}
+                  <Card className='menumobile_phone'>
+                    <CardHeader
+                        id="headingOne"
+                        aria-expanded={openedCollapse === "collapseOne"}
                     >
-                      <NavDropdown.Item>TOUR GIÁP THÌN</NavDropdown.Item>
-                      <NavDropdown.Item>TOUR NƯỚC NGOÀI</NavDropdown.Item>
-                      <NavDropdown.Item href="/">TOUR TREKKING</NavDropdown.Item>
-                      <NavDropdown.Item href="/">TOUR THEO YÊU CẦU</NavDropdown.Item>
-                    </NavDropdown>
-                    <Link href="/">FLASHPACKING</Link>
-                    <Link href="/">VISA</Link>
-                    <Link href="/">VÉ MÁY BAY -VOUCHER COMBO</Link>
-                    <NavDropdown id="nav-dropdown-tour-nn" title="NHẬT KÝ">
-                      <NavDropdown.Item>KHÁCH LẺ GHÉP ĐOÀN</NavDropdown.Item>
-                      <NavDropdown.Item>BẤT ĐỘNG SẢN</NavDropdown.Item>
-                      <NavDropdown.Item>SỨC KHỎE - BẢO HIỂM</NavDropdown.Item>
-                      <NavDropdown.Item>GIẢI TRÍ - SHOWBIZ</NavDropdown.Item>
-                        <NavDropdown.Item>CÔNG NGHỆ CAO</NavDropdown.Item>
-                        <NavDropdown.Item>TÀI CHÍNH - NGÂN HÀNG</NavDropdown.Item>
-                       <NavDropdown.Item>SẢN XUẤT - CHẾ BIẾN</NavDropdown.Item>
-                       <NavDropdown.Item>THẨM MỸ - LÀM ĐẸP</NavDropdown.Item>
-                       <NavDropdown.Item>GIA ĐÌNH - NHÓM BẠN BÈ</NavDropdown.Item>
-                      <NavDropdown.Item>TÔN GIÁO - THIỆN NGUYỆN</NavDropdown.Item>
-                      <NavDropdown.Item>CƠ QUAN NHÀ NƯỚC</NavDropdown.Item>
-                    </NavDropdown>
-                    <Link href="/about">TIN TỨC </Link>
-                    <Link href="/Contact">REVIEW</Link>
+                      <Link href="/">
+                        <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
+                      </Link>
+                    <div className='logo_phone'>
+                  
+                   
+    
+                      <label for="check" className="menu_mobile" onClick={() =>
+                            setOpenedCollapse(
+                                openedCollapse === "collapseOne"
+                                ? ""
+                                : "collapseOne"
+                            )
+                            }>
+                          <i class='bx bx-list-ul'></i>
+                      </label>
+                      </div>
+                    </CardHeader>
+                    <Collapse
+                        isOpen={openedCollapse === "collapseOne"}
+                        aria-labelledby="headingOne"
+                        data-parent="#accordionExample"
+                        id="collapseOne"
+                    >
+                      <CardBody className="content-menu-phone opacity-8">
+                        <Offcanvas.Header>
+                          <Offcanvas.Title>
+                            {/* <Link href="/">
+                            <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
+                            </Link> */}
+                          </Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body className="title-menuphone">
+                          <Nav>
+                            <Nav.Link href="/">TRANG CHỦ</Nav.Link>
+                            <NavDropdown
+                                id="nav-dropdown-tour-"
+                                title="TOUR"
+
+                            >
+                              <NavDropdown.Item>TOUR GIÁP THÌN</NavDropdown.Item>
+                              <NavDropdown.Item>TOUR NƯỚC NGOÀI</NavDropdown.Item>
+                              <NavDropdown.Item href="/">TOUR TREKKING</NavDropdown.Item>
+                              <NavDropdown.Item href="/">TOUR THEO YÊU CẦU</NavDropdown.Item>
+                            </NavDropdown>
+                            <Link href="/">FLASHPACKING</Link>
+                            <Link href="/">VISA</Link>
+                            <Link href="/">VÉ MÁY BAY -VOUCHER COMBO</Link>
+                            <NavDropdown id="nav-dropdown-tour-nn" title="NHẬT KÝ">
+                              <NavDropdown.Item>KHÁCH LẺ GHÉP ĐOÀN</NavDropdown.Item>
+                              <NavDropdown.Item>BẤT ĐỘNG SẢN</NavDropdown.Item>
+                              <NavDropdown.Item>SỨC KHỎE - BẢO HIỂM</NavDropdown.Item>
+                              <NavDropdown.Item>GIẢI TRÍ - SHOWBIZ</NavDropdown.Item>
+                                <NavDropdown.Item>CÔNG NGHỆ CAO</NavDropdown.Item>
+                                <NavDropdown.Item>TÀI CHÍNH - NGÂN HÀNG</NavDropdown.Item>
+                              <NavDropdown.Item>SẢN XUẤT - CHẾ BIẾN</NavDropdown.Item>
+                              <NavDropdown.Item>THẨM MỸ - LÀM ĐẸP</NavDropdown.Item>
+                              <NavDropdown.Item>GIA ĐÌNH - NHÓM BẠN BÈ</NavDropdown.Item>
+                              <NavDropdown.Item>TÔN GIÁO - THIỆN NGUYỆN</NavDropdown.Item>
+                              <NavDropdown.Item>CƠ QUAN NHÀ NƯỚC</NavDropdown.Item>
+                            </NavDropdown>
+                            <Link href="/about">TIN TỨC </Link>
+                            <Link href="/Contact">REVIEW</Link>
 
 
-                  </Nav>
-                </Offcanvas.Body>
-              </Offcanvas>
-              </Container>
+                          </Nav>
+                        </Offcanvas.Body>
+                      </CardBody>
+                    </Collapse>
+                  </Card>
+              
+            </Container>
+
         </Navbar>
       </>
 
