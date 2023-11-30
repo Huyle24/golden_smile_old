@@ -71,6 +71,7 @@ function CardList(props) {
             {list_tour ? (list_tour.map((item,index) =>(
 
             <SwiperSlide lg="4" className="mt-4" key={index}>
+            <div data-aos="zoom-out" data-aos-duration="3000">
             <Card>
                 <Card className="position-relative border border-0 header_tour_img">
                 <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
@@ -161,17 +162,20 @@ function CardList(props) {
                 </div>
                 </Card.Body>
             </Card>
+            </div>
             </SwiperSlide>
                 ))): ''}
         </Swiper>
-        <div className="home-page__see-all text-end mt-4">
-            <Link href='/Category'>
-                <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white">
-                    Xem tất cả <FaArrowRight className="ms-2 " />
-                </Button>
-            </Link>
-
-        </div>
+            <div data-aos="fade-up"
+                    data-aos-duration="3000">
+                <div className="home-page__see-all text-end mt-4">
+                    <Link href='/Category'>
+                        <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white">
+                            Xem tất cả <FaArrowRight className="ms-2 " />
+                        </Button>
+                    </Link>
+                </div>
+            </div>
       </div>
     </Container>
   );

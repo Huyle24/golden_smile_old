@@ -48,6 +48,10 @@ body {
     font-size: 13px;
 }
 
+.menumobile_phone.card{
+    display: none;
+}
+
 .phone-hotline .num-line {
     color: #fff;
     font-weight: 700;

@@ -10,13 +10,20 @@ import Footer from './components/Footer';
 import {Provider} from "react-redux";
 import {SSRProvider} from "react-bootstrap";
 import store from "../../redux/store";
-import {useEffect, useState} from "react";
+import {React, useEffect, useState} from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 
 export default function RootLayout({ children }) {
-
+      useEffect(() => {
+        AOS.init({
+            duration: 1900,
+            once: false,
+          })
+    }, [])
 
   return (
     <html lang="en">
@@ -51,15 +58,17 @@ x
         </Head>
         <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'></link>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+     
         <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
 
-<script
-  src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
-  crossorigin></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
+          crossorigin></script>
 
-<script
-  src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
-  crossorigin></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
+          crossorigin></script>
+  
           <Provider store={store}>
       <Header />
       {children}

@@ -94,8 +94,9 @@ function TourTrekking(props) {
           <div className="container">
             <Slider {...settings} className="trekking_tour_slide">
                 {list_tour ? (list_tour.map((item,index) =>(
-                    <>
-                        <div className="card mx-2 mt-2 trekking_card" >
+                    <>  
+                      <div data-aos="zoom-in" data-aos-duration="3000">
+                        <div className="card mx-2 mt-2 trekking_card">
                             <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                             <div className="card-image Trekking-img">    
                                 <img src={item.img} />
@@ -173,6 +174,7 @@ function TourTrekking(props) {
                                     </div>
                                 </div>
                         </div>
+                      </div>
                     </>
                 ))): ''}
             </Slider>
