@@ -39,7 +39,6 @@ export default function RootLayout({ children }) {
                 <meta name="keywords" content="Demo bootstrap"/>
                 <meta name="author" content="Idspa"/>
                 <title>Nhanhtravel</title>
-
                 <meta name="apple-mobile-web-app-capable" content="yes"/>
                 <meta name="apple-touch-fullscreen" content="yes"/>
                 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
@@ -50,12 +49,9 @@ export default function RootLayout({ children }) {
                 integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
                 crossorigin="anonymous"
                 />
-x
                   <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
-                  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-                  
-                  
-        </Head>
+                  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />            
+      </Head>
         <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'></link>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
      
