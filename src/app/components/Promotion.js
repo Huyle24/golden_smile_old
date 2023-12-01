@@ -72,9 +72,12 @@ function Promotion(props){
             {slideImageInfo ? (slideImageInfo.map((item,index) => (
               <SwiperSlide key={index}>
                   <div className="header_tour_img rounded">
+                    <div data-aos="zoom-in-down" data-aos-duration="3000"
+                                    data-aos-delay="100">
                       <Link href="/Category">
                           <img src={item.image} className="img_promo w-100"/>
                       </Link>
+                    </div>
                   </div>
 
               </SwiperSlide>

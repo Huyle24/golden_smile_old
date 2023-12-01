@@ -469,7 +469,7 @@ function SearchBox(props) {
                                 : "collapseOne"
                             )
                             }
-                            className="text-secondary btn improve-search shadow-none pr-3 pl-0 position-absolute bos-fited-left-center py-0 h-100 border-right">
+                            className={`text-secondary bos-fited-left-center btn ${openedCollapse?'improve-search':''} shadow-none pr-3 pl-0 position-absolute py-0 h-100 border-right`}>
                             </a>
                              <input type="text" name="search" placeholder="Nhập tên tour..."
                                 className="form-control form-control-lg border shadow-none pr-9 pl-11 bg-white placeholder-muted" />

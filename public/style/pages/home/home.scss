@@ -662,11 +662,16 @@ div,
     bottom: 0;
     left: 0;
     padding: .625rem;
+
 }
 
 .images_next {
     flex-shrink: 0;
     width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    aspect-ratio: 428/304;
+    object-fit: cover;
 }
 
 .images_next {
@@ -816,11 +821,6 @@ div,
 
 .name_number:hover {
     text-decoration: none;
-}
-
-.images_next {
-    max-width: 100%;
-    height: auto;
 }
 
 [data-animate] {

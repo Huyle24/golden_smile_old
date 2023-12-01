@@ -425,9 +425,6 @@ function Header(props){
                         <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
                       </Link>
                     <div className='logo_phone'>
-                  
-                   
-    
                       <label for="check" className="menu_mobile" onClick={() =>
                             setOpenedCollapse(
                                 openedCollapse === "collapseOne"

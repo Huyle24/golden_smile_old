@@ -7,6 +7,7 @@
     margin-bottom: 15px
 }
 
+
 .heritage-search .btn.improve-search:after {
     // font-family: Font Awesome\ 5 Pro;
     font-family: "Material Icons";
@@ -15,6 +16,15 @@
     margin-left: 15px;
     color: #DBA73D;
 }
+
+.heritage-search .bos-fited-left-center:after {
+    font-family: "Material Icons";
+    font-size: 24px;
+    font-weight: 400;
+    margin-left: 15px;
+    color: #DBA73D;
+    content: "\e145";
+}  
 
 .heritage-search .btn.improve-search:not(.collapseOne):after {
     content: "\e15b";
@@ -25,22 +35,22 @@
     content: "\e145";
 }
 
-.heritage-search .other-feature:before {
-    // font-family: Font Awesome\ 5 Pro;
-    font-family: "Material Icons";
-    font-size: 20px;
-    margin-right: 5px
-}
+// .heritage-search .other-feature:before {
+//     // font-family: Font Awesome\ 5 Pro;
+//     font-family: "Material Icons";
+//     font-size: 20px;
+//     margin-right: 5px
+// }
 
-.heritage-search .other-feature:not(.collapseOne):before {
-    content: "\e15b";
-    color: #DBA73D;
-}
+// .heritage-search .other-feature:not(.collapseOne):before {
+//     // content: "\e15b";
+//     color: #DBA73D;
+// }
 
-.heritage-search .other-feature.collapseOne:before {
-    content: "\e15b";
-    color: #DBA73D;
-}
+// .heritage-search .other-feature.collapseOne:before {
+//     // content: "\e15b";
+//     color: #DBA73D;
+// }
 
 
 @media (prefers-reduced-motion:reduce) {
@@ -57,15 +67,16 @@
 }
 
 .heritage-search .btn.improve-search:not(.collapseOne):after {
-    content: "\e15b";
+    // content: "\e15b";
     color: #DBA73D;
 }
+ 
 
 .btn:first-child:active {
     border-color: #ddd !important;
 }
 .heritage-search .btn.improve-search.collapseOne:after {
-    content: "\e145"
+    // content: "\e145"
 }
 
 .tt-item-btn--block {
