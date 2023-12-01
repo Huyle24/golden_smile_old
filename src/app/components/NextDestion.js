@@ -115,9 +115,9 @@ function NextDestion(props) {
 
                 
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000">
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">
                             <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                                 <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                         src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/thumb-1920-716104-1676988825.jpg"
@@ -138,9 +138,9 @@ function NextDestion(props) {
 
                      
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                   data-aos-duration="3000">  
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">  
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/09/27/du-lich-bhutan-16-1695788477.jpg"
@@ -161,9 +161,9 @@ function NextDestion(props) {
 
                
                     <div className="col-xs-6 col-md-3">
- <div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000">
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/vi-tri-dia-ly-cua-dai-loan-1676988660.jpg"
@@ -183,9 +183,9 @@ function NextDestion(props) {
 
                 
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000">
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/4a95ec44cd1fbafd69d16194085a71fbarticle-img-id2547300-1676988738.jpg"
@@ -206,9 +206,9 @@ function NextDestion(props) {
 
                   
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000"> 
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000"> 
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/maxresdefault-2-1676988709.jpg"
@@ -229,9 +229,9 @@ function NextDestion(props) {
 
                  
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                   data-aos-duration="3000">
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://via.placeholder.com/300" alt="Indonesia" className="images_next"/>
@@ -251,9 +251,9 @@ function NextDestion(props) {
 
                    
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000">
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://via.placeholder.com/300" alt="Lào" className="images_next"/>
@@ -273,9 +273,9 @@ function NextDestion(props) {
 
                      
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000">
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/huong-dan-cac-dau-moi-lay-hang-9225-5460-1511781583-1676987737.jpg"
@@ -296,9 +296,9 @@ function NextDestion(props) {
 
                 
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000">
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                        data-aos-duration="3000">
                         <div data-animate="fadeIn" className="nextion_item px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://via.placeholder.com/300" alt="Sing Mã" className="images_next"/>
@@ -306,7 +306,7 @@ function NextDestion(props) {
                                     <h2 className="name_next mb-0">Sing Mã</h2>
                                 </div> <a href="https://goldensmiletravel.com/du-lich-sing-ma.html" className="name_number">
                                     <div className="images_next-overlay d-flex justify-content-end flex-column">
-                                        <p className="trip_generality fs-13 font-weight-500  text-center3"><span
+                                        <p className="trip_generality fs-13 font-weight-500 text-center"><span
                                                 className="trip_number">2 CHUYẾN THAM QUAN</span></p>
                                     </div>
                                 </a>
@@ -318,9 +318,9 @@ function NextDestion(props) {
 
                      
                     <div className="col-xs-6 col-md-3">
-<div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-duration="3000"> 
+                    <div data-aos="fade-zoom-in"
+                        data-aos-easing="ease-in-back"
+                         data-aos-duration="3000"> 
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/thoi-tiet-thai-lan-1676988765.jpg"
@@ -329,7 +329,7 @@ function NextDestion(props) {
                                     <h2 className="name_next mb-0">Thái Lan</h2>
                                 </div> <a href="https://goldensmiletravel.com/du-lich-thai-lan.html" className="name_number">
                                     <div className="images_next-overlay d-flex justify-content-end flex-column">
-                                        <p className="trip_generality fs-13 font-weight-500  text-center snipcss0-7-112-113"><span
+                                        <p className="trip_generality fs-13 font-weight-500  text-center"><span
                                                 className="trip_number">12 CHUYẾN THAM QUAN</span></p>
                                     </div>
                                 </a>
@@ -342,8 +342,8 @@ function NextDestion(props) {
                     
                     <div className="col-xs-6 col-md-3">
                         <div data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                   data-aos-duration="3000"> 
+                         data-aos-easing="ease-in-back"
+                        data-aos-duration="3000"> 
                         <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                             <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                     src="https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/06/22/1-phuong-hoang-co-tran-1629707504-1678546868-1687421197.jpeg"

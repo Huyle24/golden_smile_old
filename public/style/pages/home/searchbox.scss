@@ -16,12 +16,12 @@
     color: #DBA73D;
 }
 
-.heritage-search .btn.improve-search:not(.collapsed):after {
+.heritage-search .btn.improve-search:not(.collapseOne):after {
     content: "\e15b";
     color: #DBA73D;
 }
 
-.heritage-search .btn.improve-search.collapsed:after {
+.heritage-search .btn.improve-search.collapseOne:after {
     content: "\e145";
 }
 
@@ -32,12 +32,12 @@
     margin-right: 5px
 }
 
-.heritage-search .other-feature:not(.collapsed):before {
+.heritage-search .other-feature:not(.collapseOne):before {
     content: "\e15b";
     color: #DBA73D;
 }
 
-.heritage-search .other-feature.collapsed:before {
+.heritage-search .other-feature.collapseOne:before {
     content: "\e15b";
     color: #DBA73D;
 }
@@ -56,7 +56,7 @@
     margin-left: 15px
 }
 
-.heritage-search .btn.improve-search:not(.collapsed):after {
+.heritage-search .btn.improve-search:not(.collapseOne):after {
     content: "\e15b";
     color: #DBA73D;
 }
@@ -64,7 +64,7 @@
 .btn:first-child:active {
     border-color: #ddd !important;
 }
-.heritage-search .btn.improve-search.collapsed:after {
+.heritage-search .btn.improve-search.collapseOne:after {
     content: "\e145"
 }
 
