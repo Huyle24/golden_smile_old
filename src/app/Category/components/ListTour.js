@@ -178,7 +178,7 @@ function ListTour(props){
 
 
     },[tour_list_num_row])
-
+    console.log(tourList)
     return (
                 <Col lg={9} >
                     <h1 className="py-4 h2 fw-bold heading text-center">Du lịch Miền Bắc</h1>
@@ -205,7 +205,7 @@ function ListTour(props){
                                             <Link href={"/Tour?id="+ item.id}>
                                                 <Card.Img
                                                     variant="top"
-                                                    src={item.img}
+                                                    src={item.bucket_img}
                                                 />
                                             </Link>
                                             <Card.Text className="tag position-absolute text-primary mb-0">

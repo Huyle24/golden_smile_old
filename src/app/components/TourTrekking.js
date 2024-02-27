@@ -99,7 +99,7 @@ function TourTrekking(props) {
                         <div className="card mx-2 mt-2 trekking_card">
                             <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                             <div className="card-image Trekking-img">    
-                                <img src={item.img} />
+                                <img src={item.bucket_img} />
                                 <div className="item-content-price">
                                     <span className="item-label price_trekking">{item.price_1_person}đ</span>
                                 </div>

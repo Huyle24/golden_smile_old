@@ -78,7 +78,7 @@ function NextDestion(props) {
                                     <Link href="/Category">
                                     <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                                         <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
-                                                src={item.img}
+                                                src={item.bucket_img}
                                                 alt="Trung Quốc" className="images_next"/>
                                             <div className="images_next-overlay d-flex justify-content-center flex-column">
                                                 <h2 className="name_next mb-0">{item.name}</h2>

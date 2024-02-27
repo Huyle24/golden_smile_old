@@ -1,0 +1,214 @@
+.tour_cat_title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: left;
+  color: #000;
+}
+
+.box_list_tool {
+  background: #efefef;
+}
+
+.card-tour {
+  padding: 10px;
+  margin-bottom: 20px;
+
+  &:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .container-img:hover img {
+
+    opacity: 0.5;
+  }
+
+  img {
+    height: 189px;
+    width: 253px;
+  }
+
+  &-title {
+    font-size: 16px;
+    color: black;
+
+    &:hover {
+      color: #db2031;
+    }
+
+
+  }
+
+  .card-text {
+    font-size: 14px;
+    color: black;
+
+    i, svg {
+      color: #db2031;
+    }
+
+    &-line-star {
+      color: #db2031;
+      font-size: 16px;
+    }
+  }
+
+  .tour-price-horizontal {
+    background: url("https://vigomanager.com/app-assets/mobile/img-huy/gia_ngang.png");
+    width: 184px;
+    height: 42px;
+    position: absolute;
+    left: -10px;
+    bottom: 0;
+    text-align: center;
+    padding-top: 5px;
+    z-index: 99;
+
+    &-label {
+      color: #fff;
+      font-size: 12px;
+    }
+
+    &-value {
+      color: #fcb833;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+}
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+
+
+/* OPTION 1 */
+.overlay-outer {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.overlay {
+  background: rgb(0 0 0 / 50%);;
+  position: absolute;
+  height: 100%;
+  width: 253px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.4s ease-in-out 0s;
+  border-radius: 0;
+}
+
+a:hover .overlay {
+  opacity: 1;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.overlay-outer:hover .content-details {
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3 {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.content-details p {
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn_bottom {
+  top: 80%;
+}
+/*  */
+
+/* OPTION 2 */
+.hover_color {
+  position: relative;
+  margin: 0;
+  display: inline-block;
+}
+
+.hover_color::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  background: rgba(246,227,75,.8);
+  transition: all 350ms;
+  /*this. this is stupid. to get rid of that empty space. I don't know what causes it*/
+  /*   margin-bottom: 3px;  */
+}
+
+/* top or bottom, to choose where it starts */
+.hover_color:hover::before {
+  top: 0;
+}
+
+.hover_color img {
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%;
+  /*alternate solution for that stupid space at the bottom*/
+  margin-bottom: -3px;
+  /*  if the title is always there and you need to darken the background:
+   filter: brightness(40%); */
+}
+
+.hover_color .hover_color-inner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hover_title {
+  transform: translateY(-4px);
+  opacity: 0; /*or 1, if the title is always visible*/
+  transition: all 350ms;
+}
+
+.hover_color a {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* don't need this if the title is always visible */
+.hover_color:hover .hover_title {
+  transform: translateY(0);
+  opacity: 1;
+}
+/*  */

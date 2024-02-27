@@ -54,7 +54,7 @@ function SuggestList(props) {
 
     return (
         <Container className="mb-5">
-            <h4 className="mt-4 color-text">Tour trong nước</h4>
+            <h4 className="mt-4 color-text">Tour ghép</h4>
             <Swiper
                 cssMode={true}
                 navigation={true}

@@ -32,7 +32,7 @@ function CardList(props) {
   return (
     <Container >
       <div className="tourtrongnuoc">
-        <h4 className="mt-4">Tour trong nước</h4>
+        <h4 className="mt-4">Tour ghép</h4>
         <span className="divider-Trekking"></span>
       
       <Swiper
@@ -58,12 +58,12 @@ function CardList(props) {
           spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 20,
           },
         }}
           autoplay={{
-              delay: 4000,
+              delay: 5000,
               disableOnInteraction: false,
           }}
       modules={[Navigation,Autoplay]}
@@ -77,11 +77,11 @@ function CardList(props) {
                 <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                   <Card.Img
                       variant="top"
-                      src={item.img}
+                      src={item.bucket_img}
                   />
                 </Link>
                 <Card.Text className="tag position-absolute text-primary mb-0">
-                    Tour riêng
+                    Tour ghép
                 </Card.Text>
                 <FaRegHeart className="position-absolute tag_heart" />
                 <div className="position-absolute tag_right_card d-flex flex-column align-items-end">

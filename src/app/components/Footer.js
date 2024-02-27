@@ -43,6 +43,9 @@ export default function Footer(){
     return (
  
             <div className="footer">
+                <Row className={'line-row'}>
+                    <div className={'line-bottom'}></div>
+                </Row>
                 <Row className='mb-6'>
                     <div className='col-xs-12 col-md-3'>
                         <h4 className='info_contact'>Liên hệ</h4>

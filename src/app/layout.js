@@ -1,5 +1,5 @@
 "use client"
-import './globals.css'
+import './globals.scss'
 import { Inter } from 'next/font/google'
 import 'bootstrap/dist/css/bootstrap.css';
 import "slick-carousel/slick/slick.css"; 

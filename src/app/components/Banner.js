@@ -56,7 +56,7 @@ function Banner() {
     },
   ];
   return (
-    <div className="backgroundBanner shadow-lg mt-5">
+    <div className="backgroundBanner shadow-lg ">
       <div className="container pt-5 pb-5">
         <div className="row">
           <div className="col col-6 customer_banner">

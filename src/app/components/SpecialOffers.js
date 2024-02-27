@@ -17,8 +17,8 @@ import {event} from "next/dist/build/output/log";
 import {addToCartAction, fetchTourList} from "../../../redux/actions";
 import Swal from "sweetalert2";
 import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
+import fetchCategoryListReducer from "../../../redux/reducers/fetchCategoryListReducer";
 function SpecialOffers(props) {
-
     useEffect(() => {
         props.fetchTourList('', '', '', '', '', '', '', '',1)
       },[])
@@ -29,10 +29,11 @@ function SpecialOffers(props) {
         // alert(item.id);
             props.addToWatchedAction(item);
       };
+      console.log(list_tour)
     return (
         <Container >
             <div className="tournuocngoai">
-                <h4 className="mt-4">Tour nước ngoài</h4>
+                <h4 className="mt-4">Tour riêng</h4>
                 <span className="divider-Trekking"></span>
             <Swiper
                 cssMode={true}
@@ -57,12 +58,12 @@ function SpecialOffers(props) {
                         spaceBetween: 20,
                     },
                     1200: {
-                        slidesPerView: 3,
+                        slidesPerView: 4,
                         spaceBetween: 20,
                     },
                 }}
                 autoplay={{
-                    delay: 3000,
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
                 modules={[Navigation,Autoplay]}
@@ -76,7 +77,7 @@ function SpecialOffers(props) {
                                 <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                                     <Card.Img
                                         variant="top"
-                                        src={item.img}
+                                        src={item.bucket_img  ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/no-image-icon-23492.png' }
                                     />
                                 </Link>
                                 <Card.Text className="tag position-absolute text-primary mb-0">

@@ -22,7 +22,7 @@
     .menu-info .muc_menu:last-child {
         margin-left: -14%;
         margin-right: -3%;
-        margin-top: 7px;
+
     }
      .navbar_goodsmile .navbar_logo_images img {
         width: 130px !important;
@@ -52,7 +52,7 @@
     .phone-hotline .num-line {
         /* display: flex; */
         /* float: none; */
-        font-size: 8px;
+        font-size: 14px;
     }
 
     .hotline_firsttop {
@@ -333,6 +333,12 @@
 }
 
 @media screen and (min-width: 280px) and (max-width: 426px) {
+    .hide-mobile{
+        display: none !important;
+    }
+    .text-hotline{
+        display: none!important;
+    }
 
     .header-first .danhmuc_firsttop {
         padding-right: 15px;
@@ -358,7 +364,7 @@
     .menu-info .muc_menu:last-child {
         margin-left: -14%;
         margin-right: -3%;
-        margin-top: 7px;
+
     }
     
     .danhmuc_firsttop .menu-info .line-vertical {
