@@ -1,35 +1,53 @@
-import { Col, Container, Row } from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { FaTicketAlt, FaCalendarAlt, FaArrowRight,FaRegHeart,FaCartPlus  } from "react-icons/fa";
-import { ListTourData } from "../Category/ListTourData";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import {FaArrowRight, FaCalendarAlt, FaRegHeart} from "react-icons/fa";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Autoplay, Navigation} from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
-import * as actionType from "../../../redux/actions/type";
 import * as actions from "../../../redux/actions";
 import {connect} from "react-redux";
-import {event} from "next/dist/build/output/log";
-import {addToCartAction, fetchTourList} from "../../../redux/actions";
-import Swal from "sweetalert2";
 import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
-import fetchCategoryListReducer from "../../../redux/reducers/fetchCategoryListReducer";
+
 function SpecialOffers(props) {
     useEffect(() => {
-        props.fetchTourList('', '', '', '', '', '', '', '',1)
+        props.fetchTourList('', '', '', '', '', 1, '', '',1)
       },[])
       let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
-      // console.log(props.tourListInfo);
-    
+
       const Product_watched = (item) => {
         // alert(item.id);
             props.addToWatchedAction(item);
       };
-      console.log(list_tour)
+    // const getTourList = async (key_work = '', tour_type = 1, typeDate = '') => {
+    //     let url_api = BASE_URL_API + "Balotour/Tour/tourList?limit=&keyword=" + key_work + "&tour_type=" + tour_type + "&typedate=" + typeDate;
+    //     let token = await GET_TOKEN();
+    //
+    //     axios.get(url_api, {
+    //         headers: {
+    //             "x-api-key": "api_key",
+    //             'USER-TOKEN': JSON.parse(token),
+    //             'LANG-CODE': JSON.parse(GET_LANG_CODE()),
+    //             "Content-Type": "multipart/form-data"
+    //         }
+    //     }).then(async function (response) {
+    //         setTourlist(response.data.data.tour_list)
+    //     })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
+
+    // useEffect(() => {
+    //     getTourList()
+    // }, []);
+
+
+    const [tourList, setTourlist] = useState([])
+    console.log(tourList)
     return (
         <Container >
             <div className="tournuocngoai">

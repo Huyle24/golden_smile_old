@@ -42,7 +42,7 @@ export default function Home() {
             <Promotion/>
             <ImagesBanner/>
             <SpecialOffers/>
-            <CardList/>
+            <CardList />
             <TourTrekking/>
             <TourPopularType/>
             <NextDestion/>

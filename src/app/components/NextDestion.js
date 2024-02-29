@@ -56,10 +56,10 @@ function NextDestion(props) {
     //     },
     // ]
     
-    useEffect(() => {
-        props.fetchTourList('', '', '', '', '', '', '', '',1)
-
-    }, []);
+    // useEffect(() => {
+    //     props.fetchTourList('', '', '', '', '', '', '', '',1)
+    //
+    // }, []);
   let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
     return (
         <Container>

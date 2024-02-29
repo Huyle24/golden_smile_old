@@ -22,6 +22,7 @@ export const fetchTourList = (off = '', limit = '', keyword = '', city_id = '', 
     return { type: actionTypes.TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding };
 };
 
+
 export const fetchTourDetail = (permalink = '', customer_number = '', child_number = '') => {
     return { type: actionTypes.TOUR_DETAIL, permalink: permalink, customer_number: customer_number, child_number: child_number };
 };

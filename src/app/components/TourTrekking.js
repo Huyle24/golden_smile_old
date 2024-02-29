@@ -16,9 +16,9 @@ import {addToCartAction, fetchTourList} from "../../../redux/actions";
 import Swal from "sweetalert2";
 
 function TourTrekking(props) {
-    useEffect(() => {
-        props.fetchTourList('', '', '', '', '', '', '', '',1)
-    },[])
+    // useEffect(() => {
+    //     props.fetchTourList('', '', '', '', '', '', '', '',1)
+    // },[])
 
     let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
 
