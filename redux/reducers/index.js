@@ -3,7 +3,9 @@ import userInfoReducer from "./userInfoReducer";
 import fetchCategoryListReducer from "./fetchCategoryListReducer";
 import fetchBrandListReducer from './fetchBrandListReducer';
 import fetchProductListReducer from './fetchProductListReducer';
-import tourListReducer from './tourListReducer';
+import tourPrivateListReducer from './tourPrivateListReducer';
+import tourJointListReducer from './tourJointListReducer';
+
 import tourDetailReducer from './tourDetailReducer';
 import golfDetailReducer from './golfDetailReducer';
 import golfListReducer from './golfListReducer';
@@ -32,6 +34,7 @@ import setupAddressDetailReducer from './setupAddressDetailReducer';
 import orderHistoryReducer from './orderHistoryReducer';
 import addToCartReducer from "./addToCartReducer";
 import addProductWatchedReducer from './addProductWatchedReducer';
+import tourInboundListReducer from "./tourInboundListReducer";
 
 
 
@@ -41,7 +44,9 @@ export default combineReducers({
     categoryListInfo: fetchCategoryListReducer,
     brandListInfo: fetchBrandListReducer,
     productListInfo: fetchProductListReducer,
-    tourListInfo: tourListReducer,
+    privateTourListInfo: tourPrivateListReducer,
+    jointTourListInfo: tourJointListReducer,
+    tourInboundListInfo: tourInboundListReducer,
     tourDetailInfo: tourDetailReducer,
     golfDetailInfo: golfDetailReducer,
     golfListInfo: golfListReducer,

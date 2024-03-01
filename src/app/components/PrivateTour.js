@@ -11,13 +11,14 @@ import Link from "next/link";
 import * as actions from "../../../redux/actions";
 import {connect} from "react-redux";
 import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
+import {fetchPrivateTourList} from "../../../redux/actions";
 
-function SpecialOffers(props) {
+function PrivateTour(props) {
     useEffect(() => {
-        props.fetchTourList('', '', '', '', '', 1, '', '',1)
+        props.fetchPrivateTourList('', '', '', '', 1, '', '', '',1)
       },[])
-      let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
-
+      let list_tour = props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
+    console.log(list_tour)
       const Product_watched = (item) => {
         // alert(item.id);
             props.addToWatchedAction(item);
@@ -45,9 +46,9 @@ function SpecialOffers(props) {
     //     getTourList()
     // }, []);
 
-
-    const [tourList, setTourlist] = useState([])
-    console.log(tourList)
+    //
+    // const [tourList, setTourlist] = useState([])
+    // console.log(tourList)
     return (
         <Container >
             <div className="tournuocngoai">
@@ -95,7 +96,7 @@ function SpecialOffers(props) {
                                 <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>
                                     <Card.Img
                                         variant="top"
-                                        src={item.bucket_img  ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/no-image-icon-23492.png' }
+                                        src={item.bucket_img  ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png' }
                                     />
                                 </Link>
                                 <Card.Text className="tag position-absolute text-primary mb-0">
@@ -202,6 +203,6 @@ function SpecialOffers(props) {
 
 
 const mapStateToProps = state => ({
-    tourListInfo: state.tourListInfo
+    privateTourListInfo: state.privateTourListInfo
 });
-export default connect(mapStateToProps, actions)(SpecialOffers);
+export default connect(mapStateToProps, actions)(PrivateTour);

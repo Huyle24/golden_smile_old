@@ -1,5 +1,5 @@
 import * as actionTypes from './type';
-import { BASE_URL_API } from "./type";
+import {BASE_URL_API, JOINT_TOUR_LIST, PRIVATE_TOUR_LIST} from "./type";
 
 
 export const getUserInfo = () => {
@@ -18,11 +18,16 @@ export const fetchProductList = (off = '', limit = '', q = '', brand_id = '', ca
     return { type: actionTypes.FETCH_PRODUCT_LIST, off: off, limit: limit, q: q, brand_id: brand_id, category_id: category_id };
 };
 
-export const fetchTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = '',typedate = '', date_start = '', date_end = '', outstanding = '') => {
-    return { type: actionTypes.TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding };
+export const fetchPrivateTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = '',typedate = '', date_start = '', date_end = '', outstanding = '') => {
+    return { type: actionTypes.PRIVATE_TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding };
 };
 
-
+export const fetchJointTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = ' ',typedate = '', date_start = '', date_end = '', outstanding = '') => {
+    return { type: actionTypes.JOINT_TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding };
+};
+export const fetchInboundTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = ' ',typedate = '', date_start = '', date_end = '', outstanding = '') => {
+    return { type: actionTypes.INBOUND_TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding };
+};
 export const fetchTourDetail = (permalink = '', customer_number = '', child_number = '') => {
     return { type: actionTypes.TOUR_DETAIL, permalink: permalink, customer_number: customer_number, child_number: child_number };
 };

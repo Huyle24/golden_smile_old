@@ -18,10 +18,10 @@ import {addToCartAction, fetchTourList} from "../../../redux/actions";
 import Swal from "sweetalert2";
 function SuggestList(props) {
     useEffect(() => {
-        props.fetchTourList('', '', '', '', '', '', '', '',1)
+        props.fetchPrivateTourList('', '', '', '', 1, '', '', '',1)
     },[])
 
-    let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+    let list_tour = props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
 
     const Toast = Swal.mixin({
         toast: true,
@@ -96,7 +96,7 @@ function SuggestList(props) {
                                 <Link href={"/Tour?id="+ item.id}>
                                     <Card.Img
                                         variant="top"
-                                        src={item.img}
+                                        src={item.bucket_img  ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png' }
                                     />
                                 </Link>
                                 <Card.Text className="tag position-absolute text-primary mb-0">
@@ -190,8 +190,8 @@ function SuggestList(props) {
 }
 
 
-
 const mapStateToProps = state => ({
-    tourListInfo: state.tourListInfo
+    privateTourListInfo: state.privateTourListInfo
 });
 export default connect(mapStateToProps, actions)(SuggestList);
+

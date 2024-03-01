@@ -9,13 +9,13 @@ import Carousels from './components/Carousels'
 import SearchBox from './components/SearchBox'
 import Promotion from './components/Promotion'
 import ProductTravel from './components/ProductTravel'
-import CardList from './components/CardList'
-import SpecialOffers from './components/SpecialOffers'
+import JointTour from './components/JointTour'
+import PrivateTour from './components/PrivateTour'
 import {connect} from "react-redux";
 import * as actions from "../../redux/actions";
 import {Montserrat} from 'next/font/google';
 import ImagesBanner from './components/ImagesBanner';
-import TourTrekking from './components/TourTrekking';
+import InboundTour from './components/InboundTour';
 import TourPopularType from './components/TourPopularType';
 import NextDestion from './components/NextDestion';
 import BlogWhy from './components/BlogWhy';
@@ -41,9 +41,9 @@ export default function Home() {
             <Carousels/>
             <Promotion/>
             <ImagesBanner/>
-            <SpecialOffers/>
-            <CardList />
-            <TourTrekking/>
+            <PrivateTour/>
+            <JointTour/>
+            <InboundTour/>
             <TourPopularType/>
             <NextDestion/>
             <BlogWhy/>

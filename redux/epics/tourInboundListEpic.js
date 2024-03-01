@@ -4,6 +4,7 @@ import { from, of, throwError } from 'rxjs';
 import { mergeMap, map, takeUntil, delay, tap, catchError, switchMap, concatMap } from 'rxjs/operators';
 import { ofType } from 'redux-observable';
 import { ajax } from 'rxjs/ajax';
+import {JOINT_TOUR_LIST, JOINT_TOUR_LIST_ERROR, JOINT_TOUR_LIST_SUCCESS} from "../actions/type";
 //import {fromPromise} from 'rxjs/internal-compatibility';
 let api_url = "";
 let form_body = '';
@@ -25,19 +26,19 @@ const ajaxControl = (user_token, action) =>
         }
     }).pipe(
         map(response => ({
-            type: actionTypes.TOUR_LIST_SUCCESS,
+            type: actionTypes.INBOUND_TOUR_LIST_SUCCESS,
             payload: response.response
         })),
         catchError(error => {
             let data_error = {
-                type: actionTypes.TOUR_LIST_ERROR,
+                type: actionTypes.INBOUND_TOUR_LIST_ERROR,
                 payload: { connect: false }
             };
             return of(data_error);
         })
     );
-const tourListEpic = (action$, store) => action$.pipe(
-    ofType(actionTypes.TOUR_LIST),
+const tourPrivateListEpic = (action$, store) => action$.pipe(
+    ofType(actionTypes.INBOUND_TOUR_LIST),
     concatMap(action => of('').pipe(
         map(res => {
             let keyword='';
@@ -48,4 +49,4 @@ const tourListEpic = (action$, store) => action$.pipe(
 );
 
 
-export default tourListEpic;
+export default tourPrivateListEpic;

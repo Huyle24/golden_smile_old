@@ -2,7 +2,8 @@ import { combineEpics } from 'redux-observable';
 import fetchBrandListEpic from './fetchBrandListEpic';
 import fetchCategoryListEpic from './fetchCategoryListEpic';
 import fetchProductListEpic from './fetchProductListEpic';
-import tourListEpic from './tourListEpic';
+import tourPrivateListEpic from './tourPrivateListEpic';
+import tourJointListEpic from "./tourJointListEpic";
 import userInfoEpic from "./userInfoEpic";
 import golfListEpic from './golfListEpic';
 import tourDetailEpic from './tourDetailEpic';
@@ -31,13 +32,16 @@ import cityListEpic from './cityListEpic'
 import setupAddressDetailEpic from './setupAddressDetailEpic'
 import fetchTourDetailW3Epic from "./fetchTourDetailW3Epic";
 import orderHistoryEpic from './orderHistoryEpic'
+import tourInboundListEpic from "./tourInboundListEpic";
+
 
 export default combineEpics(
     userInfoEpic,
     fetchCategoryListEpic,
     fetchBrandListEpic,
     fetchProductListEpic,
-    tourListEpic,
+    tourPrivateListEpic,
+    tourJointListEpic,
     golfListEpic,
     golfDetailEpic,
     golfPriceEpic,
@@ -63,5 +67,7 @@ export default combineEpics(
     setupAddressEpic,
     setupAddressDetailEpic,
     fetchTourDetailW3Epic,
-    orderHistoryEpic
-)   
+    orderHistoryEpic,
+    tourInboundListEpic
+
+)

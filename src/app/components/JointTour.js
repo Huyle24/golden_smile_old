@@ -6,21 +6,20 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
-import axios from "axios";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import * as actions from "../../../redux/actions";
 import {connect} from "react-redux";
 import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
-import {BASE_URL_API, GET_LANG_CODE, GET_TOKEN} from "../../../redux/actions/type";
 import {fetchJointTourList} from "../../../redux/actions";
 
-function CardList(props) {
+function JointTour(props) {
     useEffect(() => {
-        props.fetchTourList('', '', '', '', 2, '', '', '', 1)
+        props.fetchJointTourList('', '', '', '', 2, '', '', '', 1)
     }, [])
 
-    let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+    let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
+    console.log('nguyen');
     console.log(list_tour);
     const Product_watched = (item) => {
         // alert(item.id);
@@ -101,7 +100,7 @@ function CardList(props) {
                                         <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                                             <Card.Img
                                                 variant="top"
-                                                src={item.bucket_img}
+                                                src={item.bucket_img  ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png' }
                                             />
                                         </Link>
                                         <Card.Text className="tag position-absolute text-primary mb-0">
@@ -214,6 +213,6 @@ function CardList(props) {
 
 
 const mapStateToProps = state => ({
-    tourListInfo: state.tourListInfo
+    jointTourListInfo: state.jointTourListInfo
 });
-export default connect(mapStateToProps, actions)(CardList);
+export default connect(mapStateToProps, actions)(JointTour);

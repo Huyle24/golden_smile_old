@@ -15,12 +15,12 @@ import {event} from "next/dist/build/output/log";
 import {addToCartAction, fetchTourList} from "../../../redux/actions";
 import Swal from "sweetalert2";
 
-function TourTrekking(props) {
+function InboundTour(props) {
     // useEffect(() => {
     //     props.fetchTourList('', '', '', '', '', '', '', '',1)
     // },[])
 
-    let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+    let list_tour =  '';
 
     const Product_watched = (item) => {
         // alert(item.id);
@@ -187,4 +187,4 @@ const mapStateToProps = state => ({
     tourListInfo: state.tourListInfo
 });
 
-export default  connect(mapStateToProps, actions)(TourTrekking);
+export default  connect(mapStateToProps, actions)(InboundTour);
