@@ -707,7 +707,7 @@ function Index(props) {
     let lenght= props.addCartInfo.data && props.addCartInfo.isLoading == false && props.addCartInfo.data.cart ? props.addCartInfo.data.lenght : '';
     let payment_method_list = props.addCartInfo.data && props.addCartInfo.isLoading == false && props.addCartInfo.data.cart ? props.addCartInfo.data.payment_method_list : '';
     let total_all_item = props.addCartInfo.data && props.addCartInfo.isLoading == false && props.addCartInfo.data.cart ? props.addCartInfo.data.total : '';
-    let tour_list = props.tourListInfo.data && props.tourListInfo.isLoading == false ? props.tourListInfo.data : '';
+    let tour_list = props.privateTourListInfo.data && props.privateTourListInfo.isLoading == false ? props.privateTourListInfo.data : '';
     let count_tour = tour_list.length;
     let number_silde_tour = Math.ceil(count_tour / 4)
     var data_tour_arr = [];
@@ -1015,7 +1015,7 @@ function Index(props) {
 const mapStateToProps = state => ({
     userInfo: state.userInfo,
     addCartInfo: state.addCartInfo,
-    tourListInfo: state.tourListInfo,
+    privateTourListInfo: state.privateTourListInfo,
     golfListInfo: state.golfListInfo,
     getToCart: state.getToCart,
 });

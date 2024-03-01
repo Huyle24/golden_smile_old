@@ -158,9 +158,9 @@ function ListTour(props){
 
 
 
-    let tour_list_num_row = props.tourListInfo.data && props.tourListInfo.data.num_row &&   props.tourListInfo.isLoading==false? props.tourListInfo.data.num_row : '';
-    let tour_list = props.tourListInfo.data && props.tourListInfo.data &&   props.tourListInfo.isLoading==false? props.tourListInfo.data.tour_list : '';
-    let date_type_list = props.tourListInfo.data && props.tourListInfo.data.date_type_list &&   props.tourListInfo.isLoading==false? props.tourListInfo.data.date_type_list : '';
+    let tour_list_num_row = props.privateTourListInfo.data && props.privateTourListInfo.data.num_row &&   props.privateTourListInfo.isLoading==false? props.privateTourListInfo.data.num_row : '';
+    let tour_list = props.privateTourListInfo.data && props.privateTourListInfo.data &&   props.privateTourListInfo.isLoading==false? props.privateTourListInfo.data.tour_list : '';
+    let date_type_list = props.privateTourListInfo.data && props.privateTourListInfo.data.date_type_list &&   props.privateTourListInfo.isLoading==false? props.privateTourListInfo.data.date_type_list : '';
     let paginate = Math.round(tour_list_num_row / OFF_DEFAULT);
 
     useEffect(() => {
@@ -308,7 +308,7 @@ function ListTour(props){
 }
 
 const mapStateToProps = state => ({
-    tourListInfo: state.tourListInfo,
+    privateTourListInfo: state.privateTourListInfo,
 
 });
 export default connect(mapStateToProps, actions)(ListTour);

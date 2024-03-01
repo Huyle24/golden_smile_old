@@ -15,7 +15,7 @@ function FavoriteLocation(props){
       props.fetchTourList('', '', '', '', '', '', '', '',1)
 
   }, []);
-    let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+    let list_tour = props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
     return (
         <Container className="mt-4">
             <h4 className="color-text">Sự kiện - Teambuilding</h4>
@@ -45,6 +45,6 @@ function FavoriteLocation(props){
     )
 }
 const mapStateToProps = state => ({
-    tourListInfo: state.tourListInfo
+    privateTourListInfo: state.privateTourListInfo
 });
 export default connect(mapStateToProps, actions)(FavoriteLocation);

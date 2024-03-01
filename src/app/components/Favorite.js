@@ -60,7 +60,7 @@ function NextDestion(props) {
         props.fetchTourList('', '', '', '', '', '', '', '',1)
 
     }, []);
-  let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+  let list_tour = props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
     return (
         <Container>
  <div class="row mt-3 no-gutters snipcss0-1-1-4">
@@ -260,7 +260,7 @@ function NextDestion(props) {
 
 
 const mapStateToProps = state => ({
-tourListInfo: state.tourListInfo
+    privateTourListInfo: state.privateTourListInfo
 });
 
 export default connect(mapStateToProps, actions)(NextDestion);
