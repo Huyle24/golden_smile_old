@@ -1,12 +1,12 @@
 
-// export const BASE_URL = 'https://demo.nhanhtravel.com/';
-// export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
+export const BASE_URL = 'https://demo.nhanhtravel.com/';
+export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
 // export const BASE_URL = 'https://vigomanager.com/';
 
 // export const BASE_URL_API = 'https://vigomanager.com/api/';
 // export const BASE_URL = 'http://localhost/vigolf_web/';
-export const BASE_URL = 'http://localhost/vigomanager/';
-export const BASE_URL_API =  "http://localhost/vigomanager/api/";
+// export const BASE_URL = 'http://localhost/vigomanager/';
+// export const BASE_URL_API =  "http://localhost/vigomanager/api/";
 export const REST_KEY = "api_key";
 
 export const GET_TOKEN = () => {
