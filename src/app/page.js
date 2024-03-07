@@ -41,8 +41,8 @@ export default function Home() {
             <Carousels/>
             <Promotion/>
             <ImagesBanner/>
-            <PrivateTour/>
             <JointTour/>
+            <PrivateTour/>
             <InboundTour/>
             <TourPopularType/>
             <NextDestion/>

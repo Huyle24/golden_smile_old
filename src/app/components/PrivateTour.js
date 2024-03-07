@@ -18,37 +18,13 @@ function PrivateTour(props) {
         props.fetchPrivateTourList('', '', '', '', 1, '', '', '',1)
       },[])
       let list_tour = props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
+    console.log('PrivateTour')
     console.log(list_tour)
       const Product_watched = (item) => {
-        // alert(item.id);
+np
             props.addToWatchedAction(item);
       };
-    // const getTourList = async (key_work = '', tour_type = 1, typeDate = '') => {
-    //     let url_api = BASE_URL_API + "Balotour/Tour/tourList?limit=&keyword=" + key_work + "&tour_type=" + tour_type + "&typedate=" + typeDate;
-    //     let token = await GET_TOKEN();
-    //
-    //     axios.get(url_api, {
-    //         headers: {
-    //             "x-api-key": "api_key",
-    //             'USER-TOKEN': JSON.parse(token),
-    //             'LANG-CODE': JSON.parse(GET_LANG_CODE()),
-    //             "Content-Type": "multipart/form-data"
-    //         }
-    //     }).then(async function (response) {
-    //         setTourlist(response.data.data.tour_list)
-    //     })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
 
-    // useEffect(() => {
-    //     getTourList()
-    // }, []);
-
-    //
-    // const [tourList, setTourlist] = useState([])
-    // console.log(tourList)
     return (
         <Container >
             <div className="tournuocngoai">
@@ -90,7 +66,7 @@ function PrivateTour(props) {
                 {list_tour ? (list_tour.map((item,index) =>(
 
                     <SwiperSlide lg="4" className="mt-4" key={index}>
-                        <div data-aos="zoom-in-up" data-aos-duration="3000">
+                        <div data-aos="zoom-in-up" data-aos-once="true" data-aos-duration="3000">
                         <Card >
                             <Card className="position-relative border border-0 header_tour_img">
                                 <Link href={"/Tour?id="+ item.id} onClick={() => Product_watched(item)}>

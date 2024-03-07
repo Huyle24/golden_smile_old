@@ -1,10 +1,12 @@
 
-export const BASE_URL = 'https://demo.nhanhtravel.com/';
-export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
+// export const BASE_URL = 'https://demo.nhanhtravel.com/';
+// export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
 // export const BASE_URL = 'https://vigomanager.com/';
+
 // export const BASE_URL_API = 'https://vigomanager.com/api/';
 // export const BASE_URL = 'http://localhost/vigolf_web/';
-// export const BASE_URL_API =  "http://localhost/vigomanager/api/";
+export const BASE_URL = 'http://localhost/vigomanager/';
+export const BASE_URL_API =  "http://localhost/vigomanager/api/";
 export const REST_KEY = "api_key";
 
 export const GET_TOKEN = () => {
@@ -131,6 +133,10 @@ export const LANGUAGE_DETAIL_ERROR = "LANGUAGE_DETAIL_ERROR";
 export const CITY_LIST = "CITY_LIST";
 export const CITY_LIST_SUCCESS = "CITY_LIST_SUCCESS";
 export const CITY_LIST_ERROR = "CITY_LIST_ERROR";
+
+export const COUNTRY_LIST = "COUNTRY_LIST";
+export const COUNTRY_LIST_SUCCESS = "COUNTRY_LIST_SUCCESS";
+export const COUNTRY_LIST_ERROR = "COUNTRY_LIST_ERROR";
 
 export const ORDER_VIEW_DETAIL = "ORDER_VIEW_DETAIL";
 export const ORDER_VIEW_DETAIL_SUCCESS = "ORDER_VIEW_DETAIL_SUCCESS";

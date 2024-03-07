@@ -15,7 +15,7 @@ import * as actions from "../../../redux/actions";
 import {GET_TOKEN, GET_LANG_CODE} from '../../../redux/actions/type';
 import {GET_LANG_vi, GET_LANG_ko} from '../../../js/lang';
 import * as GlobalJs from "../../../js/global";
-import {useRouter, useSearchParams} from "next/navigation";
+import {useRouter, useSearchParams, usePathname} from "next/navigation";
 import Swal from "sweetalert2";
 import {addToCartAction, deleteCartAction, getToCartAction, removeCartAction} from "../../../redux/actions";
 import {Card, CardHeader, CardBody, Collapse} from "reactstrap";
@@ -24,7 +24,8 @@ import {BrowserRouter, Router, Route, NavLink} from 'react-router';
 
 
 function Header(props) {
-
+    const pathname = usePathname()
+    console.log(pathname)
     const [isLogin, setIsLogin] = useState(false)
     const [textShow, setTextShow] = useState('')
     const router = useRouter()
@@ -392,10 +393,10 @@ function Header(props) {
                                 <Navbar.Collapse id="navbarScroll" className='navbar_tongsoxuong'>
                                     <Nav className="me-auto my-2 my-lg-0" navbarScroll>
                                         <Nav.Link>
-                                            <Link href="/">{textShow ? textShow.Home_Page : 'Ngôn Ngữ'}</Link>
+                                            <Link href="/"  className= {pathname === '/' ? 'header-tab active' : ''}>TRANG CHỦ</Link>
                                         </Nav.Link>
                                         <Nav.Link className='navcha'><Link
-                                            href="/">{textShow ? textShow.Tour : 'TOUR'}<i
+                                            href="/search" className= {pathname !== '/' ? 'header-tab active' : ''}>{textShow ? textShow.Tour : 'TOUR'}<i
                                             className='bx bx-chevron-down'></i></Link>
                                             <ul className='navcon'>
                                                 <li>
@@ -439,9 +440,9 @@ function Header(props) {
                                                 <li><Nav.Link>TOUR TREKKING</Nav.Link></li>
                                             </ul>
                                         </Nav.Link>
-                                        <Nav.Link><Link href="/">{textShow ? textShow.Visa : 'VISA'}</Link></Nav.Link>
-                                        <Nav.Link><Link
-                                            href="/">{textShow ? textShow.Flashpacking : 'VOUCHER-COMBO'}</Link></Nav.Link>
+                                        {/*<Nav.Link><Link href="/">{textShow ? textShow.Visa : 'VISA'}</Link></Nav.Link>*/}
+                                        {/*<Nav.Link><Link*/}
+                                        {/*    href="/">{textShow ? textShow.Flashpacking : 'VOUCHER-COMBO'}</Link></Nav.Link>*/}
                                         <Nav.Link><Link
                                             href="/">{textShow ? textShow.tickets_plane : 'VÉ MÁY BAY'}</Link></Nav.Link>
                                         <Nav.Link><Link
@@ -479,78 +480,78 @@ function Header(props) {
                     {/*<Button className="menu_mobile" onClick={handleShow}>
                 <FaBars/>
               </Button> */}
-                    <Card className='menumobile_phone'>
-                        <CardHeader
-                            id="headingOne"
-                            aria-expanded={openedCollapse === "collapseOne"}
-                        >
-                            <Link href="/">
-                                <img
-                                    src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png"
-                                    style={{width: '200px'}}/>
-                            </Link>
-                            <div className='logo_phone'>
-                                <label for="check" className="menu_mobile" onClick={() =>
-                                    setOpenedCollapse(
-                                        openedCollapse === "collapseOne"
-                                            ? ""
-                                            : "collapseOne"
-                                    )
-                                }>
-                                    <i class='bx bx-list-ul'></i>
-                                </label>
-                            </div>
-                        </CardHeader>
-                        <Collapse
-                            isOpen={openedCollapse === "collapseOne"}
-                            aria-labelledby="headingOne"
-                            data-parent="#accordionExample"
-                            id="collapseOne"
-                        >
-                            <CardBody className="content-menu-phone opacity-8">
-                                <Offcanvas.Header>
-                                    <Offcanvas.Title>
-                                        {/* <Link href="/">
-                            <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
-                            </Link> */}
-                                    </Offcanvas.Title>
-                                </Offcanvas.Header>
-                                <Offcanvas.Body className="title-menuphone">
-                                    <Nav>
-                                        <Nav.Link href="/">TRANG CHỦ</Nav.Link>
-                                        <NavDropdown
-                                            id="nav-dropdown-tour-"
-                                            title={<span>TOUR<i className="bx bx-chevron-down"></i></span>}>
-                                            <NavDropdown.Item>TOUR GIÁP THÌN</NavDropdown.Item>
-                                            <NavDropdown.Item>TOUR NƯỚC NGOÀI</NavDropdown.Item>
-                                            <NavDropdown.Item href="/">TOUR TREKKING</NavDropdown.Item>
-                                            <NavDropdown.Item href="/">TOUR THEO YÊU CẦU</NavDropdown.Item>
-                                        </NavDropdown>
-                                        <Link href="/">FLASHPACKING</Link>
-                                        <Link href="/">VISA</Link>
-                                        <Link href="/">VÉ MÁY BAY -VOUCHER COMBO</Link>
-                                        <NavDropdown id="nav-dropdown-tour-nn" title="NHẬT KÝ">
-                                            <NavDropdown.Item>KHÁCH LẺ GHÉP ĐOÀN</NavDropdown.Item>
-                                            <NavDropdown.Item>BẤT ĐỘNG SẢN</NavDropdown.Item>
-                                            <NavDropdown.Item>SỨC KHỎE - BẢO HIỂM</NavDropdown.Item>
-                                            <NavDropdown.Item>GIẢI TRÍ - SHOWBIZ</NavDropdown.Item>
-                                            <NavDropdown.Item>CÔNG NGHỆ CAO</NavDropdown.Item>
-                                            <NavDropdown.Item>TÀI CHÍNH - NGÂN HÀNG</NavDropdown.Item>
-                                            <NavDropdown.Item>SẢN XUẤT - CHẾ BIẾN</NavDropdown.Item>
-                                            <NavDropdown.Item>THẨM MỸ - LÀM ĐẸP</NavDropdown.Item>
-                                            <NavDropdown.Item>GIA ĐÌNH - NHÓM BẠN BÈ</NavDropdown.Item>
-                                            <NavDropdown.Item>TÔN GIÁO - THIỆN NGUYỆN</NavDropdown.Item>
-                                            <NavDropdown.Item>CƠ QUAN NHÀ NƯỚC</NavDropdown.Item>
-                                        </NavDropdown>
-                                        <Link href="/about">TIN TỨC </Link>
-                                        <Link href="/Contact">REVIEW</Link>
+                    {/*<Card className='menumobile_phone'>*/}
+                    {/*    <CardHeader*/}
+                    {/*        id="headingOne"*/}
+                    {/*        aria-expanded={openedCollapse === "collapseOne"}*/}
+                    {/*    >*/}
+                    {/*        <Link href="/">*/}
+                    {/*            <img*/}
+                    {/*                src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png"*/}
+                    {/*                style={{width: '200px'}}/>*/}
+                    {/*        </Link>*/}
+                    {/*        <div className='logo_phone'>*/}
+                    {/*            <label for="check" className="menu_mobile" onClick={() =>*/}
+                    {/*                setOpenedCollapse(*/}
+                    {/*                    openedCollapse === "collapseOne"*/}
+                    {/*                        ? ""*/}
+                    {/*                        : "collapseOne"*/}
+                    {/*                )*/}
+                    {/*            }>*/}
+                    {/*                <i class='bx bx-list-ul'></i>*/}
+                    {/*            </label>*/}
+                    {/*        </div>*/}
+                    {/*    </CardHeader>*/}
+                    {/*    <Collapse*/}
+                    {/*        isOpen={openedCollapse === "collapseOne"}*/}
+                    {/*        aria-labelledby="headingOne"*/}
+                    {/*        data-parent="#accordionExample"*/}
+                    {/*        id="collapseOne"*/}
+                    {/*    >*/}
+                    {/*        <CardBody className="content-menu-phone opacity-8">*/}
+                    {/*            <Offcanvas.Header>*/}
+                    {/*                <Offcanvas.Title>*/}
+                    {/*                    /!* <Link href="/">*/}
+                    {/*        <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>*/}
+                    {/*        </Link> *!/*/}
+                    {/*                </Offcanvas.Title>*/}
+                    {/*            </Offcanvas.Header>*/}
+                    {/*            <Offcanvas.Body className="title-menuphone">*/}
+                    {/*                <Nav>*/}
+                    {/*                    <Nav.Link href="/" >TRANG CHỦiii</Nav.Link>*/}
+                    {/*                    <NavDropdown*/}
+                    {/*                        id="nav-dropdown-tour-"*/}
+                    {/*                        title={<span>TOUR<i className="bx bx-chevron-down"></i></span>}>*/}
+                    {/*                        <NavDropdown.Item>TOUR GIÁP THÌN</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>TOUR NƯỚC NGOÀI</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item href="/">TOUR TREKKING</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item href="/">TOUR THEO YÊU CẦU</NavDropdown.Item>*/}
+                    {/*                    </NavDropdown>*/}
+                    {/*                    <Link href="/">FLASHPACKING</Link>*/}
+                    {/*                    <Link href="/">VISA</Link>*/}
+                    {/*                    <Link href="/">VÉ MÁY BAY -VOUCHER COMBO</Link>*/}
+                    {/*                    <NavDropdown id="nav-dropdown-tour-nn" title="NHẬT KÝ">*/}
+                    {/*                        <NavDropdown.Item>KHÁCH LẺ GHÉP ĐOÀN</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>BẤT ĐỘNG SẢN</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>SỨC KHỎE - BẢO HIỂM</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>GIẢI TRÍ - SHOWBIZ</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>CÔNG NGHỆ CAO</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>TÀI CHÍNH - NGÂN HÀNG</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>SẢN XUẤT - CHẾ BIẾN</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>THẨM MỸ - LÀM ĐẸP</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>GIA ĐÌNH - NHÓM BẠN BÈ</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>TÔN GIÁO - THIỆN NGUYỆN</NavDropdown.Item>*/}
+                    {/*                        <NavDropdown.Item>CƠ QUAN NHÀ NƯỚC</NavDropdown.Item>*/}
+                    {/*                    </NavDropdown>*/}
+                    {/*                    <Link href="/about">TIN TỨC </Link>*/}
+                    {/*                    <Link href="/Contact">REVIEW</Link>*/}
 
 
-                                    </Nav>
-                                </Offcanvas.Body>
-                            </CardBody>
-                        </Collapse>
-                    </Card>
+                    {/*                </Nav>*/}
+                    {/*            </Offcanvas.Body>*/}
+                    {/*        </CardBody>*/}
+                    {/*    </Collapse>*/}
+                    {/*</Card>*/}
 
                 </Container>
 

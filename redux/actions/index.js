@@ -105,6 +105,10 @@ export const fetchLanguage = () => {
     return { type: actionTypes.LANGUAGE_LIST };
 };
 
+export const fetchCountryList=()=>{
+    return{ type: actionTypes.COUNTRY_LIST};
+
+}
 export const fetchCityList = () => {
     return { type: actionTypes.CITY_LIST };
 };

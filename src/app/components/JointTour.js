@@ -2,6 +2,7 @@ import {Container} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import {FaArrowRight, FaCalendarAlt, FaRegHeart} from "react-icons/fa";
+import {BsPeople} from "react-icons/bs";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import "swiper/css";
@@ -12,46 +13,33 @@ import * as actions from "../../../redux/actions";
 import {connect} from "react-redux";
 import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
 import {fetchJointTourList} from "../../../redux/actions";
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 function JointTour(props) {
     useEffect(() => {
-        props.fetchJointTourList('', '', '', '', 2, '', '', '', 1)
+        props.fetchJointTourList('', '', '', '', '', '', '', '', 1)
     }, [])
 
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
-    console.log('nguyen');
+    console.log('JointTour');
     console.log(list_tour);
     const Product_watched = (item) => {
         // alert(item.id);
         props.addToWatchedAction(item);
     }
-    // const getTourList = async (key_work = '', tour_type = 2, typeDate = '') => {
-    //     let url_api = `${BASE_URL_API}Balotour/Tour/tourList?tour_type=2`;
-    //     console.log(url_api)
-    //     // let token = await GET_TOKEN();
-    //
-    //     axios.get(url_api, {
-    //         headers: {
-    //             "x-api-key": "api_key",
-    //             "Content-Type": "multipart/form-data",
-    //             'LANG-CODE': JSON.parse(GET_LANG_CODE()),
-    //         }
-    //     }).then(async function (response) {
-    //         setTourlist(response.data.data.tour_list)
-    //
-    //     })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
-
-    // useEffect(() => {
-    //     getTourList()
-    // }, []);
 
 
     const [tourList, setTourlist] = useState([])
-
+    const [selectedDate, setSelectedDate] = useState([]);
+    const [seletedIndex, setSelectedIndex] = useState(0);
+    const [indexDetail, setIndexDetail] = useState(0)
+    const handlechooseDate = (item1, item, index, index1) => {
+        setSelectedIndex(index);
+        setIndexDetail(index1);
+        console.log(index);
+        console.log(index1);
+    }
     return (
         <Container>
             <div className="tourtrongnuoc">
@@ -69,10 +57,10 @@ function JointTour(props) {
                             spaceBetween: 20,
                         },
                         576: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 10,
                         },
-                        768: {
+                        770: {
                             slidesPerView: 2,
                             spaceBetween: 20,
                         },
@@ -89,107 +77,97 @@ function JointTour(props) {
                         delay: 5000,
                         disableOnInteraction: false,
                     }}
-                    modules={[Navigation, Autoplay]}
+                    modules={[Navigation]}
                 >
                     {list_tour ? (list_tour.map((item, index) => (
-
-                        <SwiperSlide lg="4" className="mt-4" key={index}>
+                        <SwiperSlide lg="4" className={`mt-4 tour_${item.id}`} key={index}>
                             <div data-aos="zoom-out" data-aos-duration="3000">
                                 <Card>
                                     <Card className="position-relative border border-0 header_tour_img">
                                         <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                                             <Card.Img
                                                 variant="top"
-                                                src={item.bucket_img  ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png' }
+                                                src={item.bucket_img ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
                                             />
                                         </Link>
-                                        <Card.Text className="tag position-absolute text-primary mb-0">
-                                            Tour ghép
-                                        </Card.Text>
-                                        <FaRegHeart className="position-absolute tag_heart"/>
                                         <div
-                                            className="position-absolute tag_right_card d-flex flex-column align-items-end">
-                                            <Card.Text className="tag_point">9</Card.Text>
+                                            className="position-absolute tag_right_card d-flex flex-column ">
                                             <Card.Text className="tag_number_care">
-                                                10 quan tâm
+                                                Tour ghép
                                             </Card.Text>
                                         </div>
                                     </Card>
-                                    <Card.Body>
+                                    <Card.Body className={'card-tour'}>
                                         <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                                             <Card.Title className="card_title_tour">{item.name}</Card.Title>
                                         </Link>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <Card.Text className="mb-1 d-flex align-items-center"><CiBarcode/>
-                                                    <Card.Text className="d-flex align-items-center color-text ms-2">
-                                                        {item.code}
-                                                    </Card.Text>
-                                                </Card.Text>
-                                                <div className="d-flex min-height-46 align-items-center">
-                                                    <CiLocationOn/>
-                                                    <span className="color-text ms-2">
-                            {item.city_name}
-                            </span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <p className="mb-1 text-decoration-line-through fs-6 text-end">133,333,000đ</p>
-                                                <Card.Text
-                                                    className="text-danger fw-bold price min-height-46 d-flex align-items-center">
-                                                    Giá: {item.price_1_person}đ
-                                                </Card.Text>
-                                            </div>
-                                        </div>
-
-                                        {/* <Card.Text className='text-decoration-line-through'>Giá: {item.price}đ</Card.Text> */}
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <CiTimer/> <span className="color-text ">{item.date_type_name}</span>
-                                            </div>
-                                            <Card.Text className="ticket p-2 mt-2">
-                                                {item.discount}% Giảm
+                                        <Card.Text className="mb-1 d-flex align-items-center">
+                                            <Card.Text className="d-flex align-items-center code-tour ">
+                                                {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].code : ''}
                                             </Card.Text>
-                                        </div>
-                                        <div className="d-flex justify-content-between py-2">
-                                            <div className="socho">
-                                                Số chỗ còn <span className="fw-bold text-danger">9</span>
+                                        </Card.Text>
+                                        <hr className={'hr-product-card'}/>
+                                        <div className="d-flex justify-content-between align-items-center">
+                                            <div className="d-flex  align-items-center">
+                                                <CiLocationOn/>
+                                                <span className=" ms-2">
+                                               {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_start : ''} - {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_name : ''}
+                                                      </span>
                                             </div>
-                                            <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
-                                                <Button className="bg-danger border border-0">
-                                                    Xem chi tiết
-                                                </Button>
-                                            </Link>
 
                                         </div>
                                         <div className="d-flex justify-content-between align-items-center">
-                                            <div className="d-flex align-items-center">
-                                                <FaCalendarAlt className="me-2"/>
-                                                <div className="clamp-1">
-                                                    <Link href={"/Tour?id=" + item.id}>
-                                                        <span
-                                                            className="me-2 border px-2 rounded item_day_tour fw-bold">11/12</span>
-                                                    </Link>
-                                                    <Link href={"/Tour?id=" + item.id}>
-                                                        <span
-                                                            className="me-2 border px-2 rounded item_day_tour fw-bold">13/12</span>
-                                                    </Link>
-                                                    <Link href={"/Tour?id=" + item.id}>
-                                                        <span
-                                                            className="me-2 border px-2 rounded item_day_tour fw-bold">15/12</span>
-                                                    </Link>
-                                                    <Link href={"/Tour?id=" + item.id}>
-                                                        <span
-                                                            className="me-2 border px-2 rounded item_day_tour fw-bold">17/12</span>
-                                                    </Link>
-                                                    <Link href={"/Tour?id=" + item.id}>
-                                                        <span
-                                                            className="me-2 border px-2 rounded item_day_tour fw-bold">19/12</span>
-                                                    </Link>
-                                                </div>
+                                            <div  className={'d-flex flex-wrap align-items-center'}>
+                                                <CiTimer />
+                                                <span className=" ms-2 ">
+                                                  {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].date_type_name : ''}
+                                            </span>
+                                            </div>
+                                            <div className={'d-flex flex-wrap align-items-center'}>
+                                                <BsPeople/>
+                                                <span
+                                                    className={'text-danger fw-bold ms-2'}>{item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].count_order_tour : 0}</span> /
+                                                <span>{item.max_customer}</span>
+
 
                                             </div>
                                         </div>
+                                        <div className={'my-2'}>
+                                            <div className={'text-secondary'}> Lịch khởi hành</div>
+                                            <div className={'d-flex flex-wrap gap-1 calendar-start'}
+                                                 style={{minHeight: 30}}>
+
+                                                {item.tour_open_list.slice(0, 4).map((item1, index1) => (
+                                                    <span
+                                                        key={index1}
+                                                        className="px-2 py-1 item_day_tour fw-bold">{item1.date_start_tour.slice(0, 5)}</span>
+                                                ))}
+
+
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div className={'text-secondary'}>
+                                                Giá
+                                            </div>
+                                            <div
+                                                className="d-flex justify-content-between align-content-center flex-wrap ">
+                                                <div
+                                                    className=" text-danger fw-bold fs-5">
+                                                    {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].price_1_person : ''} đ
+                                                </div>
+                                                <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}
+                                                      className={'d-flex align-content-center flex-wrap'}>
+                                                    <button className="button-detail btn ">
+                                                        Xem chi tiết
+                                                    </button>
+                                                </Link>
+                                            </div>
+
+
+                                        </div>
+
                                     </Card.Body>
                                 </Card>
                             </div>

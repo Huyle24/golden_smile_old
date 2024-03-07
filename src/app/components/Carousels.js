@@ -1,13 +1,14 @@
-import { Container} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import SearchBox from './SearchBox';
 import * as actionType from "../../../redux/actions/type";
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import {fetchSlideImageList} from "../../../redux/actions";
-function Carousels(props){
+
+function Carousels(props) {
     useEffect(() => {
         props.fetchSlideImageList();
     }, []);
@@ -16,24 +17,24 @@ function Carousels(props){
 
     return (
         <Container fluid className="position-relative ps-0 pe-0">
-            <Carousel>
-                
-                {slideImageInfo ? (slideImageInfo.map((item, index) =>
-                    
-                        <Carousel.Item key = {index}>
-                            <div data-aos="fade-up"
-                                 data-aos-anchor-placement="center-bottom">
-                                <img src={item} className='w-100 img_carousel' alt='carousel'/>
-                            </div>
-                        </Carousel.Item>
-                    
-                )) : ''}
-               
-            </Carousel>
-            <SearchBox />
+            <div data-aos="fade-up"
+                 >
+                <Carousel>
+                    {slideImageInfo ? (
+                        slideImageInfo.map((item, index) => (
+                            <Carousel.Item key={index}>
+                                <div data-aos-anchor-placement="center-bottom">
+                                    <img src={item} className='w-100 img_carousel' alt='carousel'/>
+                                </div>
+                            </Carousel.Item>
+                        ))
+                    ) : ''}
+                </Carousel>
+                <SearchBox/>
+            </div>
         </Container>
-        
-        
+
+
     )
 }
 

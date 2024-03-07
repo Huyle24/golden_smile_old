@@ -11,56 +11,33 @@ import { Container, Row } from "react-bootstrap";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import * as actionType from "../../../redux/actions/type";
+import {BASE_URL} from "../../../redux/actions/type"
 
 function NextDestion(props) {
-    const list_tour = [
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/img-7847-1675392344-1676988222.jfif",
-            country: "Ấn Độ",
-            chuyen_number: "3 CHUYẾN THAM QUAN",
-        },
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/thumb-1920-716104-1676988825.jpg",
-            country: "Australia",
-            chuyen_number: "9 CHUYẾN THAM QUAN",
-        },
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/09/27/du-lich-bhutan-16-1695788477.jpg",
-            country: "Bhutan",
-            chuyen_number: "1 CHUYẾN THAM QUAN",
-        },
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/vi-tri-dia-ly-cua-dai-loan-1676988660.jpg",
-            country: "Đài Loan",
-            chuyen_number: "2 CHUYẾN THAM QUAN",
-        },
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/4a95ec44cd1fbafd69d16194085a71fbarticle-img-id2547300-1676988738.jpg",
-            country: "Hàn Quốc",
-            chuyen_number: "11 CHUYẾN THAM QUAN",
-        },
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/maxresdefault-2-1676988709.jpg",
-            country: "Hoa Kỳ",
-            chuyen_number: "2 CHUYẾN THAM QUAN",
-        },
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/huong-dan-cac-dau-moi-lay-hang-9225-5460-1511781583-1676987737.jpg",
-            country: "Nhật Bản",
-            chuyen_number: "2 CHUYẾN THAM QUAN",
-        },
-        {
-            images: "https://goldensmiletravel.com/zoom/300x300/uploads/images/location/admingst/2023/02/21/thoi-tiet-thai-lan-1676988765.jpg",
-            country: "Thái Lan",
-            chuyen_number: "12 CHUYẾN THAM QUAN",
-        },
-    ]
-    
-    // useEffect(() => {
-    //     props.fetchTourList('', '', '', '', '', '', '', '',1)
-    //
-    // }, []);
-  // let list_tour = props.tourListInfo.data && props.tourListInfo.isLoading === false ? props.tourListInfo.data.tour_list : '';
+    const [listCountry, setListCountry] = useState([]);
+    const getListCountry = () => {
+        const URL = actionType.BASE_URL_API + 'Balotour/Country/list_country_and_tour';
+
+        axios.get(URL, {
+            headers: {
+                "x-api-key": "api_key",
+                "USER-TOKEN": "2BF8MD9TRK78NPQ0RHQ712WERV50QUIDK0N3QRFFZW7OL6G8E0WTMGJYHKAOOGJZA4SO23NI98SP5L1L2EL67829CS6V21QZS4WFP6K8RK8669QJ2J6QVHFTWOOZ8Y22",
+                "Content-Type": "application/x-www-form-urlencoded",
+            }
+        })
+            .then(function (res) {
+                console.log(res.data.data);
+                setListCountry(res.data.data);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    }
+
+    useEffect(() => {
+        getListCountry();
+    }, []);
+
     return (
         <Container>
             <div className="NextDestion_tour">
@@ -69,7 +46,7 @@ function NextDestion(props) {
                     <span className="divider-Trekking"></span>
                 </div>
                     <Row className="mt-3 no-gutters">
-                        {list_tour ? (list_tour.filter((item, idx) => idx < 8).map((item) => ( 
+                        {listCountry ? (listCountry.filter((item, idx) => idx < 12).map((item) => (
                             <div className="col-xs-6 col-md-3">
                                 <div data-aos="fade-zoom-in"
                                     data-aos-easing="ease-in-back"
@@ -78,14 +55,14 @@ function NextDestion(props) {
                                     <Link href="/Category">
                                     <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                                         <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
-                                                src={item.bucket_img}
+                                                src={BASE_URL+'upload/country/'+item.image}
                                                 alt="Trung Quốc" className="images_next"/>
                                             <div className="images_next-overlay d-flex justify-content-center flex-column">
                                                 <h2 className="name_next mb-0">{item.name}</h2>
                                             </div> <a href="https://goldensmiletravel.com/du-lich-trung-quoc.html" className="name_number">
                                                 <div className="images_next-overlay d-flex justify-content-end flex-column">
                                                     <p className="trip_generality fs-13 font-weight-500  text-center"><span
-                                                            className="trip_number">8 CHUYẾN THAM QUAN</span></p>
+                                                            className="trip_number">{item.number_tour} CHUYẾN THAM QUAN</span></p>
                                                 </div>
                                             </a>
                                         </div>
