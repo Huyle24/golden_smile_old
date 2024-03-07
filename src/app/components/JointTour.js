@@ -79,9 +79,11 @@ function JointTour(props) {
                     }}
                     modules={[Navigation]}
                 >
+
                     {list_tour ? (list_tour.map((item, index) => (
                         <SwiperSlide lg="4" className={`mt-4 tour_${item.id}`} key={index}>
-                            <div data-aos="zoom-out" data-aos-duration="3000">
+                            <div data-aos="zoom-in-up" data-aos-duration="3000">
+
                                 <Card>
                                     <Card className="position-relative border border-0 header_tour_img">
                                         <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
@@ -97,9 +99,12 @@ function JointTour(props) {
                                             </Card.Text>
                                         </div>
                                     </Card>
+
                                     <Card.Body className={'card-tour'}>
                                         <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
-                                            <Card.Title className="card_title_tour">{item.name}</Card.Title>
+                                            <Card.Title className="card_title_tour " style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}  data-bs-toggle="tooltip" data-bs-placement="top" title={item.name}>
+                                                {item.name}
+                                            </Card.Title>
                                         </Link>
                                         <Card.Text className="mb-1 d-flex align-items-center">
                                             <Card.Text className="d-flex align-items-center code-tour ">
@@ -117,8 +122,8 @@ function JointTour(props) {
 
                                         </div>
                                         <div className="d-flex justify-content-between align-items-center">
-                                            <div  className={'d-flex flex-wrap align-items-center'}>
-                                                <CiTimer />
+                                            <div className={'d-flex flex-wrap align-items-center'}>
+                                                <CiTimer/>
                                                 <span className=" ms-2 ">
                                                   {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].date_type_name : ''}
                                             </span>
@@ -178,7 +183,7 @@ function JointTour(props) {
                      data-aos-duration="3000">
                     <div className="home-page__see-all text-end mt-4">
                         <Link href='/Category'>
-                            <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white">
+                            <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white button-all ">
                                 Xem tất cả <FaArrowRight className="ms-2 "/>
                             </Button>
                         </Link>
