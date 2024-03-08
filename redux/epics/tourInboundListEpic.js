@@ -42,8 +42,8 @@ const tourPrivateListEpic = (action$, store) => action$.pipe(
     concatMap(action => of('').pipe(
         map(res => {
             let keyword='';
-            api_url = actionTypes.BASE_URL_API + "Balotour/Tour/tourList?off=" + action.off + "&limit=" + action.limit+"&keyword="+ action.keyword+"&city_id="+ action.city_id + "&tour_type=" + action.tour_type + "&typedate=" + action.typedate + "&date_start=" + action.date_start + "&date_end=" + action.date_end+"&outstanding=" + action.outstanding;
-
+            api_url = actionTypes.BASE_URL_API + "Balotour/Tour/tourList?off=" + action.off + "&limit=" + action.limit+"&keyword="+ action.keyword+"&city_id="+ action.city_id + "&tour_type=" + action.tour_type + "&typedate=" + action.typedate + "&date_start=" + action.date_start + "&date_end=" + action.date_end+"&outstanding=" + action.outstanding +"&format_tour="+ action.format_tour;
+            console.log(api_url)
         })
     ).pipe(switchMap(act => ajaxControl(token))))
 );

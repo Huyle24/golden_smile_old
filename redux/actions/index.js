@@ -25,8 +25,8 @@ export const fetchPrivateTourList = (off = '', limit = '', keyword = '', city_id
 export const fetchJointTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = ' ',typedate = '', date_start = '', date_end = '', outstanding = '') => {
     return { type: actionTypes.JOINT_TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding };
 };
-export const fetchInboundTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = ' ',typedate = '', date_start = '', date_end = '', outstanding = '') => {
-    return { type: actionTypes.INBOUND_TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding };
+export const fetchInboundTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = ' ',typedate = '', date_start = '', date_end = '', outstanding = '',format_tour='') => {
+    return { type: actionTypes.INBOUND_TOUR_LIST, off: off, limit: limit, keyword: keyword, city_id: city_id, tour_type: tour_type,typedate: typedate, date_start: date_start, date_end: date_end, outstanding: outstanding,format_tour:format_tour };
 };
 export const fetchTourDetail = (permalink = '', customer_number = '', child_number = '') => {
     return { type: actionTypes.TOUR_DETAIL, permalink: permalink, customer_number: customer_number, child_number: child_number };

@@ -125,8 +125,8 @@ function PrivateTour(props) {
 
 
                                         </div>
-                                        <div className="d-flex justify-content-between py-2">
-                                            <div className={'text-contact'}>Liên hệ</div>
+                                        <div className="d-flex justify-content-between align-items-center ">
+                                            <div className={'text-contact fs-5'}>Liên hệ</div>
                                             <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
                                                 <button className="button-detail btn">
                                                     Xem chi tiết

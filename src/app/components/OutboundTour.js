@@ -15,7 +15,7 @@ import {event} from "next/dist/build/output/log";
 import {addToCartAction, fetchTourList} from "../../../redux/actions";
 import Swal from "sweetalert2";
 
-function InboundTour(props) {
+function OutboundTour(props) {
     // useEffect(() => {
     //     props.fetchTourList('', '', '', '', '', '', '', '',1)
     // },[])
@@ -187,4 +187,4 @@ const mapStateToProps = state => ({
     tourListInfo: state.tourListInfo
 });
 
-export default  connect(mapStateToProps, actions)(InboundTour);
+export default  connect(mapStateToProps, actions)(OutboundTour);
