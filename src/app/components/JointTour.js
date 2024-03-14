@@ -1,20 +1,19 @@
 import {Container} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import {FaArrowRight, FaCalendarAlt, FaRegHeart} from "react-icons/fa";
+import {FaArrowRight} from "react-icons/fa";
 import {BsPeople} from "react-icons/bs";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Autoplay, Navigation} from 'swiper/modules';
+import {Navigation} from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import * as actions from "../../../redux/actions";
 import {connect} from "react-redux";
-import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
-import {fetchJointTourList} from "../../../redux/actions";
-import PerfectScrollbar from 'react-perfect-scrollbar'
+import {CiLocationOn, CiTimer} from "react-icons/ci";
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import Nav from "react-bootstrap/Nav";
 
 function JointTour(props) {
     useEffect(() => {
@@ -24,22 +23,13 @@ function JointTour(props) {
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
     console.log('JointTour');
     console.log(list_tour);
+    console.log('props',props)
     const Product_watched = (item) => {
         // alert(item.id);
         props.addToWatchedAction(item);
     }
 
 
-    const [tourList, setTourlist] = useState([])
-    const [selectedDate, setSelectedDate] = useState([]);
-    const [seletedIndex, setSelectedIndex] = useState(0);
-    const [indexDetail, setIndexDetail] = useState(0)
-    const handlechooseDate = (item1, item, index, index1) => {
-        setSelectedIndex(index);
-        setIndexDetail(index1);
-        console.log(index);
-        console.log(index1);
-    }
     return (
         <Container>
             <div className="tourtrongnuoc">
@@ -90,6 +80,7 @@ function JointTour(props) {
                                             <Card.Img
                                                 variant="top"
                                                 src={item.bucket_img ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
+                                                // src={`${BASE_URL}upload/tour/${item.img}`}
                                             />
                                         </Link>
                                         <div
@@ -102,7 +93,11 @@ function JointTour(props) {
 
                                     <Card.Body className={'card-tour'}>
                                         <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
-                                            <Card.Title className="card_title_tour " style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}  data-bs-toggle="tooltip" data-bs-placement="top" title={item.name}>
+                                            <Card.Title className="card_title_tour " style={{
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
+                                                whiteSpace: 'nowrap'
+                                            }} data-bs-toggle="tooltip" data-bs-placement="top" title={item.name}>
                                                 {item.name}
                                             </Card.Title>
                                         </Link>
@@ -162,12 +157,15 @@ function JointTour(props) {
                                                     className=" text-danger fw-bold fs-5">
                                                     {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].price_1_person : ''} đ
                                                 </div>
-                                                <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}
-                                                      className={'d-flex align-content-center flex-wrap'}>
+                                               <Link
+                                                    href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                                    onClick={() => Product_watched(item)}
+                                                    className={'d-flex align-content-center flex-wrap'}>
                                                     <button className="button-detail btn ">
                                                         Xem chi tiết
                                                     </button>
                                                 </Link>
+
                                             </div>
 
 
@@ -183,7 +181,8 @@ function JointTour(props) {
                      data-aos-duration="3000">
                     <div className="home-page__see-all text-end mt-4">
                         <Link href='/Category'>
-                            <Button className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white button-all ">
+                            <Button
+                                className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white button-all ">
                                 Xem tất cả <FaArrowRight className="ms-2 "/>
                             </Button>
                         </Link>

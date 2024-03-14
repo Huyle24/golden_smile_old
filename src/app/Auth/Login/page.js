@@ -61,9 +61,10 @@ function Login(props) {
                 await localStorage.setItem('token', JSON.stringify(response.data.user_token))
                 await props.getUserInfo()
                 await props.fetchAddCartList()
-                // window.location.replace('/')
-                // history.back()
-                window.location.replace('/')
+
+                history.back()
+
+
             }
         })
             .catch(function (error) {

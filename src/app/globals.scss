@@ -328,7 +328,6 @@ body {
 }
 
 
-
 .navbar-expand-lg .navbar-nav .nav-link:hover {
   color: #DBA73D !important;
 }
@@ -1110,12 +1109,14 @@ body {
   overflow: hidden;
   text-transform: uppercase;
 }
+
 .button-all {
   background: #B72028 !important;
   color: white !important;
   font-weight: 500 !important;
   border: none !important;
 }
+
 .button-all:hover {
   background: #B72028 !important;
   color: white !important;
@@ -1123,15 +1124,18 @@ body {
   border: none !important;
   opacity: 0.9;
 }
+
 .card-img-top {
   aspect-ratio: 428/304;
   object-fit: cover;
 }
-.text-contact{
+
+.text-contact {
   color: #db2031;
   font-size: 16px;
   font-weight: 600;
 }
+
 /* SearchBox components */
 
 .search_box {
@@ -1509,25 +1513,30 @@ body {
   max-height: 800px;
   overflow-y: scroll;
 }
-.button-detail{
+
+.button-detail {
   background: white;
   color: #FF4D4F !important;
   font-weight: 400 !important;
   border: 1px solid #D9D9D9 !important;
 
 }
-.button-detail:hover{
+
+.button-detail:hover {
   background: #FF4D4F !important;
   color: white !important;
   font-weight: 500 !important;
   border: 1px solid #FF4D4F !important;
 
 }
+
 @media only screen and (max-width: 576px) {
   .info_fight_content {
     max-height: 600px;
   }
-  .calendar-start{zoom: 0.9;}
+  .calendar-start {
+    zoom: 0.9;
+  }
 
 }
 
@@ -1978,15 +1987,19 @@ tr td {
   text-align: center;
   font-size: 18px;
   justify-content: center;
-  align-items: center;
 }
 
 .imgDetail .swiper-slide img {
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: contain;
   aspect-ratio: 2/1;
+  border-radius: 11px;
+  object-fit: cover;
+}
+
+.swiper-slide.swiper-slide-tour.swiper-slide-visible.swiper-slide-next.swiper-slide-thumb-active {
+  border-color: #db2031;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -2007,13 +2020,12 @@ tr td {
   width: 25%;
   height: 100%;
   opacity: 0.6;
-
-  padding: 6px;
+  border-radius: 16px;
 }
 
 .mySwiper1 .swiper-slide-thumb-active {
-  border: 4px solid #0ea5e9;
-  border-radius: 6px;
+  border: 4px solid #db2031;
+  border-radius: 16px;
 }
 
 
@@ -2053,9 +2065,18 @@ tr td {
 .item_day_tour {
   border-color: #FFF1F0;
   color: #F5222D;
-  transition: 0.4s;
   background: #FFF1F0;
-   border-radius: 8px;
+  border-radius: 8px;
+  width: 65px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.item_day_tour:hover, .item_day_tour.active {
+  border: 1px solid #F5222D;
+  color: #F5222D;
+  background: #FFF1F0;
+  border-radius: 8px;
   width: 65px;
   height: 30px;
 }
@@ -2066,6 +2087,267 @@ tr td {
 
 .color_blue {
   color: #0ea5e9 !important;
+}
+
+.row_tour_payment {
+  border: 1px #0000000f solid;
+  padding: 16px 8px !important;
+  border-radius: 8px;
+
+}
+
+.col-overview {
+  border: 1px solid #ebebeb;
+  border-radius: 16px;
+}
+
+.content-customer {
+  text-align: justify;
+  line-height: 20px;
+  margin-top: 10px;
+  border-left: 4px solid #ff002d;
+  padding: 15px;
+  margin-bottom: 10px;
+  color: #212121;
+  background: #f4f4f4;
+  font-size: 12px;
+}
+
+.header-cutomer-form {
+  background: #FFF1F0;
+  display: flex;
+  justify-content: center;
+  color: #db2031;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0 -17px;
+  padding: 9px 0;
+  border-radius: 16px 16px 0 0;
+
+}
+.tab-content{
+  max-height: 600px;
+  overflow-y: auto;
+}
+input#stacked-buttons {
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #f3f3f3;
+  height: 40px;
+  width: 20%
+}
+.p-inputnumber-input{
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #f3f3f3;
+  height: 40px;
+  width: 20%
+}
+
+span.p-inputnumber.p-component.p-inputwrapper.p-inputwrapper-filled.p-inputnumber-buttons-stacked {
+  width: 20%;
+}
+button.p-inputnumber-button.p-inputnumber-button-up.p-button.p-button-icon-only.p-component {
+  border: none;
+  border-radius: 0  5px 0 0;
+  padding: 3px;
+  color: white;
+  background: rgb(183, 32, 40)
+}
+
+button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-only.p-component {
+  border: none;
+  border-radius: 0 0 5px 0;
+  padding: 3px;
+  color: white;
+  background: rgb(183, 32, 40)
+}
+.cutomer-form {
+  border: 1px solid #ebebeb;
+  border-radius: 16px;
+
+  i {
+    font-size: 18px;
+  }
+
+  .default-badge {
+    color: #52C41A;
+    background: #F6FFED;
+    border: 1px solid #B7EB8F;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .form-check-input:checked {
+    background-color: #db2031;
+    border-color: #B72028;
+  }
+}
+
+.tour-detail-payment {
+  div {
+    margin: 4px 0px;
+  }
+}
+
+.title-cutomer-form {
+  color: #CF1322;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 8px 0 5px 0;
+}
+
+.tour-detail {
+  div {
+    margin: 8px 0px;
+  }
+
+  border: 1px solid #ebebeb;
+  border-radius: 16px;
+
+  &-name {
+    color: #db2031;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  &-price {
+    color: #db2031;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  &-remain-reservation-container {
+    background-color: #f5f5f5 !important;
+    border-radius: 32px !important;
+    padding: 5px 10px;
+  }
+
+  &-contact-btn, &-download-schedule-btn {
+    background-color: #f5f5f5 !important;
+    border: #F0F0F0 1px solid !important;
+    padding: 5px 8px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    color: black !important;
+
+    .icon {
+      color: #B72028;
+
+    }
+  }
+
+  &-contact-btn:hover, &-download-schedule-btn:hover {
+    background-color: #B72028 !important;
+    color: white !important;
+    transform: scale(1.01);
+
+    .icon {
+      color: white !important;
+    }
+  }
+
+  &-add-to-card {
+    border: 1px solid #e8e8e8 !important;
+    cursor: pointer;
+  }
+
+  &-add-to-card:hover {
+    background-color: #B72028 !important;
+    color: white !important;
+    transform: scale(1.01);
+
+  }
+
+  &-order-now {
+    background: #db2031 !important;
+    color: white !important;
+
+  }
+
+  &-order-now:hover {
+    opacity: 0.9;
+    transform: scale(1.01);
+
+  }
+
+  &-add-to-card, &-order-now {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding: 5px 10px !important;
+  }
+}
+
+.address-cutomer-form {
+
+  border: 1px solid #0000000f;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.modal-tour-confirm {
+  display: flex !important;
+  justify-content: center;
+
+  div {
+    margin: 8px 0;
+  }
+
+  &-tour-name {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #db2031;
+  }
+
+  &-tour-title {
+    font-size: 18px;
+    color: #db2031;
+
+  }
+
+}
+
+.payment-order-tour {
+  background-color: #B72028 !important;
+  color: white !important;
+}
+
+.tab_item .nav-item .nav-link.active {
+  font-weight: 600;
+  background-color: white !important;
+  border: white 1px solid !important;
+  border-bottom: #db2031 3px solid !important;
+  color: #db2031 !important;
+}
+
+.tour-info {
+  &-header {
+    background: #FFF1F0;
+    display: flex;
+    justify-content: center;
+    color: #db2031;
+    font-weight: 600;
+    font-size: 16px;
+    margin: -8px;
+    padding: 9px 0;
+    border-radius: 16px 16px 0 0;
+  }
+
+  &-body {
+    div {
+      margin: 8px 0;
+      min-height: 24px;
+    }
+
+  }
+}
+
+.img_tour_payment {
+  border-radius: 16px;
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
 }
 
 @media only screen and (min-width: 991px) {
@@ -2877,7 +3159,7 @@ tr td {
 }
 
 .main_showcustomer, .main_blogs_detail {
-  padding-top: 80px;
+  padding-top: 10px;
 }
 
 .room-list-item {
@@ -3487,29 +3769,36 @@ tr td {
 .react-datepicker-popper {
   z-index: 2 !important;
 }
-.header-tab.active{
-  color: #fcb833!important ;
+
+.header-tab.active {
+  color: #fcb833 !important;
 }
-.swiper-button-prev,.swiper-button-next{
+
+.swiper-button-prev, .swiper-button-next {
   color: #db2031 !important;
 }
-.code-tour{
+
+.code-tour {
   background: #F5F5F5;
   border: #F0F0F0 1px solid;
   padding: 1px 6px;
   border-radius: 4px;
 }
-.hr-product-card{
+
+.hr-product-card {
   color: #cecece;
   margin: 12px -15px 3px -15px;
 }
-.card-tour{
+
+.card-tour {
   font-size: 14px;
   color: black;
-  div{
+
+  div {
     margin: 5px 0;
   }
 }
+
 @media only screen and (max-width: 992px) {
   .main_carousel, .main_info, .main_contact,
   .main_about, .main_new, .main_golf, .main_tour_detail,

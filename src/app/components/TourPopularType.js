@@ -28,7 +28,7 @@ function TourPopularType(props) {
                         <div className="Tour_p_title"><span className="t_title_text">TOUR KHÁCH ĐOÀN</span></div>
                         <div className="Tour_p_btn">
                             <div className="Tour_button_contact"><a href="javascript:void(0)"
-                                                                    onclick="window.showDangKyTuVan(this,'TOUR KHÁCH ĐOÀN')"
+                                                                    onclick=""
                                                                     data-title="TOUR KHÁCH ĐOÀN"
                                                                     className="btnDangKyTuVan"><span
                                 className="Tour_call"></span>
@@ -52,7 +52,7 @@ function TourPopularType(props) {
                         <div className="Tour_p_title"><span className="t_title_text">TOUR MICE</span></div>
                         <div className="Tour_p_btn">
                             <div className="Tour_button_contact"><Link href="javascript:void(0)"
-                                                                       onclick="window.showDangKyTuVan(this,'TOUR MICE')"
+                                                                       onclick=""
                                                                        data-title="TOUR MICE"
                                                                        className="btnDangKyTuVan"><span
                                 className="Tour_call"></span>
@@ -76,7 +76,7 @@ function TourPopularType(props) {
                         <div className="Tour_p_title"><span className="t_title_text">TỔ CHỨC SỰ KIỆN</span></div>
                         <div className="Tour_p_btn">
                             <div className="Tour_button_contact"><Link href="javascript:void(0)"
-                                                                       onclick="window.showDangKyTuVan(this,'TỔ CHỨC SỰ KIỆN')"
+                                                                       onclick=""
                                                                        data-title="TỔ CHỨC SỰ KIỆN"
                                                                        className="btnDangKyTuVan"><span
                                 className="Tour_call"></span>

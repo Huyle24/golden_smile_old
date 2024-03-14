@@ -4,8 +4,8 @@ import * as actions from "../../../redux/actions";
 
 
 function InfoDetail(data) {
-    // console.log('data')
-    // console.log(data.data)
+    console.log('data')
+    console.log(data.data)
 
     function createMarkup(c) {
         return {__html: c};
@@ -25,19 +25,21 @@ function InfoDetail(data) {
                         <div>Hướng dẫn viên:</div>
                         <div>Xe:</div>
                         <div>Máy bay:</div>
+
                     </Col>
                     <Col md={6}>
                         <div>
-                            {data.data ?data.data.time_start:''}
+                            {data.data ? data.data.time_takeoff_start : ''}
                         </div>
                         <div>
-                            {data.data ?data.data.date_start_tour:''}
+                            {data.data ? data.data.date_start_tour : ''}
                         </div>
                         <div>
-                            TP. Hồ Chí Minh
+                            {data.data ? data.data.city_start : ''}
                         </div>
+
                         <div>
-                            {data.data && data.data.guide.map((item, index) => {
+                            {data.data && data.data.data_guide.map((item, index) => {
                                 return (
                                     <span key={index}>
                                         {item.guide_name + ' '}
@@ -45,20 +47,39 @@ function InfoDetail(data) {
                                 );
                             })}
                         </div>
-                        <div>   {data.data && data.data.vehicles.map((item, index) => {
-                            return (
 
-                                <div key={index}>
+                        <div>
+                            {data.data && data.data.data_car.map((item, index) => {
+                                return (
 
-                                    {item}
+                                    <div key={index}>
 
-                                </div>
-                            );
-                        })}
+                                        {item}
+
+                                    </div>
+                                );
+                            })}
 
                         </div>
+                        <div></div>
 
                     </Col>
+                    <div>
+                        Ngày đi {data.data ? data.data.date_start_flight : ''}
+                    </div>
+                    <div className={'d-flex justify-content-between'}>
+                        <div >
+                            <div>{data.data ? data.data.airline_start_name : ''}</div>
+                            <div className={'text-center'}> {data.data ? data.data.time_takeoff_start : ''}</div>
+                        </div>
+                        <div>
+                            <div>{data.data ? data.data.airline_start_name : ''}</div>
+                            <div className={'text-center'}> {data.data ? data.data.time_takeoff_end : ''}</div>
+                        </div>
+                    </div>
+                    <div>
+                        Ngày về
+                    </div>
                 </Row>
 
             </div>

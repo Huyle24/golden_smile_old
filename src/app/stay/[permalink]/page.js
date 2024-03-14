@@ -778,7 +778,7 @@ function Stay(props) {
                                                         <li>{textShow ? textShow.Number_Beds : '' }: {itemModel.desc_number_room}.</li>
                                                         <li>{textShow ? textShow.Type_Beds : '' }: {itemModel.hotel_bed_type_name}.</li>
 
-                                                        <li>{itemModel.window == 1 ? `${textShow.Have_Window}` : `${textShow.Have_Not_Window}`}.</li>
+                                                        {/*<li>{itemModel.window == 1 ? `${textShow.Have_Window}` : `${textShow.Have_Not_Window}`}.</li>*/}
                                                         <li>{itemModel.extra_bed == 1 ? `${textShow.Have_Xtra_Bed}` : `${textShow.Have_Not_Xtra_Bed}`}.</li>
                                                        
 

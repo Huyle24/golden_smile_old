@@ -19,6 +19,7 @@ function PrivateTour(props) {
     useEffect(() => {
         props.fetchPrivateTourList('', '', '', '', 1, '', '', '', 1)
     }, [])
+
     let list_tour = props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
     console.log('PrivateTour')
     console.log(list_tour)
@@ -26,6 +27,8 @@ function PrivateTour(props) {
         np
         props.addToWatchedAction(item);
     };
+
+
 
     return (
         <Container>
@@ -75,6 +78,7 @@ function PrivateTour(props) {
                                             <Card.Img
                                                 variant="top"
                                                 src={item.bucket_img ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
+                                                // src={`${actions.BASE_URL_API}/upload/tour/${item.img}`}
                                             />
                                         </Link>
                                         <div
@@ -127,7 +131,7 @@ function PrivateTour(props) {
                                         </div>
                                         <div className="d-flex justify-content-between align-items-center ">
                                             <div className={'text-contact fs-5'}>Liên hệ</div>
-                                            <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
+                                            <Link href={"/Tour?id=" + item.id +"&tour_type="+1} onClick={() => Product_watched(item)}>
                                                 <button className="button-detail btn">
                                                     Xem chi tiết
                                                 </button>

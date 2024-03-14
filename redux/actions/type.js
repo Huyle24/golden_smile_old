@@ -1,12 +1,13 @@
 
-export const BASE_URL = 'https://demo.nhanhtravel.com/';
-export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
+// export const BASE_URL = 'https://demo.nhanhtravel.com/';
+//
+// export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
 // export const BASE_URL = 'https://vigomanager.com/';
 
 // export const BASE_URL_API = 'https://vigomanager.com/api/';
 // export const BASE_URL = 'http://localhost/vigolf_web/';
-// export const BASE_URL = 'http://localhost/vigomanager/';
-// export const BASE_URL_API =  "http://localhost/vigomanager/api/";
+export const BASE_URL = 'http://localhost/vigomanager/';
+export const BASE_URL_API =  "http://localhost/vigomanager/api/";
 export const REST_KEY = "api_key";
 
 export const GET_TOKEN = () => {
@@ -45,9 +46,15 @@ export const JOINT_TOUR_LIST_ERROR = "JOINT_TOUR_LIST_ERROR";
 export const INBOUND_TOUR_LIST = "INBOUND_TOUR_LIST";
 export const INBOUND_TOUR_LIST_SUCCESS = "INBOUND_TOUR_LIST_SUCCESS";
 export const INBOUND_TOUR_LIST_ERROR = "INBOUND_TOUR_LIST_ERROR";
+
 export const TOUR_DETAIL = "TOUR_DETAIL";
 export const TOUR_DETAIL_SUCCESS = "TOUR_DETAIL_SUCCESS";
 export const TOUR_DETAIL_ERROR = "TOUR_DETAIL_ERROR";
+
+export const TOUR_PRICE_DETAIL="TOUR_PRICE_DETAIL";
+export const TOUR_PRICE_DETAIL_SUCCESS="TOUR_PRICE_DETAIL_SUCCESS";
+export const TOUR_PRICE_DETAIL_ERROR="TOUR_PRICE_DETAIL_ERROR"
+
 
 export const GOLF_LIST = "GOLF_LIST";
 export const GOLF_LIST_SUCCESS = "GOLF_LIST_SUCCESS";

@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { BASE_URL_API, GET_TOKEN,GET_LANG_CODE, BASE_URL } from '../../../redux/actions/type';
 import { GET_LANG_vi,GET_LANG_ko } from '../../../js/lang';
 import axios from 'axios';
-import $, { event } from "jquery"
+
 import {useRouter, useSearchParams} from "next/navigation";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -39,9 +39,7 @@ function info_user(props) {
     const [nationalityInput, setNationalityInput] = useState([]);
     const [nationalitySelected, setNationalitySelected] = useState();
 
-    const clickImage = () => {
-        $(".image_avatar").trigger("click");
-    }
+
     const handleChangeAvatar = (event) => {
         let file = event.target.files[0];
 
@@ -98,9 +96,7 @@ function info_user(props) {
                 title: "Thay đổi thông tin thành công",
                 icon: "success"
             })
-            $(".txt_contact").attr("disabled", true);
-            $(".update_user").addClass("hide");
-            $(".edit_user").removeClass("hide");
+
 
         })
             .catch(function (error) {
@@ -143,10 +139,7 @@ function info_user(props) {
     }
 
     const edit_user =  async () => {
-  
-       $(".txt_contact").attr("disabled", false);
-       $(".update_user").removeClass("hide");
-       $(".edit_user").addClass("hide");
+
     }
 
 

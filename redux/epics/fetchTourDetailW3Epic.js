@@ -40,10 +40,12 @@ const tourDetailEpic = (action$, store) => action$.pipe(
     ofType(actionTypes.TOUR_DETAIL_W3),
     concatMap(action => of('').pipe(
         map(res => {
-            api_url = "https://balotour.nhanhtravel.com/api/customer/Tour/tour_detail?id=" + action.id;
+            api_url = actionTypes.BASE_URL_API +"Balotour/Tour/tour_info?permalink=" + action.permalink + "&tour_type="+action.tour_type;
+            console.log(api_url)
         })
     ).pipe(switchMap(act => ajaxControl(token))))
 );
 
 
 export default tourDetailEpic;
+

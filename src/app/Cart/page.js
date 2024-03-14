@@ -241,7 +241,7 @@ function Index(props) {
                 title: "Thanh toán thành công",
                 icon: "success"
             })
-            window.location.replace(BASE_URL + 'ViewVoucher?code=' + response.data.data.code);
+
         })
             .catch(function (error) {
                 console.log(error);
@@ -270,7 +270,6 @@ function Index(props) {
                 icon: "success"
             })
 
-            window.location.reload("/")
 
 
         })

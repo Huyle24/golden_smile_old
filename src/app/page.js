@@ -1,27 +1,19 @@
 "use client"
-import Image from 'next/image'
-import styles from './page.module.scss'
 import '../../public/style/pages/home/home.scss'
 import '../../public/style/pages/home/responsive.scss'
 import '../../public/style/pages/home/searchbox.scss'
 import '../../public/style/pages/home/Favorite.scss'
 import Carousels from './components/Carousels'
-import SearchBox from './components/SearchBox'
 import Promotion from './components/Promotion'
-import ProductTravel from './components/ProductTravel'
 import JointTour from './components/JointTour'
 import PrivateTour from './components/PrivateTour'
-import {connect} from "react-redux";
-import * as actions from "../../redux/actions";
-import {Montserrat} from 'next/font/google';
 import ImagesBanner from './components/ImagesBanner';
 import InboundTour from './components/InboundTour';
 import TourPopularType from './components/TourPopularType';
 import NextDestion from './components/NextDestion';
 import BlogWhy from './components/BlogWhy';
 import Banner from './components/Banner';
-import Favorite from './components/Favorite';
-import {Row, Col, Container} from 'react-bootstrap'
+import {Col, Container, Row} from 'react-bootstrap'
 
 
 export default function Home() {

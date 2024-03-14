@@ -55,7 +55,10 @@ export const fetchAddCartList = () => {
 export const fetchAddCartDetail = (type_check = '') => {
     return { type: actionTypes.ADD_CART_DETAIL, type_check: type_check };
 };
-
+export const setOrderData = (orderData) => ({
+    type: 'SET_ORDER_DATA',
+    payload: orderData,
+});
 export const fetchCountryUser = () => {
     return { type: actionTypes.COUNTRY_USER };
 };
@@ -73,6 +76,7 @@ export const fetchNewDetail = (permalink = '') => {
 export const fetchAllNewList = () => {
     return { type: actionTypes.ALL_NEW_LIST };
 };
+
 
 export const fetchGolfPackageList = (off = '', limit = '', keyword = '' , typedate = '' ,starhotel= '',outstanding = '') => {
     return { type: actionTypes.GOLF_PACKAGE_LIST, off: off, limit: limit,keyword: keyword,typedate: typedate,starhotel: starhotel,outstanding:outstanding };
@@ -119,6 +123,9 @@ export const fetchLanguageDetail = () => {
 export const fetchOrderView = (order_code = '') => {
     return { type: actionTypes.ORDER_VIEW_DETAIL, order_code: order_code };
 };
+export const fetchtourPriceDetailInfo = (tour_open_id = '',adult_number='') => {
+    return { type: actionTypes.TOUR_PRICE_DETAIL, tour_open_id: tour_open_id,adult_number:adult_number };
+};
 export const fetchSetupAddress = (uid = '') => {
     return { type: actionTypes.SETUP_ADDRESS, uid: uid};
 };
@@ -145,8 +152,8 @@ export const fetchBlogList = () => {
     return {type: actionTypes.BLOG_LIST}
 }
 
-export const fetchTourDetailW3 = (id = '') => {
-    return {type: actionTypes.TOUR_DETAIL_W3, id:id}
+export const fetchTourDetailW3 = (permalink = '',tour_type="") => {
+    return {type: actionTypes.TOUR_DETAIL_W3, permalink:permalink, tour_type:tour_type}
 }
 
 export const removeCartAction = (id = '') => {

@@ -56,7 +56,7 @@ function Header(props) {
     const handleLogout = async () => {
         await localStorage.removeItem('token')
         props.getUserInfo()
-        window.location.replace("/")
+
     }
 
     const toggle = () => {
@@ -142,7 +142,7 @@ function Header(props) {
 
         localStorage.setItem('lang', JSON.stringify(item.name_sm))
         setImageCountry(item.image)
-        window.location.replace("/")
+
     }
     useEffect(() => {
 

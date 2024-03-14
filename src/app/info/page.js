@@ -12,7 +12,6 @@ import * as actions from "../../../redux/actions";
 import { connect } from "react-redux";
 import { BASE_URL_API, GET_TOKEN,BASE_URL } from '../../../redux/actions/type';
 import axios from 'axios';
-import $, { event } from "jquery"
 import { useRouter } from "next/router"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -44,7 +43,7 @@ function page(props) {
     const [nationalitySelected, setNationalitySelected] = useState();
 
     const clickImage = () => {
-        $(".image_avatar").trigger("click");
+
     }
     const handleChangeAvatar = (event) => {
         let file = event.target.files[0];
@@ -102,9 +101,7 @@ function page(props) {
                 title: "Thay đổi thông tin thành công",
                 icon: "success"
             })
-            $(".txt_contact").attr("disabled", true);
-            $(".update_user").addClass("hide");
-            $(".edit_user").removeClass("hide");
+
 
         })
             .catch(function (error) {
@@ -147,10 +144,7 @@ function page(props) {
     }
 
     const edit_user =  async () => {
-  
-       $(".txt_contact").attr("disabled", false);
-       $(".update_user").removeClass("hide");
-       $(".edit_user").addClass("hide");
+
     }
 
 
@@ -509,53 +503,7 @@ function page(props) {
                                                 
                                                 </tr>
                                             </thead>
-                                            {/*<tbody>*/}
-                                            {/*    {*/}
-                                            {/*        orderHistory ? orderHistory.map((item,page)=>{*/}
-                                            {/*            return(*/}
-                                            {/*                <tr className={`tr_${item.id}`} key={index}>*/}
-                                            {/*                     <td> */}
 
-                                            {/*                    <a href={`${BASE_URL}ViewVoucher?code=${item.code}`} target="_blank" className="text-primary" >*/}
-                                            {/*                        DH-{item.code}*/}
-                                            {/*                    </a>*/}
-                                            {/*                     <br></br>*/}
-                                            {/*                     <span className="text-muted font-italic">{item.date_time}</span></td>*/}
-                                            {/*                     */}
-                                            {/*                     <td>*/}
-                                            {/*                        {*/}
-                                            {/*                            item.service_arr ? item.service_arr.map((item_service,index_service)=>{*/}
-                                            {/*                            */}
-                                            {/*                            return(*/}
-                                            {/*                                <span key={index_service}>*/}
-                                            {/*                                    {item_service}<br></br>*/}
-                                            {/*                                </span>*/}
-                                            {/*                            )*/}
-                                            {/*                            */}
-                                            {/*                            }):null*/}
-                                            {/*                        }*/}
-                                            {/*                     </td>*/}
-                                            {/*                    <td>*/}
-                                            {/*                        <span style={{color: `${item.name_status_color}`}}>{item.name_status}</span>*/}
-                                            {/*                    </td>*/}
-                                            {/*                    <td>*/}
-                                            {/*                        <span className="text-info">{GlobalJs.format_currency(item.all_totlal)}</span>*/}
-                                            {/*                    </td>*/}
-                                            {/*                    <td>*/}
-                                            {/*                        <span className="text-warning">{item.total_price_history_success}</span>*/}
-                                            {/*                    </td>*/}
-                                            {/*                    <td>*/}
-                                            {/*                        <span style={{color: "#b400d4"}}>{item.discount_price}</span>*/}
-                                            {/*                    </td>*/}
-                                            {/*                    <td>*/}
-                                            {/*                        <span className="text-success">{item.remain_total}</span>*/}
-                                            {/*                    </td>*/}
-                                            {/*                     */}
-                                            {/*                </tr>*/}
-                                            {/*            )*/}
-                                            {/*        }):null*/}
-                                            {/*    }*/}
-                                            {/*</tbody>*/}
                                         </table>
                                     </div>
                                     </Tab.Pane>

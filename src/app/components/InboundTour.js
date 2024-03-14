@@ -27,9 +27,17 @@ function InboundTour(props) {
     console.log(list_privateTour)
     console.log('list_jointTour')
     console.log(list_jointTour)
-    let list_inboundTour=[...list_jointTour,...list_privateTour]
-    console.log('list_inboundTour')
-    console.log(list_inboundTour)
+    let list_inboundTour = [];
+    if (list_jointTour && list_privateTour) {
+        list_inboundTour = [...list_jointTour, ...list_privateTour];
+    } else {
+        list_inboundTour = list_jointTour || list_privateTour;
+    }
+        console.log('list_inboundTour')
+        console.log(list_inboundTour)
+
+
+
     const Product_watched = (item) => {
         np
         props.addToWatchedAction(item);

@@ -80,7 +80,7 @@ function Register(props){
                     icon: "success"
                 })
                 await localStorage.setItem('token', JSON.stringify(response.data.user_token))
-                window.location.replace('/')
+
                 // await props.getUserInfo()
                 // await props.fetchAddCartList()
                 // history.back()

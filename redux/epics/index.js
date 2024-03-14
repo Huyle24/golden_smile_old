@@ -33,6 +33,7 @@ import setupAddressDetailEpic from './setupAddressDetailEpic'
 import fetchTourDetailW3Epic from "./fetchTourDetailW3Epic";
 import orderHistoryEpic from './orderHistoryEpic'
 import tourInboundListEpic from "./tourInboundListEpic";
+import tourPriceDetailEpic from "./tourPriceDetailEpic";
 
 
 export default combineEpics(
@@ -68,6 +69,8 @@ export default combineEpics(
     setupAddressDetailEpic,
     fetchTourDetailW3Epic,
     orderHistoryEpic,
-    tourInboundListEpic
+    tourInboundListEpic,
+    tourPriceDetailEpic
 
 )
+

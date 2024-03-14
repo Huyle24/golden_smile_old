@@ -35,6 +35,8 @@ import orderHistoryReducer from './orderHistoryReducer';
 import addToCartReducer from "./addToCartReducer";
 import addProductWatchedReducer from './addProductWatchedReducer';
 import tourInboundListReducer from "./tourInboundListReducer";
+import tourPriceDetailReducer from "./tourPriceDetailReducer";
+import orderDataReducer from "./orderDataReducer";
 
 
 
@@ -48,6 +50,7 @@ export default combineReducers({
     jointTourListInfo: tourJointListReducer,
     tourInboundListInfo: tourInboundListReducer,
     tourDetailInfo: tourDetailReducer,
+    tourPriceDetailInfo:tourPriceDetailReducer,
     golfDetailInfo: golfDetailReducer,
     golfListInfo: golfListReducer,
     addCartInfo : addCartListReducer,
@@ -75,4 +78,5 @@ export default combineReducers({
     orderHistoryInfo:orderHistoryReducer,
     getToCart: addToCartReducer,
     getToProductWatch: addProductWatchedReducer,
+    orderDataInfo:orderDataReducer
 });

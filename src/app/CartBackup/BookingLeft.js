@@ -610,13 +610,7 @@ function BookingLeft(props){
                                         <span>  {textShow ? textShow.Add_Contacts : ''}</span>
                                     </div>
                                     <Modal
-                                        show={userMoreShow} onHide={userMoreleClose}
-
-                                        size="xl"
-                                        aria-labelledby="contained-modal-title-vcenter"
-                                        centered
-                                        className="modal-detail"
-                                    >
+                                        show={userMoreShow} onHide={userMoreleClose} size="xl" aria-labelledby="contained-modal-title-vcenter" centered className="modal-detail">
                                         <Modal.Header closeButton className="main_tour_detail_header_md">
                                             <Modal.Title><div className="title">{textShow ? textShow.Communications : ''}</div></Modal.Title>
                                         </Modal.Header>

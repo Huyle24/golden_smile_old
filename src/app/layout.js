@@ -14,6 +14,7 @@ import {React, useEffect, useState} from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -52,19 +53,8 @@ export default function RootLayout({ children }) {
                   <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
                   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />            
       </Head>
-        <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'></link>
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
-     
-        <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
-
-        <script
-          src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
-          crossorigin></script>
-
-        <script
-          src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
-          crossorigin></script>
-  
           <Provider store={store}>
       <Header />
       {children}

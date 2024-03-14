@@ -108,8 +108,6 @@ function PaymentMethod(props) {
   let payment_method_list = props.addCartDetailInfo.data && props.addCartDetailInfo.isLoading == false ? props.addCartDetailInfo.data.payment_method_list : '';
   let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
 
-  // console.log(payment_method_list)
-
   let setup_address_detail = props.setupAddressDetailInfo.data && props.setupAddressDetailInfo.isLoading == false ? props.setupAddressDetailInfo.data : '';
   // let user_more =  localStorage.getItem("user_more");
   // console.log(user_more);

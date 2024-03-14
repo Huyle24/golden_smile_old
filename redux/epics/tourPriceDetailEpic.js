@@ -25,26 +25,28 @@ const ajaxControl = (user_token, action) =>
         }
     }).pipe(
         map(response => ({
-            type: actionTypes.TOUR_DETAIL_SUCCESS,
+            type: actionTypes.TOUR_PRICE_DETAIL_SUCCESS,
             payload: response.response
         })),
         catchError(error => {
             let data_error = {
-                type: actionTypes.TOUR_DETAIL_ERROR,
+                type: actionTypes.TOUR_PRICE_DETAIL_ERROR,
                 payload: { connect: false }
             };
             return of(data_error);
         })
     );
 const tourDetailEpic = (action$, store) => action$.pipe(
-    ofType(actionTypes.TOUR_DETAIL),
+    ofType(actionTypes.TOUR_PRICE_DETAIL),
     concatMap(action => of('').pipe(
         map(res => {
-            api_url = actionTypes.BASE_URL_API + "Balotour/Tour/tour_detail?permalink=" + action.permalink +"&tour_type="+action.tour_type ;
+            api_url = actionTypes.BASE_URL_API + "website/TourInfo/getInfoTourOpen?tour_open_id=" + action.tour_open_id +"&adult_number="+action.adult_number ;
             console.log(api_url)
+
         })
     ).pipe(switchMap(act => ajaxControl(token))))
 );
+
 
 
 export default tourDetailEpic;
