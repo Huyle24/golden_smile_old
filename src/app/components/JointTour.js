@@ -92,7 +92,9 @@ function JointTour(props) {
                                     </Card>
 
                                     <Card.Body className={'card-tour'}>
-                                        <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
+                                        <Link
+                                            href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                            onClick={() => Product_watched(item)}>
                                             <Card.Title className="card_title_tour " style={{
                                                 overflow: 'hidden',
                                                 textOverflow: 'ellipsis',
@@ -138,9 +140,12 @@ function JointTour(props) {
                                                  style={{minHeight: 30}}>
 
                                                 {item.tour_open_list.slice(0, 4).map((item1, index1) => (
+                                                    <Link
+                                                        href={'/OrderTour?tour_open_id=' + item1.id}>
                                                     <span
                                                         key={index1}
                                                         className="px-2 py-1 item_day_tour fw-bold">{item1.date_start_tour.slice(0, 5)}</span>
+                                                    </Link>
                                                 ))}
 
 

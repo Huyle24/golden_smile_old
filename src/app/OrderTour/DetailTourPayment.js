@@ -201,7 +201,7 @@ function DetailTourPayment(props) {
                                             <label htmlFor="exampleInputEmail1">Họ và tên</label>
                                             <input type="text" className="form-control" id="exampleInputEmail1"
                                                    value={userInput}
-                                                   aria-describedby="emailHelp" placeholder="Họ và tên" disabled/>
+                                                   aria-describedby="emailHelp" placeholder="Họ và tên" disabled required/>
 
                                         </div>
                                     </Col>
@@ -211,7 +211,7 @@ function DetailTourPayment(props) {
                                             <input type="email" className="form-control" id="exampleInputEmail1"
                                                    value={emailInput}
                                                    aria-describedby="emailHelp" placeholder="nguyenvanthanh@gmail.com"
-                                                   disabled/>
+                                                   disabled required/>
 
                                         </div>
                                     </Col>
@@ -220,7 +220,7 @@ function DetailTourPayment(props) {
                                             <label htmlFor="exampleInputEmail1">Số điện thoại</label>
                                             <input type="number" className="form-control" id="exampleInputEmail1"
                                                    value={phoneInput}
-                                                   aria-describedby="emailHelp" placeholder="0111 111 111" disabled/>
+                                                   aria-describedby="emailHelp" placeholder="0111 111 111" disabled required/>
 
                                         </div>
                                     </Col>

@@ -83,7 +83,7 @@ function Register(props){
 
                 // await props.getUserInfo()
                 // await props.fetchAddCartList()
-                // history.back()
+                // npm .back()
             }
         })
             .catch(function (error) {

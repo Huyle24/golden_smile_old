@@ -14,9 +14,7 @@ function PaymentSidebar(props) {
     const tour_open_id = searchParams.get("tour_open_id");
     const adult_number = searchParams.get("adult_number");
     let tour_price_detail_info = props.tourPriceDetailInfo.data && props.tourPriceDetailInfo.isLoading === false ? props.tourPriceDetailInfo.data : '';
-    const adultTotal =
-        orderData? orderData.adult_number * tour_price_detail_info.price_sell_adult:0;
-
+    const adultTotal =  orderData?  orderData.adult_number * tour_price_detail_info.price_sell_adult:0;
     console.log(' tour_price_detail_info.price_sell_adultr', parseFloat(tour_price_detail_info.price_sell_adult))
     // Tính tổng số tiền của trẻ em
     let childTotal = 0;
@@ -42,7 +40,7 @@ function PaymentSidebar(props) {
                     <div className={'d-flex justify-content-between'}>
                         <div>Người lớn:</div>
                         <div>
-                            {orderData.adult_number} x {tour_price_detail_info.price_sell_adult_formated}đ
+                            {orderData?orderData.adult_number:''} x {tour_price_detail_info.price_sell_adult_formated}đ
 
                         </div>
                     </div>
@@ -62,11 +60,7 @@ function PaymentSidebar(props) {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Link href={'./Checkout'}>
-                        <button className={'btn payment-order-tour w-100'}>Thanh toán</button>
-                    </Link>
-                </div>
+
             </div>
         </>
     );

@@ -43,7 +43,7 @@ const tourPrivateListEpic = (action$, store) => action$.pipe(
         map(res => {
             let keyword='';
             api_url = actionTypes.BASE_URL_API + "Balotour/TourOpen/TourOpen?off=" + action.off + "&limit=" + action.limit+"&keyword="+ action.keyword+"&city_id="+ action.city_id + "&tour_type=" + action.tour_type + "&typedate=" + action.typedate + "&date_start=" + action.date_start + "&date_end=" + action.date_end+"&outstanding=" + action.outstanding;
-
+            console.log(api_url)
         })
     ).pipe(switchMap(act => ajaxControl(token))))
 );

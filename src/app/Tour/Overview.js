@@ -28,7 +28,7 @@ function Overview(props) {
     // console.log(overview_detail_info)
     const [show, setShow] = useState(false);
     const [showContactModal, setContactModal] = useState(false);
-    const [tourOpenChoose, setTourOpenChoose] = useState()
+    const [tourOpenChoose, setTourOpenChoose] = useState(overview_detail_info ? overview_detail_info.tour_open_list[0] : "")
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     //Them class active cho the span
@@ -50,7 +50,7 @@ function Overview(props) {
         setTourOpenChoose(item)
         setSelectedDate(item);
     }
-
+    console.log('tourOpenChoose',tourOpenChoose.id)
     useEffect(() => {
         props.fetchTourDetailW3(permalink, tour_type)
     }, []);
@@ -135,7 +135,7 @@ function Overview(props) {
                         <MdOutlineShoppingCart/> Thêm vào giỏ hàng
                     </button>
                     <Link
-                        href={'/OrderTour?tour_open_id=' + (overview_detail_info ? overview_detail_info.tour_open_list[0].id : '')}>
+                        href={'/OrderTour?tour_open_id=' + (tourOpenChoose ? tourOpenChoose.id :  overview_detail_info?  overview_detail_info.tour_open_list[0].id:'')}>
                         <button className={'btn tour-detail-order-now'} onClick={handleShow}>
                             <MdOutlineShoppingCartCheckout/> Đặt tour ngay
                         </button>

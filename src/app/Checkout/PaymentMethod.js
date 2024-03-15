@@ -8,14 +8,14 @@ import { setOrderData } from "../../../redux/actions";
 import {BASE_URL_API} from "../../../redux/actions/type";
 import axios from "axios";
 import Swal from "sweetalert2";
-
+import InfoDetail from "@/app/OrderTour/InfoDetail"
+import PaymentSidebar from "@/app/Checkout/PaymentSidebar";
 function PaymentMethod(props){
     const [agree, setAgree] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
     const [paymentMethod, setPaymentMethod] = useState('');
     let payment_method_list = props.addCartDetailInfo.data && props.addCartDetailInfo.isLoading == false ? props.addCartDetailInfo.data.payment_method_list : '';
     const orderData = props.orderDataInfo.orderData ;
-
     const newElement = {
         payment_method: activeIndex
     };
@@ -49,7 +49,7 @@ function PaymentMethod(props){
         fd.append('payment_method', updatedOrderData.payment_method);
         fd.append('data_child', JSON.stringify(updatedOrderData.data_child));
         fd.append('tour_open_id', updatedOrderData.tour_open_id);
-        
+
         console.log('JSON.stringify(updatedOrderData.data_child)',JSON.stringify(updatedOrderData.data_child))
 
         if (activeIndex == '') {
@@ -164,19 +164,8 @@ function PaymentMethod(props){
 
                     <Col xl={4}>
                         <div>
-                            <div>
-                                <span className="text-primary">Quý khách cần hỗ trợ?</span>
-                                <div className="mt-2">
-                                    <div className="d-flex justify-content-between">
-                                        <Button className="support_btn"><FaPhoneAlt className="me-2"/>Gọi miễn phí qua internet</Button>
-                                        <Button className="support_btn bg-white text-black boder-0 rounded-end"><FaMailBulk className="me-2"/>Gửi yêu cầu hỗ trợ ngay</Button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="border border-dark p-3 mt-4">
-                                <span className="text-700">Tóm tắt đơn hàng</span>
 
-                            </div>
+                            <PaymentSidebar orderData={orderData}/>
                             <div>
                                 <Button className="w-100 btn-danger py-2 mt-3" onClick={handleOrder} >THANH TOÁN NGAY</Button>
                             </div>
