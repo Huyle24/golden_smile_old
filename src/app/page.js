@@ -34,7 +34,7 @@ export default function Home() {
             <Promotion/>
             <ImagesBanner/>
             <JointTour/>
-            <PrivateTour/>
+            {/*<PrivateTour/>*/}
             <InboundTour/>
             <TourPopularType/>
             <NextDestion/>

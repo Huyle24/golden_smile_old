@@ -24,8 +24,8 @@ function Overview(props) {
     const tour_type = searchParams.get('tour_type');
 
     let overview_detail_info = props.tourDetailInfoW3 && props.tourDetailInfoW3.isLoading === false ? props.tourDetailInfoW3.data : '';
-    // console.log('overview_detail_info')
-    // console.log(overview_detail_info)
+    console.log('overview_detail_info')
+    console.log(overview_detail_info)
     const [show, setShow] = useState(false);
     const [showContactModal, setContactModal] = useState(false);
     const [tourOpenChoose, setTourOpenChoose] = useState(overview_detail_info ? overview_detail_info.tour_open_list[0] : "")

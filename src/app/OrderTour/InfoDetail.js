@@ -64,22 +64,42 @@ function InfoDetail(data) {
                         <div></div>
 
                     </Col>
-                    <div>
-                        Ngày đi {data.data ? data.data.date_start_flight : ''}
-                    </div>
-                    <div className={'d-flex justify-content-between'}>
-                        <div >
-                            <div>{data.data ? data.data.airline_start_name : ''}</div>
-                            <div className={'text-center'}> {data.data ? data.data.time_takeoff_start : ''}</div>
-                        </div>
+                    {data.data && data.data.airline_start_name && (
                         <div>
-                            <div>{data.data ? data.data.airline_start_name : ''}</div>
-                            <div className={'text-center'}> {data.data ? data.data.time_takeoff_end : ''}</div>
+                            <div>Ngày đi {data.data.date_start_flight}</div>
+                            <div className={'d-flex justify-content-between'}>
+                                <div>
+                                    <div>{data.data.airline_start_name}</div>
+                                    <div className={'text-center'}>{data.data.time_takeoff_start}</div>
+                                </div>
+                                <div>
+                                    <img src={data.data.airline_start_img} alt=""/>
+                                </div>
+                                <div>
+                                    <div>{data.data.airline_start_name}</div>
+                                    <div className={'text-center'}>{data.data.time_landing_start}</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        Ngày về
-                    </div>
+                    )}
+                    {data.data && data.data.airline_end_name && (
+                        <div className={'airline_end'}>
+                            <div>Ngày về {data.data.date_end_flight}</div>
+                            <div className={'d-flex justify-content-between'}>
+                                <div className={'landing_start'} >
+                                    <div className={'airline_end_name'}>{data.data.airline_end_name}</div>
+                                    <div className={'time_landing_start'} >{data.data.time_takeoff_end}</div>
+                                </div>
+                                <div >
+                                    <img src={data.data.airline_end_img} className={'airline_end_img'} alt=""/>
+                                </div>
+                                <div className={'landing_end'}>
+                                    <div className={'airline_end_name'}>{data.data.airline_end_name}</div>
+                                    <div className={'time_landing_end'} >{data.data.time_landing_end}</div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </Row>
 
             </div>

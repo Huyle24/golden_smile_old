@@ -14,9 +14,9 @@ export default function Home(){
             <Row>
                 <SidaBarFilter />
                 <ListTour />
-                <TourPopuLar/>
-                <FavoritePlace />
-                <NewRelate />
+                {/*<TourPopuLar/>*/}
+                {/*<FavoritePlace />*/}
+                {/*<NewRelate />*/}
             </Row>
             
         </Container>

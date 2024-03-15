@@ -2063,13 +2063,13 @@ tr td {
 }
 
 .item_day_tour {
-  border-color: #FFF1F0;
   color: #F5222D;
   background: #FFF1F0;
   border-radius: 8px;
   width: 65px;
   height: 30px;
   cursor: pointer;
+  border: 1px solid #FFF1F0;
 }
 
 .item_day_tour:hover, .item_day_tour.active {
@@ -2591,6 +2591,29 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   color: #000;
 }
 
+.airline_end{
+  .landing_start,.landing_end{
+    max-width: 30%;
+    text-align: center;
+  }
+  .landing_start{
+    .airline_end_name{
+      text-align: center;
+    }
+    .time_landing_start{
+      text-align: center;
+    }
+  }
+  .landing_end{
+    .airline_end_name{
+      text-align: center;
+    }
+    .time_landing_end{
+      text-align: center;
+    }
+  }
+
+}
 .card-item-tag {
   display: flex;
   flex-wrap: wrap;

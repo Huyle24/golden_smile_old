@@ -7,8 +7,33 @@ import * as actions from "../../../redux/actions";
 import {useSearchParams} from "next/navigation";
 import InfoDetail from "@/app/OrderTour/InfoDetail";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 function PaymentSidebar(props) {
+    const router = useRouter();
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    const handlePayment = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            router.push('/Checkout');
+        } else {
+            Toast.fire({
+                title: "Bạn chưa đăng nhập tài khoản",
+                icon: "error"
+            })
+            router.push('/Auth/Login/');
+        }
+    };
     const { orderData } = props;
     const searchParams = useSearchParams()
     const tour_open_id = searchParams.get("tour_open_id");
@@ -63,9 +88,9 @@ function PaymentSidebar(props) {
                     </div>
                 </div>
                 <div>
-                    <Link href={'./Checkout'}>
-                        <button className={'btn payment-order-tour w-100'}>Thanh toán</button>
-                    </Link>
+                    <div>
+                        <button onClick={handlePayment} className="btn payment-order-tour w-100">Thanh toán</button>
+                    </div>
                 </div>
             </div>
         </>

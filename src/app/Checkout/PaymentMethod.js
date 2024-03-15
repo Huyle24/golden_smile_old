@@ -10,7 +10,19 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import InfoDetail from "@/app/OrderTour/InfoDetail"
 import PaymentSidebar from "@/app/Checkout/PaymentSidebar";
+import {useRouter} from "next/navigation";
 function PaymentMethod(props){
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
     const [agree, setAgree] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
     const [paymentMethod, setPaymentMethod] = useState('');
@@ -27,18 +39,9 @@ function PaymentMethod(props){
         ...orderData, // Spread the existing properties of orderData
         ...newElement // Add the new property
     };
+    const router = useRouter();
     const handleOrder = async () => {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'bottom-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
+
         let url_api = BASE_URL_API + "website/TourInfo/saveOrderTourOpen"
         let fd = new FormData()
         fd.append('adult_number', updatedOrderData.adult_number);
@@ -52,7 +55,7 @@ function PaymentMethod(props){
 
         console.log('JSON.stringify(updatedOrderData.data_child)',JSON.stringify(updatedOrderData.data_child))
 
-        if (activeIndex == '') {
+        if (activeIndex == null) {
             Toast.fire({
                 title: "Vui lòng chọn phương thức thanh toán",
                 icon: "error"
@@ -66,22 +69,13 @@ function PaymentMethod(props){
             }
         }).then(async function (response) {
 
-            // if(response.data.check_user === true){
-            //     Toast.fire({
-            //         title: "Tài khoản chưa đăng kí",
-            //         icon: "error"
-            //     })
-            // }else{
-            //     Toast.fire({
-            //         title: "Đăng nhập thành công",
-            //         icon: "success"
-            //     })
-            //     await localStorage.setItem('token', JSON.stringify(response.data.user_token))
-            //     await props.getUserInfo()
-            //     await props.fetchAddCartList()
-            console.log('response', response)
 
-                // history.back()
+            console.log('response', response)
+            Toast.fire({
+                title: "Tạo đơn hàng thành công",
+                icon: "success"
+            })
+            router.push('/');
 
             // }
         })
@@ -164,7 +158,6 @@ function PaymentMethod(props){
 
                     <Col xl={4}>
                         <div>
-
                             <PaymentSidebar orderData={orderData}/>
                             <div>
                                 <Button className="w-100 btn-danger py-2 mt-3" onClick={handleOrder} >THANH TOÁN NGAY</Button>

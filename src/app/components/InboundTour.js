@@ -27,12 +27,13 @@ function InboundTour(props) {
     console.log(list_privateTour)
     console.log('list_jointTour')
     console.log(list_jointTour)
-    let list_inboundTour = [];
-    if (list_jointTour && list_privateTour) {
-        list_inboundTour = [...list_jointTour, ...list_privateTour];
-    } else {
-        list_inboundTour = list_jointTour || list_privateTour;
-    }
+    // let list_inboundTour = [];
+    // if (list_jointTour && list_privateTour) {
+    //     list_inboundTour = [...list_jointTour, ...list_privateTour];
+    // } else {
+    //     list_inboundTour = list_jointTour || list_privateTour;
+    // }
+   const list_inboundTour = [...list_jointTour ];
         console.log('list_inboundTour')
         console.log(list_inboundTour)
 
@@ -157,7 +158,8 @@ function InboundTour(props) {
                                     )}
                                     {item.tour_type == 2 && (
                                         <Card.Body className={'card-tour'}>
-                                            <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
+                                            <Link href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                                  onClick={() => Product_watched(item)}>
                                                 <Card.Title className="card_title_tour " style={{
                                                     overflow: 'hidden',
                                                     textOverflow: 'ellipsis',
@@ -212,7 +214,7 @@ function InboundTour(props) {
                                                         className=" text-danger fw-bold fs-5">
                                                         {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].price_1_person : ''} đ
                                                     </div>
-                                                    <Link href={"/Tour?id=" + item.id}
+                                                    <Link href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
                                                           onClick={() => Product_watched(item)}
                                                           className={'d-flex align-content-center flex-wrap'}>
                                                         <button className="button-detail btn ">

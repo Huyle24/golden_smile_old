@@ -140,7 +140,7 @@ function DetailTourPayment(props) {
                         <Row className={'row_tour_payment'}>
                             <Col md={4}>
                                 <img className={'img_tour_payment'}
-                                     src={tour_price_detail_info ? tour_price_detail_info.image : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
+                                     src={tour_price_detail_info &&tour_price_detail_info.image !== null ? tour_price_detail_info.image : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
                                      alt=""/>
                             </Col>
                             <Col md={8}>
@@ -386,7 +386,7 @@ function DetailTourPayment(props) {
                     </Container>
                 </Col>
                 <Col md={4}>
-                    <PaymentSidebar orderData={orderData}/>
+                    <PaymentSidebar  orderData={orderData}/>
                 </Col>
             </Row>
         </>
