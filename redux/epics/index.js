@@ -1,4 +1,4 @@
-import { combineEpics } from 'redux-observable';
+import {combineEpics} from 'redux-observable';
 import fetchBrandListEpic from './fetchBrandListEpic';
 import fetchCategoryListEpic from './fetchCategoryListEpic';
 import fetchProductListEpic from './fetchProductListEpic';
@@ -34,6 +34,8 @@ import fetchTourDetailW3Epic from "./fetchTourDetailW3Epic";
 import orderHistoryEpic from './orderHistoryEpic'
 import tourInboundListEpic from "./tourInboundListEpic";
 import tourPriceDetailEpic from "./tourPriceDetailEpic";
+import {fetchCountryList} from "../actions";
+import fetchCountryListEpic from "./fetchCountryListEpic";
 
 
 export default combineEpics(
@@ -70,7 +72,7 @@ export default combineEpics(
     fetchTourDetailW3Epic,
     orderHistoryEpic,
     tourInboundListEpic,
-    tourPriceDetailEpic
-
+    tourPriceDetailEpic,
+    fetchCountryListEpic
 )
 

@@ -17,7 +17,7 @@ import Nav from "react-bootstrap/Nav";
 
 function JointTour(props) {
     useEffect(() => {
-        props.fetchJointTourList('', '', '', '', '', '', '', '', 1)
+        props.fetchJointTourList('', '', '', 30, '', '', '', '','','','','','','','' )
     }, [])
 
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';

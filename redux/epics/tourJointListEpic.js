@@ -13,8 +13,8 @@ let token = '';
 const ajaxControl = (user_token, action) =>
     ajax({
         url: api_url,
-        timeout: 5000,
-        method: 'GET',
+        timeout: 20000,
+        method:'GET',
         headers: {
             "X-API-KEY": actionTypes.REST_KEY,
             'USER-TOKEN': user_token,
@@ -42,7 +42,24 @@ const tourPrivateListEpic = (action$, store) => action$.pipe(
     concatMap(action => of('').pipe(
         map(res => {
             let keyword='';
-            api_url = actionTypes.BASE_URL_API + "Balotour/TourOpen/TourOpen?off=" + action.off + "&limit=" + action.limit+"&keyword="+ action.keyword+"&city_id="+ action.city_id + "&tour_type=" + action.tour_type + "&typedate=" + action.typedate + "&date_start=" + action.date_start + "&date_end=" + action.date_end+"&outstanding=" + action.outstanding;
+            api_url = actionTypes.BASE_URL_API + "Balotour/TourOpen/TourOpen?off=" + action.off+
+            "&limit=" + action.limit+
+            "&keyword=" + action.keyword+
+            "&number_customer_filter=" + action.number_customer_filter +
+            "&country_start_id=" + action.country_start_id+
+            "&country_end_id=" + action.country_end_id+
+            "&city_start_id=" + action.city_start_id+
+            "&city_end_id=" + action.city_end_id +
+            "&date_start_tour=" + action.date_start_tour+
+            "&date_end_tour=" + action.date_end_tour+
+            "&tour_type=" + action.tour_type  +
+            "&outstanding=" + action.outstanding+
+            "&typedate=" + action.typedate+
+            "&format_tour"+ action.format_tour+
+            "&type_tourism_id"+ action.type_tourism_id;
+
+
+
             console.log(api_url)
         })
     ).pipe(switchMap(act => ajaxControl(token))))

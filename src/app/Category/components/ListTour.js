@@ -14,12 +14,14 @@ import Pagination from "react-bootstrap/Pagination";
 import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
 import {SwiperSlide} from "swiper/react";
 import {BsPeople} from "react-icons/bs";
+import {fetchCountryList, fetchCountryListBalotour} from "../../../../redux/actions";
 
 const OFF_DEFAULT = 9;
 
 function ListTour(props) {
     const [value, onChange] = useState(new Date());
     const [textShow, setTextShow] = useState('');
+
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
             id: 1,
@@ -67,10 +69,17 @@ function ListTour(props) {
     const [searchKeyWord, setSearchKeyWord] = useState('')
     const [checkboxOrder, setCheckboxOrder] = useState('');
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
+
     console.log('list_tour', list_tour)
     useEffect(() => {
-        props.fetchJointTourList('', '', '', '', '', '', '', '', 1)
+        props.fetchJointTourList('', '', '', 30, '', '', '', '','','','','','','','' );
+        props.fetchCountryListBalotour()
+
     }, [])
+
+    // useEffect(() => {
+    //     props.fetchJointTourList('', '', '', '', '', '', '', '', 1)
+    // }, [])
 
     // const [checkboxTypeDate, setCheckboxTypeDate] = useState('');
     // const [allshow, allsetShow] = useState(false);
@@ -206,7 +215,7 @@ function ListTour(props) {
             {/*</div>*/}
             <Row>
                 {list_tour ? (list_tour.map((item, index) => (
-                    <Col md={4}>
+                    <Col md={4} className={'mt-2'}>
 
                         <Card>
                             <Card className="position-relative border border-0 header_tour_img">
@@ -330,7 +339,8 @@ function ListTour(props) {
 
 const mapStateToProps = state => ({
 
-    jointTourListInfo: state.jointTourListInfo
+    jointTourListInfo: state.jointTourListInfo,
+    countryListInfo: state.countryListInfo
 
 });
 export default connect(mapStateToProps, actions)(ListTour);

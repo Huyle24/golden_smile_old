@@ -1,6 +1,14 @@
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
+import {useState, useEffect} from "react";
+import {connect} from "react-redux";
+import * as actions from "../../../../redux/actions";
 
-export default function SidaBarFilter() {
+ function SidaBarFilter(props) {
+    let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
+    useEffect(() => {
+        props.fetchCountryListBalotour()
+    }, [])
+     console.log('country_list',country_list)
     return (
         <Col lg="3" className="ps-0">
             <Card className="border border-0 bg-secondary-subtle">
@@ -22,10 +30,9 @@ export default function SidaBarFilter() {
                     </Form.Select>
                     <Card.Text className="title-filter mb-2">Quốc gia</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3">
-                        <option>---Điểm đến---</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                            {country_list && country_list.map((item, index) => (
+                                <option key={index} value={item.id}>{item.name}</option>
+                            ))}
                     </Form.Select>
                     <Card.Text className="title-filter mb-2">Điểm đến</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3">
@@ -81,3 +88,9 @@ export default function SidaBarFilter() {
         </Col>
     )
 }
+const mapStateToProps = state => ({
+
+    countryListInfo: state.countryListInfo
+
+});
+export default connect(mapStateToProps, actions)(SidaBarFilter);

@@ -18,8 +18,8 @@ import {BsPeople} from "react-icons/bs";
 
 function InboundTour(props) {
     useEffect(() => {
-        props.fetchInboundTourList('', '', '', '', '', '', '', '', 1, 0);
-        props.fetchPrivateTourList('', '', '', '', 1, '', '', '', 1);
+        // props.fetchInboundTourList('', '', '', '', '', '', '', '', 1, 0);
+        // props.fetchPrivateTourList('', '', '', '', 1, '', '', '', 1);
     }, [])
     let list_privateTour =props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
     let list_jointTour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
@@ -33,7 +33,7 @@ function InboundTour(props) {
     // } else {
     //     list_inboundTour = list_jointTour || list_privateTour;
     // }
-   const list_inboundTour = [...list_jointTour ];
+   const list_inboundTour = list_jointTour;
         console.log('list_inboundTour')
         console.log(list_inboundTour)
 
