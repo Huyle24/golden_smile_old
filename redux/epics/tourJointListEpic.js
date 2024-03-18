@@ -13,7 +13,7 @@ let token = '';
 const ajaxControl = (user_token, action) =>
     ajax({
         url: api_url,
-        timeout: 10000,
+        timeout: 50000,
         method:'GET',
         headers: {
             "X-API-KEY": actionTypes.REST_KEY,
