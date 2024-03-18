@@ -191,7 +191,12 @@ export const fetchHotelDetail = (permalink = '') => {
 export const fetchHotelPrice = (permalink = '', date_start = '', date_end = '') => {
     return {type: actionTypes.HOTEL_PRICE, permalink: permalink, date_start: date_start, date_end: date_end};
 };
-
+export const fetchListTypeTourism = () => {
+    return {type: actionTypes.FETCH_LIST_TYPE_TOURISM};
+};
+export const fetchDateTypeList = () => {
+    return {type: actionTypes.FETCH_LIST_DATE_TYPE};
+};
 export const fetchLanguage = () => {
     return {type: actionTypes.LANGUAGE_LIST};
 };

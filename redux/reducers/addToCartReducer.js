@@ -32,7 +32,7 @@ export default function (state = initialState, action){
             }
             else {
                 Toast.fire({
-                    title: "Đơn hàng đã tồn tại",
+                    title: "Sản phẩm đã thêm vào giỏ hàng trước đó",
                     icon: "error"
                 })
             }

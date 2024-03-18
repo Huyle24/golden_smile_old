@@ -38,6 +38,8 @@ import tourInboundListReducer from "./tourInboundListReducer";
 import tourPriceDetailReducer from "./tourPriceDetailReducer";
 import orderDataReducer from "./orderDataReducer";
 import fetchCountryListReducer from "./fetchCountryListReducer"
+import fetchListTypeTourismReducer from "./fetchListTypeTourismReducer";
+import fetchDateTypeListReducer from "./fetchDateTypeListReducer";
 
 
 
@@ -79,5 +81,7 @@ export default combineReducers({
     getToCart: addToCartReducer,
     getToProductWatch: addProductWatchedReducer,
     orderDataInfo:orderDataReducer,
-    countryListInfo :fetchCountryListReducer
+    countryListInfo :fetchCountryListReducer,
+    fetchListTypeTourismInfo:fetchListTypeTourismReducer,
+    fetchDateTypeInfo:fetchDateTypeListReducer,
 });

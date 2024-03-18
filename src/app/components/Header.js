@@ -3,24 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import {FaUserAlt, FaSearch, FaBars, FaCartPlus} from 'react-icons/fa';
 import Link from 'next/link';
 import React, {useEffect, useState} from 'react';
-import {Button, Col, Dropdown, Offcanvas, Row} from "react-bootstrap";
+import {Dropdown} from "react-bootstrap";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
-import {GET_TOKEN, GET_LANG_CODE} from '../../../redux/actions/type';
-import {GET_LANG_vi, GET_LANG_ko} from '../../../js/lang';
-import * as GlobalJs from "../../../js/global";
-import {useRouter, useSearchParams, usePathname} from "next/navigation";
-import Swal from "sweetalert2";
-import {addToCartAction, deleteCartAction, getToCartAction, removeCartAction} from "../../../redux/actions";
-import {Card, CardHeader, CardBody, Collapse} from "reactstrap";
-import DropdownMenu from "react-bootstrap/DropdownMenu";
-import {BrowserRouter, Router, Route, NavLink} from 'react-router';
+import {GET_LANG_CODE, GET_TOKEN} from '../../../redux/actions/type';
+import {GET_LANG_ko, GET_LANG_vi} from '../../../js/lang';
+import {usePathname, useRouter} from "next/navigation";
+import {CiLocationOn, CiTimer} from "react-icons/ci";
 
 
 function Header(props) {
@@ -122,7 +113,7 @@ function Header(props) {
 
 
     let numberItem = listCart ? listCart.length : '0'
-
+    console.log('listCart',listCart)
     // const cartItems = localStorage.getItem('cartItems');
 
     function formatToInt(str) {
@@ -218,34 +209,36 @@ function Header(props) {
                                                                 key={index}>
                                                                 <div className="d-flex">
                                                                     <div className="image me-2">
-                                                                        <img src={item.image ? item.image[0] : ''}
+                                                                        <img className={'img_tour_cart'} src={item.bucket_img ? item.bucket_img : ''}
                                                                              alt="cart"/>
                                                                     </div>
                                                                     <div className="info text-black">
                                                                         <div className="title ">{item.name}</div>
-                                                                        <div>{item.name}</div>
-                                                                        <div>{item.adult} Người lớn , {item.child} Trẻ
-                                                                            em
+                                                                        <div className={'info_tour_cart'} >
+                                                                            <CiLocationOn/> {item.city_start_name} - {item.city_end_name}
                                                                         </div>
+
                                                                         <div
-                                                                            className="text-danger">{GlobalJs.format_currency(item.total_price)} VNĐ
+                                                                            className="text-danger info_tour_cart">
+                                                                            <CiTimer/> {item.date_type_name}
                                                                         </div>
+
                                                                     </div>
                                                                 </div>
 
                                                                 <div id="delete-btn">
                                                                     <span className="text-danger ps-3"
-                                                                          onClick={() => removeItemCart(item.id)}>Xóa</span>
+                                                                          onClick={() => removeItemCart(item.id)}><i class='bx bx-trash'></i></span>
                                                                 </div>
                                                             </div>
                                                         )) : []}
                                                     </div>
                                                     <div className="d-flex justify-content-between">
                                                         <div className="output px-4">
-                                                            <div>Tổng tiền ({numberItem} items)</div>
-                                                            <div
-                                                                className="text-danger">{GlobalJs.format_currency(tot)} VNĐ
-                                                            </div>
+                                                            <div>Tổng sản phẩm  ({numberItem} )</div>
+                                                            {/*<div*/}
+                                                            {/*    className="text-danger">{GlobalJs.format_currency(tot)} VNĐ*/}
+                                                            {/*</div>*/}
                                                         </div>
                                                         <div className="entry px-4">
                                                             <Link href="/CartBackup">

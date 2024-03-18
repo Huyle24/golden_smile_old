@@ -36,6 +36,9 @@ import tourInboundListEpic from "./tourInboundListEpic";
 import tourPriceDetailEpic from "./tourPriceDetailEpic";
 import {fetchCountryList} from "../actions";
 import fetchCountryListEpic from "./fetchCountryListEpic";
+import fetchListTypeTourismEpic from "./fetchListTypeTourismEpic";
+import fetchDateTypeListReducer from "../reducers/fetchDateTypeListReducer";
+import fetchDateTypeListEpic from "./fetchDateTypeListEpic";
 
 
 export default combineEpics(
@@ -73,6 +76,8 @@ export default combineEpics(
     orderHistoryEpic,
     tourInboundListEpic,
     tourPriceDetailEpic,
-    fetchCountryListEpic
+    fetchCountryListEpic,
+    fetchListTypeTourismEpic,
+    fetchDateTypeListEpic
 )
 
