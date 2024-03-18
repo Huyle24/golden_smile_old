@@ -10,7 +10,7 @@ import NewRelate from "./components/NewRelate";
 export default function Home(){
     return(
         <Container className="main_category">
-            <Breadcrumbs />
+            {/*<Breadcrumbs />*/}
             <Row>
                 <SidaBarFilter />
                 <ListTour />

@@ -113,7 +113,8 @@ function Header(props) {
 
 
     let numberItem = listCart ? listCart.length : '0'
-    console.log('listCart',listCart)
+    console.log('listCart', listCart)
+
     // const cartItems = localStorage.getItem('cartItems');
 
     function formatToInt(str) {
@@ -194,8 +195,8 @@ function Header(props) {
                                         <Nav.Link>
                                             <Dropdown.Toggle id="dropdown-basic"
                                                              className="bg-transparent border-0 position-relative ">
-                                                <i className='bx bx-basket me-1'></i>
-                                                <span className='title_menu fw-normal'>Giỏ hàng</span>
+                                                <i className='bx bx-heart mt-1 fs-6'></i>
+                                                <span className='title_menu fw-normal'>Yêu thích</span>
                                                 <div className='quantity_cart'>
                                                     <span className='soluong_cart'>{numberItem}</span>
                                                 </div>
@@ -204,47 +205,54 @@ function Header(props) {
                                                 <div>
                                                     <div className="cart_list">
                                                         {listCart ? (listCart.map((item, index) =>
-                                                            <div
-                                                                className="cart-item-header d-flex justify-content-between align-items-center"
-                                                                key={index}>
-                                                                <div className="d-flex">
-                                                                    <div className="image me-2">
-                                                                        <img className={'img_tour_cart'} src={item.bucket_img ? item.bucket_img : ''}
-                                                                             alt="cart"/>
-                                                                    </div>
-                                                                    <div className="info text-black">
-                                                                        <div className="title ">{item.name}</div>
-                                                                        <div className={'info_tour_cart'} >
-                                                                            <CiLocationOn/> {item.city_start_name} - {item.city_end_name}
+                                                            <Link
+                                                                href={"/Tour?tour_type=2&permalink=" + item.permalink}>
+                                                                <div
+                                                                    className="cart-item-header d-flex justify-content-between align-items-center"
+                                                                    key={index}>
+
+                                                                    <div className="d-flex">
+                                                                        <div className="image me-2">
+                                                                            <img className={'img_tour_cart'}
+                                                                                 src={item.bucket_img ? item.bucket_img : ''}
+                                                                                 alt="cart"/>
                                                                         </div>
+                                                                        <div className="info text-black">
+                                                                            <div className="title ">{item.name}</div>
+                                                                            <div className={'info_tour_cart'}>
+                                                                                <CiLocationOn/> {item.city_start_name} - {item.city_end_name}
+                                                                            </div>
 
-                                                                        <div
-                                                                            className="text-danger info_tour_cart">
-                                                                            <CiTimer/> {item.date_type_name}
+                                                                            <div
+                                                                                className="text-danger info_tour_cart">
+                                                                                <CiTimer/> {item.date_type_name}
+                                                                            </div>
+
                                                                         </div>
-
                                                                     </div>
-                                                                </div>
 
-                                                                <div id="delete-btn">
+                                                                    <div id="delete-btn">
                                                                     <span className="text-danger ps-3"
-                                                                          onClick={() => removeItemCart(item.id)}><i class='bx bx-trash'></i></span>
+                                                                          onClick={() => removeItemCart(item.id)}><i
+                                                                        class='bx bx-trash'></i></span>
+                                                                    </div>
+
                                                                 </div>
-                                                            </div>
+                                                            </Link>
                                                         )) : []}
                                                     </div>
                                                     <div className="d-flex justify-content-between">
                                                         <div className="output px-4">
-                                                            <div>Tổng sản phẩm  ({numberItem} )</div>
+                                                            <div>Tổng tour ({numberItem} )</div>
                                                             {/*<div*/}
                                                             {/*    className="text-danger">{GlobalJs.format_currency(tot)} VNĐ*/}
                                                             {/*</div>*/}
                                                         </div>
-                                                        <div className="entry px-4">
-                                                            <Link href="/CartBackup">
-                                                                <span className="">Xem giỏ hàng</span>
-                                                            </Link>
-                                                        </div>
+                                                        {/*<div className="entry px-4">*/}
+                                                        {/*    <Link href="/CartBackup">*/}
+                                                        {/*        <span className="">Xem giỏ hàng</span>*/}
+                                                        {/*    </Link>*/}
+                                                        {/*</div>*/}
                                                     </div>
                                                 </div>
                                             </Dropdown.Menu>
@@ -386,51 +394,43 @@ function Header(props) {
                                 <Navbar.Collapse id="navbarScroll" className='navbar_tongsoxuong'>
                                     <Nav className="me-auto my-2 my-lg-0" navbarScroll>
                                         <Nav.Link>
-                                            <Link href="/"  className= {pathname === '/' ? 'header-tab active' : ''}>TRANG CHỦ</Link>
+                                            <Link href="/" className={pathname === '/' ? 'header-tab active' : ''}>TRANG
+                                                CHỦ</Link>
                                         </Nav.Link>
                                         <Nav.Link className='navcha'><Link
-                                            href="/search" className= {pathname !== '/' ? 'header-tab active' : ''}>{textShow ? textShow.Tour : 'TOUR'}<i
+                                            href={"/Category"}
+                                            className={pathname !== '/' ? 'header-tab active' : ''}>{textShow ? textShow.Tour : 'TOUR'}<i
                                             className='bx bx-chevron-down'></i></Link>
                                             <ul className='navcon'>
                                                 <li>
                                                     <Nav.Link>
-                                                        <Link href={'/search'}> TOUR GIÁP THÌN 2024</Link>
+                                                        <Link href={'/Category?formatTour=0'}> TOUR INBOUND</Link>
                                                     </Nav.Link>
                                                 </li>
                                                 <li>
-                                                    <Nav.Link href={'/search'}>
-                                                        <Link href={'/search'}>TOUR NƯỚC NGOÀI <i
-                                                            className='bx bx-chevron-down'></i> </Link>
-                                                        <ul className='navchau'>
-                                                            <li>
-                                                                <Nav.Link>
-                                                                    <Link href={'/search'}>DU LỊCH
-                                                                        INDONESIA </Link>
-                                                                </Nav.Link>
-                                                            </li>
-                                                            <li>
-                                                                <Nav.Link>
-                                                                    <Link href={'/search'}> DU LỊCH
-                                                                        LÀO </Link></Nav.Link></li>
-                                                            <li><Nav.Link><Link href={'/search'}> DU LỊCH CHÂU
-                                                                ÂU </Link></Nav.Link></li>
-                                                            <li><Nav.Link><Link href={'/search'}> DU LỊCH
-                                                                ÚC </Link></Nav.Link></li>
-                                                            <li><Nav.Link><Link href={'/search'}> DU LỊCH ẤN
-                                                                ĐỘ </Link></Nav.Link></li>
-                                                        </ul>
+                                                    <Nav.Link >
+                                                        <Link href={'/Category?formatTour=1'}>TOUR OUTBOUND  </Link>
+
                                                     </Nav.Link>
                                                 </li>
-                                                <li><Nav.Link>TOUR THEO YÊU CẦU <i className='bx bx-chevron-down'></i>
-                                                    <ul className='navchau'>
-                                                        <li><Nav.Link>TOUR GIA ĐÌNH</Nav.Link></li>
-                                                        <li><Nav.Link>TỔ CHỨC SỰ KIỆN</Nav.Link></li>
-                                                        <li><Nav.Link>TOUR NGHỈ DƯỠNG</Nav.Link></li>
-                                                        <li><Nav.Link>TOUR HÀNH HƯƠNG</Nav.Link></li>
-                                                    </ul>
+                                                <li><Nav.Link href={'/Category?formatTour=2'}>TOUR NỘI ĐỊA
+
                                                 </Nav.Link>
+
                                                 </li>
-                                                <li><Nav.Link>TOUR TREKKING</Nav.Link></li>
+                                                {/*<i className='bx bx-chevron-down'></i>*/}
+                                                {/*<li><Nav.Link>TOUR NỘI ĐỊA <i className='bx bx-chevron-down'></i>*/}
+
+                                                {/*</Nav.Link>*/}
+                                                {/*</li>*/}
+                                                {/*<ul className='navchau'>*/}
+                                                {/*    <li>*/}
+                                                {/*        <Nav.Link>*/}
+                                                {/*            <Link href={'/search'}>*/}
+                                                {/*            </Link>*/}
+                                                {/*        </Nav.Link>*/}
+                                                {/*    </li>*/}
+                                                {/*</ul>*/}
                                             </ul>
                                         </Nav.Link>
                                         {/*<Nav.Link><Link href="/">{textShow ? textShow.Visa : 'VISA'}</Link></Nav.Link>*/}
@@ -443,20 +443,20 @@ function Header(props) {
                                         <Nav.Link className='navcha'><Link
                                             href='/Camnang'>{textShow ? textShow.diary : 'NHẬT KÝ'} <i
                                             className='bx bx-chevron-down'></i></Link>
-                                            <ul className='navcon'>
-                                                <li><Nav.Link>KHÁCH LẺ GHÉP ĐOÀN</Nav.Link></li>
-                                                <li><Nav.Link>BẤT ĐỘNG SẢN</Nav.Link></li>
-                                                <li><Nav.Link>SỨC KHỎE - BẢO HIỂM</Nav.Link></li>
-                                                <li><Nav.Link>CƠ QUAN NHÀ NƯỚC</Nav.Link></li>
-                                                <li><Nav.Link>SỨC KHỎE</Nav.Link></li>
-                                                <li><Nav.Link>GIẢI TRÍ - SHOWBIZ</Nav.Link></li>
-                                                <li><Nav.Link>CÔNG NGHỆ CAO</Nav.Link></li>
-                                                <li><Nav.Link>TÀI CHÍNH - NGÂN HÀNG</Nav.Link></li>
-                                                <li><Nav.Link>SẢN XUẤT - CHẾ BIẾN</Nav.Link></li>
-                                                <li><Nav.Link>THẨM MỸ - LÀM ĐẸP</Nav.Link></li>
-                                                <li><Nav.Link>GIA ĐÌNH - NHÓM BẠN BÈ</Nav.Link></li>
-                                                <li><Nav.Link>TÔN GIÁO - THIỆN NGUYỆN</Nav.Link></li>
-                                            </ul>
+                                            {/*<ul className='navcon'>*/}
+                                            {/*    <li><Nav.Link>KHÁCH LẺ GHÉP ĐOÀN</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>BẤT ĐỘNG SẢN</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>SỨC KHỎE - BẢO HIỂM</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>CƠ QUAN NHÀ NƯỚC</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>SỨC KHỎE</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>GIẢI TRÍ - SHOWBIZ</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>CÔNG NGHỆ CAO</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>TÀI CHÍNH - NGÂN HÀNG</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>SẢN XUẤT - CHẾ BIẾN</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>THẨM MỸ - LÀM ĐẸP</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>GIA ĐÌNH - NHÓM BẠN BÈ</Nav.Link></li>*/}
+                                            {/*    <li><Nav.Link>TÔN GIÁO - THIỆN NGUYỆN</Nav.Link></li>*/}
+                                            {/*</ul>*/}
                                         </Nav.Link>
 
 
@@ -557,8 +557,11 @@ function Header(props) {
 
 const mapStateToProps = state => ({
     userInfo: state.userInfo,
-    getToCart: state.getToCart,
-    languageListInfo: state.languageListInfo,
-    languageDetailInfo: state.languageDetailInfo,
+    getToCart:
+    state.getToCart,
+    languageListInfo:
+    state.languageListInfo,
+    languageDetailInfo:
+    state.languageDetailInfo,
 });
 export default connect(mapStateToProps, actions)(Header);

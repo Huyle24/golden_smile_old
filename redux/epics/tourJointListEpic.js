@@ -55,8 +55,8 @@ const tourPrivateListEpic = (action$, store) => action$.pipe(
             "&tour_type=" + action.tour_type  +
             "&outstanding=" + action.outstanding+
             "&typedate=" + action.typedate+
-            "&format_tour"+ action.format_tour+
-            "&type_tourism_id"+ action.type_tourism_id;
+            "&format_tour="+ action.format_tour+
+            "&type_tourism_id="+ action.type_tourism_id;
 
 
 

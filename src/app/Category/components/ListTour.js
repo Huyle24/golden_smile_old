@@ -15,13 +15,16 @@ import {CiBarcode, CiLocationOn, CiTimer} from "react-icons/ci";
 import {SwiperSlide} from "swiper/react";
 import {BsPeople} from "react-icons/bs";
 import {fetchCountryList, fetchCountryListBalotour} from "../../../../redux/actions";
+import {useSearchParams} from "next/navigation";
 
 const OFF_DEFAULT = 9;
 
 function ListTour(props) {
     const [value, onChange] = useState(new Date());
     const [textShow, setTextShow] = useState('');
-
+    const searchParams = useSearchParams()
+    const formatTourParam = searchParams.get('formatTour');
+    const countryParam = searchParams.get('country');
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
             id: 1,
@@ -69,13 +72,22 @@ function ListTour(props) {
     const [searchKeyWord, setSearchKeyWord] = useState('')
     const [checkboxOrder, setCheckboxOrder] = useState('');
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
+    let FilterValues = props.updateFilterValuesInfo.FilterValues ? props.updateFilterValuesInfo.FilterValues : '';
 
+
+    console.log('FilterValues', FilterValues);
     console.log('list_tour', list_tour)
     useEffect(() => {
-        props.fetchJointTourList('', '', '', 30, '', '', '', '','','','','','','','' );
+
         props.fetchCountryListBalotour()
 
     }, [])
+    useEffect(() => {
+        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  '', '', '', '','', formatTourParam ?formatTourParam:'','' );
+    }, [])
+    useEffect(() => {
+        props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', '', '',  FilterValues.dateStart,  FilterValues.dateEnd, '', '',FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
+    }, [FilterValues])
 
     // useEffect(() => {
     //     props.fetchJointTourList('', '', '', '', '', '', '', '', 1)
@@ -340,7 +352,7 @@ function ListTour(props) {
 const mapStateToProps = state => ({
 
     jointTourListInfo: state.jointTourListInfo,
-    countryListInfo: state.countryListInfo
-
+    countryListInfo: state.countryListInfo,
+    updateFilterValuesInfo: state.updateFilterValuesInfo
 });
 export default connect(mapStateToProps, actions)(ListTour);

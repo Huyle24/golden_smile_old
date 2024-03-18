@@ -126,6 +126,11 @@ export const setOrderData = (orderData) => ({
     type: 'SET_ORDER_DATA',
     payload: orderData,
 });
+
+export const updateFilterValues = (values) => ({
+    type: 'UPDATE_FILTER_VALUES',
+    payload: values,
+});
 export const fetchCountryUser = () => {
     return {type: actionTypes.COUNTRY_USER};
 };
@@ -197,6 +202,7 @@ export const fetchListTypeTourism = () => {
 export const fetchDateTypeList = () => {
     return {type: actionTypes.FETCH_LIST_DATE_TYPE};
 };
+
 export const fetchLanguage = () => {
     return {type: actionTypes.LANGUAGE_LIST};
 };

@@ -2,12 +2,17 @@ import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import {useState, useEffect} from "react";
 import {connect} from "react-redux";
 import * as actions from "../../../../redux/actions";
-import {fetchDateTypeList, fetchListTypeTourism} from "../../../../redux/actions";
 
+import {useSearchParams} from 'next/navigation'
 function SidaBarFilter(props) {
+
+    const searchParams = useSearchParams()
+    const formatTourParam = searchParams.get('formatTour');
+    const countryParam = searchParams.get('country');
     let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
     let type_tourism_list = props.fetchListTypeTourismInfo.data && props.fetchListTypeTourismInfo.isLoading === false ? props.fetchListTypeTourismInfo.data : '';
     let date_type_list = props.fetchDateTypeInfo.data && props.fetchDateTypeInfo.isLoading === false ? props.fetchDateTypeInfo.data : '';
+
 
     const [formatTour, setFormatTour] = useState('')
     const [typeTourism, setTypeTourism] = useState('')
@@ -32,10 +37,10 @@ function SidaBarFilter(props) {
     const handleDateType = (event) => {
         setDateType(event.target.value)
     }
-    const handleDateStart=(event)=>{
+    const handleDateStart = (event) => {
         setDateStart(event.target.value)
     }
-    const handleDateEnd=(event)=>{
+    const handleDateEnd = (event) => {
         setDateEnd(event.target.value)
     }
     console.log('formatTour:', formatTour);
@@ -50,22 +55,47 @@ function SidaBarFilter(props) {
         props.fetchCountryListBalotour()
         props.fetchListTypeTourism()
         props.fetchDateTypeList()
+
+
     }, [])
+
+    const updateFilterValues = () => {
+        const newFilterValues = {
+            formatTour: formatTour,
+            typeTourism: typeTourism,
+            countryStart: countryStart,
+            countryEnd: countryEnd,
+            dateType: dateType,
+            dateStart: dateStart,
+            dateEnd: dateEnd
+        };
+        props.updateFilterValues(newFilterValues);
+    };
+
+    useEffect(() => {
+
+
+        updateFilterValues();
+    }, []); // Passing an empty array as dependency ensures this useEffect runs only once, similar to componentDidMount
+
+    useEffect(() => {
+
+        updateFilterValues();
+    }, [formatTour, typeTourism, countryStart, countryEnd, dateType, dateStart, dateEnd]); // This useEffect will run whenever any of these values change
 
     return (
         <Col lg="3" className="ps-0">
-            <Card className="border border-0 bg-secondary-subtle">
+            <Card className=" filter-sidebar ">
                 <Card.Title className="p-3 fillter">Tìm kiếm</Card.Title>
                 <Form className="px-3 py-4">
                     <Card.Text className="title-filter mb-2">Hình thức</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleFormatTour}>
                         <option>---Tất cả---</option>
-                        <option value="1">Inbound</option>
-                        <option value="2">Outbound</option>
-
-
-                        <option value="3">Nội địa</option>
+                        <option selected={formatTourParam == 0} value="0">Inbound</option>
+                        <option selected={formatTourParam == 1} value="1">Outbound</option>
+                        <option selected={formatTourParam == 2} value="2">Nội địa</option>
                     </Form.Select>
+
                     <Card.Text className="title-filter mb-2">Loại hình tour</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleTypeTourism}>
                         <option>---Tất cả---</option>
@@ -78,7 +108,7 @@ function SidaBarFilter(props) {
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleCountryStart}>
                         <option>---Tất cả---</option>
                         {country_list && country_list.map((item, index) => (
-                            <option key={index} value={item.id}>{item.name}</option>
+                            <option key={index} value={item.id}   selected={countryParam ==item.id }>{item.name}</option>
                         ))}
                     </Form.Select>
                     <Card.Text className="title-filter mb-2">Điểm đến</Card.Text>
@@ -142,7 +172,8 @@ const mapStateToProps = state => ({
 
     countryListInfo: state.countryListInfo,
     fetchListTypeTourismInfo: state.fetchListTypeTourismInfo,
-    fetchDateTypeInfo: state.fetchDateTypeInfo
+    fetchDateTypeInfo: state.fetchDateTypeInfo,
+    updateFilterValuesInfo: state.updateFilterValuesInfo
 
 });
 export default connect(mapStateToProps, actions)(SidaBarFilter);

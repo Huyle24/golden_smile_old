@@ -40,6 +40,7 @@ import orderDataReducer from "./orderDataReducer";
 import fetchCountryListReducer from "./fetchCountryListReducer"
 import fetchListTypeTourismReducer from "./fetchListTypeTourismReducer";
 import fetchDateTypeListReducer from "./fetchDateTypeListReducer";
+import updateFilterValuesReducer from "./updateFilterValuesReducer";
 
 
 
@@ -84,4 +85,5 @@ export default combineReducers({
     countryListInfo :fetchCountryListReducer,
     fetchListTypeTourismInfo:fetchListTypeTourismReducer,
     fetchDateTypeInfo:fetchDateTypeListReducer,
+    updateFilterValuesInfo:updateFilterValuesReducer
 });

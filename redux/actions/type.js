@@ -1,20 +1,18 @@
-
 export const BASE_URL = 'https://demo.nhanhtravel.com/';
-
 export const BASE_URL_API = 'https://demo.nhanhtravel.com/api/';
 // export const BASE_URL = 'https://vigomanager.com/';
 
 // export const BASE_URL_API = 'https://vigomanager.com/api/';
 // export const BASE_URL = 'http://localhost/vigolf_web/';
 // export const BASE_URL = 'http://localhost/vigomanager/';
-// export const BASE_URL_API =  "http://localhost/vigomanager/api/";
+// export const BASE_URL_API = "http://localhost/vigomanager/api/";
 export const REST_KEY = "api_key";
 
 export const GET_TOKEN = () => {
-  return localStorage.getItem("token");
+    return localStorage.getItem("token");
 };
 export const GET_LANG_CODE = () => {
-  return localStorage.getItem("lang") ? localStorage.getItem("lang") : JSON.stringify('vi');
+    return localStorage.getItem("lang") ? localStorage.getItem("lang") : JSON.stringify('vi');
 };
 
 export const FETCH_USER_INFO = "FETCH_USER_INFO";
@@ -32,7 +30,6 @@ export const FETCH_BRAND_LIST_ERROR = "FETCH_BRAND_LIST_ERROR";
 export const FETCH_PRODUCT_LIST = "FETCH_PRODUCT_LIST";
 export const FETCH_PRODUCT_LIST_SUCCESS = "FETCH_PRODUCT_LIST_SUCCESS";
 export const FETCH_PRODUCT_LIST_ERROR = "FETCH_PRODUCT_LIST_ERROR";
-
 
 
 export const PRIVATE_TOUR_LIST = "PRIVATE_TOUR_LIST";
@@ -60,14 +57,14 @@ export const TOUR_DETAIL = "TOUR_DETAIL";
 export const TOUR_DETAIL_SUCCESS = "TOUR_DETAIL_SUCCESS";
 export const TOUR_DETAIL_ERROR = "TOUR_DETAIL_ERROR";
 
-export const TOUR_PRICE_DETAIL="TOUR_PRICE_DETAIL";
-export const TOUR_PRICE_DETAIL_SUCCESS="TOUR_PRICE_DETAIL_SUCCESS";
-export const TOUR_PRICE_DETAIL_ERROR="TOUR_PRICE_DETAIL_ERROR"
+export const TOUR_PRICE_DETAIL = "TOUR_PRICE_DETAIL";
+export const TOUR_PRICE_DETAIL_SUCCESS = "TOUR_PRICE_DETAIL_SUCCESS";
+export const TOUR_PRICE_DETAIL_ERROR = "TOUR_PRICE_DETAIL_ERROR"
 
 
-export const FETCH_LIST_DATE_TYPE="FETCH_LIST_DATE_TYPE";
-export const FETCH_LIST_DATE_TYPE_SUCCESS="FETCH_LIST_DATE_TYPE_SUCCESS";
-export const FETCH_LIST_DATE_TYPE_ERROR="FETCH_LIST_DATE_TYPE_ERROR"
+export const FETCH_LIST_DATE_TYPE = "FETCH_LIST_DATE_TYPE";
+export const FETCH_LIST_DATE_TYPE_SUCCESS = "FETCH_LIST_DATE_TYPE_SUCCESS";
+export const FETCH_LIST_DATE_TYPE_ERROR = "FETCH_LIST_DATE_TYPE_ERROR"
 
 export const GOLF_LIST = "GOLF_LIST";
 export const GOLF_LIST_SUCCESS = "GOLF_LIST_SUCCESS";
@@ -80,6 +77,10 @@ export const GOLF_DETAIL_ERROR = "GOLF_DETAIL_ERROR";
 export const GOLF_PRICE = "GOLF_PRICE";
 export const GOLF_PRICE_SUCCESS = "GOLF_PRICE_SUCCESS";
 export const GOLF_PRICE_ERROR = "GOLF_PRICE_ERROR";
+
+export const UPDATE_FILTER_VALUES = 'UPDATE_FILTER_VALUES';
+export const UPDATE_FILTER_VALUES_SUCCESS = 'UPDATE_FILTER_VALUES_SUCCESS';
+export const UPDATE_FILTER_VALUES_ERROR = 'UPDATE_FILTER_VALUES_ERROR';
 
 export const GOLF_SCORECARD = "GOLF_SCORECARD";
 export const GOLF_SCORECARD_SUCCESS = "GOLF_SCORECARD_SUCCESS";

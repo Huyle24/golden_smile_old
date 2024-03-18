@@ -4,17 +4,17 @@ const initialState = {
 };
 export default function (state = initialState, action) {
     switch (action.type) {
-        case actionTypes.FETCH_PRODUCT_LIST:
+        case actionTypes.UPDATE_FILTER_VALUES:
             return {
                 ...state,
                 isLoading: true
             };
-        case actionTypes.FETCH_PRODUCT_LIST_SUCCESS:
+        case actionTypes.UPDATE_FILTER_VALUES_SUCCESS:
             return {
                 ...action.payload,
                 isLoading: false,
             };
-        case actionTypes.FETCH_PRODUCT_LIST_ERROR:
+        case actionTypes.UPDATE_FILTER_VALUES_ERROR:
             return {
                 ...action.payload,
                 isLoading: false,

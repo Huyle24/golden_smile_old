@@ -52,7 +52,7 @@ function NextDestion(props) {
                                     data-aos-easing="ease-in-back"
                                     data-aos-duration="2000"
                                     data-aos-delay="100">
-                                    <Link href="/Category">
+                                    <Link href={"/Category?country=" +item.id }>
                                     <div data-animate="fadeIn" className="nextion_item  px-2 fadeIn animated">
                                         <div className="card_tour_nextdestion text-white class-dark-nexttour hover-zoom-info"><img
                                                 src={item.bucket_img}
