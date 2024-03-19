@@ -76,7 +76,8 @@ function JointTour(props) {
 
                                 <Card>
                                     <Card className="position-relative border border-0 header_tour_img">
-                                        <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
+                                        <Link   href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                              onClick={() => Product_watched(item)}>
                                             <Card.Img
                                                 variant="top"
                                                 src={item.bucket_img ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}

@@ -16,7 +16,9 @@ function TourPopularType(props) {
 
     return (
         <div className="section-indent overflow-hidden mb-6" data-animated-id="10">
+            <Link href={'/Category'}>
             <div className="Tour_type_popular">
+
                 <div className="tour_popular">
                     <div className="T_popular_bi">
                         <div class="T_backgroundImage"
@@ -90,6 +92,7 @@ function TourPopularType(props) {
                     </div>
                 </div>
             </div>
+            </Link>
         </div>
     )
 }
