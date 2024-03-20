@@ -106,7 +106,7 @@ function InfoDetail(data) {
                                 <div className={'col-end'}>
                                     <div>
                                         <div className={'code-plane-start'}>{data.data.code_end}</div>
-                                        <div className={'time'}>{data.data.time_takeoff_start}</div>
+                                        <div className={'time'}>{data.data.time_takeoff_end}</div>
                                     </div>
                                 </div>
                             </div>

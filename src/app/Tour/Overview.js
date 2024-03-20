@@ -53,7 +53,7 @@ function Overview(props) {
     console.log('tourOpenChoose',tourOpenChoose.id)
     useEffect(() => {
         props.fetchTourDetailW3(permalink, tour_type)
-    }, []);
+    }, [searchParams]);
     useEffect(() => {
         setTourOpenChoose(overview_detail_info ? overview_detail_info.tour_open_list[0] : "");
         setSelectedDate(overview_detail_info ? overview_detail_info.tour_open_list[0] : "");
@@ -129,15 +129,16 @@ function Overview(props) {
                 </span>
 
                 </div>
-                <div>
+                <div className={'d-flex'}>
                     <button className={'btn tour-detail-add-to-card me-2'}
                             onClick={() => add_to_cart(overview_detail_info)}>
-                        <MdOutlineShoppingCart/> Thêm vào giỏ hàng
+                        <i className="bx bx-heart  fs-6 me-1"></i>
+                        <span>Thêm vào yêu thích</span>
                     </button>
                     <Link
                         href={'/OrderTour?tour_open_id=' + (tourOpenChoose ? tourOpenChoose.id :  overview_detail_info?  overview_detail_info.tour_open_list[0].id:'')}>
                         <button className={'btn tour-detail-order-now'} onClick={handleShow}>
-                            <MdOutlineShoppingCartCheckout/> Đặt tour ngay
+                            <MdOutlineShoppingCartCheckout className={'me-1'}/> Đặt tour ngay
                         </button>
                     </Link>
 

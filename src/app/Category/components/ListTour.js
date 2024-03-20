@@ -82,12 +82,16 @@ function ListTour(props) {
         props.fetchCountryListBalotour()
 
     }, [])
+
     useEffect(() => {
-        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  '', '', '', '','', formatTourParam ?formatTourParam:'','' );
-    }, [])
-    useEffect(() => {
+        console.log('nguyen1')
         props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', '', '',  FilterValues.dateStart,  FilterValues.dateEnd, '', '',FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
-    }, [FilterValues])
+        }, [FilterValues])
+
+    useEffect(() => {
+        console.log('nguyen2')
+        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  '', '', '', '','', formatTourParam ?formatTourParam:'','' );
+    }, [searchParams])
 
     // useEffect(() => {
     //     props.fetchJointTourList('', '', '', '', '', '', '', '', 1)

@@ -60,7 +60,12 @@ export const fetchJointTourList = (off = '', limit = '', keyword = '', number_cu
         type_tourism_id: type_tourism_id
     };
 };
+export const fetchInvoiceList = () => {
+    return {
+        type: actionTypes.FETCH_INVOICE_LIST
+    }
 
+}
 
 export const fetchInboundTourList = (off = '', limit = '', keyword = '', number_customer_filter = '', country_start_id = '', country_end_id = '', city_start_id = '', city_end_id = '', date_start_tour = '', date_end_tour = '', tour_type = ' ', outstanding = '', typedate = '', format_tour = '', type_tourism_id = '') => {
     return {

@@ -14,9 +14,9 @@ function SidaBarFilter(props) {
     let date_type_list = props.fetchDateTypeInfo.data && props.fetchDateTypeInfo.isLoading === false ? props.fetchDateTypeInfo.data : '';
 
 
-    const [formatTour, setFormatTour] = useState('')
+    const [formatTour, setFormatTour] = useState(formatTourParam?formatTourParam:'')
     const [typeTourism, setTypeTourism] = useState('')
-    const [countryStart, setCountryStart] = useState('')
+    const [countryStart, setCountryStart] = useState(countryParam?countryParam:'')
     const [countryEnd, setCountryEnd] = useState('')
     const [dateType, setDateType] = useState('')
     const [dateStart, setDateStart] = useState('')
@@ -59,28 +59,32 @@ function SidaBarFilter(props) {
 
     }, [])
 
-    const updateFilterValues = () => {
-        const newFilterValues = {
-            formatTour: formatTour,
-            typeTourism: typeTourism,
-            countryStart: countryStart,
-            countryEnd: countryEnd,
-            dateType: dateType,
-            dateStart: dateStart,
-            dateEnd: dateEnd
-        };
-        props.updateFilterValues(newFilterValues);
+    // const updateFilterValues = () => {
+    //     const newFilterValues = {
+    //         formatTour: formatTour,
+    //         typeTourism: typeTourism,
+    //         countryStart: countryStart,
+    //         countryEnd: countryEnd,
+    //         dateType: dateType,
+    //         dateStart: dateStart,
+    //         dateEnd: dateEnd
+    //     };
+    //     props.updateFilterValues(newFilterValues);
+    // };
+
+    const newFilterValues = {
+        formatTour: formatTour,
+        typeTourism: typeTourism,
+        countryStart: countryStart,
+        countryEnd: countryEnd,
+        dateType: dateType,
+        dateStart: dateStart,
+        dateEnd: dateEnd
     };
-
+    console.log('newFilterValues',newFilterValues)
     useEffect(() => {
 
-
-        updateFilterValues();
-    }, []); // Passing an empty array as dependency ensures this useEffect runs only once, similar to componentDidMount
-
-    useEffect(() => {
-
-        updateFilterValues();
+        props.updateFilterValues(newFilterValues);
     }, [formatTour, typeTourism, countryStart, countryEnd, dateType, dateStart, dateEnd]); // This useEffect will run whenever any of these values change
 
     return (
@@ -90,7 +94,7 @@ function SidaBarFilter(props) {
                 <Form className="px-3 py-4">
                     <Card.Text className="title-filter mb-2">Hình thức</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleFormatTour}>
-                        <option>---Tất cả---</option>
+                        <option value="">---Tất cả---</option>
                         <option selected={formatTourParam == 0} value="0">Inbound</option>
                         <option selected={formatTourParam == 1} value="1">Outbound</option>
                         <option selected={formatTourParam == 2} value="2">Nội địa</option>
@@ -98,7 +102,7 @@ function SidaBarFilter(props) {
 
                     <Card.Text className="title-filter mb-2">Loại hình tour</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleTypeTourism}>
-                        <option>---Tất cả---</option>
+                        <option value="">---Tất cả---</option>
                         {type_tourism_list && type_tourism_list.map((item, index) => (
                             <option key={index} value={item.id}>{item.name}</option>
                         ))}
@@ -106,21 +110,21 @@ function SidaBarFilter(props) {
                     </Form.Select>
                     <Card.Text className="title-filter mb-2">Quốc gia</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleCountryStart}>
-                        <option>---Tất cả---</option>
+                        <option value="">---Tất cả---</option>
                         {country_list && country_list.map((item, index) => (
                             <option key={index} value={item.id}   selected={countryParam ==item.id }>{item.name}</option>
                         ))}
                     </Form.Select>
                     <Card.Text className="title-filter mb-2">Điểm đến</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleCountryEnd}>
-                        <option>---Tất cả---</option>
+                        <option value="">---Tất cả---</option>
                         {country_list && country_list.map((item, index) => (
                             <option key={index} value={item.id}>{item.name}</option>
                         ))}
                     </Form.Select>
                     <Card.Text className="title-filter mb-2">Số ngày của tour</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleDateType}>
-                        <option>---Tất cả---</option>
+                        <option value="">---Tất cả---</option>
                         {date_type_list && date_type_list.map((item, index) => (
                             <option key={index} value={item.id}>{item.name}</option>
                         ))}

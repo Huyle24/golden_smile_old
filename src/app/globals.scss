@@ -23,7 +23,9 @@ body {
 .carousel-indicators [data-bs-target] {
   display: none;
 }
-
+.bx-log-out {
+  transform: rotate(180deg);
+}
 .header-first {
   background: #db2131;
   height: 53px;
@@ -1024,8 +1026,9 @@ body {
   font-size: 22px;
   color: #B72028 !important;
 }
-.filter-sidebar{
-  border:none;
+
+.filter-sidebar {
+  border: none;
   background: rgb(248, 249, 250);
 }
 
@@ -2192,6 +2195,117 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 }
 
+.invoice-list {
+  .title-card {
+    font-weight: 700;
+    color: #db2031;
+    font-size: 14px;
+  }
+
+  .image-invoice {
+    height: 110px;
+    width: 170px;
+    border-radius: 4px;
+  }
+
+  .tour-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #db2031;
+  }
+
+  .status {
+    font-size: 12px;
+    padding: 2px 12px;
+    border-radius: 8px;
+
+  }
+
+  .invoice_code {
+    background: #F5F5F5;
+    border: #F0F0F0 1px solid;
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  .created-date {
+    color: #c2c2c2;
+  }
+
+  .total-money {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+}
+
+.customer_info {
+  .card-header {
+    background: #FFF1F0;
+    color: #B72028;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    display: flex;
+    border-bottom: none !important;
+  }
+
+  .customer_name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #B72028;
+    text-transform: uppercase;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+  }
+
+  .bx-log-out {
+    transform: rotate(180deg);
+  }
+
+  .logout-button {
+    background: #FFF1F0;
+    color: #B72028;
+    border: 1px solid #f6d5d7;
+  }
+
+  .logout-button:hover {
+    background: #B72028;
+    color: white;
+  }
+
+  .tab_customer_info, .tab_invoice ,.tab_tourWatched{
+    padding: 8px 40px;
+    margin: -17px;
+    a {
+      color: black;
+    }
+
+    a:hover {
+      color: #B72028;
+    }
+  }
+
+
+  .tab_invoice.selected, .tab_customer_info.selected ,.tab_tourWatched.selected{
+    background: #FFF1F0;
+    margin: -17px;
+    border-right: 2px solid #B72028;
+    padding: 8px 40px;
+    a {
+      color: #B72028;
+    }
+
+  }
+
+}
+
+
 .tour-detail-payment {
   div {
     margin: 4px 0px;
@@ -2259,6 +2373,9 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   &-add-to-card {
     border: 1px solid #e8e8e8 !important;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   &-add-to-card:hover {
@@ -2271,7 +2388,9 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   &-order-now {
     background: #db2031 !important;
     color: white !important;
-
+    display: flex !important;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   &-order-now:hover {
@@ -2284,6 +2403,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     font-size: 16px !important;
     font-weight: 600 !important;
     padding: 5px 10px !important;
+
   }
 }
 
@@ -3554,7 +3674,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
 
 .start_flight {
   .col-start {
-    max-width: 25%;
+    width: 25%;
     text-align: center;
 
     .airline_start_img {
@@ -3564,8 +3684,9 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
 
   .col-center {
     text-align: center;
-    max-width: 50%;
-    .round-plane{
+    width: 50%;
+
+    .round-plane {
       background: red;
       color: white;
       border-radius: 50%;
@@ -3581,8 +3702,9 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
 
   .col-end {
     text-align: center;
-    max-width: 25%;
-    .code-plane-start{
+    width: 25%;
+
+    .code-plane-start {
       color: #F5222D;
       font-weight: 700;
       background: #F5F5F5;
@@ -3590,14 +3712,22 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
       border-radius: 4px;
     }
   }
-  .time{
-    font-weight:600;
-    font-size:24px;
+
+  .time {
+    font-weight: 600;
+    font-size: 24px;
   }
 }
+
+.title-card{
+  font-weight: 700;
+  color: #db2031;
+  font-size: 14px;
+}
+
 .airline_end {
   .col-start {
-    max-width: 25%;
+    width: 25%;
     text-align: center;
 
     .airline_end_img {
@@ -3607,8 +3737,9 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
 
   .col-center {
     text-align: center;
-    max-width: 50%;
-    .round-plane{
+    width: 50%;
+
+    .round-plane {
       background: #0D5DD6;
       color: white;
       border-radius: 50%;
@@ -3619,6 +3750,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
       align-content: center;
       flex-wrap: wrap;
     }
+
     .rotate-180 {
       transform: rotate(180deg);
     }
@@ -3627,8 +3759,9 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
 
   .col-end {
     text-align: center;
-    max-width: 25%;
-    .code-plane-start{
+    width: 25%;
+
+    .code-plane-start {
       color: #F5222D;
       font-weight: 700;
       background: #F5F5F5;
@@ -3636,24 +3769,34 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
       border-radius: 4px;
     }
   }
-  .time{
-    font-weight:600;
-    font-size:24px;
+
+  .time {
+    font-weight: 600;
+    font-size: 24px;
   }
 }
+
 .img_tour_cart {
   width: 120px !important;
   height: auto !important;
+  border-radius: 8px;
 }
-.info_tour_cart{
-  font-size:10px
+
+.img_tour_cart:hover {
+  opacity: 0.8
 }
+
+.info_tour_cart {
+  font-size: 10px
+}
+
 #delete-btn {
   i {
     font-size: 18px;
   }
-  i:hover{
-    opacity:0.8;
+
+  i:hover {
+    opacity: 0.8;
   }
 }
 
@@ -3697,7 +3840,8 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   overflow-y: scroll;
   max-height: 300px;
   width: 400px;
-  .title:hover{
+
+  .title:hover {
     color: #B72028;
   }
 }
@@ -3707,13 +3851,6 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   border-bottom: 1px solid #eee;
 }
 
-.cart-item-header img {
-  width: 60px;
-  height: 60px;
-  margin-right: 20px;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
 
 .cart-item-header .info .title {
   overflow: hidden;
@@ -4334,10 +4471,10 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 
   &-card-body {
-    background: rgb(255 255 255 / 64%);;
+    background: rgb(0 0 0 / 60%);
     position: absolute;
     bottom: 0;
-    color: black;
+    color: white;
     height: 370px;
     padding: 100px 20px 20px 20px;
 
@@ -4348,6 +4485,15 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
       justify-content: center;
       height: 40px;
     }
+
+    a:hover {
+      color: #db2031;
+    }
+
+    a {
+      color: white;
+    }
   }
+
 }
 

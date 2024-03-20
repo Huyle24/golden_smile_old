@@ -14,6 +14,7 @@ import NextDestion from './components/NextDestion';
 import BlogWhy from './components/BlogWhy';
 import Banner from './components/Banner';
 import {Col, Container, Row} from 'react-bootstrap'
+import TourCountryandProvince from "@/app/components/TourCountryandProvince";
 
 
 export default function Home() {
@@ -40,39 +41,7 @@ export default function Home() {
             <NextDestion/>
             <BlogWhy/>
             <Banner/>
-            <div className={'bg-white'}>
-            <Container className={'pt-4'}>
-                <Row className={'px-2'}>
-                    <Col sm={6} className={'d-flex justify-content-center'}>
-                        <div className="card tour_inboud">
-
-                            <h2 className="title text-uppercase">tour trong nước</h2>
-                            <div className="tour_inboud-card-body  ">
-                                <Row>
-                                    {listInboundNation}
-                                </Row>
-
-                            </div>
-
-                        </div>
-                    </Col>
-                    <Col sm={6} className={'d-flex justify-content-center'}>
-                        <div className="card tour_outbound">
-
-                            <h2 className="title text-uppercase">Tour nước ngoài</h2>
-                            <div className="tour_inboud-card-body  ">
-                                <Row>
-                                    {listOutboundNation}
-                                </Row>
-
-                            </div>
-
-                        </div>
-                    </Col>
-
-                </Row>
-            </Container>
-            </div>
+            <TourCountryandProvince/>
         </main>
     )
 }

@@ -12,7 +12,7 @@ import {GET_LANG_CODE, GET_TOKEN} from '../../../redux/actions/type';
 import {GET_LANG_ko, GET_LANG_vi} from '../../../js/lang';
 import {usePathname, useRouter} from "next/navigation";
 import {CiLocationOn, CiTimer} from "react-icons/ci";
-
+import { FaRegEye } from "react-icons/fa";
 
 function Header(props) {
     const pathname = usePathname()
@@ -205,18 +205,18 @@ function Header(props) {
                                                 <div>
                                                     <div className="cart_list">
                                                         {listCart ? (listCart.map((item, index) =>
-                                                            <Link
-                                                                href={"/Tour?tour_type=2&permalink=" + item.permalink}>
-                                                                <div
-                                                                    className="cart-item-header d-flex justify-content-between align-items-center"
-                                                                    key={index}>
 
-                                                                    <div className="d-flex">
-                                                                        <div className="image me-2">
+                                                            <div
+                                                                className="cart-item-header d-flex justify-content-between align-items-center"
+                                                                key={index}>
+                                                                <Link
+                                                                    href={"/Tour?tour_type=2&permalink=" + item.permalink}>
+                                                                    <div className="d-flex gap-3">
+
                                                                             <img className={'img_tour_cart'}
                                                                                  src={item.bucket_img ? item.bucket_img : ''}
                                                                                  alt="cart"/>
-                                                                        </div>
+
                                                                         <div className="info text-black">
                                                                             <div className="title ">{item.name}</div>
                                                                             <div className={'info_tour_cart'}>
@@ -230,15 +230,14 @@ function Header(props) {
 
                                                                         </div>
                                                                     </div>
-
-                                                                    <div id="delete-btn">
+                                                                </Link>
+                                                                <div id="delete-btn">
                                                                     <span className="text-danger ps-3"
                                                                           onClick={() => removeItemCart(item.id)}><i
                                                                         class='bx bx-trash'></i></span>
-                                                                    </div>
-
                                                                 </div>
-                                                            </Link>
+
+                                                            </div>
                                                         )) : []}
                                                     </div>
                                                     <div className="d-flex justify-content-between">
@@ -280,18 +279,17 @@ function Header(props) {
                                                      </div>}
                                     >
 
-                                        {
-                                            languageList ? languageList.map((item, index) => {
-                                                return (
-                                                    <NavDropdown.Item key={index} onClick={() => choose_country(item)}
-                                                                      style={{width: 180}}>
-                                                        <div className='d-flex gap-2'>
-                                                            <img className="icon_country " src={item.image}/>
-                                                            <span className={'text-dark'}>{item.name}</span>
-                                                        </div>
-                                                    </NavDropdown.Item>
-                                                )
-                                            }) : ''
+                                        {languageList ? languageList.map((item, index) => {
+                                            return (
+                                                <NavDropdown.Item key={index} onClick={() => choose_country(item)}
+                                                                  style={{width: 180}}>
+                                                    <div className='d-flex gap-2'>
+                                                        <img className="icon_country " src={item.image}/>
+                                                        <span className={'text-dark'}>{item.name}</span>
+                                                    </div>
+                                                </NavDropdown.Item>
+                                            )
+                                        }) : ''
                                         }
                                     </NavDropdown>
                                 </div>
@@ -342,28 +340,37 @@ function Header(props) {
                                                             <Link href="/InfoUser" passHref>
                                                                 <div
                                                                     className='d-flex  align-content-center'>
-                                                                    <img className='img-info me-2 my-auto'
-                                                                         src='https://vigomanager.com/app-assets/mobile/balotour/icon/profile.png'/>
+                                                                    {/*<img className='img-info me-2 my-auto'*/}
+                                                                    {/*     src='https://vigomanager.com/app-assets/mobile/balotour/icon/profile.png'/>*/}
+
                                                                     <div
-                                                                        className=''>{textShow ? textShow.Information : ''}</div>
+                                                                        className=''>
+                                                                        <i className='bx bx-user '></i> {textShow ? textShow.Information : ''}
+                                                                    </div>
                                                                 </div>
                                                             </Link>
                                                         </Dropdown.Item>
-                                                        <Dropdown.Item>
-                                                            <div
-                                                                className='d-flex  log-out align-content-center'>
-                                                                <img className='img-info  me-2 my-auto'
-                                                                     src='https://vigomanager.com/app-assets/mobile/balotour/icon/turn-off.png'/>
-                                                                <a onClick={handleLogout}>
-                                                                    <span>{textShow ? textShow.Log_Out : ''}</span>
-                                                                </a>
-                                                            </div>
-                                                        </Dropdown.Item>
+
                                                         <Dropdown.Item>
                                                             <Link href="/TourWatched">
-                                                                Các Tour đã xem qua
+                                                                <i className="bx bx-paper-plane me-2"></i> Các Tour đã
+                                                                xem qua
                                                             </Link>
                                                         </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                            <Link href="/Invoice">
+                                                                <i className='bx bx-cart-alt me-2'></i> Đơn hàng đã đặt
+                                                            </Link>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                        <div
+                                                            className='d-flex  log-out align-content-center'>
+                                                            <a onClick={handleLogout}>
+                                                                <span style={{color:"#db2131"}} > <i className='bx bx-log-out me-2'></i> {textShow ? textShow.Log_Out : ''}</span>
+                                                            </a>
+                                                        </div>
+                                                    </Dropdown.Item>
+
                                                     </>
                                                 </Dropdown.Menu>
                                         }
@@ -408,12 +415,16 @@ function Header(props) {
                                                     </Nav.Link>
                                                 </li>
                                                 <li>
-                                                    <Nav.Link >
-                                                        <Link href={'/Category?formatTour=1'}>TOUR OUTBOUND  </Link>
+                                                    <Nav.Link>
+                                                        <Link href={'/Category?formatTour=1'}>TOUR OUTBOUND </Link>
 
                                                     </Nav.Link>
                                                 </li>
-                                                <li><Nav.Link href={'/Category?formatTour=2'}>TOUR NỘI ĐỊA
+                                                <li><Nav.Link>
+                                                    <Link href={'/Category?formatTour=2'}>
+                                                        TOUR NỘI ĐỊA
+                                                    </Link>
+
 
                                                 </Nav.Link>
 
