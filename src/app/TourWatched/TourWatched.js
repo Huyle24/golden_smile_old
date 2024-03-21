@@ -84,7 +84,7 @@ function TourWatched(props) {
                                             </div>
 
                                             <div className="d-flex justify-content-between align-items-center">
-                                                <div >
+                                                <div>
                                                     <CiLocationOn/>
                                                     <span className=" ms-2">
                                                {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_start : ''} - {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_name : ''}
@@ -106,7 +106,7 @@ function TourWatched(props) {
                                                 <div className={'d-flex flex-wrap gap-1 calendar-start'}
                                                      style={{minHeight: 30}}>
 
-                                                    {item.tour_open_list.slice(0, 4).map((item1, index1) => (
+                                                    {item.tour_open_list && item.tour_open_list.slice(0, 4).map((item1, index1) => (
                                                         <Link
                                                             href={'/OrderTour?tour_open_id=' + item1.id}>
                                                     <span
