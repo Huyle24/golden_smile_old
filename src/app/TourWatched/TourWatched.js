@@ -82,6 +82,8 @@ function TourWatched(props) {
                                                     <span
                                                         className={'text-danger fw-bold ms-2'}>{item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].count_order_tour : 0}</span> /
                                                     <span>{item.max_customer}</span>
+
+
                                                 </div>
                                             </div>
 
