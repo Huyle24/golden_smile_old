@@ -60,21 +60,28 @@ function TourWatched(props) {
                                 <Card.Body className={'body-card-invoice'}>
                                     <Row key={idx} className="mt-3 ">
                                         <Col lg="3">
-                                            <img className={'image-invoice'}
-                                                 src={item.bucket_img ? item.bucket_img : "https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png"}
-                                                 alt="tour"/>
+                                            <Link href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                                  onClick={() => Product_watched(item)}>
+                                                <img className={'image-invoice'}
+                                                     src={item.bucket_img ? item.bucket_img : "https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png"}
+                                                     alt="tour"/>
+                                            </Link>
                                         </Col>
                                         <Col lg="9">
                                             <div className={'d-flex justify-content-between'}>
-                                                <div className={'tour-name'}
-                                                     style={{maxWidth: "85%"}}>{item.name ? item.name : ""} </div>
+
+                                                <div className={'tour-name '}
+                                                     style={{maxWidth: "85%"}}>
+                                                    <Link href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                                          onClick={() => Product_watched(item)}>
+                                                        {item.name ? item.name : ""}
+                                                    </Link>
+                                                </div>
                                                 <div className={'d-flex flex-wrap align-items-center'}>
                                                     <BsPeople/>
                                                     <span
                                                         className={'text-danger fw-bold ms-2'}>{item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].count_order_tour : 0}</span> /
                                                     <span>{item.max_customer}</span>
-
-
                                                 </div>
                                             </div>
 
@@ -83,8 +90,8 @@ function TourWatched(props) {
                                                         className={'invoice_code'}>  {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].code : ''}</span>
                                             </div>
 
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div >
+                                            <div className="d-flex justify-content-between align-items-center mt-1">
+                                                <div>
                                                     <CiLocationOn/>
                                                     <span className=" ms-2">
                                                {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_start : ''} - {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_name : ''}
@@ -96,60 +103,21 @@ function TourWatched(props) {
                                                   {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].date_type_name : ''}
                                                          </span>
                                                 </div>
-
                                             </div>
-                                            {/*<div className="mt-2">*/}
-                                            {/*    Số chỗ còn nhận  <span className="color-text fw-bold">9</span>*/}
-                                            {/*</div>*/}
-                                            <div className={'my-2'}>
-                                                <div className={'text-secondary'}> Lịch khởi hành</div>
-                                                <div className={'d-flex flex-wrap gap-1 calendar-start'}
-                                                     style={{minHeight: 30}}>
-
-                                                    {item.tour_open_list.slice(0, 4).map((item1, index1) => (
-                                                        <Link
-                                                            href={'/OrderTour?tour_open_id=' + item1.id}>
-                                                    <span
-                                                        key={index1}
-                                                        className="px-2 py-1 item_day_tour fw-bold">{item1.date_start_tour.slice(0, 5)}</span>
-                                                        </Link>
-                                                    ))}
-
-
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className={'text-secondary'}>
-                                                    Giá
-                                                </div>
+                                            <div className={'mt-1'}>
                                                 <div
                                                     className="d-flex justify-content-between align-content-center flex-wrap ">
                                                     <div
-                                                        className=" text-danger fw-bold fs-5">
+                                                        className=" text-danger fw-bold fs-5 d-flex align-content-center flex-wrap">
                                                         {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].price_1_person : ''} đ
                                                     </div>
-                                                    <Link
-                                                        href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
-                                                        className={'d-flex align-content-center flex-wrap'}>
-                                                        <button className="button-detail btn ">
-                                                            Xem chi tiết
-                                                        </button>
-                                                    </Link>
 
+                                                    <div
+                                                        className="btn-delete">
+                                                        <i class='bx bxs-trash '
+                                                           onClick={() => removeItemWatched(item.id)}></i>
+                                                    </div>
                                                 </div>
-
-
-                                            </div>
-                                        </Col>
-                                        <Col lg={12}>
-                                            <div
-                                                className="d-flex justify-content-between align-items-center mt-3 border-top p-2">
-                                                {/*<span className="color-text fw-bold">TỔNG CỘNG</span>*/}
-                                                <div onClick={() => removeItemWatched(item.id)}
-                                                     className="btn-delete">
-                                                    Xóa
-                                                </div>
-
                                             </div>
                                         </Col>
                                     </Row>

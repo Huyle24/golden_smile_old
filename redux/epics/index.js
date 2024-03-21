@@ -40,6 +40,8 @@ import fetchListTypeTourismEpic from "./fetchListTypeTourismEpic";
 import fetchDateTypeListReducer from "../reducers/fetchDateTypeListReducer";
 import fetchDateTypeListEpic from "./fetchDateTypeListEpic";
 import fetchInvoiceListEpic from "./fetchInvoiceListEpic";
+import tourOutboundListEpic from "./tourOutboundListEpic";
+import fetchCityByLocationEpic from "./fetchCityByLocationEpic";
 
 
 export default combineEpics(
@@ -80,6 +82,8 @@ export default combineEpics(
     fetchCountryListEpic,
     fetchListTypeTourismEpic,
     fetchDateTypeListEpic,
-    fetchInvoiceListEpic
+    fetchInvoiceListEpic,
+    tourOutboundListEpic,
+    fetchCityByLocationEpic
 )
 

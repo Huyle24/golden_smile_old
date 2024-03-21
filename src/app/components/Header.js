@@ -279,7 +279,7 @@ function Header(props) {
                                                      </div>}
                                     >
 
-                                        {languageList ? languageList.map((item, index) => {
+                                        {languageList ? languageList.slice(1,2).map((item, index) => {
                                             return (
                                                 <NavDropdown.Item key={index} onClick={() => choose_country(item)}
                                                                   style={{width: 180}}>

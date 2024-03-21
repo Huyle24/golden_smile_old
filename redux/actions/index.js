@@ -1,5 +1,6 @@
 import * as actionTypes from './type';
 import {BASE_URL_API, JOINT_TOUR_LIST, PRIVATE_TOUR_LIST} from "./type";
+import citybyLocationEpic from "../epics/fetchCityByLocationEpic";
 
 
 export const getUserInfo = () => {
@@ -66,10 +67,30 @@ export const fetchInvoiceList = () => {
     }
 
 }
-
 export const fetchInboundTourList = (off = '', limit = '', keyword = '', number_customer_filter = '', country_start_id = '', country_end_id = '', city_start_id = '', city_end_id = '', date_start_tour = '', date_end_tour = '', tour_type = ' ', outstanding = '', typedate = '', format_tour = '', type_tourism_id = '') => {
     return {
         type: actionTypes.INBOUND_TOUR_LIST,
+        off: off,
+        limit: limit,
+        keyword: keyword,
+        number_customer_filter: number_customer_filter,
+        country_start_id: country_start_id,
+        country_end_id: country_end_id,
+        city_start_id: city_start_id,
+        city_end_id: city_end_id,
+        date_start_tour: date_start_tour,
+        date_end_tour: date_end_tour,
+        tour_type: tour_type,
+        outstanding: outstanding,
+        typedate: typedate,
+        format_tour: format_tour,
+        type_tourism_id: type_tourism_id
+    };
+};
+
+export const fetchOutboundTourList = (off = '', limit = '', keyword = '', number_customer_filter = '', country_start_id = '', country_end_id = '', city_start_id = '', city_end_id = '', date_start_tour = '', date_end_tour = '', tour_type = ' ', outstanding = '', typedate = '', format_tour = '', type_tourism_id = '') => {
+    return {
+        type: actionTypes.OUTBOUND_TOUR_LIST,
         off: off,
         limit: limit,
         keyword: keyword,
@@ -95,7 +116,14 @@ export const fetchTourDetail = (permalink = '', customer_number = '', child_numb
         child_number: child_number
     };
 };
-
+export const fetchCitybyLocation = (off = '', limit = '', country_id = '') => {
+    return {
+        type: actionTypes.FETCH_CITY_LIST,
+        off: off,
+        limit: limit,
+        country_id: country_id
+    };
+};
 export const fetchGolfList = (off = '', limit = '', keyword = '', area = '', hole = '', outstanding = '') => {
     return {
         type: actionTypes.GOLF_LIST,

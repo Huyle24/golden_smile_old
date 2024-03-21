@@ -1225,7 +1225,7 @@ body {
 
 .trangchu_formsearch .form_filter {
   padding: 30px 0;
-  padding-left: 1.875rem;
+  padding-left: 8.875rem;
   padding-right: 1.875rem;
 }
 
@@ -1271,7 +1271,7 @@ body {
   padding: 6px 12px;
   background-color: #B72028;
   line-height: 7px;
-  margin-top: 15%;
+  margin-top: 7%;
   width: 144px;
   height: 39px;
   border-radius: 27px;
@@ -2213,6 +2213,10 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     text-transform: uppercase;
     font-size: 18px;
     color: #db2031;
+    max-width: 85%; /* Đặt độ rộng tối đa */
+    white-space: nowrap; /* Ngăn chữ xuống dòng */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .status {
@@ -2427,6 +2431,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     font-weight: 600;
     text-transform: uppercase;
     color: #db2031;
+
   }
 
   &-tour-title {
@@ -3995,7 +4000,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   line-height: 16px;
   min-height: 30px;
   outline: 0;
-  padding: 9px 12px;
+  padding: 5px 9px;
   text-align: center;
   text-rendering: geometricprecision;
   text-transform: none;

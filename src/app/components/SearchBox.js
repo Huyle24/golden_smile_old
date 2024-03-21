@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
+import {Container, Row, Col, Button} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
@@ -12,14 +12,14 @@ import {
     FaSearch,
     FaArrowsAltH, FaMinusCircle, FaPlusCircle,
 } from "react-icons/fa";
-import { FaPlaneDeparture } from "react-icons/fa6";
+import {FaPlaneDeparture} from "react-icons/fa6";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { BASE_URL_API, GET_TOKEN,GET_LANG_CODE } from '../../../redux/actions/type';
-import { GET_LANG_vi,GET_LANG_ko } from '../../../js/lang';
+import {BASE_URL_API, GET_TOKEN, GET_LANG_CODE} from '../../../redux/actions/type';
+import {GET_LANG_vi, GET_LANG_ko} from '../../../js/lang';
 import moment from 'moment';
 import Swal from "sweetalert2";
 import dayjs from 'dayjs';
@@ -29,7 +29,7 @@ import {
     CardHeader,
     CardBody,
     Collapse,
-  } from "reactstrap";
+} from "reactstrap";
 
 function SearchBox(props) {
     const Toast = Swal.mixin({
@@ -45,9 +45,11 @@ function SearchBox(props) {
     })
     const [openedCollapse, setOpenedCollapse] = React.useState("");
     const [startDate, setStartDate] = useState(null);
+    console.log('startDate', startDate)
     const [endDate, setEndDate] = useState(new Date());
     const [value, onChange] = useState(new Date());
-
+    let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
+    let city_list = props.cityByLocationInfo.data && props.cityByLocationInfo.isLoading === false ? props.cityByLocationInfo.data : '';
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
             id: 1,
@@ -99,7 +101,7 @@ function SearchBox(props) {
     const [textShow, setTextShow] = useState('');
     const [limit, setLimit] = useState(0)
     const [loadingPage, setLoadingPage] = useState(false)
-
+    const [country, setCountry] = useState('')
     const [counterAdult, setCounterAdult] = useState(1);
     const [counterChild, setCounterChild] = useState(0);
     const [counterRoom, setCounterRoom] = useState(1);
@@ -121,8 +123,9 @@ function SearchBox(props) {
         setTourFilterTmp(tourFilterTmp)
         setLoadingPage(!loadingPage)
     }
-
-
+    const handelDateStart = (event) => {
+        setStartDate(event.target.value)
+    }
 
 
     const plusNumberAdult = () => {
@@ -162,14 +165,15 @@ function SearchBox(props) {
         setCounterRoom(couter_new)
     }
 
-
-
+    const handelCountry = (event) => {
+        setCountry(event.target.value)
+    }
     const searchKeyWord = (e) => {
         setKeyWord(e.target.value)
     }
 
     const showHotel = () => {
-        if(moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY') < moment(today, "DD-MM-YYYY").format('DD/MM/YYYY')){
+        if (moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY') < moment(today, "DD-MM-YYYY").format('DD/MM/YYYY')) {
 
             Toast.fire({
                 title: "Chọn sai ngày đi",
@@ -179,7 +183,7 @@ function SearchBox(props) {
 
         }
 
-        if(moment(dateEnd, "DD-MM-YYYY").format('YYYY-MM-DD') < moment(dateStart, "DD-MM-YYYY").format('YYYY-MM-DD')){
+        if (moment(dateEnd, "DD-MM-YYYY").format('YYYY-MM-DD') < moment(dateStart, "DD-MM-YYYY").format('YYYY-MM-DD')) {
             Toast.fire({
                 title: "Chọn sai ngày về",
                 icon: "error"
@@ -187,7 +191,7 @@ function SearchBox(props) {
             return false
 
         }
-        router.push('/stay/list?adult_number=' + counterAdult + '&child_number=' + counterChild + '&room_number='+ counterRoom + '&keyword='+ keyWord + '&date_start=' +moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY') + '&date_end=' + moment(dateEnd, "DD-MM-YYYY").format('DD/MM/YYYY'))
+        router.push('/stay/list?adult_number=' + counterAdult + '&child_number=' + counterChild + '&room_number=' + counterRoom + '&keyword=' + keyWord + '&date_start=' + moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY') + '&date_end=' + moment(dateEnd, "DD-MM-YYYY").format('DD/MM/YYYY'))
     }
 
 
@@ -198,12 +202,23 @@ function SearchBox(props) {
     useEffect(() => {
         getLangText()
     }, [])
+    useEffect(() => {
+        props.fetchCountryListBalotour()
+        props.fetchCitybyLocation('', '', 1)
 
+    }, [])
     let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
+    const [activeKey, setActiveKey] = useState("link-1");
 
+    // Hàm xử lý khi chọn tab
+    const handleSelect = (selectedKey) => {
+        setActiveKey(selectedKey);
+        // Xử lý logic của bạn ở đây dựa trên tab được chọn
+        console.log("Tab được chọn:", selectedKey);
+    };
     const getLangText = async () => {
         let lang_code = await GET_LANG_CODE();
-        let lang_text ={}
+        let lang_text = {}
         switch (JSON.parse(lang_code)) {
             case 'vi':
                 lang_text = GET_LANG_vi().hotel
@@ -215,313 +230,169 @@ function SearchBox(props) {
         setTextShow(lang_text)
     }
 
-  return (
-    <>
-        <Container className="position-relative">
-        <div className="search_box">
-            <Tab.Container id="left-tabs-example" animation={true} defaultActiveKey="link-1">
-            <Form className="trangchu_formsearch">
-                <div className="row tab_filter">
-                    <div className="col-md-12">
-                    <Nav className="tab_filter_searchnav"
-                            variant="pills" defaultActiveKey="link-1"
-                    >
-                        <Nav.Item className="li_searchnav">
-                        <Nav.Link className="search_mucfilter" eventKey="link-1">
-                        <i className='bx bx-home-alt' ></i>
-                            <div className="search_content_nav">Tour <br></br> trong nước</div>
-                        </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item className="li_searchnav">
-                        <Nav.Link className="search_mucfilter" eventKey="link-2">
-                            <i className='bx bxs-building-house' ></i>
-                            <div className="search_content_nav">Tour <br></br> nước ngoài</div>
-                        </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item className="li_searchnav">
-                        <Nav.Link className="search_mucfilter" eventKey="link-3"> 
-                            <i className='bx bx-buildings' ></i>
-                            <div className="search_content_nav">Tour <br></br> TREKKING</div>
-                        </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item className="li_searchnav">
-                        <Nav.Link className="search_mucfilter" eventKey="link-4">
-                            <i className='bx bxs-building' ></i>
-                            <div className="search_content_nav">Tour <br></br> theo yêu cầu</div>
-                        </Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                    </div>
+    return (
+        <>
+            <Container className="position-relative">
+                <div className="search_box">
+                    <Tab.Container id="left-tabs-example" animation={true} defaultActiveKey="link-1">
+                        <Form className="trangchu_formsearch">
+                            <div className="row tab_filter">
+                                <div className="col-md-12">
+                                    <Nav className="tab_filter_searchnav" variant="pills" defaultActiveKey="link-1" onSelect={handleSelect}>
+                                        <Nav.Item className="li_searchnav">
+                                            <Nav.Link className="search_mucfilter" eventKey="link-1">
+                                                <i className='bx bx-home-alt'></i>
+                                                <div className="search_content_nav">Tour <br></br> ghép</div>
+                                            </Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item className="li_searchnav">
+                                            <Nav.Link className="search_mucfilter" eventKey="link-2">
+                                                <i className='bx bxs-building-house'></i>
+                                                <div className="search_content_nav">Tour <br></br> Inbound</div>
+                                            </Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item className="li_searchnav">
+                                            <Nav.Link className="search_mucfilter" eventKey="link-3">
+                                                <i className='bx bx-buildings'></i>
+                                                <div className="search_content_nav">Tour <br></br> Outbound</div>
+                                            </Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item className="li_searchnav">
+                                            <Nav.Link className="search_mucfilter" eventKey="link-4">
+                                                <i className='bx bxs-building'></i>
+                                                <div className="search_content_nav">Tour <br></br> Trekking</div>
+                                            </Nav.Link>
+                                        </Nav.Item>
+                                    </Nav>
+                                </div>
+                            </div>
+
+                            <Tab.Content>
+                                <div className="form_filter">
+                                    <div className="container">
+                                        <div className="forminfo_filter">
+                                            <div className="col choose_input_tour">
+                                                <label className="search_label">Điểm khởi hành</label>
+                                                <Form.Select aria-label="Tất cả"
+                                                             className="form_location_filter form-control"
+                                                             onChange={handelCountry}>
+                                                    <option>Tất cả</option>
+                                                    {country_list && country_list.map((item, index) => (
+                                                        <option value={item.id}>{item.name}</option>
+
+                                                    ))}
+                                                </Form.Select>
+                                            </div>
+                                            <div className="col choose_input_tour">
+                                                <label className="search_label">Điểm đến</label>
+                                                <Form.Select aria-label="Tất cả"
+                                                             className="form_location_filter form-control">
+                                                    <option>Tất cả</option>
+                                                    {country_list && country_list.map((item, index) => (
+                                                        <option value={item.id}>{item.name}</option>
+
+                                                    ))}
+                                                </Form.Select>
+                                            </div>
+                                            <div className="col choose_input_tour">
+                                                <label className="search_label">Ngày khởi hành </label>
+                                                <Form.Control
+                                                    type="date"
+                                                    id="inputPassword5"
+                                                    aria-describedby="passwordHelpBlock"
+                                                    className=""
+                                                    onChange={handelDateStart}
+                                                />
+                                            </div>
+
+                                            <div className="col choose_input_tour">
+                                                <Link
+                                                    href={"./Category?country=" + country + "&dateStart=" + startDate}>
+                                                    <Button className="btn_search_find">
+                                                        Tìm Kiếm
+                                                    </Button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </Tab.Content>
+                        </Form>
+                    </Tab.Container>
                 </div>
 
-                <Tab.Content>
-                    <Tab.Pane eventKey="link-1">
-                    <div className="form_filter">
-                        <div className="forminfo_filter">
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm khởi hành</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                                    <option value="Nhật bản">Nhật bản</option>
-                                    <option value="Mỹ">Mỹ</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm đến</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hà Nội">Hà Nội</option>
-                                    <option value="Spa">Spa</option>
-                                    <option value="Vương Quốc Anh">Vương Quốc Anh</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Ngày khởi hành </label>
-                                <DatePicker  className="form_location_filter form-control"
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    minDate={new Date()}
-                                    disabledKeyboardNavigation
-                                    startDate={startDate}
-                                    endDate={endDate}
-                                />
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Khoảng giá</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
-                                    <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
-                                    <option value="Dưới 4 triệu">Dưới 4 triệu</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                    <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
-                            </div>
-                        </div>
-                    </div>
-                    </Tab.Pane>
+                <form action="https://goldensmiletravel.com/search"
+                      className="heritage-search heritage-search-mobile d-lg-none z-index-2 position-relative bg-white rounded mx-md-10">
+                    <Col className=" ml-auto" md="12">
+                        <div className=" accordion my-3" id="accordionExample">
+                            <Card>
+                                <CardHeader
+                                    id="headingOne"
+                                    aria-expanded={openedCollapse === "collapseOne"}
+                                >
 
-                    <Tab.Pane eventKey="link-2">
-                    <div className="form_filter">
-                        <div className="forminfo_filter">
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm khởi hành</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                                    <option value="Nhật bản">Nhật bản</option>
-                                    <option value="Mỹ">Mỹ</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm đến</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hà Nội">Hà Nội</option>
-                                    <option value="Spa">Spa</option>
-                                    <option value="Vương Quốc Anh">Vương Quốc Anh</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Ngày khởi hành </label>
-                                <DatePicker  className="form_location_filter form-control"
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    minDate={new Date()}
-                                    disabledKeyboardNavigation
-                                    startDate={startDate}
-                                    endDate={endDate}
-                                />
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Khoảng giá</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
-                                    <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
-                                    <option value="Dưới 4 triệu">Dưới 4 triệu</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                    <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
-                            </div>
-                        </div>
-                    </div>
-                    </Tab.Pane>
+                                    <div className="form-group mb-0 position-relative">
+                                        <a onClick={() =>
+                                            setOpenedCollapse(
+                                                openedCollapse === "collapseOne"
+                                                    ? ""
+                                                    : "collapseOne"
+                                            )
+                                        }
+                                           className={`text-secondary bos-fited-left-center btn ${openedCollapse ? 'improve-search' : ''} shadow-none pr-3 pl-0 position-absolute py-0 h-100 border-right`}>
+                                        </a>
+                                        <input type="text" name="search" placeholder="Nhập tên tour..."
+                                               className="form-control form-control-lg border shadow-none pr-9 pl-11 bg-white placeholder-muted"/>
+                                        <Button type="submit"
+                                                className="position-absolute bos-fited-right-center p-0 text-heading fs-20 px-3 shadow-none h-100 border-left">
+                                            <i class='bx bx-search'></i>
+                                        </Button>
+                                        {" "}
+                                    </div>
+                                </CardHeader>
+                                <Collapse
+                                    isOpen={openedCollapse === "collapseOne"}
+                                    aria-labelledby="headingOne"
+                                    data-parent="#accordionExample"
+                                    id="collapseOne"
+                                >
+                                    <CardBody className=" opacity-8">
+                                        <div className="row mx-n2">
+                                            <div className="col-sm-6 pt-4 px-2"><select title="Điểm khởi hành"
+                                                                                        data-style="btn-lg py-2 h-52 bg-transparent"
+                                                                                        name="where_from"
+                                                                                        id="option_location_from"
+                                                                                        className="form-control border shadow-none form-control-lg select2 bg-transparent">
+                                                <option value="">Tất cả Điểm khởi hành</option>
+                                            </select></div>
+                                            <div className="col-sm-6 pt-4 px-2"><select name="where_to" title="Điểm đến"
+                                                                                        data-style="btn-lg py-2 h-52 bg-transparent"
+                                                                                        id="option_location_to"
+                                                                                        className="form-control border shadow-none form-control-lg select2 bg-transparent">
+                                                <option value="">Tất cả Điểm đến</option>
+                                            </select></div>
+                                            <div className="col-sm-6 pt-4 px-2"><input type="text" autocomplete="off"
+                                                                                       name="begin_date"
+                                                                                       placeholder="Ngày khởi hành"
+                                                                                       className="form-control border shadow-none form-control-lg selectpicker bg-transparent"/>
+                                            </div>
 
-                    <Tab.Pane eventKey="link-3">
-                    <div className="form_filter">
-                        <div className="forminfo_filter">
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm khởi hành</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                                    <option value="Nhật bản">Nhật bản</option>
-                                    <option value="Mỹ">Mỹ</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm đến</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hà Nội">Hà Nội</option>
-                                    <option value="Spa">Spa</option>
-                                    <option value="Vương Quốc Anh">Vương Quốc Anh</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Ngày khởi hành </label>
-                                <DatePicker  className="form_location_filter form-control"
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    minDate={new Date()}
-                                    disabledKeyboardNavigation
-                                    startDate={startDate}
-                                    endDate={endDate}
-                                />
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Khoảng giá</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
-                                    <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
-                                    <option value="Dưới 4 triệu">Dưới 4 triệu</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                    <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
-                            </div>
+                                        </div>
+                                    </CardBody>
+                                </Collapse>
+                            </Card>
                         </div>
-                    </div>
-                    </Tab.Pane>
-
-                    <Tab.Pane eventKey="link-4">
-                    <div className="form_filter">
-                        <div className="forminfo_filter">
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm khởi hành</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                                    <option value="Nhật bản">Nhật bản</option>
-                                    <option value="Mỹ">Mỹ</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Điểm đến</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Hà Nội">Hà Nội</option>
-                                    <option value="Spa">Spa</option>
-                                    <option value="Vương Quốc Anh">Vương Quốc Anh</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Ngày khởi hành </label>
-                                <DatePicker  className="form_location_filter form-control"
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    minDate={new Date()}
-                                    disabledKeyboardNavigation
-                                    startDate={startDate}
-                                    endDate={endDate}
-                                />
-                            </div>
-                            <div className="col choose_input_tour">
-                                <label className="search_label">Khoảng giá</label>
-                                <Form.Select aria-label="Tất cả" className="form_location_filter form-control">
-                                    <option>Tất cả</option>
-                                    <option value="Từ 8 triệu trở lên">Từ 8 triệu trở lên</option>
-                                    <option value="Từ 4 triệu đến 8 triệu">Từ 4 triệu đến 8 triệu</option>
-                                    <option value="Dưới 4 triệu">Dưới 4 triệu</option>
-                                </Form.Select>
-                            </div>
-                            <div className="col choose_input_tour">
-                                    <Button className="btn_search_find">Tìm Kiếm</Button>{' '}
-                            </div>
-                        </div>
-                    </div>
-                    </Tab.Pane>
-                </Tab.Content>
-            </Form>
-            </Tab.Container>
-        </div>
-
-        <form action="https://goldensmiletravel.com/search"
-            className="heritage-search heritage-search-mobile d-lg-none z-index-2 position-relative bg-white rounded mx-md-10">
-            <Col className=" ml-auto" md="12">
-                <div className=" accordion my-3" id="accordionExample">
-                    <Card>
-                    <CardHeader
-                        id="headingOne"
-                        aria-expanded={openedCollapse === "collapseOne"}
-                    >
-                
-                        <div className="form-group mb-0 position-relative">
-                        <a  onClick={() =>
-                            setOpenedCollapse(
-                                openedCollapse === "collapseOne"
-                                ? ""
-                                : "collapseOne"
-                            )
-                            }
-                            className={`text-secondary bos-fited-left-center btn ${openedCollapse?'improve-search':''} shadow-none pr-3 pl-0 position-absolute py-0 h-100 border-right`}>
-                            </a>
-                             <input type="text" name="search" placeholder="Nhập tên tour..."
-                                className="form-control form-control-lg border shadow-none pr-9 pl-11 bg-white placeholder-muted" />
-                            <Button type="submit"
-                                className="position-absolute bos-fited-right-center p-0 text-heading fs-20 px-3 shadow-none h-100 border-left">
-                                    <i class='bx bx-search'></i>
-                                </Button>
-                           {" "}
-                        </div>
-                    </CardHeader>
-                    <Collapse
-                        isOpen={openedCollapse === "collapseOne"}
-                        aria-labelledby="headingOne"
-                        data-parent="#accordionExample"
-                        id="collapseOne"
-                    >
-                        <CardBody className=" opacity-8">
-                    <div className="row mx-n2">
-                        <div className="col-sm-6 pt-4 px-2"><select title="Điểm khởi hành"
-                                data-style="btn-lg py-2 h-52 bg-transparent" name="where_from" id="option_location_from"
-                                className="form-control border shadow-none form-control-lg select2 bg-transparent">
-                                <option value="">Tất cả Điểm khởi hành</option>
-                            </select></div>
-                        <div className="col-sm-6 pt-4 px-2"><select name="where_to" title="Điểm đến"
-                                data-style="btn-lg py-2 h-52 bg-transparent" id="option_location_to"
-                                className="form-control border shadow-none form-control-lg select2 bg-transparent">
-                                <option value="">Tất cả Điểm đến</option>
-                            </select></div>
-                        <div className="col-sm-6 pt-4 px-2"><input type="text" autocomplete="off" name="begin_date"
-                                placeholder="Ngày khởi hành"
-                                className="form-control border shadow-none form-control-lg selectpicker bg-transparent" /></div>
-                        <div className="col-sm-6 pt-4 px-2 mb-4"><select title="Khoảng giá"
-                                data-style="btn-lg py-2 h-52 bg-transparent" name="price_quota"
-                                className="form-control border shadow-none form-control-lg select2 bg-transparent">
-                                <option value="">Tất cả Khoảng giá</option>
-                                <option value="8000000-16000000">Từ 8tr trở lên</option>
-                                <option value="4000000-8000000">Từ 4tr đến 8tr</option>
-                                <option value="0-4000000">Dưới 4tr</option>
-                            </select></div>
-                    </div>
-                        </CardBody>
-                    </Collapse>
-                    </Card>
-                </div>
-            </Col>
-        </form>
-        </Container>
-    </>
-  );
+                    </Col>
+                </form>
+            </Container>
+        </>
+    );
 }
+
 const mapStateToProps = state => ({
     userInfo: state.userInfo,
-
+    countryListInfo: state.countryListInfo,
+    cityByLocationInfo: state.cityByLocationInfo
 });
 export default connect(mapStateToProps, actions)(SearchBox);

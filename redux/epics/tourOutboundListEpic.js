@@ -26,19 +26,19 @@ const ajaxControl = (user_token, action) =>
         }
     }).pipe(
         map(response => ({
-            type: actionTypes.INBOUND_TOUR_LIST_SUCCESS,
+            type: actionTypes.OUTBOUND_TOUR_LIST_SUCCESS,
             payload: response.response
         })),
         catchError(error => {
             let data_error = {
-                type: actionTypes.INBOUND_TOUR_LIST_ERROR,
+                type: actionTypes.OUTBOUND_TOUR_LIST_ERROR,
                 payload: { connect: false }
             };
             return of(data_error);
         })
     );
 const tourPrivateListEpic = (action$, store) => action$.pipe(
-    ofType(actionTypes.INBOUND_TOUR_LIST),
+    ofType(actionTypes.OUTBOUND_TOUR_LIST),
     concatMap(action => of('').pipe(
         map(res => {
             let keyword='';

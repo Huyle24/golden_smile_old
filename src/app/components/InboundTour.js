@@ -18,24 +18,12 @@ import {BsPeople} from "react-icons/bs";
 
 function InboundTour(props) {
     useEffect(() => {
-        // props.fetchInboundTourList('', '', '', '', '', '', '', '', 1, 0);
+        props.fetchInboundTourList('', '', '', '', '', '', '', '','','','','','',0,'' );
         // props.fetchPrivateTourList('', '', '', '', 1, '', '', '', 1);
     }, [])
-    let list_privateTour =props.privateTourListInfo.data && props.privateTourListInfo.isLoading === false ? props.privateTourListInfo.data.tour_list : '';
-    let list_jointTour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
-    console.log('list_privateTour')
-    console.log(list_privateTour)
-    console.log('list_jointTour')
-    console.log(list_jointTour)
-    // let list_inboundTour = [];
-    // if (list_jointTour && list_privateTour) {
-    //     list_inboundTour = [...list_jointTour, ...list_privateTour];
-    // } else {
-    //     list_inboundTour = list_jointTour || list_privateTour;
-    // }
-   const list_inboundTour = list_jointTour;
-        console.log('list_inboundTour')
-        console.log(list_inboundTour)
+    let list_inboundTour =props.tourInboundListInfo.data && props.tourInboundListInfo.isLoading === false ? props.tourInboundListInfo.data.tour_list : '';
+
+    console.log('list_inboundTour',list_inboundTour)
 
 
 
@@ -48,7 +36,7 @@ function InboundTour(props) {
         <Container>
             <div className="tournuocngoai">
                 <h4 className="mt-4">Tour Inbound</h4>
-                <span className=""></span>
+                <span className="divider-Trekking"></span>
                 <Swiper
                     cssMode={true}
                     navigation={true}
@@ -97,64 +85,66 @@ function InboundTour(props) {
                                         <div
                                             className="position-absolute tag_right_card d-flex flex-column ">
                                             <Card.Text className="tag_number_care">
-                                                {item.tour_type==1?'Tour riêng' : 'Tour ghép'}
+                                                {item.tour_type == 1 ? 'Tour riêng' : 'Tour ghép'}
 
                                             </Card.Text>
                                         </div>
 
                                     </Card>
                                     {item.tour_type == 1 && (
-                                    <Card.Body className={'card-tour'}>
-                                        <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
-                                            <Card.Title className="card_title_tour" style={{
-                                                overflow: 'hidden',
-                                                textOverflow: 'ellipsis',
-                                                whiteSpace: 'nowrap'
-                                            }} data-bs-toggle="tooltip" data-bs-placement="top" title={item.name}>
-                                                {item.name}
-                                            </Card.Title>
-                                        </Link>
-                                        <Card.Text className="mb-1 d-flex align-items-center">
-                                            <Card.Text className="d-flex align-items-center code-tour ">
-                                                {item.code}
+                                        <Card.Body className={'card-tour'}>
+                                            <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
+                                                <Card.Title className="card_title_tour" style={{
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
+                                                    whiteSpace: 'nowrap'
+                                                }} data-bs-toggle="tooltip" data-bs-placement="top" title={item.name}>
+                                                    {item.name}
+                                                </Card.Title>
+                                            </Link>
+                                            <Card.Text className="mb-1 d-flex align-items-center">
+                                                <Card.Text className="d-flex align-items-center code-tour ">
+                                                    {item.code}
+                                                </Card.Text>
                                             </Card.Text>
-                                        </Card.Text>
-                                        <hr className={'hr-product-card'}/>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <div className="d-flex  align-items-center">
-                                                <CiLocationOn/>
-                                                <span className="ms-2">
+                                            <hr className={'hr-product-card'}/>
+                                            <div className="d-flex justify-content-between align-items-center">
+                                                <div className="d-flex  align-items-center">
+                                                    <CiLocationOn/>
+                                                    <span className="ms-2">
                                                 {item.city_start} - {item.destination}
                                             </span>
-                                            </div>
-                                        </div>
-
-                                        {/* <Card.Text className='text-decoration-line-through'>Giá: {item.price}đ</Card.Text> */}
-                                        <div
-                                            className="d-flex justify-content-between align-items-center align-items-center">
-                                            <div>
-                                                <CiTimer/> <span className="color-text ">{item.date_type_name}</span>
+                                                </div>
                                             </div>
 
-                                        </div>
-                                        <div className="d-flex justify-content-between">
-                                            <div className="socho">
-                                                <PiWarningCircleThin style={{fontSize: 16}}/> Áp dụng cho đoàn
-                                                từ {item.min_customer} đến {item.max_customer} khách
+                                            {/* <Card.Text className='text-decoration-line-through'>Giá: {item.price}đ</Card.Text> */}
+                                            <div
+                                                className="d-flex justify-content-between align-items-center align-items-center">
+                                                <div>
+                                                    <CiTimer/> <span
+                                                    className="color-text ">{item.date_type_name}</span>
+                                                </div>
+
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <div className="socho">
+                                                    <PiWarningCircleThin style={{fontSize: 16}}/> Áp dụng cho đoàn
+                                                    từ {item.min_customer} đến {item.max_customer} khách
+                                                </div>
+
+
+                                            </div>
+                                            <div className="d-flex justify-content-between  align-items-center">
+                                                <div className={'text-contact fs-5'}>Liên hệ</div>
+                                                <Link href={"/Tour?id=" + item.id}
+                                                      onClick={() => Product_watched(item)}>
+                                                    <button className="button-detail btn">
+                                                        Xem chi tiết
+                                                    </button>
+                                                </Link>
                                             </div>
 
-
-                                        </div>
-                                        <div className="d-flex justify-content-between  align-items-center">
-                                            <div className={'text-contact fs-5'}>Liên hệ</div>
-                                            <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
-                                                <button className="button-detail btn">
-                                                    Xem chi tiết
-                                                </button>
-                                            </Link>
-                                        </div>
-
-                                    </Card.Body>
+                                        </Card.Body>
                                     )}
                                     {item.tour_type == 2 && (
                                         <Card.Body className={'card-tour'}>
@@ -236,7 +226,7 @@ function InboundTour(props) {
                 <div data-aos="fade-up"
                      data-aos-duration="3000">
                     <div className="home-page__see-all text-end mt-4">
-                    <Link href='/Category'>
+                        <Link href='/Category'>
                             <button
                                 className="btn px-4 py-2 fw-bold d-inline-flex align-items-center text-white button-all">
                                 Xem tất cả <FaArrowRight className="ms-2 "/>
@@ -251,7 +241,7 @@ function InboundTour(props) {
 
 
 const mapStateToProps = state => ({
-    privateTourListInfo: state.privateTourListInfo,
-    jointTourListInfo: state.jointTourListInfo
+
+    tourInboundListInfo: state.tourInboundListInfo
 });
 export default connect(mapStateToProps, actions)(InboundTour);

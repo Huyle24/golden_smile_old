@@ -25,6 +25,7 @@ function ListTour(props) {
     const searchParams = useSearchParams()
     const formatTourParam = searchParams.get('formatTour');
     const countryParam = searchParams.get('country');
+    const dateStartParam = searchParams.get('dateStart');
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
             id: 1,
@@ -85,12 +86,12 @@ function ListTour(props) {
 
     useEffect(() => {
         console.log('nguyen1')
-        props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', '', '',  FilterValues.dateStart,  FilterValues.dateEnd, '', '',FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
+        props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', FilterValues.cityStart, '',  FilterValues.dateStart,  FilterValues.dateEnd, '', '',FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
         }, [FilterValues])
 
     useEffect(() => {
         console.log('nguyen2')
-        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  '', '', '', '','', formatTourParam ?formatTourParam:'','' );
+        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  dateStartParam?dateStartParam:'',' ', '', '','', formatTourParam ?formatTourParam:'','' );
     }, [searchParams])
 
     // useEffect(() => {
@@ -235,7 +236,7 @@ function ListTour(props) {
 
                         <Card>
                             <Card className="position-relative border border-0 header_tour_img">
-                                <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>
+                                <Link  href={"/Tour?tour_type=2" + "&permalink=" + item.permalink} onClick={() => Product_watched(item)}>
                                     <Card.Img
                                         variant="top"
                                         src={item.bucket_img ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}

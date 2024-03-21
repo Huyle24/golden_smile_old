@@ -15,28 +15,20 @@ import BlogWhy from './components/BlogWhy';
 import Banner from './components/Banner';
 import {Col, Container, Row} from 'react-bootstrap'
 import TourCountryandProvince from "@/app/components/TourCountryandProvince";
+import OutboundTour from "@/app/components/OutboundTour";
 
 
 export default function Home() {
 
-    const listInboundNation = Array.from({length: 15}).map((item, index) => (
-        <Col xs={4} key={index} className={'nation'}>
-            Bến Tre
-        </Col>
-    ));
-    const listOutboundNation = Array.from({length: 15}).map((item, index) => (
-        <Col xs={4} key={index} className={'nation'}>
-            Hàn Quốc
-        </Col>
-    ));
+
     return (
         <main className="{Montserrat.main_home}">
             <Carousels/>
             <Promotion/>
             <ImagesBanner/>
             <JointTour/>
-            {/*<PrivateTour/>*/}
             <InboundTour/>
+            <OutboundTour/>
             <TourPopularType/>
             <NextDestion/>
             <BlogWhy/>

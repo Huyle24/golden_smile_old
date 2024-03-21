@@ -6,17 +6,18 @@ import TimeLine2 from './TimeLine2'
 import PrivateTour from "@/app/components/PrivateTour";
 import {Col, Container} from "react-bootstrap";
 import InfoDetail from "@/app/Tour/InfoDetail";
+import JointTour from "@/app/components/JointTour";
 
 
-export default function TourId(){
+export default function TourId() {
 
     return (
-        
+
         <div className="main_showcustomer">
-            <BreadCrums />
+            <BreadCrums/>
             <ImgDetail/>
 
-            <PrivateTour/>
+            <JointTour/>
 
         </div>
     )

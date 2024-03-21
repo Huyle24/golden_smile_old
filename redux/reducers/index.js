@@ -42,7 +42,8 @@ import fetchListTypeTourismReducer from "./fetchListTypeTourismReducer";
 import fetchDateTypeListReducer from "./fetchDateTypeListReducer";
 import updateFilterValuesReducer from "./updateFilterValuesReducer";
 import fetchInvoiceListReducer from "./fetchInvoiceListReducer";
-
+import outboundListReducer from "./outboundListReducer";
+import fetchCityByLocationReducer from "./fetchCityByLocationReducer";
 
 
 export default combineReducers({
@@ -87,5 +88,7 @@ export default combineReducers({
     fetchListTypeTourismInfo:fetchListTypeTourismReducer,
     fetchDateTypeInfo:fetchDateTypeListReducer,
     updateFilterValuesInfo:updateFilterValuesReducer,
-    fetchInvoiceListInfo:fetchInvoiceListReducer
+    fetchInvoiceListInfo:fetchInvoiceListReducer,
+    outboundListInfo:outboundListReducer,
+    cityByLocationInfo: fetchCityByLocationReducer
 });

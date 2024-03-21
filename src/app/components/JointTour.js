@@ -17,13 +17,12 @@ import Nav from "react-bootstrap/Nav";
 
 function JointTour(props) {
     useEffect(() => {
-        props.fetchJointTourList('', '', '', 30, '', '', '', '','','','','','','','' )
+        props.fetchJointTourList('', '', '', '', '', '', '', '','','','','','','','' )
     }, [])
 
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
-    console.log('JointTour');
-    console.log(list_tour);
-    console.log('props',props)
+    console.log('JointTour',list_tour);
+
     const Product_watched = (item) => {
         // alert(item.id);
         props.addToWatchedAction(item);

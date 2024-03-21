@@ -4,22 +4,27 @@ import {connect} from "react-redux";
 import * as actions from "../../../../redux/actions";
 
 import {useSearchParams} from 'next/navigation'
+import {fetchCitybyLocation} from "../../../../redux/actions";
+
 function SidaBarFilter(props) {
 
     const searchParams = useSearchParams()
     const formatTourParam = searchParams.get('formatTour');
     const countryParam = searchParams.get('country');
+    const cityParam = searchParams.get('city');
+    const dateStartParam = searchParams.get('dateStart');
     let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
     let type_tourism_list = props.fetchListTypeTourismInfo.data && props.fetchListTypeTourismInfo.isLoading === false ? props.fetchListTypeTourismInfo.data : '';
     let date_type_list = props.fetchDateTypeInfo.data && props.fetchDateTypeInfo.isLoading === false ? props.fetchDateTypeInfo.data : '';
+    let city_list = props.cityByLocationInfo.data && props.cityByLocationInfo.isLoading === false ? props.cityByLocationInfo.data : '';
 
-
-    const [formatTour, setFormatTour] = useState(formatTourParam?formatTourParam:'')
+    const [formatTour, setFormatTour] = useState(formatTourParam ? formatTourParam : '')
     const [typeTourism, setTypeTourism] = useState('')
-    const [countryStart, setCountryStart] = useState(countryParam?countryParam:'')
+    const [countryStart, setCountryStart] = useState(countryParam ? countryParam : '')
+    const [cityStart, setCityStart] = useState(cityParam ? cityParam : '')
     const [countryEnd, setCountryEnd] = useState('')
     const [dateType, setDateType] = useState('')
-    const [dateStart, setDateStart] = useState('')
+    const [dateStart, setDateStart] = useState(dateStartParam?dateStartParam:'')
     const [dateEnd, setDateEnd] = useState('')
     const handleFormatTour = (event) => {
         setFormatTour(event.target.value);
@@ -30,6 +35,10 @@ function SidaBarFilter(props) {
     }
     const handleCountryStart = (event) => {
         setCountryStart(event.target.value)
+        props.fetchCitybyLocation('', '', event.target.value)
+    }
+    const handleCityStart = (event) => {
+        setCityStart(event.target.value)
     }
     const handleCountryEnd = (event) => {
         setCountryEnd(event.target.value)
@@ -43,6 +52,7 @@ function SidaBarFilter(props) {
     const handleDateEnd = (event) => {
         setDateEnd(event.target.value)
     }
+
     console.log('formatTour:', formatTour);
     console.log('typeTourism:', typeTourism);
     console.log('countryStart:', countryStart);
@@ -55,7 +65,7 @@ function SidaBarFilter(props) {
         props.fetchCountryListBalotour()
         props.fetchListTypeTourism()
         props.fetchDateTypeList()
-
+        props.fetchCitybyLocation('', '', 1)
 
     }, [])
 
@@ -76,16 +86,16 @@ function SidaBarFilter(props) {
         formatTour: formatTour,
         typeTourism: typeTourism,
         countryStart: countryStart,
+        cityStart: cityStart,
         countryEnd: countryEnd,
         dateType: dateType,
         dateStart: dateStart,
         dateEnd: dateEnd
     };
-    console.log('newFilterValues',newFilterValues)
+    console.log('newFilterValues', newFilterValues)
     useEffect(() => {
-
         props.updateFilterValues(newFilterValues);
-    }, [formatTour, typeTourism, countryStart, countryEnd, dateType, dateStart, dateEnd]); // This useEffect will run whenever any of these values change
+    }, [formatTour, typeTourism, countryStart, cityStart, countryEnd, dateType, dateStart, dateEnd]); // This useEffect will run whenever any of these values change
 
     return (
         <Col lg="3" className="ps-0">
@@ -108,11 +118,19 @@ function SidaBarFilter(props) {
                         ))}
 
                     </Form.Select>
-                    <Card.Text className="title-filter mb-2">Quốc gia</Card.Text>
+                    <Card.Text className="title-filter mb-2">Quốc gia </Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleCountryStart}>
                         <option value="">---Tất cả---</option>
                         {country_list && country_list.map((item, index) => (
-                            <option key={index} value={item.id}   selected={countryParam ==item.id }>{item.name}</option>
+                            <option key={index} value={item.id} selected={countryParam == item.id}>{item.name}</option>
+                        ))}
+                    </Form.Select>
+                    <Card.Text className="title-filter mb-2">Tỉnh thành</Card.Text>
+                    <Form.Select aria-label="Default select example" className="mb-3" onChange={handleCityStart}>
+                        <option value="">---Tất cả---</option>
+                        {city_list && city_list.map((item, index) => (
+                            <option key={index} value={item.id}
+                                    selected={cityParam == item.id}>{item.city_name}</option>
                         ))}
                     </Form.Select>
                     <Card.Text className="title-filter mb-2">Điểm đến</Card.Text>
@@ -135,6 +153,7 @@ function SidaBarFilter(props) {
                         id="inputPassword5"
                         aria-describedby="passwordHelpBlock"
                         className="mb-3"
+                        value={dateStart?dateStart:""}
                         onChange={handleDateStart}
                     />
                     <Card.Text className="title-filter mb-2">Ngày về</Card.Text>
@@ -177,7 +196,7 @@ const mapStateToProps = state => ({
     countryListInfo: state.countryListInfo,
     fetchListTypeTourismInfo: state.fetchListTypeTourismInfo,
     fetchDateTypeInfo: state.fetchDateTypeInfo,
-    updateFilterValuesInfo: state.updateFilterValuesInfo
-
+    updateFilterValuesInfo: state.updateFilterValuesInfo,
+    cityByLocationInfo: state.cityByLocationInfo
 });
 export default connect(mapStateToProps, actions)(SidaBarFilter);
