@@ -66,8 +66,9 @@ function TourWatched(props) {
                                         </Col>
                                         <Col lg="9">
                                             <div className={'d-flex justify-content-between'}>
-                                                <div className={'tour-name'} style={{maxWidth:"85%"}}>{item.name ? item.name : "" } </div>
-                                                <div className={'d-flex flex-wrap align-items-center'} >
+                                                <div className={'tour-name'}
+                                                     style={{maxWidth: "85%"}}>{item.name ? item.name : ""} </div>
+                                                <div className={'d-flex flex-wrap align-items-center'}>
                                                     <BsPeople/>
                                                     <span
                                                         className={'text-danger fw-bold ms-2'}>{item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].count_order_tour : 0}</span> /
@@ -81,18 +82,19 @@ function TourWatched(props) {
                                                     <span
                                                         className={'invoice_code'}>  {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].code : ''}</span>
                                             </div>
-                                            <div className="mt-2">
-                                                <CiLocationOn/>
-                                                <span className=" ms-2">
+
+                                            <div className="d-flex justify-content-between align-items-center">
+                                                <div >
+                                                    <CiLocationOn/>
+                                                    <span className=" ms-2">
                                                {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_start : ''} - {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_name : ''}
                                                       </span>
-                                            </div>
-                                            <div className="d-flex justify-content-between align-items-center">
+                                                </div>
                                                 <div className={'d-flex flex-wrap align-items-center'}>
                                                     <CiTimer/>
                                                     <span className=" ms-2 ">
                                                   {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].date_type_name : ''}
-                                            </span>
+                                                         </span>
                                                 </div>
 
                                             </div>
@@ -145,7 +147,7 @@ function TourWatched(props) {
                                                 {/*<span className="color-text fw-bold">TỔNG CỘNG</span>*/}
                                                 <div onClick={() => removeItemWatched(item.id)}
                                                      className="btn-delete">
-                                                Xóa
+                                                    Xóa
                                                 </div>
 
                                             </div>
