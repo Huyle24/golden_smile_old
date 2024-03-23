@@ -509,6 +509,11 @@ body {
   font-weight: 700;
   font-size: 16px;
   margin-bottom: 1rem;
+  margin-top: 5.2rem;
+}
+
+.logo-web-footer {
+  height: 150px
 }
 
 .footer .row .footer_address_info {
@@ -841,6 +846,7 @@ body {
 
 .img_carousel {
   object-fit: cover;
+  height: 480px;
 }
 
 .nav_link_search {
@@ -2159,21 +2165,22 @@ tr td {
 }
 
 input#stacked-buttons {
-  border-radius: 10px 0 0 10px;
+  border-radius: 4px 0 0 4px;
   border: 1px solid #f3f3f3;
   height: 40px;
   width: 20%
 }
 
 .p-inputnumber-input {
-  border-radius: 10px 0 0 10px;
+  border-radius: 4px 0 0 4px;
   border: 1px solid #f3f3f3;
   height: 40px;
-  width: 20%
+  width: 20%;
+  padding-left: 17px;
 }
 
 span.p-inputnumber.p-component.p-inputwrapper.p-inputwrapper-filled.p-inputnumber-buttons-stacked {
-  width: 20%;
+  width: 8%;
 }
 
 button.p-inputnumber-button.p-inputnumber-button-up.p-button.p-button-icon-only.p-component {
@@ -2316,9 +2323,14 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 }
 
-.row-number-customer {
-  padding: 0 26rem 0 0;
+.footer {
+  padding-right: 19.5%;
+  padding-left: 19.5%;
 }
+
+//.row-number-customer {
+//  padding: 0 8rem 0 8rem;
+//}
 
 .icon-delete-customer-card {
   cursor: pointer;
@@ -2553,15 +2565,18 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 
 }
-.button-comeback-home{
+
+.button-comeback-home {
   background: #FFF1F0 !important;
   color: #B72028 !important;
   border: 1px solid #f6d5d7 !important;
 }
-.button-comeback-home:hover{
-  color:  #FFF1F0 !important;
-  background:#B72028 !important;
+
+.button-comeback-home:hover {
+  color: #FFF1F0 !important;
+  background: #B72028 !important;
 }
+
 .tour-detail-payment {
   div {
     margin: 4px 0px;
@@ -3962,11 +3977,15 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     width: 25%;
 
     .code-plane-start {
+      font-size: 12px;
       color: #F5222D;
       font-weight: 700;
       background: #F5F5F5;
       padding: 1px 8px;
       border-radius: 4px;
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
     }
   }
 
@@ -3974,6 +3993,12 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     font-weight: 600;
     font-size: 24px;
   }
+}
+
+.background-customer {
+  background: #FFF7E6;
+  padding: 1rem 2rem !important;
+  border-radius: 4px;
 }
 
 .title-card {
@@ -4019,11 +4044,15 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     width: 25%;
 
     .code-plane-start {
+      font-size: 12px;
       color: #F5222D;
       font-weight: 700;
       background: #F5F5F5;
       padding: 1px 8px;
       border-radius: 4px;
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
     }
   }
 

@@ -12,7 +12,8 @@ import PhoneInput from "react-phone-input-2";
 import {setOrderData} from '../../../redux/actions';
 import { InputNumber } from 'primereact/inputnumber';
 import PaymentSidebar from "@/app/OrderTour/PaymentSidebar";
-
+import { BsFillPeopleFill } from "react-icons/bs";
+import { FaChildren } from "react-icons/fa6";
 function DetailTourPayment(props) {
 
     const searchParams = useSearchParams()
@@ -193,67 +194,16 @@ function DetailTourPayment(props) {
                                     Không áp dụng đăng ký tour online đối với khách từ 70 tuổi trở lên
                                 </div>
                                 <div className={'title-cutomer-form'}>
-                                    1. Thông tin khách hàng
+                                    1. Số lượng hành khách
                                 </div>
-                                <Row>
-                                    <Col md={6}>
-                                        <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Họ và tên</label>
-                                            <input type="text" className="form-control" id="exampleInputEmail1"
-                                                   value={userInput}
-                                                   aria-describedby="emailHelp" placeholder="Họ và tên" disabled required/>
-
-                                        </div>
-                                    </Col>
-                                    <Col md={6}>
-                                        <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Email</label>
-                                            <input type="email" className="form-control" id="exampleInputEmail1"
-                                                   value={emailInput}
-                                                   aria-describedby="emailHelp" placeholder="nguyenvanthanh@gmail.com"
-                                                   disabled required/>
-
-                                        </div>
-                                    </Col>
-                                    <Col md={6}>
-                                        <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Số điện thoại</label>
-                                            <input type="number" className="form-control" id="exampleInputEmail1"
-                                                   value={phoneInput}
-                                                   aria-describedby="emailHelp" placeholder="0111 111 111" disabled required/>
-
-                                        </div>
-                                    </Col>
-                                    <Col md={6}>
-                                        <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Quốc tịch</label>
-                                            <select className="form-control txt_contact"
-                                                    onChange={(event) => setNationalityInput(event.target.value)}
-                                                    disabled>
-                                                <option value={''}>Chọn quốc tịch</option>
-                                                {
-                                                    countryUser ? countryUser.map((item, index) => {
-
-                                                        return (
-                                                            <option key={index} value={item.id}
-                                                                    selected={parseInt(nationalitySelected) == item.id ? true : false}>{item.name}</option>
-                                                        )
-                                                    }) : null
-                                                }
-                                            </select>
-                                        </div>
-                                    </Col>
-                                </Row>
-                                <div className={'title-cutomer-form'}>
-                                    2. Số lượng hành khách
-                                </div>
-
                                 <div className={'container'}>
 
                                     <Row className={' row-number-customer'}>
-                                        <div  className={'mt-2'}>
+                                        <div className={'mt-3 background-customer'}>
                                             <div className={'d-flex justify-content-between  align-items-center'}>
-                                                <label>Người lớn:</label>
+                                                <label className={'d-flex align-items-center flex-wrap'}>
+                                                    <BsFillPeopleFill className={'me-3 text-danger'} style={{fontSize:24}}/>
+                                                    <span>Người lớn:</span> </label>
                                                 <InputNumber inputId="stacked-buttons" value={value1}
                                                              onValueChange={(e) => setValue1(e.value)} mode="decimal"
                                                              showButtons
@@ -262,10 +212,13 @@ function DetailTourPayment(props) {
                                         </div>
                                         {
                                             tour_price_detail_info && tour_price_detail_info.data_child_price.map((item, index) => (
-                                                <div className={'mt-2'}>
+                                                <div className={'mt-3 background-customer'}>
                                                     <div className={'d-flex justify-content-between align-items-center'}>
                                                         {childPrices[index] && (
-                                                            <label>{`Trẻ em từ ${childPrices[index].child_old_start} đến ${childPrices[index].child_old_end} tuổi:`}</label>
+                                                            <label
+                                                                className={'d-flex align-items-center flex-wrap'}><FaChildren
+                                                                className={'me-3 text-danger'} style={{fontSize:24}}/> {`Trẻ em từ ${childPrices[index].child_old_start} đến ${childPrices[index].child_old_end} tuổi:`}
+                                                            </label>
                                                         )}
                                                         <InputNumber
                                                             inputId={`stacked-buttons-${index}`}
@@ -289,6 +242,62 @@ function DetailTourPayment(props) {
                                         }
                                     </Row>
                                 </div>
+
+                                <div className={'title-cutomer-form mt-4 mb-2'}>
+                                    2. Thông tin khách hàng
+                                </div>
+                                <Row>
+                                    <Col md={6}>
+                                        <div className="form-group">
+                                            <label htmlFor="exampleInputEmail1">Họ và tên</label>
+                                            <input type="text" className="form-control" id="exampleInputEmail1"
+                                                   value={userInput}
+                                                   aria-describedby="emailHelp" placeholder="Họ và tên" disabled
+                                                   required/>
+
+                                        </div>
+                                    </Col>
+                                    <Col md={6}>
+                                        <div className="form-group">
+                                            <label htmlFor="exampleInputEmail1">Email</label>
+                                            <input type="email" className="form-control" id="exampleInputEmail1"
+                                                   value={emailInput}
+                                                   aria-describedby="emailHelp" placeholder="nguyenvanthanh@gmail.com"
+                                                   disabled required/>
+
+                                        </div>
+                                    </Col>
+                                    <Col md={6}>
+                                        <div className="form-group">
+                                            <label htmlFor="exampleInputEmail1">Số điện thoại</label>
+                                            <input type="number" className="form-control" id="exampleInputEmail1"
+                                                   value={phoneInput}
+                                                   aria-describedby="emailHelp" placeholder="0111 111 111" disabled
+                                                   required/>
+
+                                        </div>
+                                    </Col>
+                                    <Col md={6}>
+                                        <div className="form-group">
+                                            <label htmlFor="exampleInputEmail1">Quốc tịch</label>
+                                            <select className="form-control txt_contact"
+                                                    onChange={(event) => setNationalityInput(event.target.value)}
+                                                    disabled>
+                                                <option value={''}>Chọn quốc tịch</option>
+                                                {
+                                                    countryUser ? countryUser.map((item, index) => {
+
+                                                        return (
+                                                            <option key={index} value={item.id}
+                                                                    selected={parseInt(nationalitySelected) == item.id ? true : false}>{item.name}</option>
+                                                        )
+                                                    }) : null
+                                                }
+                                            </select>
+                                        </div>
+                                    </Col>
+                                </Row>
+
                             </div>
                         </Row>
                         <Modal

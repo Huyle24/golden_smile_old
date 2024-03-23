@@ -10,6 +10,10 @@ import {useEffect} from "react";
 import Link from "next/link";
 
 function ThankYou(props) {
+    const formatCurrency = (amount) => {
+        if (amount == null) return ''; // Handle null or undefined
+        return Number(amount).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+    };
     const searchParams = useSearchParams()
     const orderIdParam = searchParams.get('order_id');
     let invoice_detail = props.invoiceDetailInfo.data ? props.invoiceDetailInfo.data : "";
@@ -52,7 +56,7 @@ function ThankYou(props) {
                                 </div>
                                 <div className={'mt-2'}>
                                     Vui lòng điền vào phần nội dung chuyển tiền cú pháp: <span
-                                    className={'order-code'}>  {invoice_detail.order_id_encode ? invoice_detail.order_id_encode : ''}</span>
+                                    className={'order-code'}>  DH-{invoice_detail.order_id ? invoice_detail.order_id : ''}</span>
                                 </div>
                                 <hr/>
                                 <div className={'d-flex justify-content-between mt-2 my-4'}>
@@ -60,7 +64,7 @@ function ThankYou(props) {
                                         TỔNG CỘNG:
                                     </div>
                                     <div className={'total-price'}>
-                                        40,000,000 VNĐ
+                                           {invoice_detail.price_total ?formatCurrency(invoice_detail.price_total) : ''}
                                     </div>
                                 </div>
                             </div>
@@ -82,8 +86,12 @@ function ThankYou(props) {
                                     </Col>
                                     <Col xl={8}>
                                         <div className={'tour-name'}> ĐÀ NẴNG CITY TOUR 1 NGÀY</div>
-                                        <div className={'mt-2'}>Mã đơn hàng <span
-                                            className={'tour-name '}> {invoice_detail.order_id_encode ? invoice_detail.order_id_encode : ''}</span></div>
+                                        <div className={'mt-1'}>Mã đơn hàng <span
+                                            className={'tour-name '}>DH-{invoice_detail.order_id ? invoice_detail.order_id: ''}</span></div>
+                                        <Link href={`/InvoiceDetail?order_id=${invoice_detail.order_id}`}>
+                                            <div>Xem chi tiết đơn hàng</div>
+                                        </Link>
+
                                     </Col>
                                 </Row>
 
