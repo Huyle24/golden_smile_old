@@ -39,7 +39,7 @@ function InvoiceDetail(props) {
                             </div>
 
                             <div className={'mt-2'}>
-                                <span className={'invoice_code'}> {invoice_detail.order_id_encode}</span>
+                                <span className={'invoice_code'}>DH-{invoice_detail.order_id}</span>
                             </div>
                             <div className={'mt-4 d-flex justify-content-between'}>
                                 <div className={'created-date '}>{invoice_detail.created_date}</div>

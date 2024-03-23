@@ -7,10 +7,11 @@ import * as actions from "../../../redux/actions";
 import {useSearchParams} from "next/navigation";
 import InfoDetail from "@/app/OrderTour/InfoDetail";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 function PaymentSidebar(props) {
     const { orderData } = props;
-
+    const router = useRouter();
     const searchParams = useSearchParams()
     const tour_open_id = searchParams.get("tour_open_id");
     const adult_number = searchParams.get("adult_number");
@@ -30,6 +31,7 @@ function PaymentSidebar(props) {
     const total_formated=parseFloat(total).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
     console.log('orderData',orderData)
     console.log('tour_price_detail_info',tour_price_detail_info)
+
     return (
         <>
             <InfoDetail data={tour_price_detail_info} />

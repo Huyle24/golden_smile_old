@@ -45,7 +45,7 @@ function ListInvoice(props) {
                                                 </div>
 
                                                 <div className={'mt-2'}>
-                                                    <span className={'invoice_code'}> {item.order_id_encode}</span>
+                                                    <span className={'invoice_code'}> DH-{item.order_id}</span>
                                                 </div>
                                                 <div className={'mt-4 d-flex justify-content-between'}>
                                                     <div className={'created-date '}>{item.created_date}</div>

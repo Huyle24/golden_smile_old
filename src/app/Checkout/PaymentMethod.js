@@ -13,7 +13,7 @@ import PaymentSidebar from "@/app/Checkout/PaymentSidebar";
 import {useRouter} from "next/navigation";
 import Card from "react-bootstrap/Card"
 import {compileString} from "sass";
-
+import { FaChildren } from "react-icons/fa6";
 function PaymentMethod(props) {
     const Toast = Swal.mixin({
         toast: true,
@@ -45,6 +45,7 @@ function PaymentMethod(props) {
     const handleInputChange = (index) => {
         setActiveIndex(index);
     };
+
     const updatedOrderData = {
         ...orderData,
         ...newElement
@@ -270,7 +271,7 @@ function PaymentMethod(props) {
             console.log('Second API response', second_response);
 
             // Xử lý phản hồi của API thứ hai
-            router.push(`./ThankYou?order_id=${response.data.data.order_id}`);
+            router.replace(`./ThankYou?order_id=${response.data.data.order_id}`);
         } catch (error) {
             console.log('API error', error);
         }

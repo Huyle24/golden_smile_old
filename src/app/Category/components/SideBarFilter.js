@@ -19,6 +19,7 @@ function SidaBarFilter(props) {
     let date_type_list = props.fetchDateTypeInfo.data && props.fetchDateTypeInfo.isLoading === false ? props.fetchDateTypeInfo.data : '';
     let city_list = props.cityByLocationInfo.data && props.cityByLocationInfo.isLoading === false ? props.cityByLocationInfo.data : '';
 
+
     const [formatTour, setFormatTour] = useState(formatTourParam ? formatTourParam : '')
     const [typeTourism, setTypeTourism] = useState(typeTourismParam?typeTourismParam:'')
     const [countryStart, setCountryStart] = useState(countryParam ? countryParam : '')
@@ -106,7 +107,7 @@ function SidaBarFilter(props) {
                     <Card.Text className="title-filter mb-2">Hình thức</Card.Text>
                     <Form.Select aria-label="Default select example" className="mb-3" onChange={handleFormatTour}>
                         <option value="">---Tất cả---</option>
-                        <option selected={formatTourParam === 0} value="0">Inbound</option>
+                        <option selected={formatTourParam == 0} value="0">Inbound</option>
                         <option selected={formatTourParam == 1} value="1">Outbound</option>
                         <option selected={formatTourParam == 2} value="2">Nội địa</option>
                     </Form.Select>

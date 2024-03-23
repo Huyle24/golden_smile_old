@@ -46,73 +46,68 @@ export default function Footer(){
                 <Row className={'line-row'}>
                     <div className={'line-bottom'}></div>
                 </Row>
-                <Row className='mb-6'>
-                    <div className='col-xs-12 col-md-3'>
+                <Row className='mb-6 info_first'>
+                    <div className='col-xs-12 col-md-4'>
+                        <img className={'logo-web-footer'} src="https://vigomanager.com/app-assets/mobile/img-huy/1-%20Ngang.png" alt=""/>
+                        <h4 className='footer_title_about mt-1'>Về chúng tôi</h4>
+                        <ul className='list_item_about'>
+                            <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Giới thiệu
+                                chung</Link></li>
+                            <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Tin tức về
+                                chúng tôi</Link></li>
+                            <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Hồ sơ năng
+                                lực</Link></li>
+                            <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Báo chí nói
+                                về chúng tôi</Link></li>
+                        </ul>
                         <h4 className='info_contact'>Liên hệ</h4>
                         <div className='footer_address_info'>
-                            <Link href={''} className='footer-hotline'><i class='bx bx-phone'></i>0852903412</Link>
-                            <Link href={''} className='footer-hotline'><i class='bx bx-phone'></i>23452341221</Link>
+                            <Link href={''} className='footer-hotline'><i className='bx bx-phone'></i>0852903412</Link>
+                            <Link href={''} className='footer-hotline'><i className='bx bx-phone'></i>23452341221</Link>
                             <div className='address_contact'>
-                                <Link href={''}><i class='bx bx-home-alt-2'></i>23 Nguyễn Sỹ Sách, Phường 15, Quận Tân Bình, Thành Phố Hồ Chí Minh</Link>
+                                <Link href={''}><i className='bx bx-home-alt-2'></i>23 Nguyễn Sỹ Sách, Phường
+                                    15, Quận Tân Bình, Thành Phố Hồ Chí Minh</Link>
                             </div>
-                            <Link href={''} className='footer-hotline'><i class='bx bx-envelope' ></i>goodensmile@gmail.com</Link>
+                            <Link href={''} className='footer-hotline'><i className='bx bx-envelope'></i>goodensmile@gmail.com</Link>
                         </div>
-                        <h4 className='thongtin_chung'>Thông tin chung</h4>
-                        <ul className='info-chung'>
-                            <li className='info-item-chung'><Link href={''}>Hướng dẫn đặt tour</Link></li>
-                            <li className='info-item-chung'><Link href={''}>Điều khoản thanh toán</Link></li>
-                            <li className='info-item-chung'><Link href={''}>Thỏa thuận sử dụng</Link></li>
-                            <li className='info-item-chung'><Link href={''}>Chính sách riêng tư</Link></li>
-                        </ul>
                     </div>
-                    <div className='col-xs-12 col-md-9'>
+
+                    <div className='col-xs-12 col-md-8'>
+
                         <Row className='info_first'>
-                            <div className='col-xs-12 col-md-4'>
-                                <h4 className='footer_title_about'>Về chúng tôi</h4>
-                                <ul className='list_item_about'>
-                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Giới thiệu chung</Link></li>
-                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Tin tức về chúng tôi</Link></li>
-                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Hồ sơ năng lực</Link></li>
-                                    <li className='listitem_vechungtoi'><Link href={'/about'} className='ilabouus'>Báo chí nói về chúng tôi</Link></li>
+                            <div className='col-xs-12 col-md-6'>
+
+                                <h4 className='thongtin_chung'>Thông tin chung</h4>
+                                <ul className='info-chung'>
+                                    <li className='info-item-chung'><Link href={''}>Hướng dẫn đặt tour</Link></li>
+                                    <li className='info-item-chung'><Link href={''}>Điều khoản thanh toán</Link></li>
+                                    <li className='info-item-chung'><Link href={''}>Thỏa thuận sử dụng</Link></li>
+                                    <li className='info-item-chung'><Link href={''}>Chính sách riêng tư</Link></li>
                                 </ul>
                             </div>
-                            <div className='col-xs-12 col-md-4'>
-                                <h4 className='footer_title_about'>Góp ý tour</h4>
-                                <Form className='fomr_tong_info'>
-                                    <Input type="text"></Input>
-                                    <div className='input_icons'>
-                                        <button className='btn_icons_tour'>
-                                            <img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon_email.png' alt='' />
-                                        </button>
-                                    </div>
-                                </Form>
-                                <h4 className='footer_title_about'>Đăng ký nhận tin</h4>
-                                <Form className='fomr_tong_info'>
-                                    <Input type="text"></Input>
-                                    <div className='input_icons'>
-                                        <button className='btn_icons_tour'>
-                                            <img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon_subscriber.png' alt='' />
-                                        </button>
-                                    </div>
-                                </Form>
-                            </div>
-                            <div className='col-xs-12 col-md-4'>
-                                <h4 className='footer_title_about'>Mạng xã hội</h4>
+                            <div className='col-xs-12 col-md-6'>
+                                <h4 className='footer_title_about mt-3'>Mạng xã hội</h4>
                                 <ul className='list_socials'>
                                     <li className='socials_items'>
-                                        <Link href={''}><img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon_fb.png' alt='Facebook'/></Link>
+                                        <Link href={''}><img
+                                            src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon_fb.png'
+                                            alt='Facebook'/></Link>
                                     </li>
                                     <li className='socials_items'>
-                                        <Link href={''}><img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-zalo.jpg' alt='Zalo'/></Link>
+                                        <Link href={''}><img
+                                            src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-zalo.jpg'
+                                            alt='Zalo'/></Link>
                                     </li>
                                     <li className='socials_items'>
-                                        <Link href={''}><img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon_youtube.png' alt='Youtube'/></Link>
+                                        <Link href={''}><img
+                                            src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/icon_youtube.png'
+                                            alt='Youtube'/></Link>
                                     </li>
                                 </ul>
                                 <h4 className='footer_title_about'>Chấp nhận thanh toán</h4>
                                 <ul className='list_payment'>
                                     <div className='thanhtoan_list'>
-                                        <i className='images-123pay'></i>
+                                    <i className='images-123pay'></i>
                                     </div>
                                     <div className='thanhtoan_list'>
                                         <i className='images-visa'></i>
@@ -124,7 +119,8 @@ export default function Footer(){
                             </div>
                         </Row>
 
-                        <Row>
+                        <Row className={'mt-3'}>
+
                             {foot_info ? (foot_info.map((item, index) =>
                             <div className='col-xs-12 col-md-6 footer_address_details'>
                                 <h4 className='title_address_f'>{item.branch}</h4>
