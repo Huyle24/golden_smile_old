@@ -4,8 +4,8 @@ import PaymentSidebar from "@/app/OrderTour/PaymentSidebar";
 import {Col, Row} from "react-bootstrap";
 import ListInvoice from "@/app/Invoice/ListInvoice";
 import CustomerInfo from "@/app/components/CustomerInfo";
+import InvoiceDetail from "./InvoiceDetail"
 import BreadCrums from "@/app/Category/components/BreadCrums";
-
 export default function Invoice() {
 
     return (
@@ -16,7 +16,7 @@ export default function Invoice() {
                     <CustomerInfo/>
                 </Col>
                 <Col md={8}>
-                    <ListInvoice/>
+                    <InvoiceDetail/>
                 </Col>
             </Row>
 

@@ -214,8 +214,9 @@ function SearchBox(props) {
     const handleSelect = (selectedKey) => {
         setActiveKey(selectedKey);
         // Xử lý logic của bạn ở đây dựa trên tab được chọn
-        console.log("Tab được chọn:", selectedKey);
+
     };
+    console.log('activeKey', activeKey)
     const getLangText = async () => {
         let lang_code = await GET_LANG_CODE();
         let lang_text = {}
@@ -238,7 +239,8 @@ function SearchBox(props) {
                         <Form className="trangchu_formsearch">
                             <div className="row tab_filter">
                                 <div className="col-md-12">
-                                    <Nav className="tab_filter_searchnav" variant="pills" defaultActiveKey="link-1" onSelect={handleSelect}>
+                                    <Nav className="tab_filter_searchnav" variant="pills" defaultActiveKey="link-1"
+                                         onSelect={handleSelect}>
                                         <Nav.Item className="li_searchnav">
                                             <Nav.Link className="search_mucfilter" eventKey="link-1">
                                                 <i className='bx bx-home-alt'></i>
@@ -307,7 +309,7 @@ function SearchBox(props) {
 
                                             <div className="col choose_input_tour">
                                                 <Link
-                                                    href={"./Category?country=" + country + "&dateStart=" + startDate}>
+                                                    href={"./Category?country=" + country + "&dateStart=" + startDate + "&formatTour=" + (activeKey === "link-2" ? 0 : activeKey === "link-3" ? 1 : '') + "&type_tourism_id=" + (activeKey === "link-4" ? 5 : '')}>
                                                     <Button className="btn_search_find">
                                                         Tìm Kiếm
                                                     </Button>

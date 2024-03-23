@@ -10,6 +10,7 @@ import Link from "next/link";
 
 function PaymentSidebar(props) {
     const { orderData } = props;
+
     const searchParams = useSearchParams()
     const tour_open_id = searchParams.get("tour_open_id");
     const adult_number = searchParams.get("adult_number");

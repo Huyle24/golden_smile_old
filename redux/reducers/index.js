@@ -44,6 +44,7 @@ import updateFilterValuesReducer from "./updateFilterValuesReducer";
 import fetchInvoiceListReducer from "./fetchInvoiceListReducer";
 import outboundListReducer from "./outboundListReducer";
 import fetchCityByLocationReducer from "./fetchCityByLocationReducer";
+import invoiceDetailReducer from "./invoiceDetailReducer";
 
 
 export default combineReducers({
@@ -90,5 +91,6 @@ export default combineReducers({
     updateFilterValuesInfo:updateFilterValuesReducer,
     fetchInvoiceListInfo:fetchInvoiceListReducer,
     outboundListInfo:outboundListReducer,
-    cityByLocationInfo: fetchCityByLocationReducer
+    cityByLocationInfo: fetchCityByLocationReducer,
+    invoiceDetailInfo:invoiceDetailReducer
 });

@@ -274,6 +274,22 @@ function Overview(props) {
                 {/*        </Button>*/}
                 {/*    </Modal.Footer>*/}
                 {/*</Modal>*/}
+                <Modal show={showContactModal} onHide={handleCloseContactModal} animation={false} size="md" centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title className="" style={{color:"#B72028"}}>Liên hệ tư vấn</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form>
+                            <div className="mt-2">
+                                <i className='bx bxs-phone'></i> Vui lòng liên hệ số <span className={'fw-bolder'}>028 7100 2828 </span>  để được nhân viên tư vấn !
+                            </div>
+
+
+                        </Form>
+                    </Modal.Body>
+
+
+                </Modal>
             </div>
             <div className={'mt-3'}>
                 <InfoDetail data={...tourOpenChoose}/>

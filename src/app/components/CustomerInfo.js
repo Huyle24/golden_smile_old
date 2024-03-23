@@ -12,6 +12,7 @@ function CustomerInfo(props) {
     console.log('pathname',pathname)
     let customer_info = props.fetchInvoiceListInfo.data ? props.fetchInvoiceListInfo.data : "";
     console.log('customer_info', customer_info);
+
     useEffect(() => {
         props.fetchInvoiceList()
     }, []);
@@ -38,10 +39,10 @@ function CustomerInfo(props) {
                 </div>
                 <div className={`my-1 tab_tourWatched${pathname === '/TourWatched' ? ' selected' : ''}`}>
                     <Link href={'./TourWatched'}>
-                        <i className="bx bx-paper-plane me-2"></i> Tour dã xem
+                        <i className="bx bx-paper-plane me-2"></i> Tour đã xem
                     </Link>
                 </div>
-                <div className={`my-1 tab_invoice${pathname === '/Invoice' ? ' selected' : ''}`}>
+                <div className={`my-1 tab_invoice${pathname === '/Invoice' ||pathname === '/InvoiceDetail'  ? ' selected' : ''}`}>
                     <Link href={'./Invoice'}>
                         <i class='bx bx-cart-alt me-2'></i> Đơn hàng
                     </Link>

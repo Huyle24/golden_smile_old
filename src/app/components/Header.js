@@ -345,7 +345,7 @@ function Header(props) {
 
                                                                     <div
                                                                         className=''>
-                                                                        <i className='bx bx-user '></i> {textShow ? textShow.Information : ''}
+                                                                        <i className='bx bx-user me-2'></i> {textShow ? textShow.Information : ''}
                                                                     </div>
                                                                 </div>
                                                             </Link>

@@ -19,6 +19,7 @@ import {useSearchParams} from "next/navigation";
 
 const OFF_DEFAULT = 9;
 
+const ITEMS_PER_PAGE = 6;
 function ListTour(props) {
     const [value, onChange] = useState(new Date());
     const [textShow, setTextShow] = useState('');
@@ -26,6 +27,7 @@ function ListTour(props) {
     const formatTourParam = searchParams.get('formatTour');
     const countryParam = searchParams.get('country');
     const dateStartParam = searchParams.get('dateStart');
+    const typeTourismParam = searchParams.get('type_tourism_id');
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
             id: 1,
@@ -72,10 +74,21 @@ function ListTour(props) {
     const [loadingPage, setLoadingPage] = useState(false)
     const [searchKeyWord, setSearchKeyWord] = useState('')
     const [checkboxOrder, setCheckboxOrder] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
     let FilterValues = props.updateFilterValuesInfo.FilterValues ? props.updateFilterValuesInfo.FilterValues : '';
+    const totalPages =list_tour?( Math.ceil(list_tour.length / ITEMS_PER_PAGE)):'';
 
+    // Lấy index của item đầu tiên trên trang hiện tại
+    const indexOfFirstItem = (currentPage - 1) * ITEMS_PER_PAGE;
 
+    // Lấy danh sách items của trang hiện tại
+    const currentItems = list_tour? list_tour.slice(indexOfFirstItem, indexOfFirstItem + ITEMS_PER_PAGE):'';
+
+    // Hàm xử lý khi chuyển trang
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
     console.log('FilterValues', FilterValues);
     console.log('list_tour', list_tour)
     useEffect(() => {
@@ -91,152 +104,21 @@ function ListTour(props) {
 
     useEffect(() => {
         console.log('nguyen2')
-        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  dateStartParam?dateStartParam:'',' ', '', '','', formatTourParam ?formatTourParam:'','' );
+        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  dateStartParam?dateStartParam:'',' ', '', '','', formatTourParam ?formatTourParam:'',typeTourismParam?typeTourismParam:'' );
     }, [searchParams])
 
-    // useEffect(() => {
-    //     props.fetchJointTourList('', '', '', '', '', '', '', '', 1)
-    // }, [])
 
-    // const [checkboxTypeDate, setCheckboxTypeDate] = useState('');
-    // const [allshow, allsetShow] = useState(false);
-    // const allhandleClose = () => allsetShow(false);
-    // const allhandleShow = () => allsetShow(true);
-    //
-    // const getLangText = async () => {
-    //     let lang_code = await GET_LANG_CODE();
-    //     let lang_text ={}
-    //     switch (JSON.parse(lang_code)) {
-    //         case 'vi':
-    //             lang_text = GET_LANG_vi().tour
-    //             break;
-    //         default:
-    //             lang_text = GET_LANG_ko().tour
-    //             break;
-    //     }
-    //     setTextShow(lang_text)
-    // }
-    //
-    // const tree_view = (index) => {
-    //     tourFilterTmp[index]['is_click'] = !tourFilterTmp[index]['is_click'];
-    //     setTourFilterTmp(tourFilterTmp)
-    //     setLoadingPage(!loadingPage)
-    // }
-    // const getTourmore =async ()=>{
-    //     let limit_new = limit + OFF_DEFAULT
-    //     let url_api = BASE_URL_API + "Balotour/Tour/tourList?off="+OFF_DEFAULT+"&limit="+limit_new+"&keyword="+searchKeyWord+"&tour_type="+checkboxOrder+"&typedate="+checkboxTypeDate;
-    //     let token = await GET_TOKEN();
-    //     axios.get(url_api, {
-    //         headers: {
-    //             "x-api-key": "api_key",
-    //             'USER-TOKEN':JSON.parse(token),
-    //             'LANG-CODE': JSON.parse(GET_LANG_CODE()),
-    //             "Content-Type": "multipart/form-data"
-    //         }
-    //     }).then(async function (response) {
-    //         let daaa= tourList.concat(response.data.data.tour_list)
-    //         setTourlist(daaa)
-    //         setLimit(limit_new)
-    //
-    //         if (response.data.data.tour_list == '' || response.data.data.tour_list.length < OFF_DEFAULT){
-    //             setSeemore(true)
-    //         }
-    //
-    //         console.log(response.data.data)
-    //     })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
-    // const change_input = (event)=>{
-    //     setSearchKeyWord(event.target.value)
-    //     getTourList(event.target.value,checkboxOrder,checkboxTypeDate)
-    // }
-    // const change_type_tour = (type)=>{
-    //     setCheckboxOrder(type)
-    //     getTourList(searchKeyWord,type,checkboxTypeDate)
-    // }
-    // const change_type_date = (typeDate)=>{
-    //     setCheckboxTypeDate(typeDate)
-    //     getTourList(searchKeyWord,checkboxOrder,typeDate)
-    //
-    // }
-    // const getTourList =async (key_work,tour_type,typeDate)=>{
-    //     let url_api = BASE_URL_API + "Balotour/Tour/tourList?off=9&limit=&keyword="+key_work+"&tour_type="+tour_type+"&typedate="+typeDate;
-    //
-    //     let token = await GET_TOKEN();
-    //     axios.get(url_api, {
-    //         headers: {
-    //             "x-api-key": "api_key",
-    //             'USER-TOKEN':JSON.parse(token),
-    //             'LANG-CODE': JSON.parse(GET_LANG_CODE()),
-    //             "Content-Type": "multipart/form-data"
-    //         }
-    //     }).then(async function (response) {
-    //
-    //         setTourlist(response.data.data.tour_list)
-    //         if (response.data.data.tour_list == '' || response.data.data.tour_list.length < OFF_DEFAULT){
-    //             setSeemore(true)
-    //         }else{
-    //             setSeemore(false)
-    //         }
-    //         setLimit(0)
-    //     })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
-    // useEffect(()=>{
-    //     props.fetchTourList(9,limit,searchKeyWord,'',checkboxOrder,checkboxTypeDate)
-    //     getLangText()
-    // },[])
-
-
-    // let paginate = Math.round(tour_list_num_row / OFF_DEFAULT);
-
-    // useEffect(() => {
-    //     setTourlist(tour_list)
-    //
-    // }, [tour_list])
-    // useEffect(()=>{
-    //
-    //
-    //     if(tour_list_num_row > OFF_DEFAULT){
-    //         setSeemore(false)
-    //     }else{
-    //         setSeemore(true)
-    //     }
-    //
-    //
-    // },[tour_list_num_row])
 
     return (
         <Col lg={9}>
-            {/*<h1 className="py-4 h2 fw-bold heading text-center">Du lịch Miền Bắc</h1>*/}
-            {/*<p>Miền Bắc Việt Nam gồm Tây Bắc, Đông Bắc và đồng bằng Sông Hồng, là cái nôi văn hóa lịch sử hàng ngàn năm*/}
-            {/*    của Việt Nam. Thiên nhiên và cảnh đẹp hùng vĩ, 4 mùa xuân hạ thu đông, miền Bắc luôn là điểm hẹn hấp dẫn*/}
-            {/*    cho ta trở lại nhiều lần.</p>*/}
-            {/*<div className="d-flex justify-content-between align-items-center">*/}
-            {/*    <span>Chúng tôi tìm thấy <span>530</span> tours cho Quý khách.</span>*/}
-            {/*    <div className="d-flex align-items-center">*/}
-            {/*        <span className="me-2">Sắp xếp theo</span>*/}
-            {/*        <Form>*/}
-            {/*            <Form.Select aria-label="Default select example">*/}
-            {/*                <option>---Tất cả---</option>*/}
-            {/*                <option value="1">One</option>*/}
-            {/*                <option value="2">Two</option>*/}
-            {/*                <option value="3">Three</option>*/}
-            {/*            </Form.Select>*/}
-            {/*        </Form>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            <Row>
-                {list_tour ? (list_tour.map((item, index) => (
-                    <Col md={4} className={'mt-2'}>
 
+            <Row>
+                {currentItems ? (currentItems.map((item, index) => (
+                    <Col md={4} className={'mt-2'}>
                         <Card>
                             <Card className="position-relative border border-0 header_tour_img">
-                                <Link  href={"/Tour?tour_type=2" + "&permalink=" + item.permalink} onClick={() => Product_watched(item)}>
+                                <Link href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                      onClick={() => Product_watched(item)}>
                                     <Card.Img
                                         variant="top"
                                         src={item.bucket_img ? item.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
@@ -341,15 +223,21 @@ function ListTour(props) {
                     </Col>
                 ))) : ''}
             </Row>
-            {/*<Col lg="12">*/}
-            {/*    {*/}
-            {/*        seeMore == false ?*/}
-            {/*            <div className="see-more text-center pb-4 mt-4" onClick={() => getTourmore()}>*/}
-            {/*                <button>Xem tất cả</button>*/}
-            {/*            </div>*/}
-            {/*            : ''*/}
-            {/*    }*/}
-            {/*</Col>*/}
+            <div className={'d-flex justify-content-center mt-2'}>
+                <nav>
+                    <ul className="pagination">
+                        {Array.from({length: totalPages}, (_, i) => i + 1).map((page) => (
+                            <li key={page} className={`page-item ${currentPage === page ? 'active' : ''}`}>
+                                <button className="page-link "   onClick={() => handlePageChange(page)}>
+                                    {page}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
+            </div>
+
         </Col>
     )
 }

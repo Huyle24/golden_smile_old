@@ -12,6 +12,7 @@ import Tab from 'react-bootstrap/Tab';
 import {Col, Row} from "react-bootstrap";
 import CustomerInfo from "@/app/components/CustomerInfo";
 import Card from 'react-bootstrap/Card';
+import BreadCrums from "@/app/Category/components/BreadCrums";
 
 // function CustomerInfo(props) {
 //     return null;
@@ -171,8 +172,8 @@ function info_user(props) {
 
     return (
         <main>
-            <div className="container mt-3">
-
+            <div className="container  main_showcustomer">
+                <BreadCrums/>
                 <Row className={'mb-4 index-info'}>
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                         <Col md={4}> <CustomerInfo/></Col>

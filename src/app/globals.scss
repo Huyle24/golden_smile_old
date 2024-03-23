@@ -23,9 +23,11 @@ body {
 .carousel-indicators [data-bs-target] {
   display: none;
 }
+
 .bx-log-out {
   transform: rotate(180deg);
 }
+
 .header-first {
   background: #db2131;
   height: 53px;
@@ -1222,6 +1224,24 @@ body {
   letter-spacing: .89px;
 }
 
+.page-item.active {
+
+  .page-link {
+    background-color: #B72028 !important;
+    border-color: #db2131;
+    color: white !important;
+    font-weight: 600
+  }
+
+}
+
+.page-item {
+
+  .page-link {
+    color: #db2131 !important;
+  }
+
+}
 
 .trangchu_formsearch .form_filter {
   padding: 30px 0;
@@ -2172,6 +2192,90 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   background: rgb(183, 32, 40)
 }
 
+.card-thankpage {
+  .background-thankpage {
+    background: url("https://vigomanager.com/app-assets/mobile/img-huy/z4785417426297_931e396d8b9c2f5be54c763f0ca057b5%201.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 150px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .congratulation {
+      background: white;
+      height: 80px;
+      width: 500px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-content: center;
+      border-radius: 8px;
+
+      .bx-check-circle {
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        font-size: 36px;
+        color: #CF1322;
+      }
+
+      span {
+        font-weight: 600;
+        color: #CF1322;
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+      }
+
+    }
+
+
+  }
+
+  .container {
+    padding: 0 20%;
+
+    .order-code {
+      color: #db2031;
+      font-weight: 600;
+    }
+
+    .total-price {
+      color: #db2031;
+      font-weight: 600;
+      font-size: 18px
+    }
+  }
+}
+
+.tour-info-thankpage {
+
+  .card-header {
+
+    background: #FFF1F0;
+    display: flex;
+    justify-content: center;
+    color: #db2031;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 9px 0;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .tour_image {
+    border-radius: 4px;
+  }
+
+  .tour-name {
+    color: #db2031;
+    font-weight: 600;
+  }
+
+}
+
 .cutomer-form {
   border: 1px solid #ebebeb;
   border-radius: 16px;
@@ -2195,7 +2299,74 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 }
 
+.policy-thankpage {
+  .title {
+    font-weight: 600;
+    color: #B72028;
+
+  }
+
+  .policy {
+    list-style: disc;
+
+    li {
+      padding-bottom: 8px
+    }
+
+  }
+}
+
+.row-number-customer {
+  padding: 0 26rem 0 0;
+}
+
+.icon-delete-customer-card {
+  cursor: pointer;
+}
+
+.card-customer-info-list {
+  .card-header {
+    border-bottom: rgb(194 190 190 / 18%)
+  }
+;
+}
+
+.button-add-customer {
+  background-color: white !important;
+  color: #B72028 !important;
+  border: 1px solid #B72028 !important;
+}
+
+.button-add-customer:hover {
+  background-color: #B72028 !important;
+  color: white !important;
+}
+
+.info-age-customer {
+  text-align: justify;
+  line-height: 27px;
+  margin-top: 10px;
+  border-left: 4px solid #ff002d;
+  padding: 15px;
+  margin-bottom: 10px;
+  color: #212121;
+  background: #f4f4f4;
+  font-size: 14px;
+}
+
 .invoice-list {
+
+
+  .card-header {
+    background: #FFF1F0;
+    color: #B72028;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    display: flex;
+    border-bottom: none !important;
+  }
+
   .title-card {
     font-weight: 700;
     color: #db2031;
@@ -2208,15 +2379,32 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     border-radius: 4px;
   }
 
+  .image-invoice:hover {
+    opacity: 0.8;
+  }
+
   .tour-name {
     font-weight: 700;
     text-transform: uppercase;
     font-size: 18px;
     color: #db2031;
-    max-width: 85%; /* Đặt độ rộng tối đa */
+    max-width: 80%; /* Đặt độ rộng tối đa */
     white-space: nowrap; /* Ngăn chữ xuống dòng */
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .tour-name-detail {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #db2031;
+
+
+  }
+
+  .tour-name:hover {
+    color: #B72028;
   }
 
   .status {
@@ -2242,6 +2430,60 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     font-size: 18px;
   }
 
+}
+
+.form-check-input:checked {
+  background-color: #B72028 !important;
+  border-color: #B72028 !important;
+}
+
+.form-check-label {
+  color: black !important;
+}
+
+.breadcrumb-item.active {
+  color: #B72028 !important;
+}
+
+.logo-payment {
+  height: 50px;
+  border-radius: 4px;
+}
+
+.booking-card {
+  .card-header {
+    background-color: white;
+    color: #B72028;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  .label-booking-card {
+    div {
+      font-weight: 600;
+      margin: 10px 0px;
+      height: 24px;
+    }
+  }
+
+  .content-booking-card {
+    div {
+      margin: 10px 0px;
+      height: 24px;
+    }
+
+    .order-id {
+      color: red;
+      font-weight: 600
+    }
+  }
+}
+
+.label-payment-method-page {
+  color: #B72028;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .customer_info {
@@ -2276,6 +2518,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     background: #FFF1F0;
     color: #B72028;
     border: 1px solid #f6d5d7;
+
   }
 
   .logout-button:hover {
@@ -2283,9 +2526,10 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     color: white;
   }
 
-  .tab_customer_info, .tab_invoice ,.tab_tourWatched{
+  .tab_customer_info, .tab_invoice, .tab_tourWatched {
     padding: 8px 40px;
     margin: -17px;
+
     a {
       color: black;
     }
@@ -2296,11 +2540,12 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 
 
-  .tab_invoice.selected, .tab_customer_info.selected ,.tab_tourWatched.selected{
+  .tab_invoice.selected, .tab_customer_info.selected, .tab_tourWatched.selected {
     background: #FFF1F0;
     margin: -17px;
     border-right: 2px solid #B72028;
     padding: 8px 40px;
+
     a {
       color: #B72028;
     }
@@ -2308,8 +2553,15 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 
 }
-
-
+.button-comeback-home{
+  background: #FFF1F0 !important;
+  color: #B72028 !important;
+  border: 1px solid #f6d5d7 !important;
+}
+.button-comeback-home:hover{
+  color:  #FFF1F0 !important;
+  background:#B72028 !important;
+}
 .tour-detail-payment {
   div {
     margin: 4px 0px;
@@ -3724,7 +3976,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   }
 }
 
-.title-card{
+.title-card {
   font-weight: 700;
   color: #db2031;
   font-size: 14px;
@@ -4027,11 +4279,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   transition: 0.4s;
 }
 
-.payments:hover {
-  background-color: #0ea5e9;
-  color: white;
-}
-
+payments
 .payments span {
   font-size: 14px;
 }
@@ -4048,10 +4296,14 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   height: 60px;
 }
 
-.payments.active {
-  background-color: #0ea5e9;
-  color: white;
+.momo-payment {
+  zoom: 1.5
 }
+
+//.payments.active {
+//  background-color: #0ea5e9;
+//  color: white;
+//}
 
 .react-datepicker-popper {
   z-index: 2 !important;

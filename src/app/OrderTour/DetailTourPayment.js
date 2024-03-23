@@ -248,9 +248,10 @@ function DetailTourPayment(props) {
                                     2. Số lượng hành khách
                                 </div>
 
-                                <div>
-                                    <Row className={'px-3'}>
-                                        <Col xl={6} className={'mt-2'}>
+                                <div className={'container'}>
+
+                                    <Row className={' row-number-customer'}>
+                                        <div  className={'mt-2'}>
                                             <div className={'d-flex justify-content-between  align-items-center'}>
                                                 <label>Người lớn:</label>
                                                 <InputNumber inputId="stacked-buttons" value={value1}
@@ -258,10 +259,10 @@ function DetailTourPayment(props) {
                                                              showButtons
                                                              min={0} max={100}/>
                                             </div>
-                                        </Col>
+                                        </div>
                                         {
                                             tour_price_detail_info && tour_price_detail_info.data_child_price.map((item, index) => (
-                                                <Col xl={6} key={index} className={'mt-2'}>
+                                                <div className={'mt-2'}>
                                                     <div className={'d-flex justify-content-between align-items-center'}>
                                                         {childPrices[index] && (
                                                             <label>{`Trẻ em từ ${childPrices[index].child_old_start} đến ${childPrices[index].child_old_end} tuổi:`}</label>
@@ -283,7 +284,7 @@ function DetailTourPayment(props) {
                                                             max={100}
                                                         />
                                                     </div>
-                                                </Col>
+                                                </div>
                                             ))
                                         }
                                     </Row>

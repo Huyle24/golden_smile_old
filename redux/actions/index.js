@@ -116,6 +116,13 @@ export const fetchTourDetail = (permalink = '', customer_number = '', child_numb
         child_number: child_number
     };
 };
+export const fetchInvoiceDetail = (order_id='') => {
+    return {
+        type: actionTypes.INVOICE_DETAIL,
+        order_id: order_id,
+
+    };
+};
 export const fetchCitybyLocation = (off = '', limit = '', country_id = '') => {
     return {
         type: actionTypes.FETCH_CITY_LIST,

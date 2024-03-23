@@ -8,7 +8,7 @@ export default function OrderTour() {
 
     return (
 
-        <div className="container">
+        <div className="container main_showcustomer">
             <BreadCrums/>
             <DetailTourPayment/>
         </div>
