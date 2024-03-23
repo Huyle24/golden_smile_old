@@ -83,7 +83,7 @@ function ThankYou(props) {
                                     <Col xl={8}>
                                         <div className={'tour-name'}> ĐÀ NẴNG CITY TOUR 1 NGÀY</div>
                                         <div className={'mt-2'}>Mã đơn hàng <span
-                                            className={'tour-name '}> ASCSDVDV</span></div>
+                                            className={'tour-name '}> {invoice_detail.order_id_encode ? invoice_detail.order_id_encode : ''}</span></div>
                                     </Col>
                                 </Row>
 
