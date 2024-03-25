@@ -194,7 +194,7 @@ function DetailTourPayment(props) {
                                     Không áp dụng đăng ký tour online đối với khách từ 70 tuổi trở lên
                                 </div>
                                 <div className={'title-cutomer-form'}>
-                                    1. Số lượng hành khách
+                                     Số lượng hành khách
                                 </div>
                                 <div className={'container'}>
 
@@ -243,10 +243,10 @@ function DetailTourPayment(props) {
                                     </Row>
                                 </div>
 
-                                <div className={'title-cutomer-form mt-4 mb-2'}>
+                                <div className={'title-cutomer-form mt-4 mb-2 hide'}>
                                     2. Thông tin khách hàng
                                 </div>
-                                <Row>
+                                <Row className={'hide'}>
                                     <Col md={6}>
                                         <div className="form-group">
                                             <label htmlFor="exampleInputEmail1">Họ và tên</label>
