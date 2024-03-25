@@ -35,7 +35,7 @@ function PaymentSidebar(props) {
     return (
         <>
             <InfoDetail data={tour_price_detail_info} />
-            <div className="col-overview p-2 tour-info mt-3">
+            <div className="col-overview p-2 tour-info mt-4">
                 <div className={'tour-info-header'}>
                     CHI TIẾT GIÁ
                 </div>

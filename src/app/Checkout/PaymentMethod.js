@@ -1,7 +1,7 @@
 'use client'
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import {FaMailBulk, FaPhoneAlt} from "react-icons/fa";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import {setOrderData} from "../../../redux/actions";
@@ -13,7 +13,8 @@ import PaymentSidebar from "@/app/Checkout/PaymentSidebar";
 import {useRouter} from "next/navigation";
 import Card from "react-bootstrap/Card"
 import {compileString} from "sass";
-import { FaChildren } from "react-icons/fa6";
+import {FaChildren} from "react-icons/fa6";
+
 function PaymentMethod(props) {
     const Toast = Swal.mixin({
         toast: true,
@@ -26,6 +27,13 @@ function PaymentMethod(props) {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
+    const [userInput, setUserInput] = useState([]);
+    const [emailInput, setEmailInput] = useState([]);
+    const [phoneInput, setPhoneInput] = useState([]);
+    const [addressInput, setAddressInput] = useState([]);
+    const [nationalitySelected, setNationalitySelected] = useState();
+    const [nationalityInput, setNationalityInput] = useState([]);
+    const [countrySelected, setCountrySelected] = useState();
     const [agree, setAgree] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
     const [paymentMethod, setPaymentMethod] = useState('');
@@ -33,13 +41,18 @@ function PaymentMethod(props) {
     const [formData, setFormData] = useState([]);
     const [dataCustomer, setdataCustomer] = useState({});
     const [dataListCustomer, setDataListCustomer] = useState({});
-    const [newOrderId, setOrderId]=useState();
+    const [newOrderId, setOrderId] = useState();
     const [errors, setErrors] = useState({});
+    let countryUser = props.countryUserInfo.data && props.countryUserInfo.isLoading == false ? props.countryUserInfo.data.country : '';
     let payment_method_list = props.addCartDetailInfo.data && props.addCartDetailInfo.isLoading == false ? props.addCartDetailInfo.data.payment_method_list : '';
+    console.log('payment_method_list',payment_method_list)
+    console.log('paymentMethod', paymentMethod);
+
     let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
+    let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
     const orderData = props.orderDataInfo.orderData;
     const newElement = {
-        payment_method: activeIndex
+        payment_method: paymentMethod
     };
 
     const handleInputChange = (index) => {
@@ -85,7 +98,7 @@ function PaymentMethod(props) {
     console.log('formData', formData)
     useEffect(() => {
         const newDataCustomer = {...dataCustomer};
-        newDataCustomer.tour_open_id = orderData?orderData.tour_open_id:'';
+        newDataCustomer.tour_open_id = orderData ? orderData.tour_open_id : '';
         newDataCustomer.customer_arr = [...formData];
         setDataListCustomer(newDataCustomer);
 
@@ -107,11 +120,11 @@ function PaymentMethod(props) {
                     </Card.Header>
                     <Card.Body>
                         <Row>
-                            <Form.Group as={Col} xl={4} controlId={`fullname-${i}`}>
+                            <Form.Group as={Col} xl={4} controlId={`fullname-${i}`} className={'mb-3'}>
                                 <Form.Label>Họ tên</Form.Label>
                                 <Form.Control type="text" required onChange={(e) => handleChange(e, i, 'fullname')}/>
                             </Form.Group>
-                            <Form.Group as={Col} xl={2} controlId={`sex-${i}`}>
+                            <Form.Group as={Col} xl={2} controlId={`sex-${i}`} className={'mb-3'}>
                                 <Form.Label> Giới tính</Form.Label>
                                 <Form.Select aria-label="Giới tính" onChange={(e) => handleChange(e, i, 'sex')}>
                                     <option value="">--Giới tính--</option>
@@ -119,38 +132,38 @@ function PaymentMethod(props) {
                                     <option value="2">Nữ</option>
                                 </Form.Select>
                             </Form.Group>
-                            <Form.Group as={Col} xl={3} controlId={`birthday-${i}`}>
+                            <Form.Group as={Col} xl={3} controlId={`birthday-${i}`} className={'mb-3'}>
                                 <Form.Label>Ngày sinh </Form.Label>
                                 <Form.Control type="date" required onChange={(e) => handleChange(e, i, 'birthday')}/>
                             </Form.Group>
-                            <Form.Group as={Col} xl={3} controlId={`country_id-${i}`}>
+                            <Form.Group as={Col} xl={3} controlId={`country_id-${i} mb-3`}>
                                 <Form.Label>Quốc tịch </Form.Label>
                                 <Form.Select aria-label="Quốc tịch"
                                              onChange={(e) => handleChange(e, i, 'country_id')}>
                                     <option value="">---Tất cả---</option>
-                                    {country_list&&country_list.map((item,index)=> (
+                                    {country_list && country_list.map((item, index) => (
 
                                         <option value={item.id}>{item.name}</option>
                                     ))}
                                 </Form.Select>
                             </Form.Group>
-                            <Col xl={4}>
-                                <Form.Group className="mb-3" controlId={`email-${i}`}>
-                                    <Form.Label> Email</Form.Label>
-                                    <Form.Control type="email"  onChange={(e) => handleChange(e, i, 'email')}/>
 
-                                </Form.Group>
-                            </Col>
-                            <Col xl={4}>
-                                <Form.Group className="mb-3" controlId={`telephone-${i}`}>
-                                    <Form.Label> Số điện thoại
+                            <Form.Group as={Col} xl={4} className="mb-3" controlId={`email-${i}`}>
+                                <Form.Label> Email</Form.Label>
+                                <Form.Control type="email" onChange={(e) => handleChange(e, i, 'email')}/>
 
-                                    </Form.Label>
-                                    <Form.Control type="number"
-                                                  onChange={(e) => handleChange(e, i, 'telephone')}/>
+                            </Form.Group>
 
-                                </Form.Group>
-                            </Col>
+
+                            <Form.Group as={Col} xl={4} className="mb-3" controlId={`telephone-${i}`}>
+                                <Form.Label> Số điện thoại
+
+                                </Form.Label>
+                                <Form.Control type="number"
+                                              onChange={(e) => handleChange(e, i, 'telephone')}/>
+
+                            </Form.Group>
+
                             <Col xl={4}>
                                 <Form.Label>Loại giấy tờ</Form.Label>
                                 <Form.Select aria-label="Default select example"
@@ -247,10 +260,10 @@ function PaymentMethod(props) {
                 icon: "success"
             });
 
-            let dataListCustomerUpdated={...dataListCustomer}
+            let dataListCustomerUpdated = {...dataListCustomer}
 
 
-            dataListCustomerUpdated.order_id=response.data.data.order_id;
+            dataListCustomerUpdated.order_id = response.data.data.order_id;
             setDataListCustomer(dataListCustomerUpdated)
 
             console.log('dataListCustomerUpdated', dataListCustomerUpdated.customer_arr)
@@ -259,7 +272,7 @@ function PaymentMethod(props) {
             const second_url_api = BASE_URL_API + "website/TourInfo/saveGroupList";
             const second_fd = new FormData();
             // Thiết lập dữ liệu cho API thứ hai nếu cần
-            second_fd.append('data_customer', JSON.stringify( dataListCustomerUpdated));
+            second_fd.append('data_customer', JSON.stringify(dataListCustomerUpdated));
 
 
             const second_response = await axios.post(second_url_api, second_fd, {
@@ -284,44 +297,90 @@ function PaymentMethod(props) {
     console.log(orderData);
     console.log('updatedOrderData');
     console.log(updatedOrderData);
+    useEffect(() => {
+        if (user_data) {
+            setUserInput(user_data.fullname)
+            setEmailInput(user_data.email)
+            setPhoneInput(user_data.phone)
+            setAddressInput(user_data.address)
+            setNationalitySelected(user_data.nationality)
+            setNationalityInput(user_data.nationality)
+            setCountrySelected(user_data.country)
+        }
+
+    }, [user_data])
     return (
         <Container className="mt-3 mb-4">
             {/*<span className="tour_detail_title">Thanh Toán</span>*/}
+
+
             <div className="mt-3">
-                <span className={'label-payment-method-page'}>Các hình thức thanh toán</span>
+
                 <Row className="mt-2">
                     <Col xl={8} className="mb-4">
+                        <div className={'label-payment-method-page  mb-2'}>
+                            1. Thông tin khách hàng
+                        </div>
                         <Row>
-                            {payment_method_list ? (payment_method_list.map((item, index) => (
-                                <Col md={6}>
-                                    <Card className={`payments mt-2 p-0 ${index === activeIndex ? 'active' : ''}`}>
-                                        <Card.Body>
-                                            <div
-                                                className={'d-flex justify-content-between align-items-center flex-wrap'}>
-                                                <span className={'d-flex  align-items-center flex-wrap'}><input
-                                                    name="ckb" type="radio" className="momo-payment me-2"
-                                                    value={item.id}
-                                                    checked={index === activeIndex}
-                                                    onChange={() => handleInputChange(index)}
-                                                    onClick={(e) => setPaymentMethod(e.target.value)}/> {item.name}</span>
-                                                <img src={item.img} className={'logo-payment'} alt="tienmat"/>
-                                            </div>
+                            <Col md={6}>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputEmail1">Họ và tên</label>
+                                    <input type="text" className="form-control" id="exampleInputEmail1"
+                                           value={userInput}
+                                           aria-describedby="emailHelp" placeholder="Họ và tên" disabled
+                                           required/>
 
+                                </div>
+                            </Col>
+                            <Col md={6}>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputEmail1">Email</label>
+                                    <input type="email" className="form-control" id="exampleInputEmail1"
+                                           value={emailInput}
+                                           aria-describedby="emailHelp" placeholder="nguyenvanthanh@gmail.com"
+                                           disabled required/>
 
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            ))) : ''}
+                                </div>
+                            </Col>
+                            <Col md={6}>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputEmail1">Số điện thoại</label>
+                                    <input type="number" className="form-control" id="exampleInputEmail1"
+                                           value={phoneInput}
+                                           aria-describedby="emailHelp" placeholder="0111 111 111" disabled
+                                           required/>
+
+                                </div>
+                            </Col>
+                            <Col md={6}>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputEmail1">Quốc tịch</label>
+                                    <select className="form-control txt_contact"
+                                            onChange={(event) => setNationalityInput(event.target.value)}
+                                            disabled>
+                                        <option value={''}>Chọn quốc tịch</option>
+                                        {
+                                            countryUser ? countryUser.map((item, index) => {
+
+                                                return (
+                                                    <option key={index} value={item.id}
+                                                            selected={parseInt(nationalitySelected) == item.id ? true : false}>{item.name}</option>
+                                                )
+                                            }) : null
+                                        }
+                                    </select>
+                                </div>
+                            </Col>
                         </Row>
-                        <div className="mt-4">
+                        <div className="mt-5">
                             <span
-                                className={'label-payment-method-page'}>Thông tin danh sách đoàn</span>
+                                className={'label-payment-method-page  mb-2'}>2. Thông tin danh sách đoàn</span>
                             <div>
 
                                 <Form>
-                                    <Row>
+                                    <Row className={'mt-2'}>
                                         <Col xl={6}>
-                                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            <Form.Group className="mb-3 " controlId="formBasicEmail">
                                                 <Form.Label> Điểm đón </Form.Label>
                                                 <Form.Control type="text" required
                                                               isInvalid={!!errors['placeStart']}
@@ -385,56 +444,80 @@ function PaymentMethod(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-4">
-                                <span
-                                    className={'label-payment-method-page'}> Điều khoản bắt buộc khi đăng ký online</span>
-                            <div className="term_content mt-3">
-                                <div className="mb-3"><strong>Chính sách hủy</strong><p>Từ ngày chuyển khoản
-                                    thanh toán đến trước 8 ngày khởi hành chịu phí 20% tổng đơn hàng.</p>
-                                    <p>Từ 7 đến trước 2 ngày khởi hành chịu phí 50% tổng đơn hàng.</p>
-                                    <p>Trước ngày khởi hành 1 ngày chịu phí 100% tổng đơn hàng.</p>
-                                    <p>Hủy ngay ngày khởi hành, không tham gia tour chịu phí hủy 100% tổng đơn
-                                        hàng.</p>
-                                    <p>** Nếu chuyến đi bị hủy do thiên tai,thời tiết, điều kiện bất khả kháng
-                                        sẽ hoàn 100%</p>
-                                    <p>&nbsp;</p>
-                                    <p>Balotour với tư cách là đại lý du lịch đặt các dịch vụ như vé máy bay,
-                                        tour du lịch…nếu lịch trình có thay đổi và điều chỉnh thời gian do tình
-                                        hình thời tiết, thiên tai, nội chiến, điều kiện hàng không… thì chúng
-                                        tôi cam kết sẽ cố gắng giải quyết mọi trường hợp chậm trễ không theo
-                                        lịch trình dự kiến cho quý khách hàng nhưng không có trách nhiệm bồi
-                                        thường.</p></div>
-                                <div className="mb-3"><strong>Chính sách thanh toán</strong><p>Sau khi đăng ký
-                                    tour, Quý khách đặt cọc 50%.</p>
-                                    <p>Phần còn lại vui lòng thanh toán trước 07 ngày khởi hành.</p>
-                                    <p>Quý khách đăng ký tour trong vòng 7 ngày so với ngày khởi hành, vui lòng
-                                        thanh toán toàn bộ tiền tour.</p></div>
-                                <div className="mb-3"><strong>Chính sách trẻ em</strong><p>Miễn phí cho trẻ em 4
-                                    tuổi, trẻ em từ 5 đến 7 tuổi tính 75% giá của người lớn, còn từ 8 tuổi trở
-                                    lên thì tính theo giá của người lớn.</p></div>
+                        <div className={'label-payment-method-page  mt-5'}>3. Các hình thức thanh toán</div>
+                        <Row>
+                            {payment_method_list ? (payment_method_list.map((item, index) => (
+                                <Col md={6}>
+                                    <Card className={`payments mt-2 p-0 ${index === activeIndex ? 'active' : ''}`}>
+                                        <Card.Body>
+                                            <div
+                                                className={'d-flex justify-content-between align-items-center flex-wrap'}>
+                                                <span className={'d-flex  align-items-center flex-wrap'}><input
+                                                    name="ckb" type="radio" className="momo-payment me-2"
+                                                    value={item.id}
+                                                    checked={index === activeIndex}
+                                                    onChange={() => handleInputChange(index)}
+                                                    onClick={(e) => setPaymentMethod(item.id)}/> {item.name}</span>
+                                                <img src={item.img} className={'logo-payment'} alt="tienmat"/>
+                                            </div>
 
-                            </div>
-                            <Form>
-                                <Form.Check
-                                    inline
-                                    label="Tôi đồng ý với các điều kiện trên"
-                                    name="group1"
-                                    type="checkbox"
-                                    id="checkbox1"
-                                    className="text-primary"
-                                    onChange={() => setAgree(!agree)}
-                                />
-                            </Form>
-                        </div>
+
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))) : ''}
+                        </Row>
+
                     </Col>
 
                     <Col xl={4}>
                         <div>
                             <PaymentSidebar orderData={orderData}/>
+                            <div className="mt-4">
+                                <span
+                                    className={'title-cutomer-form'}> Điều khoản bắt buộc khi đăng ký online</span>
+                                <div className="term_content mt-3">
+                                    <div className="mb-3"><strong>Chính sách hủy</strong><p>Từ ngày chuyển khoản
+                                        thanh toán đến trước 8 ngày khởi hành chịu phí 20% tổng đơn hàng.</p>
+                                        <p>Từ 7 đến trước 2 ngày khởi hành chịu phí 50% tổng đơn hàng.</p>
+                                        <p>Trước ngày khởi hành 1 ngày chịu phí 100% tổng đơn hàng.</p>
+                                        <p>Hủy ngay ngày khởi hành, không tham gia tour chịu phí hủy 100% tổng đơn
+                                            hàng.</p>
+                                        <p>** Nếu chuyến đi bị hủy do thiên tai,thời tiết, điều kiện bất khả kháng
+                                            sẽ hoàn 100%</p>
+                                        <p>&nbsp;</p>
+                                        <p>Balotour với tư cách là đại lý du lịch đặt các dịch vụ như vé máy bay,
+                                            tour du lịch…nếu lịch trình có thay đổi và điều chỉnh thời gian do tình
+                                            hình thời tiết, thiên tai, nội chiến, điều kiện hàng không… thì chúng
+                                            tôi cam kết sẽ cố gắng giải quyết mọi trường hợp chậm trễ không theo
+                                            lịch trình dự kiến cho quý khách hàng nhưng không có trách nhiệm bồi
+                                            thường.</p></div>
+                                    <div className="mb-3"><strong>Chính sách thanh toán</strong><p>Sau khi đăng ký
+                                        tour, Quý khách đặt cọc 50%.</p>
+                                        <p>Phần còn lại vui lòng thanh toán trước 07 ngày khởi hành.</p>
+                                        <p>Quý khách đăng ký tour trong vòng 7 ngày so với ngày khởi hành, vui lòng
+                                            thanh toán toàn bộ tiền tour.</p></div>
+                                    <div className="mb-3"><strong>Chính sách trẻ em</strong><p>Miễn phí cho trẻ em 4
+                                        tuổi, trẻ em từ 5 đến 7 tuổi tính 75% giá của người lớn, còn từ 8 tuổi trở
+                                        lên thì tính theo giá của người lớn.</p></div>
+
+                                </div>
+                                <Form>
+                                    <Form.Check
+                                        inline
+                                        label="Tôi đồng ý với các điều kiện trên"
+                                        name="group1"
+                                        type="checkbox"
+                                        id="checkbox1"
+                                        className="text-primary"
+                                        onChange={() => setAgree(!agree)}
+                                    />
+                                </Form>
+                            </div>
                             <div>
-                                    <Button className="w-100 btn-danger py-2 mt-3"  onClick={handleOrder}>THANH
-                                        TOÁN
-                                        NGAY</Button>
+                                <Button className="w-100 btn-danger py-2 mt-3" onClick={handleOrder}>THANH
+                                    TOÁN
+                                    NGAY</Button>
 
                             </div>
                         </div>
@@ -454,6 +537,7 @@ const mapStateToProps = state => ({
     setupAddressDetailInfo: state.setupAddressDetailInfo,
     orderDataInfo: state.orderDataInfo,
     countryListInfo: state.countryListInfo,
+    countryUserInfo: state.countryUserInfo,
 });
 
 export default connect(mapStateToProps, actions)(PaymentMethod);
