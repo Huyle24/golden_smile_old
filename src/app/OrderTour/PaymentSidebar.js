@@ -45,7 +45,7 @@ function PaymentSidebar(props) {
     console.log(' tour_price_detail_info.price_sell_adultr', parseFloat(tour_price_detail_info.price_sell_adult))
     // Tính tổng số tiền của trẻ em
     let childTotal = 0;
-    if (orderData && orderData.data_child &&tour_price_detail_info) {
+    if (orderData && orderData.data_child &&tour_price_detail_info&&tour_price_detail_info.data_child_price) {
         orderData.data_child.forEach((item, index) => {
             childTotal += item.child_number *   tour_price_detail_info.data_child_price[index].child_price;
         });

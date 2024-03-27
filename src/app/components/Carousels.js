@@ -17,8 +17,9 @@ function Carousels(props) {
 
     return (
         <Container fluid className="position-relative ps-0 pe-0">
-            <div data-aos="fade-up"
-                 >
+            {/*<div data-aos="fade-up"*/}
+            {/*     >*/}
+            <div>
                 <Carousel>
                     {slideImageInfo ? (
                         slideImageInfo.map((item, index) => (

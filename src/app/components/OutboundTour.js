@@ -71,8 +71,8 @@ function OutboundTour(props) {
 
                     {list_tour ? (list_tour.map((item, index) => (
                         <SwiperSlide lg="4" className={`mt-4 tour_${item.id}`} key={index}>
-                            <div data-aos="zoom-in-up" data-aos-duration="3000">
-
+                            {/*<div data-aos="zoom-in-up" data-aos-duration="3000">*/}
+                            <div>
                                 <Card>
                                     <Card className="position-relative border border-0 header_tour_img">
                                         <Link   href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}

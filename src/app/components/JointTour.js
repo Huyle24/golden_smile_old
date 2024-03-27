@@ -17,11 +17,11 @@ import Nav from "react-bootstrap/Nav";
 
 function JointTour(props) {
     useEffect(() => {
-        props.fetchJointTourList('', '', '', '', '', '', '', '','','','','','','','' )
+        props.fetchJointTourList('', '', '', '', '', '', '', '', '', '', '', '', '', '', '')
     }, [])
 
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
-    console.log('JointTour',list_tour);
+    console.log('JointTour', list_tour);
 
     const Product_watched = (item) => {
         // alert(item.id);
@@ -38,7 +38,6 @@ function JointTour(props) {
                 <Swiper
                     cssMode={true}
                     navigation={true}
-
                     breakpoints={{
 
                         425: {
@@ -71,11 +70,11 @@ function JointTour(props) {
 
                     {list_tour ? (list_tour.map((item, index) => (
                         <SwiperSlide lg="4" className={`mt-4 tour_${item.id}`} key={index}>
-                            <div data-aos="zoom-in-up" data-aos-duration="3000">
-
-                                <Card >
+                            {/*<div data-aos="zoom-in-up" data-aos-duration="3000">*/}
+                            <div>
+                                <Card>
                                     <Card className="position-relative border border-0 header_tour_img">
-                                        <Link   href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
+                                        <Link href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
                                               onClick={() => Product_watched(item)}>
                                             <Card.Img
                                                 variant="top"
@@ -162,7 +161,7 @@ function JointTour(props) {
                                                     className=" text-danger fw-bold fs-5">
                                                     {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].price_1_person : ''} đ
                                                 </div>
-                                               <Link
+                                                <Link
                                                     href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
                                                     onClick={() => Product_watched(item)}
                                                     className={'d-flex align-content-center flex-wrap'}>

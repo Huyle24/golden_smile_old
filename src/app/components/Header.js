@@ -5,36 +5,53 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Link from 'next/link';
 import React, {useEffect, useState} from 'react';
-import {Dropdown} from "react-bootstrap";
+import {Col, Dropdown, Row} from "react-bootstrap";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import {GET_LANG_CODE, GET_TOKEN} from '../../../redux/actions/type';
 import {GET_LANG_ko, GET_LANG_vi} from '../../../js/lang';
 import {usePathname, useRouter} from "next/navigation";
 import {CiLocationOn, CiTimer} from "react-icons/ci";
-import { FaRegEye } from "react-icons/fa";
+import {FaRegEye} from "react-icons/fa";
+import {fetchFormatTourList} from "../../../redux/actions";
+
+import Tab from "react-bootstrap/Tab";
+import {ConfigProvider, Radio, Space, Tabs} from "antd";
 
 function Header(props) {
     const pathname = usePathname()
     console.log(pathname)
+    const [tabPosition, setTabPosition] = useState('left');
+    const changeTabPosition = (e) => {
+        setTabPosition(e.target.value);
+    };
     const [isLogin, setIsLogin] = useState(false)
     const [textShow, setTextShow] = useState('')
     const router = useRouter()
     const [openedCollapse, setOpenedCollapse] = React.useState("");
     const [imageCountry, setImageCountry] = useState('')
-
+    const [key, setKey] = useState('tab1');
     const [menuIcon, setMenuIcon] = useState(false)
     const [menuImage, setMenuImage] = useState(false)
-    useEffect(() => {
-        props.getToCartAction()
-    }, [])
-    let listItemCart = props ? props.getToCart : '';
-
+    const [search, setSearch] = useState('');
+    const [showNav, setShowNav] = useState(false);
     const [listCart, setListCart] = useState([])
     const [tot, setTot] = useState(0)
-    useEffect(() => {
-        setListCart(listItemCart);
-    }, [listItemCart]);
+
+
+    let listItemCart = props ? props.getToCart : '';
+    let city_list = props.cityByLocationInfo.data && props.cityByLocationInfo.isLoading === false ? props.cityByLocationInfo.data : '';
+    let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
+    let languageList = props.languageListInfo.data && props.languageListInfo.isLoading == false ? props.languageListInfo.data : '';
+    let languageDetail = props.languageDetailInfo.data && props.languageDetailInfo.isLoading == false ? props.languageDetailInfo.data : '';
+    let type_tourism_list = props.fetchListTypeTourismInfo.data && props.fetchListTypeTourismInfo.isLoading === false ? props.fetchListTypeTourismInfo.data : '';
+    let tourFormatList = props.tourFormatListInfo.data && props.tourFormatListInfo.isLoading === false ? props.tourFormatListInfo.data : '';
+    let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
+    console.log('country_list', country_list)
+    let numberItem = listCart ? listCart.length : '0'
+
+    const handleCloseNav = () => setShowNav(false);
+    const handleShow = () => setShowNav(true);
 
     const checkToken = async () => {
         let token = await GET_TOKEN();
@@ -49,7 +66,6 @@ function Header(props) {
         props.getUserInfo()
 
     }
-
     const toggle = () => {
         setDropdownOpen(prevState => !prevState);
     };
@@ -65,7 +81,6 @@ function Header(props) {
         }
 
     }
-
     const removeItemCart = (id) => {
         props.removeCartAction;
         let newCart = [];
@@ -74,15 +89,6 @@ function Header(props) {
         localStorage.setItem("cartItems", JSON.stringify(newCart));
 
     }
-
-    useEffect(() => {
-        let totalPrice = listCart.reduce(function (accumulator, item) {
-            return accumulator + parseInt(item.total_price);
-        }, 0);
-        setListCart(listCart)
-        setTot(totalPrice);
-    }, [listCart]);
-
     const getLangText = async () => {
         let lang_code = await GET_LANG_CODE();
         let lang_text = {}
@@ -96,32 +102,141 @@ function Header(props) {
         }
         setTextShow(lang_text)
     }
-    useEffect(() => {
-        checkToken();
-        props.getUserInfo()
-        props.fetchLanguage()
-        props.fetchLanguageDetail()
-        props.getToCartAction()
-        getLangText()
-        getCartItems()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const renderInbound = () => {
+        return (
+            <div className={'row header-tab-tour'}>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Bắc</div>
+                    {city_list && city_list.filter(item => item.area_id == 1).slice(0, 8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=0&city=${item.id}`}> {item.city_name} </Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Trung</div>
+                    {city_list && city_list.filter(item => item.area_id == 3).slice(0, 8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=0&city=${item.id}`}>{item.city_name}</Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Nam</div>
+                    {city_list && city_list.filter(item => item.area_id == 2).slice(0, 8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=0&city=${item.id}`}>{item.city_name}</Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Tây</div>
+                    {city_list && city_list.slice(-8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=0&city=${item.id}`}>{item.city_name}</Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
 
-    let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
-    let languageList = props.languageListInfo.data && props.languageListInfo.isLoading == false ? props.languageListInfo.data : '';
-    let languageDetail = props.languageDetailInfo.data && props.languageDetailInfo.isLoading == false ? props.languageDetailInfo.data : '';
+            </div>
+        );
+    }
+    const renderOutbound = () => {
+        return (
+            <div className={'row header-tab-tour'}>
+                <div className="col-3">
+                    <div className={'text-red'}> Châu Á</div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=2`}> Hàn Quốc</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=4`}> Nhật Bản</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=5`}> Trung Quốc</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=9`}> Singapore</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=26`}> Thái Lan</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=38`}> Philippines</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=39`}> Indonesia</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=40`}> Campuchia</Link></div>
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Châu Âu</div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=7`}> Tây Ban Nha</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=12`}> Italy</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=14`}> Đức</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=15`}> Pháp</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=25`}> Anh</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=28`}> Bồ Đào Nha</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=30`}> Hà Lan</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=33`}> Bỉ</Link></div>
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Châu Mỹ</div>
 
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=3`}> Mỹ</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=35`}> Cộng Hòa Dominica</Link></div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=6`}> Canada</Link></div>
 
-    let numberItem = listCart ? listCart.length : '0'
-    console.log('listCart', listCart)
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Châu Phi</div>
+                    <div className={'py-1'}><Link href={`/Category?formatTour=1&country=27`}> Nam Phi</Link></div>
+
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+
+            </div>
+        );
+    }
+
+    const renderNoidia = () => {
+        return (
+            <div className={'row header-tab-tour'}>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Bắc</div>
+                    {city_list && city_list.filter(item => item.area_id == 1).slice(0, 8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=2&city=${item.id}`}> {item.city_name} </Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Trung</div>
+                    {city_list && city_list.filter(item => item.area_id == 3).slice(0, 8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=2&city=${item.id}`}>{item.city_name}</Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Nam</div>
+                    {city_list && city_list.filter(item => item.area_id == 2).slice(0, 8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=2&city=${item.id}`}>{item.city_name}</Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+                <div className="col-3">
+                    <div className={'text-red'}>Miền Tây</div>
+                    {city_list && city_list.slice(-8).map((item, index) => (
+                        <div className={'py-1'}><Link
+                            href={`/Category?formatTour=2&city=${item.id}`}>{item.city_name}</Link></div>
+                    ))}
+                    <div><Link href={`/Category?`}> <b><u>Xem tất cả</u> </b> </Link></div>
+                </div>
+
+            </div>
+        );
+    }
+    const tabTourType = [
+        {label: 'Tour Inbound', key: '0', content: renderInbound()},
+        {label: 'Tour Outbound', key: '1', content: renderOutbound()},
+        {label: 'Tour Nội địa', key: '2', content: renderNoidia()}
+    ];
 
     // const cartItems = localStorage.getItem('cartItems');
 
     function formatToInt(str) {
-        // Xóa tất cả dấu phẩy trong chuỗi
         let formattedStr = str.replace(/,/g, '');
-
-        // Chuyển đổi chuỗi thành kiểu số nguyên
         let intValue = parseInt(formattedStr);
 
         return intValue;
@@ -131,26 +246,9 @@ function Header(props) {
         props.getToCartAction()
     }
     const choose_country = (item) => {
-
         localStorage.setItem('lang', JSON.stringify(item.name_sm))
         setImageCountry(item.image)
-
     }
-    useEffect(() => {
-
-        setImageCountry(languageDetail.image)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [languageDetail])
-
-    useEffect(() => {
-        getCartItems()
-    }, [])
-
-    const [search, setSearch] = useState('');
-    const [showNav, setShowNav] = useState(false);
-
-    const handleCloseNav = () => setShowNav(false);
-    const handleShow = () => setShowNav(true);
     const clickMenu = (item) => {
         setMenuIcon(false)
         setMenuImage(false)
@@ -164,7 +262,45 @@ function Header(props) {
                 break;
         }
     }
+    useEffect(() => {
+        let totalPrice = listCart.reduce(function (accumulator, item) {
+            return accumulator + parseInt(item.total_price);
+        }, 0);
+        setListCart(listCart)
+        setTot(totalPrice);
+    }, [listCart]);
+    useEffect(() => {
+        setListCart(listItemCart);
+    }, [listItemCart]);
 
+    useEffect(() => {
+        props.getToCartAction()
+    }, [])
+    useEffect(() => {
+        checkToken();
+        props.getUserInfo()
+        props.fetchLanguage()
+        props.fetchLanguageDetail()
+        props.getToCartAction()
+        getLangText()
+        getCartItems()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    useEffect(() => {
+
+        setImageCountry(languageDetail.image)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [languageDetail])
+
+    useEffect(() => {
+        getCartItems()
+    }, [])
+    useEffect(() => {
+        props.fetchListTypeTourism()
+        props.fetchFormatTourList()
+        props.fetchCountryListBalotour()
+        props.fetchCitybyLocation('', '', 1)
+    }, [])
     return (
         <>
             <div className="header-first">
@@ -213,9 +349,9 @@ function Header(props) {
                                                                     href={"/Tour?tour_type=2&permalink=" + item.permalink}>
                                                                     <div className="d-flex gap-3">
 
-                                                                            <img className={'img_tour_cart'}
-                                                                                 src={item.bucket_img ? item.bucket_img : ''}
-                                                                                 alt="cart"/>
+                                                                        <img className={'img_tour_cart'}
+                                                                             src={item.bucket_img ? item.bucket_img : ''}
+                                                                             alt="cart"/>
 
                                                                         <div className="info text-black">
                                                                             <div className="title ">{item.name}</div>
@@ -279,7 +415,7 @@ function Header(props) {
                                                      </div>}
                                     >
 
-                                        {languageList ? languageList.slice(1,2).map((item, index) => {
+                                        {languageList ? languageList.slice(1, 2).map((item, index) => {
                                             return (
                                                 <NavDropdown.Item key={index} onClick={() => choose_country(item)}
                                                                   style={{width: 180}}>
@@ -363,13 +499,14 @@ function Header(props) {
                                                             </Link>
                                                         </Dropdown.Item>
                                                         <Dropdown.Item>
-                                                        <div
-                                                            className='d-flex  log-out align-content-center'>
-                                                            <a onClick={handleLogout}>
-                                                                <span style={{color:"#db2131"}} > <i className='bx bx-log-out me-2'></i> {textShow ? textShow.Log_Out : ''}</span>
-                                                            </a>
-                                                        </div>
-                                                    </Dropdown.Item>
+                                                            <div
+                                                                className='d-flex  log-out align-content-center'>
+                                                                <a onClick={handleLogout}>
+                                                                    <span style={{color: "#db2131"}}> <i
+                                                                        className='bx bx-log-out me-2'></i> {textShow ? textShow.Log_Out : ''}</span>
+                                                                </a>
+                                                            </div>
+                                                        </Dropdown.Item>
 
                                                     </>
                                                 </Dropdown.Menu>
@@ -408,41 +545,37 @@ function Header(props) {
                                             href={"/Category"}
                                             className={pathname !== '/' ? 'header-tab active' : ''}>{textShow ? textShow.Tour : 'TOUR'}<i
                                             className='bx bx-chevron-down'></i></Link>
-                                            <ul className='navcon'>
-                                                <li>
-                                                    <Nav.Link>
-                                                        <Link href={'/Category?formatTour=0'}> TOUR INBOUND</Link>
-                                                    </Nav.Link>
-                                                </li>
-                                                <li>
-                                                    <Nav.Link>
-                                                        <Link href={'/Category?formatTour=1'}>TOUR OUTBOUND </Link>
+                                            <div className='navcon'>
+                                                <Row>
+                                                    <ConfigProvider
+                                                        theme={{
+                                                            token: {
+                                                                colorPrimary: '#B72028',
+                                                                borderRadius: 2,
+                                                                colorBgContainer: '#f6ffed',
+                                                            },
+                                                        }}
+                                                    >
+                                                        <Tabs
+                                                            tabPosition={'left'}
 
-                                                    </Nav.Link>
-                                                </li>
-                                                <li><Nav.Link>
-                                                    <Link href={'/Category?formatTour=2'}>
-                                                        TOUR NỘI ĐỊA
-                                                    </Link>
+                                                            items={tabTourType.map((item, index) => {
+                                                                const id = String(index + 1);
+                                                                return {
+                                                                    label: item.label,
+                                                                    key: item.key,
+                                                                    children: item.content
+                                                                    ,
+                                                                };
+                                                            })}
+                                                        />
+                                                    </ConfigProvider>
 
 
-                                                </Nav.Link>
+                                                </Row>
 
-                                                </li>
-                                                {/*<i className='bx bx-chevron-down'></i>*/}
-                                                {/*<li><Nav.Link>TOUR NỘI ĐỊA <i className='bx bx-chevron-down'></i>*/}
+                                            </div>
 
-                                                {/*</Nav.Link>*/}
-                                                {/*</li>*/}
-                                                {/*<ul className='navchau'>*/}
-                                                {/*    <li>*/}
-                                                {/*        <Nav.Link>*/}
-                                                {/*            <Link href={'/search'}>*/}
-                                                {/*            </Link>*/}
-                                                {/*        </Nav.Link>*/}
-                                                {/*    </li>*/}
-                                                {/*</ul>*/}
-                                            </ul>
                                         </Nav.Link>
                                         {/*<Nav.Link><Link href="/">{textShow ? textShow.Visa : 'VISA'}</Link></Nav.Link>*/}
                                         {/*<Nav.Link><Link*/}
@@ -574,5 +707,9 @@ const mapStateToProps = state => ({
     state.languageListInfo,
     languageDetailInfo:
     state.languageDetailInfo,
+    fetchListTypeTourismInfo: state.fetchListTypeTourismInfo,
+    tourFormatListInfo: state.tourFormatListInfo,
+    cityByLocationInfo: state.cityByLocationInfo,
+    countryListInfo: state.countryListInfo,
 });
 export default connect(mapStateToProps, actions)(Header);

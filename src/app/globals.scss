@@ -27,6 +27,9 @@ body {
 .bx-log-out {
   transform: rotate(180deg);
 }
+.text-red{
+  color: #B72028;
+}
 
 .header-first {
   background: #db2131;
@@ -278,11 +281,13 @@ body {
   display: none !important;
   z-index: 1000;
   position: absolute;
-  background-color: #DBA73D;
+ background-color: white;
   border-radius: 5px;
   border: 0 solid rgba(0, 0, 0, .15);
   background-clip: padding-box;
   text-align: left;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 25px 4%;
 }
 
 .item_list_header .navbar-nav .navcha .navcon > li a {
@@ -307,6 +312,17 @@ body {
   white-space: nowrap;
 }
 
+.navcon {
+  margin-left: -65%;
+  width: 64vw;
+}
+.header-tab-tour{
+  a{
+    color: black!important;
+    font-weight: 500;
+  }
+
+}
 .navbar-nav .navcha .navcon > li a:hover {
   background-color: #B72028 !important;
   border-radius: 5px;
@@ -344,6 +360,9 @@ body {
   color: #DBA73D !important;
 }
 
+.min-height-div{
+  min-height:30px;
+}
 
 /* --------------------------------------- */
 .header_fixed {
@@ -369,7 +388,14 @@ body {
 .navbar {
   padding: 0 !important;
 }
-
+:where(.css-dev-only-do-not-override-42nv3w).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #B72028!important;
+  text-shadow: 0 0 0.25px currentcolor;
+}
+:where(.css-dev-only-do-not-override-42nv3w).ant-tabs .ant-tabs-tab-btn:hover{
+  color: #db2031!important;
+  text-shadow: 0 0 0.25px currentcolor;
+}
 .menu_mobile {
   font-size: 30px;
   color: white;
@@ -1154,7 +1180,7 @@ body {
 /* SearchBox components */
 
 .search_box {
-  margin-top: -202px;
+
   z-index: 9999999 !important;
   margin-bottom: 60px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
@@ -1163,7 +1189,7 @@ body {
 
 .search_box .trangchu_formsearch {
   position: relative;
-  margin-top: 12%;
+  margin-top: 5%;
 }
 
 .trangchu_formsearch .tab_filter {
@@ -2451,6 +2477,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
 
 .form-check-label {
   color: black !important;
+  font-weight:600
 }
 
 .breadcrumb-item.active {
@@ -2598,6 +2625,10 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
   border: 1px solid #ebebeb;
   border-radius: 16px;
 
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+
   &-name {
     color: #db2031;
     font-weight: 700;
@@ -2624,6 +2655,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
     border-radius: 4px !important;
     font-weight: 500 !important;
     color: black !important;
+    height: 32px;
 
     .icon {
       color: #B72028;

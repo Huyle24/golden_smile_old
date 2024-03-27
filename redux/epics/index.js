@@ -43,6 +43,7 @@ import fetchInvoiceListEpic from "./fetchInvoiceListEpic";
 import tourOutboundListEpic from "./tourOutboundListEpic";
 import fetchCityByLocationEpic from "./fetchCityByLocationEpic";
 import invoiceDetailEpic from "./invoiceDetailEpic";
+import fetchFormatTourEpic from "./fetchFormatTourEpic";
 
 
 export default combineEpics(
@@ -86,6 +87,7 @@ export default combineEpics(
     fetchInvoiceListEpic,
     tourOutboundListEpic,
     fetchCityByLocationEpic,
-    invoiceDetailEpic
+    invoiceDetailEpic,
+    fetchFormatTourEpic
 )
 

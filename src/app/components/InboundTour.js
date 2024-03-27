@@ -73,7 +73,8 @@ function InboundTour(props) {
                     {list_inboundTour ? (list_inboundTour.map((item, index) => (
 
                         <SwiperSlide lg="4" className="mt-4" key={index}>
-                            <div data-aos="zoom-in-up" data-aos-once="true" data-aos-duration="3000">
+                            {/*<div data-aos="zoom-in-up" data-aos-once="true" data-aos-duration="3000">*/}
+                            <div>
                                 <Card>
                                     <Card className="position-relative border border-0 header_tour_img">
                                         <Link href={"/Tour?id=" + item.id} onClick={() => Product_watched(item)}>

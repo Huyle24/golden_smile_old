@@ -25,6 +25,12 @@ export const fetchProductList = (off = '', limit = '', q = '', brand_id = '', ca
         category_id: category_id
     };
 };
+export const fetchFormatTourList = () => {
+    return {
+        type: actionTypes.FETCH_FORMAT_TOUR,
+
+    };
+};
 
 export const fetchPrivateTourList = (off = '', limit = '', keyword = '', city_id = '', tour_type = '', typedate = '', date_start = '', date_end = '', outstanding = '') => {
     return {
@@ -171,6 +177,12 @@ export const updateFilterValues = (values) => ({
     type: 'UPDATE_FILTER_VALUES',
     payload: values,
 });
+export const updateTourOpenChoose= (values) => {
+    return {
+        type: actionTypes.UPDATE_TOUR_OPEN_CHOOSE,
+        payload: values,
+    };
+};
 export const fetchCountryUser = () => {
     return {type: actionTypes.COUNTRY_USER};
 };

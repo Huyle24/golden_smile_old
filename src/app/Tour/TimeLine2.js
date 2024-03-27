@@ -6,13 +6,16 @@ import * as actions from "../../../redux/actions";
 import * as GlobalJs from "../../../js/global";
 import Link from "next/link";
 import {useSearchParams} from "next/navigation";
+import {TfiLineDashed} from "react-icons/tfi";
+import {FaPlane} from "react-icons/fa";
 
 
 // Hàm để làm sạch HTML trước khi chèn vào DOM
 
 function TimeLine(props) {
     const searchParams = useSearchParams();
-
+    const data = props.data
+    console.log('data',data)
     function createMarkup(c) {
         return {__html: c};
     }
@@ -27,13 +30,120 @@ function TimeLine(props) {
     return (
         <>
             {[timeline_detail_info].map((item, index) => (
-
                 <div className={'mt-4'}>
                     <Tabs
-                        defaultActiveKey="gioithieu"
+                        defaultActiveKey="tourdetail"
                         id="uncontrolled-tab-example"
                         className="tab_item" fill>
-                        <Tab eventKey="gioithieu" title="Giới thiệu" className="highlight ">
+                        <Tab eventKey="tourdetail" title="Chi tiết tour" className="highlight tab_item  tourdetail">
+                            <Row>
+                                <Col md={3}>
+                                    <div className={'py-1'}>Giờ khởi hành:</div>
+                                    <div className={'py-1'}>Ngày khởi hành:</div>
+                                    <div className={'py-1'}>Địa điểm khởi hành:</div>
+                                    <div className={'py-1'}>Hướng dẫn viên:</div>
+                                    <div className={'py-1'}>Xe:</div>
+
+                                </Col>
+                                <Col md={3}>
+                                    <div className={'py-1 min-height-div'}>
+                                        {data ?data.time_start:''}
+                                    </div>
+                                    <div className={'py-1 min-height-div'}>
+                                        {data ?data.date_start_tour:''}
+                                    </div>
+                                    <div className={'py-1 min-height-div'}>
+                                        TP. Hồ Chí Minh
+                                    </div>
+                                    <div className={'py-1 min-height-div'}>
+                                        {data && data.guide.map((item, index) => {
+                                            return (
+                                                <span key={index}>
+                                        {item.guide_name + ' '}
+                                    </span>
+                                            );
+                                        })}
+                                    </div>
+                                    <div className={'py-1 min-height-div'} >   {data && data.vehicles.map((item, index) => {
+                                        return (
+
+                                            <div key={index}>
+
+                                                {item}
+
+                                            </div>
+                                        );
+                                    })}
+
+                                    </div>
+
+                                </Col>
+                                <Col md={6}>
+                                    <div>Máy bay:</div>
+                                    {data && data.airline_start_name && (
+                                        <div className={'start_flight'}>
+                                            <div className={'d-flex justify-content-between'}>
+                                                <div className={'col-start'}>
+                                                    <img className={'airline_start_img'}
+                                                         src={data.airline_start_img ? data.airline_start_img : "https://vigomanager.com/app-assets/mobile/img-huy/taking-off-plane-logo-2RC5DTJ.jpg"}
+                                                         alt=""/>
+                                                    <div className={'time'}>{data.time_takeoff_start}</div>
+                                                </div>
+                                                <div className={'col-center'}>
+                                                    <div><span
+                                                        className={'text-danger fw-bold'}> Ngày đi </span> {data.date_start_flight}
+                                                    </div>
+                                                    <div className={'d-flex justify-content-center align-items-center'}>
+                                                        <TfiLineDashed className={'me-1'}/><TfiLineDashed
+                                                        className={'me-1'}/> <span className={'round-plane'}><FaPlane/></span><TfiLineDashed
+                                                        className={'ms-1'}/><TfiLineDashed className={'ms-1'}/></div>
+                                                </div>
+                                                <div className={'col-end'}>
+                                                    <div>
+                                                        <div className={'code-plane-start'}>{data.code_start}</div>
+                                                        <div className={'time'}>{data.time_landing_start}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    )}
+                                    {data && data.airline_end_name && (
+                                        <div className={'airline_end'}>
+
+                                            <div className={'d-flex justify-content-between'}>
+                                                <div className={'col-start'}>
+                                                    <img className={'airline_end_img'}
+                                                         src={data.airline_end_img ? data.airline_end_img : "https://vigomanager.com/app-assets/mobile/img-huy/taking-off-plane-logo-2RC5DTJ.jpg"}
+                                                         alt=""/>
+                                                    <div className={'time'}>{data.time_landing_end}</div>
+                                                </div>
+                                                <div className={'col-center'}>
+                                                    <div><span
+                                                        className={'text-primary fw-bold'}> Ngày về </span> {data.date_end_flight}
+                                                    </div>
+                                                    <div className={'d-flex justify-content-center align-items-center'}>
+                                                        <TfiLineDashed
+                                                            className={'me-1'}/><TfiLineDashed className={'me-1'}/>
+                                                        <span
+                                                            className={'round-plane'}><FaPlane
+                                                            className={'rotate-180'}/></span> <TfiLineDashed
+                                                        className={'ms-1'}/><TfiLineDashed className={'ms-1'}/></div>
+                                                </div>
+                                                <div className={'col-end'}>
+                                                    <div>
+                                                        <div className={'code-plane-start'}>{data.code_end}</div>
+                                                        <div className={'time'}>{data.time_takeoff_end}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </Col>
+                            </Row>
+
+                        </Tab>
+                        <Tab eventKey="gioithieu" title="Giới thiệu" className="highlight tab_item">
                             <p className="title_page_detail">Điểm nhấn</p>
                             <div className="" key={index}>
                                 {item ? <div dangerouslySetInnerHTML={createMarkup(item.content)}></div> : ''}

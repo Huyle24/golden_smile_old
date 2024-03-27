@@ -25,7 +25,7 @@ export default function Home() {
         <main className="{Montserrat.main_home}">
             <Carousels/>
             <Promotion/>
-            <ImagesBanner/>
+            {/*<ImagesBanner/>*/}
             <JointTour/>
             <InboundTour/>
             <OutboundTour/>

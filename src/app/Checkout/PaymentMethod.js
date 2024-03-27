@@ -14,6 +14,8 @@ import {useRouter} from "next/navigation";
 import Card from "react-bootstrap/Card"
 import {compileString} from "sass";
 import {FaChildren} from "react-icons/fa6";
+import {CiLocationOn, CiTimer} from "react-icons/ci";
+import {BsPeople} from "react-icons/bs";
 
 function PaymentMethod(props) {
     const Toast = Swal.mixin({
@@ -37,7 +39,7 @@ function PaymentMethod(props) {
     const [agree, setAgree] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
     const [paymentMethod, setPaymentMethod] = useState('');
-    const [numCards, setNumCards] = useState(1);
+    const [numCards, setNumCards] = useState(0);
     const [formData, setFormData] = useState([]);
     const [dataCustomer, setdataCustomer] = useState({});
     const [dataListCustomer, setDataListCustomer] = useState({});
@@ -47,9 +49,11 @@ function PaymentMethod(props) {
     let payment_method_list = props.addCartDetailInfo.data && props.addCartDetailInfo.isLoading == false ? props.addCartDetailInfo.data.payment_method_list : '';
     console.log('payment_method_list',payment_method_list)
     console.log('paymentMethod', paymentMethod);
-
+    let tour_price_detail_info = props.tourPriceDetailInfo.data && props.tourPriceDetailInfo.isLoading === false ? props.tourPriceDetailInfo.data : '';
     let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
     let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
+    console.log('tour_price_detail_info',tour_price_detail_info)
+
     const orderData = props.orderDataInfo.orderData;
     const newElement = {
         payment_method: paymentMethod
@@ -318,7 +322,48 @@ function PaymentMethod(props) {
 
                 <Row className="mt-2">
                     <Col xl={8} className="mb-4">
-                        <div className={'label-payment-method-page  mb-2'}>
+                        <Row className={'row_tour_payment'}>
+                            <Col md={4}>
+                                <img className={'img_tour_payment'}
+                                     src={tour_price_detail_info &&tour_price_detail_info.image !== null ? tour_price_detail_info.image : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
+                                     alt=""/>
+                            </Col>
+                            <Col md={8}>
+                                <div className={' tour-detail-payment'}>
+                                    <div className="tour-detail-name mt-0">
+
+                                        {tour_price_detail_info ? tour_price_detail_info.tour_name : ''}
+                                    </div>
+                                    <div>
+                                        <span className={'code-tour'}>
+                                         {tour_price_detail_info ? tour_price_detail_info.tour_open_code : ''}
+                                    </span>
+                                    </div>
+
+                                    <div className={'d-flex align-items-center flex-wrap'}>
+                                        <CiLocationOn/>
+                                        <span className="ms-2">
+                                  {tour_price_detail_info ? tour_price_detail_info.city_start : ''} - {tour_price_detail_info ? tour_price_detail_info.city_end : ''}
+
+                                    </span>
+                                    </div>
+                                    <div className={'d-flex align-items-center flex-wrap'}>
+                                        <CiTimer className={'me-1'}/>
+                                        {tour_price_detail_info ? tour_price_detail_info.date_type_name : ''}
+                                    </div>
+                                    <div className={'d-flex align-items-center flex-wrap'}>
+                                        <BsPeople className={'me-1 '}/>
+                                        <span className={'text-danger'}>
+                                        {tour_price_detail_info ? tour_price_detail_info.quantity_booked : ''}
+                                            </span>
+                                        /
+
+                                        {tour_price_detail_info ? tour_price_detail_info.total_customer : ''}
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                        <div className={'label-payment-method-page  mb-2 mt-4'}>
                             1. Thông tin khách hàng
                         </div>
                         <Row>
@@ -538,6 +583,7 @@ const mapStateToProps = state => ({
     orderDataInfo: state.orderDataInfo,
     countryListInfo: state.countryListInfo,
     countryUserInfo: state.countryUserInfo,
+    tourPriceDetailInfo: state.tourPriceDetailInfo,
 });
 
 export default connect(mapStateToProps, actions)(PaymentMethod);

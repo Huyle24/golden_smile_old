@@ -9,12 +9,12 @@ import {useEffect, useState} from "react";
 import Modal from 'react-bootstrap/Modal';
 import {GET_TOKEN} from "../../../redux/actions/type";
 import {useSearchParams} from 'next/navigation'
-import {fetchTourDetailW3} from "../../../redux/actions";
+import {fetchTourDetailW3, updateTourOpenChoose} from "../../../redux/actions";
 import Link from "next/link";
 import TimeLine2 from "@/app/Tour/TimeLine";
 import InfoDetail from "@/app/Tour/InfoDetail";
 import {log} from "qrcode/lib/core/galois-field";
-
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function Overview(props) {
 
@@ -50,7 +50,7 @@ function Overview(props) {
         setTourOpenChoose(item)
         setSelectedDate(item);
     }
-    console.log('tourOpenChoose',tourOpenChoose.id)
+    console.log('tourOpenChoose', tourOpenChoose.id)
     useEffect(() => {
         props.fetchTourDetailW3(permalink, tour_type)
     }, [searchParams]);
@@ -59,6 +59,10 @@ function Overview(props) {
         setSelectedDate(overview_detail_info ? overview_detail_info.tour_open_list[0] : "");
 
     }, [overview_detail_info]);
+
+    useEffect(() => {
+        updateTourOpenChoose(tourOpenChoose)
+    }, [tourOpenChoose]);
     const handleShowContactModal = () => setContactModal(true);
     const handleCloseContactModal = () => setContactModal(false);
 
@@ -136,7 +140,7 @@ function Overview(props) {
                         <span>Thêm vào yêu thích</span>
                     </button>
                     <Link
-                        href={'/OrderTour?tour_open_id=' + (tourOpenChoose ? tourOpenChoose.id :  overview_detail_info?  overview_detail_info.tour_open_list[0].id:'')}>
+                        href={'/OrderTour?tour_open_id=' + (tourOpenChoose ? tourOpenChoose.id : overview_detail_info ? overview_detail_info.tour_open_list[0].id : '')}>
                         <button className={'btn tour-detail-order-now'} onClick={handleShow}>
                             <MdOutlineShoppingCartCheckout className={'me-1'}/> Đặt tour ngay
                         </button>
@@ -144,14 +148,25 @@ function Overview(props) {
 
                 </div>
                 <hr className={'hr-product-card'}/>
-                <div className={'mb-0'}>
+                <div className={'mb-0 d-flex'}>
                     <button className={'btn tour-detail-contact-btn me-2'} onClick={handleShowContactModal}>
                         <FaPhone className={'icon me-2'}/> Liên hệ
                     </button>
-                    <Button variant="primary" className={'tour-detail-download-schedule-btn'}>
-                        <FaDownload className={'icon me-2'}/> Tải chương trình tour
-                    </Button>
 
+                    <Dropdown className={'mt-0'}>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic"
+                                         className={'tour-detail-download-schedule-btn'}>
+                            <FaDownload className={'icon me-2'}/> Tải chương trình tour
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            {overview_detail_info && overview_detail_info.link_files.map((item, index) => (
+                                <Dropdown.Item href={item.bucket_img}
+                                               target="_blank">{item.name}</Dropdown.Item>
+                            ))}
+
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
 
                 {/*<Modal show={show} onHide={handleClose} animation={false} size="lg" className={'modal-tour-confirm'}*/}
@@ -274,14 +289,17 @@ function Overview(props) {
                 {/*        </Button>*/}
                 {/*    </Modal.Footer>*/}
                 {/*</Modal>*/}
-                <Modal show={showContactModal} onHide={handleCloseContactModal} animation={false} size="md" centered>
+                <Modal show={showContactModal} onHide={handleCloseContactModal} animation={false} size="md"
+                       centered>
                     <Modal.Header closeButton>
-                        <Modal.Title className="" style={{color:"#B72028"}}>Liên hệ tư vấn</Modal.Title>
+                        <Modal.Title className="" style={{color: "#B72028"}}>Liên hệ tư vấn</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form>
                             <div className="mt-2">
-                                <i className='bx bxs-phone'></i> Vui lòng liên hệ số <span className={'fw-bolder'}>028 7100 2828 </span>  để được nhân viên tư vấn !
+                                <i className='bx bxs-phone'></i> Vui lòng liên hệ số <span
+                                className={'fw-bolder'}>028 7100 2828 </span> để
+                                được nhân viên tư vấn !
                             </div>
 
 
@@ -300,5 +318,6 @@ function Overview(props) {
 
 const mapStateToProps = state => ({
     tourDetailInfoW3: state.tourDetailInfoW3,
+    tourOpenChooseInfo: state.tourOpenChooseInfo
 });
 export default connect(mapStateToProps, actions)(Overview);
