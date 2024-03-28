@@ -27,7 +27,8 @@ body {
 .bx-log-out {
   transform: rotate(180deg);
 }
-.text-red{
+
+.text-red {
   color: #B72028;
 }
 
@@ -281,7 +282,7 @@ body {
   display: none !important;
   z-index: 1000;
   position: absolute;
- background-color: white;
+  background-color: white;
   border-radius: 5px;
   border: 0 solid rgba(0, 0, 0, .15);
   background-clip: padding-box;
@@ -316,13 +317,15 @@ body {
   margin-left: -65%;
   width: 64vw;
 }
-.header-tab-tour{
-  a{
-    color: black!important;
+
+.header-tab-tour {
+  a {
+    color: black !important;
     font-weight: 500;
   }
 
 }
+
 .navbar-nav .navcha .navcon > li a:hover {
   background-color: #B72028 !important;
   border-radius: 5px;
@@ -360,8 +363,8 @@ body {
   color: #DBA73D !important;
 }
 
-.min-height-div{
-  min-height:30px;
+.min-height-div {
+  min-height: 30px;
 }
 
 /* --------------------------------------- */
@@ -388,14 +391,17 @@ body {
 .navbar {
   padding: 0 !important;
 }
+
 :where(.css-dev-only-do-not-override-42nv3w).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #B72028!important;
+  color: #B72028 !important;
   text-shadow: 0 0 0.25px currentcolor;
 }
-:where(.css-dev-only-do-not-override-42nv3w).ant-tabs .ant-tabs-tab-btn:hover{
-  color: #db2031!important;
+
+:where(.css-dev-only-do-not-override-42nv3w).ant-tabs .ant-tabs-tab-btn:hover {
+  color: #db2031 !important;
   text-shadow: 0 0 0.25px currentcolor;
 }
+
 .menu_mobile {
   font-size: 30px;
   color: white;
@@ -1189,7 +1195,7 @@ body {
 
 .search_box .trangchu_formsearch {
   position: relative;
-  margin-top: 5%;
+
 }
 
 .trangchu_formsearch .tab_filter {
@@ -2125,19 +2131,64 @@ tr td {
   color: #F5222D;
   background: #FFF1F0;
   border-radius: 8px;
-  width: 65px;
+  width: 56px;
   height: 30px;
   cursor: pointer;
   border: 1px solid #FFF1F0;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
 }
 
+.ant-anchor-link {
+
+  width: 257px !important;
+  text-align: center;
+  padding: 0!important;
+  height: 40px;
+}
+
+.ant-anchor-ink {
+  width: 257px !important;
+  background: white;
+
+
+}
+.ant-anchor{
+  margin-bottom:1.5rem!important;
+}
+:where(.css-dev-only-do-not-override-1pbqdzd).ant-anchor-wrapper-horizontal::before {
+   border-bottom: none !important;
+}
+a.ant-anchor-link-title.ant-anchor-link-title-active {
+  color:white !important;
+  font-weight:700;
+  background-color:#db2031;
+  height: 40px;
+  display: flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+a.ant-anchor-link-title {
+
+  height: 40px;
+  display: flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+.css-dev-only-do-not-override-1pbqdzd.ant-affix {
+  background-color: white;
+}
 .item_day_tour:hover, .item_day_tour.active {
   border: 1px solid #F5222D;
   color: #F5222D;
   background: #FFF1F0;
-  border-radius: 8px;
-  width: 65px;
-  height: 30px;
+
 }
 
 .table_time th {
@@ -2171,6 +2222,9 @@ tr td {
   background: #f4f4f4;
   font-size: 12px;
 }
+
+
+
 
 .header-cutomer-form {
   background: #FFF1F0;
@@ -2477,7 +2531,7 @@ button.p-inputnumber-button.p-inputnumber-button-down.p-button.p-button-icon-onl
 
 .form-check-label {
   color: black !important;
-  font-weight:600
+  font-weight: 600
 }
 
 .breadcrumb-item.active {

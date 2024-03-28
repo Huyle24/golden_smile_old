@@ -19,27 +19,72 @@ import {MdOutlineShoppingCartCheckout} from "react-icons/md";
 import {FaDownload, FaPhone} from "react-icons/fa6";
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
+import DatePicker from "react-datepicker";
+import moment from 'moment';
 
 function ImgDetail(props) {
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    let image_detail_info = props.tourDetailInfoW3.data && props.tourDetailInfoW3.isLoading === false ? props.tourDetailInfoW3.data.tour_image_list : '';
-    // console.log('image_detail_info')
-    // console.log(image_detail_info)
-    const searchParams = useSearchParams()
 
+    const searchParams = useSearchParams()
     const permalink = searchParams.get('permalink');
     const tour_type = searchParams.get('tour_type');
 
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; // Lưu ý: Tháng trong JavaScript bắt đầu từ 0 (0 là tháng 1)
+    const currentYear = currentDate.getFullYear();
+
     let overview_detail_info = props.tourDetailInfoW3 && props.tourDetailInfoW3.isLoading === false ? props.tourDetailInfoW3.data : '';
-    console.log('overview_detail_info')
-    console.log(overview_detail_info)
+    let image_detail_info = props.tourDetailInfoW3.data && props.tourDetailInfoW3.isLoading === false ? props.tourDetailInfoW3.data.tour_image_list : '';
+
+    const [selectedDate, setSelectedDate] = useState(overview_detail_info ? moment(overview_detail_info.tour_open_list[0].date_start_tour, 'DD/MM/YYYY').toDate() : "");
+    const [selectDate, setSelectDate] = useState(() => {
+        const initialDate = overview_detail_info && overview_detail_info.tour_open_list[0].date_start_tour;
+        const parsedDate = moment(initialDate, 'DD/MM/YYYY').toDate();
+        return parsedDate;
+    });
+    const [startDate, setStartDate] = useState(null);
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [show, setShow] = useState(false);
     const [showContactModal, setContactModal] = useState(false);
     const [tourOpenChoose, setTourOpenChoose] = useState(overview_detail_info ? overview_detail_info.tour_open_list[0] : "")
+    const [monthChoose, setMonthChoose] = useState(currentMonth);
+    const [yearChoose, setYearChoose] = useState(currentYear);
+
+    const years = [...Array(6)].map((_, index) => currentYear + index);
+    const filteredList = yearChoose && overview_detail_info ?
+        overview_detail_info.tour_open_list.filter((item) => parseInt(item.date_start_tour.slice(-4)) == yearChoose) :
+        (overview_detail_info && overview_detail_info.tour_open_list);
+    const filteredList_month = monthChoose && filteredList ?
+        filteredList.filter((item) => parseInt(item.date_start_tour.split("/")[1]) == monthChoose) : (filteredList);
+
+    console.log('monthChoose', monthChoose);
+    console.log('yearChoose', yearChoose)
+    const handleDateChange = (date) => {
+        setSelectDate(date);
+    };
+
+    const handleMonthChange = (e) => {
+        setMonthChoose(e.target.value)
+    }
+    const handleYearChange = (e) => {
+        setYearChoose(e.target.value)
+    }
+    const filterDate = (date) => {
+        if (!moment(date, 'DD/MM/YYYY', true).isValid()) {
+            console.error('Invalid date format:', date);
+            return false; // Or handle invalid dates gracefully (e.g., display an error message)
+        }
+
+        return overview_detail_info && overview_detail_info.tour_open_list.some(
+            (item) => moment(item.date_start_tour, 'DD/MM/YYYY').isSame(date, 'day')
+        );
+    };
+
+    const selectableDates = overview_detail_info && overview_detail_info.tour_open_list.map(
+        (item) => moment(item.date_start_tour, 'DD/MM/YYYY').toDate()
+    );
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     //Them class active cho the span
-    const [selectedDate, setSelectedDate] = useState(overview_detail_info ? overview_detail_info.tour_open_list[0] : "");
     const add_to_cart = async (item) => {
         let token = await GET_TOKEN();
         if (token) {
@@ -57,7 +102,10 @@ function ImgDetail(props) {
         setTourOpenChoose(item)
         setSelectedDate(item);
     }
+    const handleShowContactModal = () => setContactModal(true);
+    const handleCloseContactModal = () => setContactModal(false);
     console.log('tourOpenChoose', tourOpenChoose.id)
+
     useEffect(() => {
         props.fetchTourDetailW3(permalink, tour_type)
     }, [searchParams]);
@@ -70,8 +118,7 @@ function ImgDetail(props) {
     useEffect(() => {
         updateTourOpenChoose(tourOpenChoose)
     }, [tourOpenChoose]);
-    const handleShowContactModal = () => setContactModal(true);
-    const handleCloseContactModal = () => setContactModal(false);
+
     return (
 
         <Container className="mt-3 imgDetail mb-5">
@@ -161,18 +208,83 @@ function ImgDetail(props) {
                         </div>
                         <hr className={'hr-product-card'}/>
                         <div>
-                            <div className={'text-secondary'}> Chọn ngày khởi hành</div>
+
+
+                            <div>
+                                {/*<DatePicker*/}
+                                {/*    selected={selectDate}*/}
+                                {/*    onChange={handleDateChange}*/}
+                                {/*    filterDate={filterDate}*/}
+                                {/*    showIcon*/}
+                                {/*    icon={*/}
+                                {/*        <svg*/}
+                                {/*            xmlns="http://www.w3.org/2000/svg"*/}
+                                {/*            width="1em"*/}
+                                {/*            height="1em"*/}
+                                {/*            viewBox="0 0 48 48"*/}
+                                {/*        >*/}
+                                {/*            <mask id="ipSApplication0">*/}
+                                {/*                <g fill="none" stroke="#fff" strokeLinejoin="round" strokeWidth="4">*/}
+                                {/*                    <path strokeLinecap="round" d="M40.04 22v20h-32V22"></path>*/}
+                                {/*                    <path*/}
+                                {/*                        fill="#fff"*/}
+                                {/*                        d="M5.842 13.777C4.312 17.737 7.263 22 11.51 22c3.314 0 6.019-2.686 6.019-6a6 6 0 0 0 6 6h1.018a6 6 0 0 0 6-6c0 3.314 2.706 6 6.02 6c4.248 0 7.201-4.265 5.67-8.228L39.234 6H8.845l-3.003 7.777Z"*/}
+                                {/*                    ></path>*/}
+                                {/*                </g>*/}
+                                {/*            </mask>*/}
+                                {/*            <path*/}
+                                {/*                fill="currentColor"*/}
+                                {/*                d="M0 0h48v48H0z"*/}
+                                {/*                mask="url(#ipSApplication0)"*/}
+                                {/*            ></path>*/}
+                                {/*        </svg>*/}
+                                {/*    }*/}
+                                {/*    style={{*/}
+                                {/*        border: '1px solid #ccc',*/}
+                                {/*        borderRadius: '4px',*/}
+                                {/*        padding: '10px',*/}
+                                {/*    }}*/}
+                                {/*/>*/}
+                                <Row>
+                                    <Col xl={4}>
+                                        <div className={'text-secondary'}> Chọn ngày khởi hành</div>
+                                    </Col>
+
+                                    <Col xl={8} className={'d-flex justify-content-end'}>
+                                        <Form.Select aria-label="Default select example"
+                                                     style={{width: '102px', height: '34px', marginRight: '5px'}}
+                                                     onChange={(e) => handleMonthChange(e)}>
+                                            <option value=''>Tháng</option>
+                                            {[...Array(12)].map((_, index) => (
+                                                <option
+                                                    selected={monthChoose && monthChoose == (index + 1) ? ('selected') : ''}
+                                                    key={index + 1} value={index + 1}>{index + 1}</option>
+                                            ))}
+                                        </Form.Select>
+                                        <Form.Select aria-label="Default select example"
+                                                     style={{width: '102px', height: '34px', marginRight: '5px'}}
+                                                     onChange={(e) => handleYearChange(e)}>
+                                            <option value=''> Năm</option>
+                                            {years.map((year, index) => (
+                                                <option selected={yearChoose && yearChoose == year ? ('selected') : ''}
+                                                        value={year}>{year}</option>
+                                            ))}
+                                        </Form.Select>
+
+                                    </Col>
+
+                                </Row>
+                            </div>
                             <div className={'d-flex flex-wrap gap-1 calendar-start'} style={{minHeight: 30}}>
-                                {overview_detail_info && overview_detail_info.tour_type == 2 && overview_detail_info.tour_open_list && (
-                                    overview_detail_info.tour_open_list.map((item, index) => (
-                                        <span key={index}
-                                              className={`px-2 py-1 item_day_tour fw-bold ${selectedDate && selectedDate.id === item.id ? 'active' : ''}`}
-                                              onClick={() => handleChooseDate(item)}>{item.date_start_tour.slice(0, 5)}</span>
-                                    ))
-                                )}
+                                {filteredList_month && filteredList_month.map((item, index) => (
+                                    <span key={index}
+                                          className={` item_day_tour fw-bold ${selectedDate && selectedDate.id === item.id ? 'active' : ''}`}
+                                          onClick={() => handleChooseDate(item)}>{item.date_start_tour.slice(0, 5)}</span>
+                                ))}
                             </div>
                         </div>
                         <div className={'text-secondary mb-0'}>
+                            Giá bán 1 khách:
                             Giá bán 1 khách:
                         </div>
                         <div>

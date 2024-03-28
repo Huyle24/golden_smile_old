@@ -110,7 +110,7 @@ function Overview(props) {
                         {overview_detail_info && overview_detail_info.tour_type == 2 && overview_detail_info.tour_open_list && (
                             overview_detail_info.tour_open_list.map((item, index) => (
                                 <span key={index}
-                                      className={`px-2 py-1 item_day_tour fw-bold ${selectedDate && selectedDate.id === item.id ? 'active' : ''}`}
+                                      className={` item_day_tour fw-bold ${selectedDate && selectedDate.id === item.id ? 'active' : ''}`}
                                       onClick={() => handleChooseDate(item)}>{item.date_start_tour.slice(0, 5)}</span>
                             ))
                         )}
