@@ -47,6 +47,7 @@ import fetchCityByLocationReducer from "./fetchCityByLocationReducer";
 import invoiceDetailReducer from "./invoiceDetailReducer";
 import fetchFormatTourReducer from "./fetchFormatTourReducer";
 import updatetourOpenChooseReducer from "./updatetourOpenChooseReducer";
+import fetchImgReducer from "./fetchImgReducer";
 
 
 export default combineReducers({
@@ -96,5 +97,6 @@ export default combineReducers({
     cityByLocationInfo: fetchCityByLocationReducer,
     invoiceDetailInfo:invoiceDetailReducer,
     tourFormatListInfo: fetchFormatTourReducer,
-    tourOpenChooseInfo:updatetourOpenChooseReducer
+    tourOpenChooseInfo:updatetourOpenChooseReducer,
+    fetchImgInfo:fetchImgReducer,
 });

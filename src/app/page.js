@@ -16,6 +16,7 @@ import Banner from './components/Banner';
 import {Col, Container, Row} from 'react-bootstrap'
 import TourCountryandProvince from "@/app/components/TourCountryandProvince";
 import OutboundTour from "@/app/components/OutboundTour";
+import Advertisement from "@/app/components/Advertisement";
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
 
     return (
         <main className="{Montserrat.main_home}">
+            <Advertisement/>
             <Carousels/>
             <Promotion/>
             {/*<ImagesBanner/>*/}

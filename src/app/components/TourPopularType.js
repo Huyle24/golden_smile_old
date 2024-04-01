@@ -10,91 +10,92 @@ import Card from "react-bootstrap/Card";
 import axios from "axios";
 import {Container, Row} from "react-bootstrap";
 import * as actionType from "../../../redux/actions/type";
+import * as actions from "../../../redux/actions";
 
 function TourPopularType(props) {
 
-
+    let banner_list = props.fetchImgInfo.data && props.fetchImgInfo.isLoading === false ? props.fetchImgInfo.data.banner : '';
     return (
         <div className="section-indent overflow-hidden mb-6" data-animated-id="10">
-            <Link href={'/Category'}>
             <div className="Tour_type_popular">
 
                 <div className="tour_popular">
                     <div className="T_popular_bi">
                         <div class="T_backgroundImage"
-                             style={{backgroundImage: "url('https://goldensmiletravel.com/uploads/images/tuvan/2021/09/28/team-b-1632797391.png')"}}>
+                             style={{backgroundImage: `url(${banner_list && banner_list[0] &&  banner_list[0].bucket_img ? banner_list[0].bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'})`}}>
                         </div>
                         <div className="T_image_top"></div>
                     </div>
                     <div className="T_popular_content">
-                        <div className="Tour_p_title"><span className="t_title_text">TOUR KHÁCH ĐOÀN</span></div>
-                        <div className="Tour_p_btn">
-                            <div className="Tour_button_contact"><a href="javascript:void(0)"
-                                                                    onclick=""
-                                                                    data-title="TOUR KHÁCH ĐOÀN"
-                                                                    className="btnDangKyTuVan"><span
-                                className="Tour_call"></span>
-                                <div className="Tour_button_title">
-                                    ĐĂNG KÝ TƯ VẤN
-                                </div>
-                            </a> <a data-toggle="modal" href="#tuvan-modal" className="modal"
-                                    style={{display: 'none'}}></a>
-                            </div>
+                        <div className="Tour_p_title">
+                            <Link
+                                href={banner_list && banner_list[0] && banner_list[0].url_link ? banner_list[0].url_link : '#'}>
+                                    <span
+                                        className="t_title_text">{banner_list && banner_list[0] && banner_list[0].title ? banner_list[0].title : 'Chưa nhập tiêu đề'}
+                                    </span>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link className={'text-white text-hover'}
+                                  href={banner_list && banner_list[0] && banner_list[0].url_link ? banner_list[0].url_link : '#'}>
+                                {banner_list && banner_list[0] && banner_list[0].description ? banner_list[0].description : 'Chưa nhập nội dung'}
+                            </Link>
                         </div>
                     </div>
                 </div>
                 <div className="tour_popular">
                     <div className="T_popular_bi">
                         <div class="T_backgroundImage"
-                             style={{backgroundImage: "url('https://goldensmiletravel.com/uploads/images/tuvan/2021/09/28/anh-111-cltn-1632797449.jpeg')"}}>
+                             style={{backgroundImage: `url(${banner_list && banner_list[1] && banner_list[1].bucket_img ? banner_list[1].bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'})`}}>
                         </div>
                         <div className="T_image_top"></div>
                     </div>
                     <div className="T_popular_content">
-                        <div className="Tour_p_title"><span className="t_title_text">TOUR MICE</span></div>
-                        <div className="Tour_p_btn">
-                            <div className="Tour_button_contact"><Link href="javascript:void(0)"
-                                                                       onclick=""
-                                                                       data-title="TOUR MICE"
-                                                                       className="btnDangKyTuVan"><span
-                                className="Tour_call"></span>
-                                <div className="Tour_button_title">
-                                    ĐĂNG KÝ TƯ VẤN
-                                </div>
-                            </Link> <Link data-toggle="modal" href="#tuvan-modal" className="modal"
-                                          style={{display: 'none'}}></Link>
-                            </div>
+                        <div className="Tour_p_title">
+                            <Link className={'text-white '}
+                                  href={banner_list && banner_list[1] && banner_list[1].url_link ? banner_list[1].url_link : '#'}>
+                                <span
+                                    className="t_title_text">{banner_list && banner_list[1] && banner_list[1].title ? banner_list[1].title : 'Chưa nhập tiêu đề'}</span>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link className={'text-white text-hover'}
+                                  href={banner_list && banner_list[1] && banner_list[1].url_link ? banner_list[1].url_link : '#'}>
+                                {banner_list && banner_list[1] && banner_list[1].description ? banner_list[1].description : 'Chưa nhập nội dung'}
+                            </Link>
                         </div>
                     </div>
                 </div>
                 <div className="tour_popular">
                     <div className="T_popular_bi">
                         <div class="T_backgroundImage"
-                             style={{backgroundImage: "url('https://goldensmiletravel.com/uploads/images/tuvan/2021/09/28/event-1632797649.jpeg')"}}>
+                             style={{backgroundImage: `url(${banner_list && banner_list[2] && banner_list[2].bucket_img ? banner_list[2].bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'})`}}>
                         </div>
                         <div className="T_image_top"></div>
                     </div>
                     <div className="T_popular_content">
-                        <div className="Tour_p_title"><span className="t_title_text">TỔ CHỨC SỰ KIỆN</span></div>
-                        <div className="Tour_p_btn">
-                            <div className="Tour_button_contact"><Link href="javascript:void(0)"
-                                                                       onclick=""
-                                                                       data-title="TỔ CHỨC SỰ KIỆN"
-                                                                       className="btnDangKyTuVan"><span
-                                className="Tour_call"></span>
-                                <div className="Tour_button_title">
-                                    ĐĂNG KÝ TƯ VẤN
-                                </div>
-                            </Link> <Link data-toggle="modal" href="#tuvan-modal" className="modal"
-                                          style={{display: 'none'}}></Link>
-                            </div>
+                        <div className="Tour_p_title">
+                            <Link className={'text-white'}
+                                  href={banner_list && banner_list[2] && banner_list[2].url_link ? banner_list[2].url_link : '#'}>
+                                <span
+                                    className="t_title_text">{banner_list && banner_list[2] && banner_list[2].title ? banner_list[2].title : 'Chưa nhập tiêu đề'}</span>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link className={'text-white text-hover'}
+                                  href={banner_list && banner_list[2] && banner_list[2].url_link ? banner_list[2].url_link : '#'}>
+                                {banner_list && banner_list[2] && banner_list[2].description ? banner_list[2].description : 'Chưa nhập nội dung'}
+                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
-            </Link>
         </div>
     )
 }
 
-export default TourPopularType;
+const mapStateToProps = state => ({
+
+    fetchImgInfo: state.fetchImgInfo
+});
+export default connect(mapStateToProps, actions)(TourPopularType);

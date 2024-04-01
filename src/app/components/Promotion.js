@@ -16,6 +16,7 @@ function Promotion(props){
 
 
     let slideImageInfo = props.slideImageListInfo.data && props.slideImageListInfo.isLoading === false ? props.slideImageListInfo.data.slide_endow_img : '';
+    let promotion_list = props.fetchImgInfo.data && props.fetchImgInfo.isLoading === false ? props.fetchImgInfo.data.promotion : '';
     const [textShow, setTextShow] = useState('')
     const getLangText = async () => {
         let lang_code = await GET_LANG_CODE();
@@ -69,14 +70,14 @@ function Promotion(props){
           }}
           modules={[Navigation,Autoplay]}
           className="mt-4">
-            {slideImageInfo ? (slideImageInfo.map((item,index) => (
+            {promotion_list ? (promotion_list.map((item,index) => (
               <SwiperSlide key={index}>
                   <div className="header_tour_img rounded">
                     {/*<div data-aos="zoom-in-down" data-aos-duration="3000"*/}
                     {/*                data-aos-delay="100">*/}
                       <div>
-                      <Link href="/Category">
-                          <img src={item.image} className="img_promo w-100"/>
+                          <Link href={item.url_link?item.url_link:'#'}>
+                          <img src={item.bucket_img} className="img_promo w-100"/>
                       </Link>
                     </div>
                   </div>
@@ -91,5 +92,6 @@ function Promotion(props){
 
 const mapStateToProps = state => ({
     slideImageListInfo: state.slideImageListInfo,
+    fetchImgInfo: state.fetchImgInfo
 });
 export default connect(mapStateToProps, actions)(Promotion);

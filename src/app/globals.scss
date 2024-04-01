@@ -2147,7 +2147,7 @@ tr td {
 
   width: 257px !important;
   text-align: center;
-  padding: 0!important;
+  padding: 0 !important;
   height: 40px;
 }
 
@@ -2157,33 +2157,39 @@ tr td {
 
 
 }
-.ant-anchor{
-  margin-bottom:1.5rem!important;
+
+.ant-anchor {
+  margin-bottom: 1.5rem !important;
 }
+
 :where(.css-dev-only-do-not-override-1pbqdzd).ant-anchor-wrapper-horizontal::before {
-   border-bottom: none !important;
+  border-bottom: none !important;
 }
+
 a.ant-anchor-link-title.ant-anchor-link-title-active {
-  color:white !important;
-  font-weight:700;
-  background-color:#db2031;
+  color: white !important;
+  font-weight: 700;
+  background-color: #db2031;
   height: 40px;
   display: flex !important;
   align-items: center;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content: center;
 }
+
 a.ant-anchor-link-title {
 
   height: 40px;
   display: flex !important;
   align-items: center;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content: center;
 }
+
 .css-dev-only-do-not-override-1pbqdzd.ant-affix {
   background-color: white;
 }
+
 .item_day_tour:hover, .item_day_tour.active {
   border: 1px solid #F5222D;
   color: #F5222D;
@@ -2224,7 +2230,9 @@ a.ant-anchor-link-title {
 }
 
 
-
+.t_title_text:hover, .Tour_p_title:hover,.text-hover:hover {
+  color: #db2031 !important;
+}
 
 .header-cutomer-form {
   background: #FFF1F0;
@@ -4454,6 +4462,58 @@ payments
     margin: 5px 0;
   }
 }
+.advertisement-modal {
+  position: fixed; /* Ensures modal stays on top of content */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay with transparency */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.advertisement-modal.active {
+  opacity: 1;
+  visibility: visible;
+  z-index:9999
+}
+
+.advertisement-modal-content {
+  position: relative;
+  background-color: #fff; /* Content background color */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+
+}
+
+.advertisement-image {
+  max-width: 100%; /* Ensure image scales within content */
+  max-height: 80vh; /* Limit image height (optional) */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.advertisement-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.close-button{
+  position: absolute;
+  top:0;
+  right:0;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
 
 @media only screen and (max-width: 992px) {
   .main_carousel, .main_info, .main_contact,

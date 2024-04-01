@@ -183,6 +183,14 @@ export const updateTourOpenChoose= (values) => {
         payload: values,
     };
 };
+
+export const fetchImg= () => {
+    return {
+        type: actionTypes.FETCH_IMG,
+
+    };
+};
+
 export const fetchCountryUser = () => {
     return {type: actionTypes.COUNTRY_USER};
 };
