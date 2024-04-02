@@ -1230,7 +1230,7 @@ body {
 .tab_filter_searchnav .li_searchnav .search_mucfilter.active {
   background-color: white;
   color: #B72028;
-  border:1px solid;
+  border: 1px solid;
 }
 
 .tab_filter_searchnav .li_searchnav:first-child .search_mucfilter {
@@ -2140,8 +2140,9 @@ tr td {
   flex-wrap: wrap;
 
 }
-.ant-anchor{
-  overflow-x:auto;
+
+.ant-anchor {
+  overflow-x: auto;
 }
 
 .ant-anchor-link {
@@ -4425,9 +4426,11 @@ payments
 .momo-payment {
   zoom: 1.5
 }
+
 .ant-anchor-link {
   background: white;
 }
+
 //.payments.active {
 //  background-color: #0ea5e9;
 //  color: white;
@@ -4457,6 +4460,18 @@ payments
   margin: 12px -15px 3px -15px;
 }
 
+.see_more {
+  font-size: 12px;
+  color: #B72028;
+  cursor:pointer;
+}
+.see_more:hover {
+color:#DBA73D;
+ }
+//.payments{
+//  background: #ffefef!important;
+//  border:none!important;
+//}
 .card-tour {
   font-size: 14px;
   color: black;
@@ -4935,7 +4950,6 @@ payments
   }
 
 }
-
 
 
 /* Thêm điều kiện kiểm tra màn hình nhỏ hơn 450px */

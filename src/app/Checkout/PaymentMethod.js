@@ -16,8 +16,16 @@ import {compileString} from "sass";
 import {FaChildren} from "react-icons/fa6";
 import {CiLocationOn, CiTimer} from "react-icons/ci";
 import {BsPeople} from "react-icons/bs";
+import Collapse from "react-bootstrap/Collapse";
 
 function PaymentMethod(props) {
+    let countryUser = props.countryUserInfo.data && props.countryUserInfo.isLoading == false ? props.countryUserInfo.data.country : '';
+    let payment_method_list = props.addCartDetailInfo.data && props.addCartDetailInfo.isLoading == false ? props.addCartDetailInfo.data.payment_method_list : '';
+
+    let tour_price_detail_info = props.tourPriceDetailInfo.data && props.tourPriceDetailInfo.isLoading === false ? props.tourPriceDetailInfo.data : '';
+    let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
+    let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
+
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -37,26 +45,28 @@ function PaymentMethod(props) {
     const [nationalityInput, setNationalityInput] = useState([]);
     const [countrySelected, setCountrySelected] = useState();
     const [agree, setAgree] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(null);
-    const [paymentMethod, setPaymentMethod] = useState('');
+    const [activeIndex, setActiveIndex] = useState(payment_method_list ? payment_method_list.filter(item => item.default_check == 1)[0].id : '');
+    const [paymentMethod, setPaymentMethod] = useState(payment_method_list ? payment_method_list.filter(item => item.default_check == 1)[0].id : '');
     const [numCards, setNumCards] = useState(0);
     const [formData, setFormData] = useState([]);
     const [dataCustomer, setdataCustomer] = useState({});
     const [dataListCustomer, setDataListCustomer] = useState({});
     const [newOrderId, setOrderId] = useState();
     const [errors, setErrors] = useState({});
-    let countryUser = props.countryUserInfo.data && props.countryUserInfo.isLoading == false ? props.countryUserInfo.data.country : '';
-    let payment_method_list = props.addCartDetailInfo.data && props.addCartDetailInfo.isLoading == false ? props.addCartDetailInfo.data.payment_method_list : '';
-    console.log('payment_method_list',payment_method_list)
-    console.log('paymentMethod', paymentMethod);
-    let tour_price_detail_info = props.tourPriceDetailInfo.data && props.tourPriceDetailInfo.isLoading === false ? props.tourPriceDetailInfo.data : '';
-    let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
-    let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
-    console.log('tour_price_detail_info',tour_price_detail_info)
-
+    const [collapseStates, setCollapseStates] = useState({});
+    console.log('tour_price_detail_info', tour_price_detail_info)
+    console.log('activeIndex', activeIndex)
+    console.log('payment_method_list', payment_method_list)
+    console.log('paymentMethod', paymentMethod)
     const orderData = props.orderDataInfo.orderData;
     const newElement = {
         payment_method: paymentMethod
+    };
+    const handleCollapseToggle = (itemId) => {
+        setCollapseStates(prevState => ({
+            ...prevState,
+            [itemId]: !prevState[itemId]
+        }));
     };
 
     const handleInputChange = (index) => {
@@ -234,13 +244,13 @@ function PaymentMethod(props) {
 
         console.log('JSON.stringify(updatedOrderData.data_child)', JSON.stringify(updatedOrderData.data_child));
 
-        if (activeIndex == null) {
-            Toast.fire({
-                title: "Vui lòng chọn phương thức thanh toán",
-                icon: "error"
-            });
-            return false;
-        }
+        // if (activeIndex == null) {
+        //     Toast.fire({
+        //         title: "Vui lòng chọn phương thức thanh toán",
+        //         icon: "error"
+        //     });
+        //     return false;
+        // }
 
         if (agree == false) {
             Toast.fire({
@@ -325,7 +335,7 @@ function PaymentMethod(props) {
                         <Row className={'row_tour_payment'}>
                             <Col md={4}>
                                 <img className={'img_tour_payment'}
-                                     src={tour_price_detail_info &&tour_price_detail_info.image !== null ? tour_price_detail_info.image : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
+                                     src={tour_price_detail_info && tour_price_detail_info.image !== null ? tour_price_detail_info.image : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
                                      alt=""/>
                             </Col>
                             <Col md={8}>
@@ -497,15 +507,41 @@ function PaymentMethod(props) {
                                         <Card.Body>
                                             <div
                                                 className={'d-flex justify-content-between align-items-center flex-wrap'}>
-                                                <span className={'d-flex  align-items-center flex-wrap'}><input
-                                                    name="ckb" type="radio" className="momo-payment me-2"
-                                                    value={item.id}
-                                                    checked={index === activeIndex}
-                                                    onChange={() => handleInputChange(index)}
-                                                    onClick={(e) => setPaymentMethod(item.id)}/> {item.name}</span>
+
+                                                    <div className={'d-flex  align-items-center flex-wrap'}>
+                                                        <input name="ckb" type="radio" className="momo-payment me-2"
+                                                        value={item.id}
+                                                        // onChange={() => handleInputChange(item.id)}
+                                                        onClick={(e) => setPaymentMethod(item.id)}
+                                                        checked={item.id == paymentMethod}/>
+                                                        <div>
+                                                            <div className={'fw-bold'}>
+                                                                {item.name}
+                                                            </div>
+
+                                                            <div
+                                                                className={'see_more'}
+                                                                onClick={() => handleCollapseToggle(item.id)}
+                                                                aria-controls={`example-collapse-text-${item.id}`}
+                                                                aria-expanded={collapseStates[item.id]}
+                                                            >
+                                                                Xem thêm
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+
                                                 <img src={item.img} className={'logo-payment'} alt="tienmat"/>
                                             </div>
+                                            <Collapse in={collapseStates[item.id]}>
+                                                <div id={`example-collapse-text-${item.id}`} style={{fontSize:'12px'}}>
+                                                    <i className='bx bxs-bank me-2'></i>
+                                                    {item.content}
 
+                                                </div>
+                                            </Collapse>
 
                                         </Card.Body>
                                     </Card>

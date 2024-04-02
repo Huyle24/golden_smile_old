@@ -20,6 +20,7 @@ import {useSearchParams} from "next/navigation";
 const OFF_DEFAULT = 9;
 
 const ITEMS_PER_PAGE = 6;
+
 function ListTour(props) {
     const [value, onChange] = useState(new Date());
     const [textShow, setTextShow] = useState('');
@@ -77,13 +78,16 @@ function ListTour(props) {
     const [currentPage, setCurrentPage] = useState(1);
     let list_tour = props.jointTourListInfo.data && props.jointTourListInfo.isLoading === false ? props.jointTourListInfo.data.tour_list : '';
     let FilterValues = props.updateFilterValuesInfo.FilterValues ? props.updateFilterValuesInfo.FilterValues : '';
-    const totalPages =list_tour?( Math.ceil(list_tour.length / ITEMS_PER_PAGE)):'';
+    let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
 
+    const totalPages = list_tour ? (Math.ceil(list_tour.length / ITEMS_PER_PAGE)) : '';
+
+    console.log('countryParam', countryParam)
     // Lấy index của item đầu tiên trên trang hiện tại
     const indexOfFirstItem = (currentPage - 1) * ITEMS_PER_PAGE;
 
     // Lấy danh sách items của trang hiện tại
-    const currentItems = list_tour? list_tour.slice(indexOfFirstItem, indexOfFirstItem + ITEMS_PER_PAGE):'';
+    const currentItems = list_tour ? list_tour.slice(indexOfFirstItem, indexOfFirstItem + ITEMS_PER_PAGE) : '';
 
     // Hàm xử lý khi chuyển trang
     const handlePageChange = (pageNumber) => {
@@ -99,19 +103,17 @@ function ListTour(props) {
 
     useEffect(() => {
         console.log('nguyen1')
-        props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', FilterValues.cityStart, '',  FilterValues.dateStart,  FilterValues.dateEnd, '', '',FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
-        }, [FilterValues])
+        props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', FilterValues.cityStart, '', FilterValues.dateStart, FilterValues.dateEnd, '', '', FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
+    }, [FilterValues])
 
     useEffect(() => {
         console.log('nguyen2')
-        props.fetchJointTourList('', '', '', 30, countryParam?countryParam:'', '', '', '',  dateStartParam?dateStartParam:'',' ', '', '','', formatTourParam ?formatTourParam:'',typeTourismParam?typeTourismParam:'' );
+        props.fetchJointTourList('', '', '', 30, countryParam ? countryParam : '', '', '', '', dateStartParam ? dateStartParam : '', ' ', '', '', '', formatTourParam ? formatTourParam : '', typeTourismParam ? typeTourismParam : '');
     }, [searchParams])
-
 
 
     return (
         <Col lg={9}>
-
             <Row>
                 {currentItems ? (currentItems.map((item, index) => (
                     <Col md={4} className={'mt-2'}>
@@ -223,12 +225,25 @@ function ListTour(props) {
                     </Col>
                 ))) : ''}
             </Row>
+
+            {country_list && countryParam && country_list.filter(item => item.id === countryParam)[0].description && (
+                <Row>
+                    <Card>
+                        <Card.Body>
+                            {country_list && countryParam ? country_list.filter(item => item.id === countryParam).map((item, index) => (
+                                <span dangerouslySetInnerHTML={{__html: item.description}}></span>)) : ''}
+
+                        </Card.Body>
+                    </Card>
+                </Row>
+            )
+            }
             <div className={'d-flex justify-content-center mt-2'}>
                 <nav>
                     <ul className="pagination">
                         {Array.from({length: totalPages}, (_, i) => i + 1).map((page) => (
                             <li key={page} className={`page-item ${currentPage === page ? 'active' : ''}`}>
-                                <button className="page-link "   onClick={() => handlePageChange(page)}>
+                                <button className="page-link " onClick={() => handlePageChange(page)}>
                                     {page}
                                 </button>
                             </li>
