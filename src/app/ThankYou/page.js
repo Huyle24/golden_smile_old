@@ -8,6 +8,7 @@ import * as actions from "../../../redux/actions";
 import {useSearchParams} from "next/navigation";
 import {useEffect} from "react";
 import Link from "next/link";
+import {BASE_URL} from "../../../redux/actions/type";
 
 function ThankYou(props) {
     const formatCurrency = (amount) => {
@@ -46,25 +47,48 @@ function ThankYou(props) {
                                         {invoice_detail.payment_method_name ? invoice_detail.payment_method_name : ''}
                                     </div>
                                 </div>
-                                <div className={'d-flex justify-content-center mt-2'}>
-                                    <img src="https://vigomanager.com/app-assets/mobile/img-huy/image%2030.png" alt=""/>
-                                </div>
-                                <div className={'text-center mt-2'}>
-                                    <div className={'mt-1'}>TEN TAI KHOAN</div>
-                                    <div className={'mt-1 fw-bolder'}>1234567890</div>
+                                {invoice_detail.payment_method_cash && invoice_detail.payment_method_cash == 1 && (
+                                    <>
+                                        <div className={'d-flex justify-content-center mt-2'}>
+                                            <img
+                                                src={`${BASE_URL}upload/payment_method/${invoice_detail.payment_method_qr_img ? invoice_detail.payment_method_qr_img : ''}`}
+                                                style={{height: '200px'}} alt=""/>
+                                        </div>
+                                        <div className={'mt-2'}>
+                                            Vui lòng điền vào phần nội dung chuyển tiền cú pháp: <span
+                                            className={'order-code'}>  DH-{invoice_detail.order_id ? invoice_detail.order_id : ''}</span>
+                                        </div>
+                                    </>
+                                )
+                                }
+                                {invoice_detail.payment_method_cash && invoice_detail.payment_method_cash == 2 && (
+                                    <>
+                                        <div className={' mt-2'}>
 
-                                </div>
-                                <div className={'mt-2'}>
-                                    Vui lòng điền vào phần nội dung chuyển tiền cú pháp: <span
-                                    className={'order-code'}>  DH-{invoice_detail.order_id ? invoice_detail.order_id : ''}</span>
-                                </div>
+                                            <div>
+                                                <i className='bx bxs-bank'></i> {invoice_detail.payment_method_content ? invoice_detail.payment_method_content : ''}
+                                            </div>
+                                        </div>
+                                        <div className={'mt-2'}>
+                                            Vui lòng đến trực tiếp Chi nhánh của Golden Smile Travel và thanh toán trực tiếp cho đơn hàng: <span
+                                            className={'order-code'}>  DH-{invoice_detail.order_id ? invoice_detail.order_id : ''}</span>
+                                        </div>
+                                    </>
+                                )
+                                }
+                                {/*<div className={'text-center mt-2'}>*/}
+                                {/*    <div className={'mt-1'}>TEN TAI KHOAN</div>*/}
+                                {/*    <div className={'mt-1 fw-bolder'}>1234567890</div>*/}
+
+                                {/*</div>*/}
+
                                 <hr/>
                                 <div className={'d-flex justify-content-between mt-2 my-4'}>
                                     <div className={'fw-bolder'}>
                                         TỔNG CỘNG:
                                     </div>
                                     <div className={'total-price'}>
-                                           {invoice_detail.price_total ?formatCurrency(invoice_detail.price_total) : ''}
+                                        {invoice_detail.price_total ? formatCurrency(invoice_detail.price_total) : ''}
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +111,8 @@ function ThankYou(props) {
                                     <Col xl={8}>
                                         <div className={'tour-name'}> ĐÀ NẴNG CITY TOUR 1 NGÀY</div>
                                         <div className={'mt-1'}>Mã đơn hàng <span
-                                            className={'tour-name '}>DH-{invoice_detail.order_id ? invoice_detail.order_id: ''}</span></div>
+                                            className={'tour-name '}>DH-{invoice_detail.order_id ? invoice_detail.order_id : ''}</span>
+                                        </div>
                                         <Link href={`/InvoiceDetail?order_id=${invoice_detail.order_id}`}>
                                             <div>Xem chi tiết đơn hàng</div>
                                         </Link>
