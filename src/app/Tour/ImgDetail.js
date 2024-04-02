@@ -171,7 +171,7 @@ function ImgDetail(props) {
                     </div>
 
                 </Col>
-                <Col xl={6}>
+                <Col xl={6} className={'zoom-80'}>
                     <div className={'p-3  tour-detail'}>
                         <div className="tour-detail-name mt-0">
                             {overview_detail_info ? overview_detail_info.name : ''}
@@ -183,8 +183,8 @@ function ImgDetail(props) {
                 </span>
 
                         </div>
-                        <div className={'d-flex justify-content-between'}>
-                            <div className={'d-flex align-items-center flex-wrap'}>
+                        <div className={'d-flex justify-content-between flex-wrap'}>
+                            <div className={'d-flex align-items-center flex-wrap'} style={{minWidth:'350px'}}>
                                 <CiLocationOn/>
                                 <span className="ms-2">
                  {overview_detail_info ? overview_detail_info.city_start_name : ''} - {overview_detail_info ? overview_detail_info.city_end_name : ''}
@@ -287,18 +287,18 @@ function ImgDetail(props) {
                             Giá bán 1 khách:
                             Giá bán 1 khách:
                         </div>
-                        <div>
-                <span className={'tour-detail-price me-5'}>
+                        <div className={'d-flex align-items-center flex-wrap'}>
+                <div className={'tour-detail-price me-lg-5 me-3'}>
              {tourOpenChoose ? tourOpenChoose.price_1_person : overview_detail_info ? overview_detail_info.tour_open_list[0].price_1_person : ""} đ
-                </span>
-                            <span className={'tour-detail-remain-reservation-container'}>
+                </div>
+                            <div className={'tour-detail-remain-reservation-container'}>
                   <span className={'text-danger fw-bold me-1'}>
                    {tourOpenChoose ? tourOpenChoose.remain_seat : overview_detail_info ? overview_detail_info.tour_open_list[0].remain_seat : ""}
                   </span>
                   <span>
                       chỗ còn lại
                   </span>
-                </span>
+                </div>
 
                         </div>
                         <div className={'d-flex'}>

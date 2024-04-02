@@ -49,6 +49,7 @@ function SearchBox(props) {
     const [endDate, setEndDate] = useState(new Date());
     const [value, onChange] = useState(new Date());
     let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
+    let type_tourism_list = props.fetchListTypeTourismInfo.data && props.fetchListTypeTourismInfo.isLoading === false ? props.fetchListTypeTourismInfo.data : '';
     let city_list = props.cityByLocationInfo.data && props.cityByLocationInfo.isLoading === false ? props.cityByLocationInfo.data : '';
     let [tourFilterTmp, setTourFilterTmp] = useState([
         {
@@ -207,13 +208,14 @@ function SearchBox(props) {
         props.fetchCitybyLocation('', '', 1)
 
     }, [])
+    useEffect(() => {
+        props.fetchListTypeTourism()
+    }, [])
     let user_data = props.userInfo.data && props.userInfo.isLoading == false ? props.userInfo.data : '';
-    const [activeKey, setActiveKey] = useState("link-1");
+    const [activeKey, setActiveKey] = useState(type_tourism_list && type_tourism_list[0] ? type_tourism_list[0].id : '');
 
-    // Hàm xử lý khi chọn tab
     const handleSelect = (selectedKey) => {
         setActiveKey(selectedKey);
-        // Xử lý logic của bạn ở đây dựa trên tab được chọn
 
     };
     console.log('activeKey', activeKey)
@@ -240,31 +242,47 @@ function SearchBox(props) {
                             <div className="row tab_filter">
                                 <div className="col-md-12">
                                     <Nav className="tab_filter_searchnav" variant="pills" defaultActiveKey="link-1"
-                                         onSelect={handleSelect}>
-                                        <Nav.Item className="li_searchnav">
-                                            <Nav.Link className="search_mucfilter" eventKey="link-1">
-                                                <i className='bx bx-home-alt'></i>
-                                                <div className="search_content_nav">Tour <br></br> ghép</div>
-                                            </Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item className="li_searchnav">
-                                            <Nav.Link className="search_mucfilter" eventKey="link-2">
-                                                <i className='bx bxs-building-house'></i>
-                                                <div className="search_content_nav">Tour <br></br> Inbound</div>
-                                            </Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item className="li_searchnav">
-                                            <Nav.Link className="search_mucfilter" eventKey="link-3">
-                                                <i className='bx bx-buildings'></i>
-                                                <div className="search_content_nav">Tour <br></br> Outbound</div>
-                                            </Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item className="li_searchnav">
-                                            <Nav.Link className="search_mucfilter" eventKey="link-4">
-                                                <i className='bx bxs-building'></i>
-                                                <div className="search_content_nav">Tour <br></br> Trekking</div>
-                                            </Nav.Link>
-                                        </Nav.Item>
+                                    >
+                                        {type_tourism_list && type_tourism_list.slice(0, 4).map((item, index) => (
+                                            <>
+                                                <Nav.Item className="li_searchnav"
+                                                          onClick={() => handleSelect(item.id)}>
+                                                    <Nav.Link className="search_mucfilter d-flex align-items-center"
+                                                              eventKey={`link-${index+1}`}>
+                                                        {item.bucket_img && (
+                                                            <img src={item.bucket_img} alt=""
+                                                                 style={{height: '24px', width: '24px',marginRight:'8px'}}/>
+                                                        )}
+                                                        {!item.bucket_img && (
+                                                            <i className='bx bx-home-alt'></i>
+                                                        )}
+
+
+                                                        <div className="search_content_nav fw-bolder">{item.name}</div>
+                                                    </Nav.Link>
+                                                </Nav.Item>
+                                                {/*<Nav.Item className="li_searchnav">*/}
+                                                {/*    <Nav.Link className="search_mucfilter" eventKey="link-2">*/}
+                                                {/*        <i className='bx bxs-building-house'></i>*/}
+                                                {/*        <div className="search_content_nav">Tour <br></br> Inbound</div>*/}
+                                                {/*    </Nav.Link>*/}
+                                                {/*</Nav.Item>*/}
+                                                {/*<Nav.Item className="li_searchnav">*/}
+                                                {/*    <Nav.Link className="search_mucfilter" eventKey="link-3">*/}
+                                                {/*        <i className='bx bx-buildings'></i>*/}
+                                                {/*        <div className="search_content_nav">Tour <br></br> Outbound*/}
+                                                {/*        </div>*/}
+                                                {/*    </Nav.Link>*/}
+                                                {/*</Nav.Item>*/}
+                                                {/*<Nav.Item className="li_searchnav">*/}
+                                                {/*    <Nav.Link className="search_mucfilter" eventKey="link-4">*/}
+                                                {/*        <i className='bx bxs-building'></i>*/}
+                                                {/*        <div className="search_content_nav">Tour <br></br> Trekking*/}
+                                                {/*        </div>*/}
+                                                {/*    </Nav.Link>*/}
+                                                {/*</Nav.Item>*/}
+                                            </>
+                                        ))}
                                     </Nav>
                                 </div>
                             </div>
@@ -309,7 +327,7 @@ function SearchBox(props) {
 
                                             <div className="col choose_input_tour">
                                                 <Link
-                                                    href={"./Category?country=" + country + "&dateStart=" + startDate + "&formatTour=" + (activeKey === "link-2" ? 0 : activeKey === "link-3" ? 1 : '') + "&type_tourism_id=" + (activeKey === "link-4" ? 5 : '')}>
+                                                    href={"./Category?country=" + country + "&dateStart=" + startDate + "&type_tourism_id=" + activeKey + "&type_tourism_id=" + (activeKey === "link-4" ? 5 : '')}>
                                                     <Button className="btn_search_find">
                                                         Tìm Kiếm
                                                     </Button>
@@ -395,6 +413,7 @@ function SearchBox(props) {
 const mapStateToProps = state => ({
     userInfo: state.userInfo,
     countryListInfo: state.countryListInfo,
-    cityByLocationInfo: state.cityByLocationInfo
+    cityByLocationInfo: state.cityByLocationInfo,
+    fetchListTypeTourismInfo: state.fetchListTypeTourismInfo,
 });
 export default connect(mapStateToProps, actions)(SearchBox);

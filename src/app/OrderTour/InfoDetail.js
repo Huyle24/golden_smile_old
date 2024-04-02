@@ -19,7 +19,7 @@ function InfoDetail(data) {
             </div>
             <div className={'p-1 tour-info-body'}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} xs={6}>
                         <div>Giờ khởi hành:</div>
                         <div>Ngày khởi hành:</div>
                         <div>Địa điểm khởi hành:</div>
@@ -28,7 +28,7 @@ function InfoDetail(data) {
                         <div>Máy bay:</div>
 
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} xs={6}>
                         <div>
                             {data.data ? data.data.time_takeoff_start : ''}
                         </div>

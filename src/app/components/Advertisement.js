@@ -8,6 +8,7 @@ function Advertisement(props) { // Prop for image URL
     let popup_img = props.fetchImgInfo.data && props.fetchImgInfo.isLoading === false ? props.fetchImgInfo.data.popup : '';
     const [showPopup, setShowPopup] = useState(false);
 
+    console.log('popup_img', popup_img)
     const handleOpen = () => {
         setShowPopup(true);
     };
@@ -25,17 +26,28 @@ function Advertisement(props) { // Prop for image URL
     }, []);
 
     return (
-        <div className={`advertisement-modal ${showPopup ? 'active' : ''}`}>
-            <div className="advertisement-modal-content">
-                <Link href={popup_img  && popup_img.url_link ? popup_img.url_link : '#'}>
-                    <img
-                        src={popup_img  && popup_img.bucket_img ? popup_img.bucket_img : 'https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png'}
-                        alt="Advertisement" className="advertisement-image"/>
-                </Link>
-                <button className="close-button" onClick={handleClose}>x</button>
-            </div>
-            <div className="advertisement-modal-overlay" onClick={handleClose}></div>
-        </div>
+        <>
+            {popup_img && (
+                <div className="advertisement-modal-overlay" onClick={handleClose}>
+                    <div className={`advertisement-modal ${showPopup ? 'active' : ''}`}>
+
+
+                        <Link href={popup_img && popup_img.url_link ? popup_img.url_link : '#'}>
+                            <div className="advertisement-modal-content">
+                                <img
+                                    src={popup_img && popup_img.bucket_img ? popup_img.bucket_img : ''}
+                                    alt="Advertisement" className="advertisement-image"/>
+
+                                <button className="close-button" onClick={handleClose}>x</button>
+                            </div>
+                        </Link>
+
+                    </div>
+                </div>
+            )
+            }
+        </>
+
 
     );
 }

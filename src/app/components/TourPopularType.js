@@ -16,7 +16,7 @@ function TourPopularType(props) {
 
     let banner_list = props.fetchImgInfo.data && props.fetchImgInfo.isLoading === false ? props.fetchImgInfo.data.banner : '';
     return (
-        <div className="section-indent overflow-hidden mb-6" data-animated-id="10">
+        <div className="section-indent overflow-hidden mb-6 mt-2" data-animated-id="10">
             <div className="Tour_type_popular">
 
                 <div className="tour_popular">

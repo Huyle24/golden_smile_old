@@ -27,7 +27,7 @@ function InfoDetail(props) {
                                 <div className="tour_inboud-card-body  ">
                                     <Row>
                                         {city_list && city_list.slice(0, 18).map((item, index) =>
-                                            (<Col md={4} className={'text-center my-2'}>
+                                            (<Col md={4} xs={6} className={'text-center my-2'}>
                                                 <Link href={'./Category?country=1&city=' + item.id}>
                                                     {item.city_name}
                                                 </Link>
@@ -46,7 +46,7 @@ function InfoDetail(props) {
                                 <div className="tour_inboud-card-body  ">
                                     <Row>
                                         {country_list && country_list.slice(1, 19).map((item, index) => (
-                                            <Col md={4} className={'text-center my-2'}>
+                                            <Col md={4} xs={6} className={'text-center my-2'}>
                                                 <Link href={'./Category?country=' + item.id}>
                                                     {item.name}
                                                 </Link>

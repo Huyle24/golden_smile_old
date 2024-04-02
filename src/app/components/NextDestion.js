@@ -7,7 +7,7 @@ import Link from "next/link";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
-import { Container, Row } from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import * as actionType from "../../../redux/actions/type";
@@ -45,9 +45,9 @@ function NextDestion(props) {
                     <div className="Next_title">Điểm đến yêu thích</div>
                     <span className="divider-Trekking"></span>
                 </div>
-                    <Row className="mt-3 no-gutters">
+                    <Row className="mt-3 no-gutters favorite-country">
                         {listCountry ? (listCountry.filter((item, idx) => idx < 12).map((item) => (
-                            <div className="col-xs-6 col-md-3">
+                            <div className="col-xs-6 col-md-3 ">
                                 <div data-aos="fade-zoom-in"
                                     data-aos-easing="ease-in-back"
                                     data-aos-duration="2000"
@@ -70,6 +70,7 @@ function NextDestion(props) {
                                     </Link>
                                 </div>
                              </div>
+
                         ))) : ''}
 
                     </Row>

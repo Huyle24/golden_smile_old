@@ -47,7 +47,7 @@ export default function Footer(){
                     <div className={'line-bottom'}></div>
                 </Row>
                 <Row className='mb-6 info_first'>
-                    <div className='col-xs-12 col-md-4'>
+                    <div className='col-xs-12 col-md-4 text-center-mobile'>
                         <img className={'logo-web-footer'} src="https://vigomanager.com/app-assets/mobile/img-huy/1-%20Ngang.png" alt=""/>
                         <h4 className='footer_title_about mt-1'>Về chúng tôi</h4>
                         <ul className='list_item_about'>
@@ -75,7 +75,7 @@ export default function Footer(){
                     <div className='col-xs-12 col-md-8'>
 
                         <Row className='info_first'>
-                            <div className='col-xs-12 col-md-6'>
+                            <div className='col-xs-12 col-md-6 text-center-mobile'>
 
                                 <h4 className='thongtin_chung'>Thông tin chung</h4>
                                 <ul className='info-chung'>
@@ -85,8 +85,8 @@ export default function Footer(){
                                     <li className='info-item-chung'><Link href={''}>Chính sách riêng tư</Link></li>
                                 </ul>
                             </div>
-                            <div className='col-xs-12 col-md-6'>
-                                <h4 className='footer_title_about mt-3'>Mạng xã hội</h4>
+                            <div className='col-xs-12 col-md-6 text-center-mobile'>
+                                <h4 className='footer_title_about mt-3 '>Mạng xã hội</h4>
                                 <ul className='list_socials'>
                                     <li className='socials_items'>
                                         <Link href={''}><img
@@ -122,7 +122,7 @@ export default function Footer(){
                         <Row className={'mt-3'}>
 
                             {foot_info ? (foot_info.map((item, index) =>
-                            <div className='col-xs-12 col-md-6 footer_address_details'>
+                            <div className='col-xs-12 col-md-6 footer_address_details text-center-mobile'>
                                 <h4 className='title_address_f'>{item.branch}</h4>
                                 <div className='address_general'>
                                     <img src='https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/home_black3.png' alt='địa chỉ'/>
@@ -133,7 +133,7 @@ export default function Footer(){
                         </Row>
                         <div className='lineway-footer'></div>
                         <Row>
-                        <div className='col-xs-12 col-md-12'>
+                        <div className='col-xs-12 col-md-12 text-center-mobile'>
                                 <h4 className='footer_title_cetefication'>Chứng nhận</h4>
                                 <div className='images_bochungnhan'>
                                     <div className='footer_images_congthuong'>
