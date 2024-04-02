@@ -5,19 +5,21 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Link from 'next/link';
 import React, {useEffect, useState} from 'react';
-import {Col, Dropdown, Row} from "react-bootstrap";
+import {Button, Col, Dropdown, Row} from "react-bootstrap";
 import {connect} from "react-redux";
 import * as actions from "../../../redux/actions";
 import {GET_LANG_CODE, GET_TOKEN} from '../../../redux/actions/type';
 import {GET_LANG_ko, GET_LANG_vi} from '../../../js/lang';
 import {usePathname, useRouter} from "next/navigation";
 import {CiLocationOn, CiTimer} from "react-icons/ci";
-import {FaRegEye} from "react-icons/fa";
+import {FaBars, FaRegEye} from "react-icons/fa";
 import {fetchFormatTourList} from "../../../redux/actions";
 
 import Tab from "react-bootstrap/Tab";
 import {ConfigProvider, Radio, Space, Tabs} from "antd";
-
+import Card from "react-bootstrap/Card";
+import {CardHeader,Offcanvas,CardBody} from "react-bootstrap";
+import Collapse from 'react-bootstrap/Collapse';
 function Header(props) {
     const pathname = usePathname()
     console.log(pathname)
@@ -28,7 +30,7 @@ function Header(props) {
     const [isLogin, setIsLogin] = useState(false)
     const [textShow, setTextShow] = useState('')
     const router = useRouter()
-    const [openedCollapse, setOpenedCollapse] = React.useState("");
+    const [openedCollapse, setOpenedCollapse] = useState("");
     const [imageCountry, setImageCountry] = useState('')
     const [key, setKey] = useState('tab1');
     const [menuIcon, setMenuIcon] = useState(false)
@@ -37,7 +39,7 @@ function Header(props) {
     const [showNav, setShowNav] = useState(false);
     const [listCart, setListCart] = useState([])
     const [tot, setTot] = useState(0)
-
+    const [open, setOpen] = useState(false);
 
     let listItemCart = props ? props.getToCart : '';
     let city_list = props.cityByLocationInfo.data && props.cityByLocationInfo.isLoading === false ? props.cityByLocationInfo.data : '';
@@ -52,7 +54,9 @@ function Header(props) {
 
     const handleCloseNav = () => setShowNav(false);
     const handleShow = () => setShowNav(true);
-
+    const handleCollapseToggle = () => {
+        setOpenedCollapse(openedCollapse === "collapseOne" ? "" : "collapseOne");
+    };
     const checkToken = async () => {
         let token = await GET_TOKEN();
         if (token) {
@@ -543,7 +547,7 @@ function Header(props) {
                                         </Nav.Link>
                                         <Nav.Link className='navcha'><Link
                                             href={"/Category"}
-                                            className={pathname !== '/' ? 'header-tab active' : ''}>{textShow ? textShow.Tour : 'TOUR'}<i
+                                            className={pathname === '/Category' ? 'header-tab active' : ''}>{textShow ? textShow.Tour : 'TOUR'}<i
                                             className='bx bx-chevron-down'></i></Link>
                                             <div className='navcon'>
                                                 <Row>
@@ -580,13 +584,12 @@ function Header(props) {
                                         {/*<Nav.Link><Link href="/">{textShow ? textShow.Visa : 'VISA'}</Link></Nav.Link>*/}
                                         {/*<Nav.Link><Link*/}
                                         {/*    href="/">{textShow ? textShow.Flashpacking : 'VOUCHER-COMBO'}</Link></Nav.Link>*/}
-                                        <Nav.Link><Link
-                                            href="/">{textShow ? textShow.tickets_plane : 'VÉ MÁY BAY'}</Link></Nav.Link>
-                                        <Nav.Link><Link
-                                            href="/">{textShow ? textShow.voucher_combo : 'VOUCHER-COMBO'}</Link></Nav.Link>
-                                        <Nav.Link className='navcha'><Link
-                                            href='/Camnang'>{textShow ? textShow.diary : 'NHẬT KÝ'} <i
-                                            className='bx bx-chevron-down'></i></Link>
+                                        {/*<Nav.Link><Link*/}
+                                        {/*    href="/">{textShow ? textShow.tickets_plane : 'VÉ MÁY BAY'}</Link></Nav.Link>*/}
+                                        {/*<Nav.Link><Link*/}
+                                        {/*    href="/">{textShow ? textShow.voucher_combo : 'VOUCHER-COMBO'}</Link></Nav.Link>*/}
+                                        <Nav.Link className='navcha'><Link className={pathname === '/Camnang' ? 'header-tab active' : ''}
+                                            href='/Camnang'>{textShow ? textShow.diary : 'NHẬT KÝ'} </Link>
                                             {/*<ul className='navcon'>*/}
                                             {/*    <li><Nav.Link>KHÁCH LẺ GHÉP ĐOÀN</Nav.Link></li>*/}
                                             {/*    <li><Nav.Link>BẤT ĐỘNG SẢN</Nav.Link></li>*/}
@@ -604,9 +607,9 @@ function Header(props) {
                                         </Nav.Link>
 
 
-                                        <Nav.Link><Link
+                                        <Nav.Link><Link className={pathname === '/Tintuc' ? 'header-tab active' : ''}
                                             href='/Tintuc'>{textShow ? textShow.news : 'Tin Tức'}</Link></Nav.Link>
-                                        <Nav.Link><Link
+                                        <Nav.Link><Link className={pathname === '/about' ? 'header-tab active' : ''}
                                             href='/about'>{textShow ? textShow.review : 'REVIEW'}</Link></Nav.Link>
                                     </Nav>
                                 </Navbar.Collapse>
@@ -614,81 +617,64 @@ function Header(props) {
                         </Navbar>
                     </div>
 
-                    {/*<Button className="menu_mobile" onClick={handleShow}>
-                <FaBars/>
-              </Button> */}
-                    {/*<Card className='menumobile_phone'>*/}
-                    {/*    <CardHeader*/}
-                    {/*        id="headingOne"*/}
-                    {/*        aria-expanded={openedCollapse === "collapseOne"}*/}
-                    {/*    >*/}
-                    {/*        <Link href="/">*/}
-                    {/*            <img*/}
-                    {/*                src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png"*/}
-                    {/*                style={{width: '200px'}}/>*/}
-                    {/*        </Link>*/}
-                    {/*        <div className='logo_phone'>*/}
-                    {/*            <label for="check" className="menu_mobile" onClick={() =>*/}
-                    {/*                setOpenedCollapse(*/}
-                    {/*                    openedCollapse === "collapseOne"*/}
-                    {/*                        ? ""*/}
-                    {/*                        : "collapseOne"*/}
-                    {/*                )*/}
-                    {/*            }>*/}
-                    {/*                <i class='bx bx-list-ul'></i>*/}
-                    {/*            </label>*/}
-                    {/*        </div>*/}
-                    {/*    </CardHeader>*/}
-                    {/*    <Collapse*/}
-                    {/*        isOpen={openedCollapse === "collapseOne"}*/}
-                    {/*        aria-labelledby="headingOne"*/}
-                    {/*        data-parent="#accordionExample"*/}
-                    {/*        id="collapseOne"*/}
-                    {/*    >*/}
-                    {/*        <CardBody className="content-menu-phone opacity-8">*/}
-                    {/*            <Offcanvas.Header>*/}
-                    {/*                <Offcanvas.Title>*/}
-                    {/*                    /!* <Link href="/">*/}
-                    {/*        <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>*/}
-                    {/*        </Link> *!/*/}
-                    {/*                </Offcanvas.Title>*/}
-                    {/*            </Offcanvas.Header>*/}
-                    {/*            <Offcanvas.Body className="title-menuphone">*/}
-                    {/*                <Nav>*/}
-                    {/*                    <Nav.Link href="/" >TRANG CHỦiii</Nav.Link>*/}
-                    {/*                    <NavDropdown*/}
-                    {/*                        id="nav-dropdown-tour-"*/}
-                    {/*                        title={<span>TOUR<i className="bx bx-chevron-down"></i></span>}>*/}
-                    {/*                        <NavDropdown.Item>TOUR GIÁP THÌN</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>TOUR NƯỚC NGOÀI</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item href="/">TOUR TREKKING</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item href="/">TOUR THEO YÊU CẦU</NavDropdown.Item>*/}
-                    {/*                    </NavDropdown>*/}
-                    {/*                    <Link href="/">FLASHPACKING</Link>*/}
-                    {/*                    <Link href="/">VISA</Link>*/}
-                    {/*                    <Link href="/">VÉ MÁY BAY -VOUCHER COMBO</Link>*/}
-                    {/*                    <NavDropdown id="nav-dropdown-tour-nn" title="NHẬT KÝ">*/}
-                    {/*                        <NavDropdown.Item>KHÁCH LẺ GHÉP ĐOÀN</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>BẤT ĐỘNG SẢN</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>SỨC KHỎE - BẢO HIỂM</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>GIẢI TRÍ - SHOWBIZ</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>CÔNG NGHỆ CAO</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>TÀI CHÍNH - NGÂN HÀNG</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>SẢN XUẤT - CHẾ BIẾN</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>THẨM MỸ - LÀM ĐẸP</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>GIA ĐÌNH - NHÓM BẠN BÈ</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>TÔN GIÁO - THIỆN NGUYỆN</NavDropdown.Item>*/}
-                    {/*                        <NavDropdown.Item>CƠ QUAN NHÀ NƯỚC</NavDropdown.Item>*/}
-                    {/*                    </NavDropdown>*/}
-                    {/*                    <Link href="/about">TIN TỨC </Link>*/}
-                    {/*                    <Link href="/Contact">REVIEW</Link>*/}
+              {/*      <Button className="menu_mobile" onClick={handleShow}>*/}
+              {/*  <FaBars/>*/}
+              {/*</Button>*/}
+                    <Card className='menumobile_phone'>
+                        <CardHeader
+                            id="headingOne"
+                            aria-expanded={openedCollapse === "collapseOne"}
+                        >
+                            <Link href="/">
+                                <img
+                                    src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png"
+                                    style={{width: '200px'}}/>
+                            </Link>
+
+                            <Button className="menu_mobile me-0"
+                                onClick={() => setOpen(!open)}
+                                aria-controls="example-collapse-text"
+                                aria-expanded={open}
+                            ><i class='bx bx-list-ul'></i>
+                            </Button>
+                        </CardHeader>
+                        <Collapse in={open}>
+                            <div id="example-collapse-text">
+                                <CardBody className="content-menu-phone opacity-8">
+                                    <Offcanvas.Header>
+                                        <Offcanvas.Title>
+                                            {/* <Link href="/">
+                            <img src="https://namecard.nhanhtravel.com/app-assets/mobile/GoldenSmileTravel/logo-gst-dovang-1624975291.png" style={{width: '200px'}}/>
+                            </Link> */}
+                                        </Offcanvas.Title>
+                                    </Offcanvas.Header>
+                                    <Offcanvas.Body className="title-menuphone">
+                                        <Nav>
+                                            <Nav.Link href="/" >TRANG CHỦ</Nav.Link>
+                                            <NavDropdown
+                                                id="nav-dropdown-tour-"
+                                                title={<span>TOUR</span>}>
+                                                {type_tourism_list&&type_tourism_list.map((item,index)=>(
+                                                    <NavDropdown.Item> <Link href={`/Category?type_tourism_id=${item.id}`}>{item.name}</Link></NavDropdown.Item>
+
+                                                ))}
+
+                                            </NavDropdown>
+                                            {/*<Nav.Link href="/" >VÉ MÁY BAY</Nav.Link>*/}
+                                            {/*<Nav.Link href="/" >VOUCHER-COMBO</Nav.Link>*/}
+                                            <Nav.Link href="/Camnang" >NHẬT KÝ</Nav.Link>
+                                            <Nav.Link href="/Tintuc" >TIN TỨC</Nav.Link>
+                                            <Nav.Link href="/about" >REVIEW</Nav.Link>
 
 
-                    {/*                </Nav>*/}
-                    {/*            </Offcanvas.Body>*/}
-                    {/*        </CardBody>*/}
-                    {/*    </Collapse>*/}
-                    {/*</Card>*/}
+
+                                        </Nav>
+                                    </Offcanvas.Body>
+                                </CardBody>
+                            </div>
+                        </Collapse>
+
+                    </Card>
 
                 </Container>
 

@@ -559,7 +559,55 @@
   }
 
 }
+/* CSS for small screens (e.g., mobile devices) */
+@media only screen and (max-width: 768px) {
+  .header_moblie {
+    flex-direction: column; /* Chuyển hướng dọc cho các phần tử con */
+  }
 
+  .navbar_logo_images {
+    margin-bottom: 20px; /* Khoảng cách giữa logo và menu */
+  }
+
+  .item_list_header {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+  }
+
+  .navbar_tongsoxuong {
+    flex-direction: column; /* Chuyển hướng dọc cho các phần tử con */
+  }
+
+  .navcha {
+    margin-bottom: 10px; /* Khoảng cách giữa các mục menu */
+  }
+
+  .navcon {
+    display: none; /* Ẩn nội dung con của menu */
+  }
+
+  .navcha:hover .navcon {
+    display: block; /* Hiển thị nội dung con của menu khi hover */
+  }
+}
+button.menu_mobile.btn.btn-primary {
+  background: none;
+  padding: 0;
+  font-size: 27px;
+  height: 32px;
+}
+@media screen and  (max-width: 575px){
+  .header-first {
+   display: flex;
+    align-items:center;
+  }
+  .num-line{
+    font-size:12px!important;
+  }
+  .menu-info{
+    justify-content:space-between;
+  }
+
+}
 @media screen and (min-width: 576px) and (max-width: 991px) {
   // Header
   .hotline_firsttop .phone-hotline {
