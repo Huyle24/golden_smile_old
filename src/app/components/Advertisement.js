@@ -28,21 +28,20 @@ function Advertisement(props) { // Prop for image URL
     return (
         <>
             {popup_img && (
-                <div className="advertisement-modal-overlay" onClick={handleClose}>
-                    <div className={`advertisement-modal ${showPopup ? 'active' : ''}`}>
 
-
-                        <div className="advertisement-modal-content">
-                            <Link href={popup_img && popup_img.url_link ? popup_img.url_link : '#'}>
-                                <img
-                                    src={popup_img && popup_img.bucket_img ? popup_img.bucket_img : ''}
-                                    alt="Advertisement" className="advertisement-image"/>
-                            </Link>
-                            <button className="close-button" onClick={handleClose}>x</button>
-                        </div>
-
-
+                <div className={`advertisement-modal ${showPopup ? 'active' : ''}`}>
+                    <div className="advertisement-modal-overlay" onClick={handleClose}>
                     </div>
+                    <div className="advertisement-modal-content">
+                        <Link href={popup_img && popup_img.url_link ? popup_img.url_link : '#'}>
+                            <img
+                                src={popup_img && popup_img.bucket_img ? popup_img.bucket_img : ''}
+                                alt="Advertisement" className="advertisement-image"/>
+                        </Link>
+                        <button className="close-button" onClick={handleClose}>x</button>
+                    </div>
+
+
                 </div>
             )
             }
