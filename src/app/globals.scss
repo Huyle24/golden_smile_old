@@ -1206,11 +1206,12 @@ body {
 }
 
 .tab_filter .tab_filter_searchnav .li_searchnav {
-  height: 70px;
-  width: 195px;
+  height: 80px;
+  width: 225px;
 }
 
 .tab_filter_searchnav .li_searchnav .search_mucfilter {
+  height: 70%;
   background-color: #B72028;
   display: inline-block;
   width: 100%;
@@ -1223,19 +1224,21 @@ body {
   vertical-align: middle;
   touch-action: manipulation;
   color: white;
+  justify-content: center;
 }
 
 .tab_filter_searchnav .li_searchnav .search_mucfilter.active {
   background-color: white;
   color: #B72028;
+  border:1px solid;
 }
 
 .tab_filter_searchnav .li_searchnav:first-child .search_mucfilter {
-  border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
 }
 
 .tab_filter_searchnav .li_searchnav:last-child .search_mucfilter {
-  border-top-right-radius: 150px;
+  border-bottom-right-radius: 150px;
 }
 
 
@@ -1253,9 +1256,8 @@ body {
   float: left;
   display: block;
   text-align: center;
-  line-height: 15px;
-  white-space: nowrap;
   letter-spacing: .89px;
+
 }
 
 .page-item.active {
