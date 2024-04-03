@@ -103,7 +103,7 @@ function ListTour(props) {
 
     useEffect(() => {
         console.log('nguyen1')
-        props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', FilterValues.cityStart, '', FilterValues.dateStart, FilterValues.dateEnd, '', '', FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
+        props.fetchJointTourList('', '',FilterValues.keyword , 30, FilterValues.countryStart, '', FilterValues.cityStart, '', FilterValues.dateStart, FilterValues.dateEnd, '', '', FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
     }, [FilterValues])
 
     // useEffect(() => {

@@ -37,7 +37,7 @@ function TourPopularType(props) {
                             </Link>
                         </div>
                         <div>
-                            <Link className={'text-white text-hover'}
+                            <Link className={'text-white text-hover d-block-mobile'}
                                   href={banner_list && banner_list[0] && banner_list[0].url_link ? banner_list[0].url_link : '#'}>
                                 {banner_list && banner_list[0] && banner_list[0].desc ? banner_list[0].desc : 'Chưa nhập nội dung'}
                             </Link>
@@ -60,7 +60,7 @@ function TourPopularType(props) {
                             </Link>
                         </div>
                         <div>
-                            <Link className={'text-white text-hover'}
+                            <Link className={'text-white text-hover d-block-mobile'}
                                   href={banner_list && banner_list[1] && banner_list[1].url_link ? banner_list[1].url_link : '#'}>
                                 {banner_list && banner_list[1] && banner_list[1].desc ? banner_list[1].desc : 'Chưa nhập nội dung'}
                             </Link>
@@ -83,7 +83,7 @@ function TourPopularType(props) {
                             </Link>
                         </div>
                         <div>
-                            <Link className={'text-white text-hover'}
+                            <Link className={'text-white text-hover d-block-mobile'}
                                   href={banner_list && banner_list[2] && banner_list[2].url_link ? banner_list[2].url_link : '#'}>
                                 {banner_list && banner_list[2] && banner_list[2].desc ? banner_list[2].desc : 'Chưa nhập nội dung'}
                             </Link>

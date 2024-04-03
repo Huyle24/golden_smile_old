@@ -14,6 +14,7 @@ function SidaBarFilter(props) {
     const cityParam = searchParams.get('city');
     const dateStartParam = searchParams.get('dateStart');
     const typeTourismParam = searchParams.get('type_tourism_id');
+    const keywordParam = searchParams.get('keyword');
     let country_list = props.countryListInfo.data && props.countryListInfo.isLoading === false ? props.countryListInfo.data : '';
     let type_tourism_list = props.fetchListTypeTourismInfo.data && props.fetchListTypeTourismInfo.isLoading === false ? props.fetchListTypeTourismInfo.data : '';
     let date_type_list = props.fetchDateTypeInfo.data && props.fetchDateTypeInfo.isLoading === false ? props.fetchDateTypeInfo.data : '';
@@ -29,6 +30,7 @@ function SidaBarFilter(props) {
     const [dateStart, setDateStart] = useState(dateStartParam ? dateStartParam : '')
     const [dateEnd, setDateEnd] = useState('')
     const [showSidebar, setShowSidebar] = useState(false);
+    const [keyword, setKeyword] = useState(keywordParam ? keywordParam : '');
     const handleFormatTour = (event) => {
         setFormatTour(event.target.value);
 
@@ -58,6 +60,9 @@ function SidaBarFilter(props) {
     const toggleSidebar = () => {
         setShowSidebar(!showSidebar);
     };
+    const handleKeyword = (event) => {
+        setKeyword(event.target.value)
+    }
     console.log('formatTour:', formatTour);
     console.log('typeTourism:', typeTourism);
     console.log('countryStart:', countryStart);
@@ -95,12 +100,13 @@ function SidaBarFilter(props) {
         countryEnd: countryEnd,
         dateType: dateType,
         dateStart: dateStart,
-        dateEnd: dateEnd
+        dateEnd: dateEnd,
+        keyword: keyword
     };
     console.log('newFilterValues', newFilterValues)
     useEffect(() => {
         props.updateFilterValues(newFilterValues);
-    }, [formatTour, typeTourism, countryStart, cityStart, countryEnd, dateType, dateStart, dateEnd]); // This useEffect will run whenever any of these values change
+    }, [keyword,formatTour, typeTourism, countryStart, cityStart, countryEnd, dateType, dateStart, dateEnd]); // This useEffect will run whenever any of these values change
 
     return (<>
             <Col xs={12} className={'hide-mobile'}>
@@ -117,6 +123,11 @@ function SidaBarFilter(props) {
                 <Card className=" filter-sidebar ">
                     <Card.Title className="p-3 fillter">Tìm kiếm</Card.Title>
                     <Form className="px-3 py-4">
+                        <Card.Text className="title-filter mb-2">Tên tour</Card.Text>
+                        <Form.Control type="text" className="mb-3" onChange={handleKeyword}
+                                      defaultValue={keywordParam ? keywordParam : ''}/>
+
+
                         <Card.Text className="title-filter mb-2">Hình thức</Card.Text>
                         <Form.Select aria-label="Default select example" className="mb-3" onChange={handleFormatTour}>
                             <option value="">---Tất cả---</option>

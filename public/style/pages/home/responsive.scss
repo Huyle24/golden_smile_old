@@ -439,11 +439,7 @@
     flex: 0 0 43%;
     width: 50%;
   }
-  .favorite-country {
-    display: flex;
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-  }
+
   .number_reason {
     .reason_hangdau, .reason_hangsau {
       text-align: center;
@@ -479,7 +475,11 @@
   .ant-anchor-link-title{
     width:150px;
   }
-
+  .favorite-country {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+  }
   .item_day_tour{
     zoom: 1.3;
   }
@@ -488,6 +488,13 @@
     background: white;
 
 
+  }
+  .calendar-start{
+    zoom:0.85
+  }
+  .d-block-mobile{
+    display:block;
+    width:180px;
   }
   .col-side-bar {
     position: fixed;

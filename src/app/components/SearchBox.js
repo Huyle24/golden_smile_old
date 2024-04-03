@@ -5,6 +5,7 @@ import Tab from "react-bootstrap/Tab";
 import React, {useEffect, useState} from "react";
 import Select from "react-select";
 import Link from "next/link";
+
 import {
     FaCar,
     FaRegBuilding,
@@ -172,7 +173,11 @@ function SearchBox(props) {
     const searchKeyWord = (e) => {
         setKeyWord(e.target.value)
     }
-
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của form
+        const keyword = event.target.search.value; // Lấy giá trị từ trường input
+        router.push(`/Category/?keyword=${encodeURIComponent(keyword)}`); // Chuyển hướng URL với tham số keyword
+    };
     const showHotel = () => {
         if (moment(dateStart, "DD-MM-YYYY").format('DD/MM/YYYY') < moment(today, "DD-MM-YYYY").format('DD/MM/YYYY')) {
 
@@ -342,7 +347,7 @@ function SearchBox(props) {
                     </Tab.Container>
                 </div>
 
-                <form action="https://goldensmiletravel.com/search"
+                <form onSubmit={handleSubmit}
                       className="heritage-search heritage-search-mobile d-lg-none z-index-2 position-relative bg-white rounded mx-md-10">
                     <Col className=" ml-auto" md="12">
                         <div className=" accordion my-3" id="accordionExample">
@@ -353,17 +358,17 @@ function SearchBox(props) {
                                 >
 
                                     <div className="form-group mb-0 position-relative">
-                                        <a onClick={() =>
-                                            setOpenedCollapse(
-                                                openedCollapse === "collapseOne"
-                                                    ? ""
-                                                    : "collapseOne"
-                                            )
-                                        }
-                                           className={`text-secondary bos-fited-left-center btn ${openedCollapse ? 'improve-search' : ''} shadow-none pr-3 pl-0 position-absolute py-0 h-100 border-right`}>
-                                        </a>
+                                        {/*<a onClick={() =>*/}
+                                        {/*    setOpenedCollapse(*/}
+                                        {/*        openedCollapse === "collapseOne"*/}
+                                        {/*            ? ""*/}
+                                        {/*            : "collapseOne"*/}
+                                        {/*    )*/}
+                                        {/*}*/}
+                                        {/*   className={`text-secondary bos-fited-left-center btn ${openedCollapse ? 'improve-search' : ''} shadow-none pr-3 pl-0 position-absolute py-0 h-100 border-right`}>*/}
+                                        {/*</a>*/}
                                         <input type="text" name="search" placeholder="Nhập tên tour..."
-                                               className="form-control form-control-lg border shadow-none pr-9 pl-11 bg-white placeholder-muted"/>
+                                               className="form-control form-control-lg border shadow-none pr-9 pl-2 bg-white placeholder-muted"/>
                                         <Button type="submit"
                                                 className="position-absolute bos-fited-right-center p-0 text-heading fs-20 px-3 shadow-none h-100 border-left">
                                             <i class='bx bx-search'></i>

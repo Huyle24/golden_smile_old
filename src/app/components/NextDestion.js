@@ -47,7 +47,7 @@ function NextDestion(props) {
                 </div>
                     <Row className="mt-3 no-gutters favorite-country">
                         {listCountry ? (listCountry.filter((item, idx) => idx < 12).map((item) => (
-                            <div className="col-xs-6 col-md-3 ">
+                            <div className="col-xs-6 col-md-4 col-lg-3 ">
                                 <div data-aos="fade-zoom-in"
                                     data-aos-easing="ease-in-back"
                                     data-aos-duration="2000"
