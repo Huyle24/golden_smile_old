@@ -106,10 +106,10 @@ function ListTour(props) {
         props.fetchJointTourList('', '', '', 30, FilterValues.countryStart, '', FilterValues.cityStart, '', FilterValues.dateStart, FilterValues.dateEnd, '', '', FilterValues.dateType, FilterValues.formatTour, FilterValues.typeTourism);
     }, [FilterValues])
 
-    useEffect(() => {
-        console.log('nguyen2')
-        props.fetchJointTourList('', '', '', 30, countryParam ? countryParam : '', '', '', '', dateStartParam ? dateStartParam : '', ' ', '', '', '', formatTourParam ? formatTourParam : '', typeTourismParam ? typeTourismParam : '');
-    }, [searchParams])
+    // useEffect(() => {
+    //     console.log('nguyen2')
+    //     props.fetchJointTourList('', '', '', 30, countryParam ? countryParam : '', '', '', '', dateStartParam ? dateStartParam : '', ' ', '', '', '', formatTourParam ? formatTourParam : '', typeTourismParam ? typeTourismParam : '');
+    // }, [searchParams])
 
 
     return (

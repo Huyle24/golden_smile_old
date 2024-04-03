@@ -503,7 +503,7 @@ function PaymentMethod(props) {
                         <Row>
                             {payment_method_list ? (payment_method_list.map((item, index) => (
                                 <Col md={6}>
-                                    <Card className={`payments mt-2 p-0 ${index === activeIndex ? 'active' : ''}`}>
+                                    <Card className={`np mt-2 p-0 ${index === activeIndex ? 'active' : ''}`}>
                                         <Card.Body>
                                             <div
                                                 className={'d-flex justify-content-between align-items-center flex-wrap'}>
