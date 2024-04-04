@@ -4,12 +4,12 @@ import Link from "next/link";
 export default function WindowSidebar() {
     return (
         <>
-            <div className={'window-corporation'}>
+            <div className={'window-corporation '}>
                 <div className={'text'}><i className='bx bx-chevron-left'></i></div>
                 <div className={'content'}>
                     <div className={'content-body'}>
                         <Row>
-                            <Col xl={6} className={'col-left'}>
+                            <Col xs={6} className={'col-left'}>
                                 <div className={'div-img'}>
                                     <Link href={'#'}>
                                         <img
@@ -25,7 +25,7 @@ export default function WindowSidebar() {
                                     </Link>
                                 </div>
                             </Col>
-                            <Col xl={6} className={'pl-0 col-right'}>
+                            <Col xs={6} className={'pl-0 col-right'}>
                                 <div className={'div-img'}>
                                     <Link href={'https://goldensmileevent.com.vn/'} target={'_blank'}>
                                         <img
@@ -54,7 +54,7 @@ export default function WindowSidebar() {
 
 
             </div>
-            <div className={'window-instruct'}>
+            <div className={'window-instruct '}>
                 <div className={'text'}><i className='bx bx-edit'></i></div>
                 <div className={'content'}>
                     <Link href={'./Intruct'} target={'_blank'}>

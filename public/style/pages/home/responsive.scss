@@ -1,14 +1,18 @@
 // TourPopular
 @media screen and (min-width: 280px) and (max-width: 420px) {
-  .text-chidren-payment{
-    max-width:160px
+  .text-chidren-payment {
+    max-width: 160px
   }
 }
+
 @media screen and (min-width: 280px) and (max-width: 575px) {
   // Header first
   .header-first .danhmuc_firsttop {
     padding-right: 15px;
     padding-left: 0px;
+  }
+  .window-corporation, .window-instruct, .window-call {
+    display: none;
   }
 
   .danhmuc_firsttop .menu-info .muc_menu .title_menu {
@@ -496,19 +500,19 @@
     border-radius: 6px;
   }
   .imgDetail .swiper-slide img {
-    border-radius:4px
+    border-radius: 4px
   }
   .ant-anchor-ink {
     width: 150px !important;
     background: white;
   }
-  .body-card-invoice{
-    padding-top:0!important;
+  .body-card-invoice {
+    padding-top: 0 !important;
   }
 
-  .image-invoice{
+  .image-invoice {
     width: 98% !important;
-    height:auto !important
+    height: auto !important
   }
 
   .flex-wrap-mobile {
@@ -519,7 +523,7 @@
   }
   .pe-mobile-0 {
     padding-right: 0 !important;
-  padding-left: 0!important;
+    padding-left: 0 !important;
   }
 
   .body-card-invoice {
