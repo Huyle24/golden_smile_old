@@ -263,51 +263,52 @@ function TimeLine(props) {
                             >
                                 <Row>
                                     <Col md={3}>
-                                        <div className={'py-1'}>Giờ khởi hành:</div>
-                                        <div className={'py-1'}>Ngày khởi hành:</div>
-                                        <div className={'py-1'}>Địa điểm khởi hành:</div>
-                                        <div className={'py-1'}>Hướng dẫn viên:</div>
-                                        <div className={'py-1'}>Xe:</div>
+                                        <div className={'py-1 d-flex justify-content-between'}>
+                                            <div>Giờ khởi hành:</div>
+                                            <div>{data ? data.time_start : ''}</div>
+                                        </div>
+                                        <div className={'py-1 d-flex justify-content-between'}>
+                                            <div>Ngày khởi hành:</div>
+                                            <div>{data ? data.date_start_tour : ''}</div>
+                                        </div>
+                                        <div className={'py-1 d-flex justify-content-between'}>
+                                            <div> Địa điểm khởi hành:</div>
 
-                                    </Col>
-                                    <Col md={3}>
-                                        <div className={'py-1 min-height-div'}>
-                                            {data ? data.time_start : ''}
                                         </div>
-                                        <div className={'py-1 min-height-div'}>
-                                            {data ? data.date_start_tour : ''}
-                                        </div>
-                                        <div className={'py-1 min-height-div'}>
-                                            TP. Hồ Chí Minh
-                                        </div>
-                                        <div className={'py-1 min-height-div'}>
-                                            {data && data.guide.map((item, index) => {
-                                                return (
-                                                    <span key={index}>
+                                        <div className={'py-1 d-flex justify-content-between'}>
+                                            <div>Hướng dẫn viên:</div>
+                                            <div>
+                                                {data && data.guide.map((item, index) => {
+                                                    return (
+                                                        <span key={index}>
                                         {item.guide_name + ' '}
                                     </span>
-                                                );
-                                            })}
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
-                                        <div
-                                            className={'py-1 min-height-div'}>   {data && data.vehicles.map((item, index) => {
-                                            return (
+                                        <div className={'py-1 d-flex justify-content-between'}>
+                                            <div>Xe:</div>
+                                            <div>
+                                                {data && data.vehicles.map((item, index) => {
+                                                    return (
 
-                                                <div key={index}>
+                                                        <div key={index}>
 
-                                                    {item}
+                                                            {item}
 
-                                                </div>
-                                            );
-                                        })}
-
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
+
 
                                     </Col>
                                     <Col md={6}>
                                         <div>Máy bay:</div>
                                         {data && data.airline_start_name && (
-                                            <div className={'start_flight'}>
+                                            <div className={'start_flight mt-4'}>
                                                 <div className={'d-flex justify-content-between'}>
                                                     <div className={'col-start'}>
                                                         <img className={'airline_start_img'}
@@ -329,7 +330,7 @@ function TimeLine(props) {
                                                     </div>
                                                     <div className={'col-end'}>
                                                         <div>
-                                                            <div className={'code-plane-start'}>{data.code_start}</div>
+                                                            <div className={'code-plane-start my-2'}>{data.code_start}</div>
                                                             <div className={'time'}>{data.time_landing_start}</div>
                                                         </div>
                                                     </div>
@@ -338,7 +339,7 @@ function TimeLine(props) {
 
                                         )}
                                         {data && data.airline_end_name && (
-                                            <div className={'airline_end'}>
+                                            <div className={'airline_end mt-4'}>
 
                                                 <div className={'d-flex justify-content-between'}>
                                                     <div className={'col-start'}>
@@ -363,7 +364,7 @@ function TimeLine(props) {
                                                     </div>
                                                     <div className={'col-end'}>
                                                         <div>
-                                                            <div className={'code-plane-start'}>{data.code_end}</div>
+                                                            <div className={'code-plane-start my-2'}>{data.code_end}</div>
                                                             <div className={'time'}>{data.time_takeoff_end}</div>
                                                         </div>
                                                     </div>

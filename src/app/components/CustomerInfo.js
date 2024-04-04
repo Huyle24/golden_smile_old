@@ -21,12 +21,12 @@ function CustomerInfo(props) {
             <Card.Header>THÔNG TIN TÀI KHOẢN</Card.Header>
             <Card.Body>
                 <Row>
-                    <Col md={'3'}>
+                    <Col  lg={3} xs={4}>
                         <img className={'avatar'}
                              src={customer_info.customer_image ? customer_info.customer_image : "https://demo.nhanhtravel.com/assets_front/images/no_image.jpg"}
                              alt=""/>
                     </Col>
-                    <Col md={'9'}>
+                    <Col  lg={9} xs={8}>
                         <div
                             className={'customer_name'}> {customer_info.customer_name ? customer_info.customer_name : ""}</div>
                         <div>{customer_info.email ? customer_info.email : ""}</div>

@@ -180,7 +180,7 @@ function info_user(props) {
                         <Col md={8}>
                             <Card>
                                 <Card.Body>
-                                    <div className="row position-relative px-5">
+                                    <div className="row position-relative px-2 px-md-5">
                                         <div className={'title-card mb-4'}>THÔNG TIN KHÁCH HÀNG</div>
                                         <div className="col-sm-2">
                                             <div className="form-group">

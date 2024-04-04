@@ -136,7 +136,7 @@ function DetailTourPayment(props) {
     return (
         <>
             <Row>
-                <Col md={8}>
+                <Col lg={8}>
                     <Container className=" imgDetail mb-5">
                         <Row className={'row_tour_payment'}>
                             <Col md={4}>
@@ -216,7 +216,7 @@ function DetailTourPayment(props) {
                                                     <div className={'d-flex justify-content-between align-items-center'}>
                                                         {childPrices[index] && (
                                                             <label
-                                                                className={'d-flex align-items-center flex-wrap'}><FaChildren
+                                                                className={'d-flex align-items-center text-chidren-payment flex-wrap'}><FaChildren
                                                                 className={'me-3 text-danger'} style={{fontSize:24}}/> {`Trẻ em từ ${childPrices[index].child_old_start} đến ${childPrices[index].child_old_end} tuổi:`}
                                                             </label>
                                                         )}
@@ -395,7 +395,7 @@ function DetailTourPayment(props) {
                         </Modal>
                     </Container>
                 </Col>
-                <Col md={4}>
+                <Col lg={4}>
                     <PaymentSidebar  orderData={orderData}/>
                 </Col>
             </Row>

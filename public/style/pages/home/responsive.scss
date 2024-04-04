@@ -1,5 +1,9 @@
 // TourPopular
-
+@media screen and (min-width: 280px) and (max-width: 420px) {
+  .text-chidren-payment{
+    max-width:160px
+  }
+}
 @media screen and (min-width: 280px) and (max-width: 575px) {
   // Header first
   .header-first .danhmuc_firsttop {
@@ -472,29 +476,63 @@
   .close-sidebar-btn, .hide-mobile {
     display: flex !important;
   }
-  .ant-anchor-link-title{
-    width:150px;
+  .ant-anchor-link-title {
+    width: 150px;
+  }
+
+  span.p-inputnumber.p-component.p-inputwrapper.p-inputwrapper-filled.p-inputnumber-buttons-stacked {
+    width: 23%;
   }
   .favorite-country {
     display: flex;
     flex-wrap: nowrap !important;
     overflow-x: auto;
   }
-  .item_day_tour{
+  .item_day_tour {
     zoom: 1.3;
+  }
+  .mySwiper1 .swiper-slide-thumb-active {
+    border: 3px solid #db2031;
+    border-radius: 6px;
+  }
+  .imgDetail .swiper-slide img {
+    border-radius:4px
   }
   .ant-anchor-ink {
     width: 150px !important;
     background: white;
-
-
   }
-  .calendar-start{
-    zoom:0.85
+  .body-card-invoice{
+    padding-top:0!important;
   }
-  .d-block-mobile{
-    display:block;
-    width:180px;
+
+  .image-invoice{
+    width: 98% !important;
+    height:auto !important
+  }
+
+  .flex-wrap-mobile {
+    flex-wrap: wrap;
+  }
+  .tour-name {
+    max-width: 100% !important;
+  }
+  .pe-mobile-0 {
+    padding-right: 0 !important;
+  padding-left: 0!important;
+  }
+
+  .body-card-invoice {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .calendar-start {
+    zoom: 0.85
+  }
+  .d-block-mobile {
+    display: block;
+    width: 180px;
   }
   .col-side-bar {
     position: fixed;
@@ -566,6 +604,7 @@
   }
 
 }
+
 /* CSS for small screens (e.g., mobile devices) */
 @media only screen and (max-width: 768px) {
   .header_moblie {
@@ -596,25 +635,28 @@
     display: block; /* Hiển thị nội dung con của menu khi hover */
   }
 }
+
 button.menu_mobile.btn.btn-primary {
   background: none;
   padding: 0;
   font-size: 27px;
   height: 32px;
 }
-@media screen and  (max-width: 575px){
+
+@media screen and (max-width: 575px) {
   .header-first {
-   display: flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
   }
-  .num-line{
-    font-size:12px!important;
+  .num-line {
+    font-size: 12px !important;
   }
-  .menu-info{
-    justify-content:space-between;
+  .menu-info {
+    justify-content: space-between;
   }
 
 }
+
 @media screen and (min-width: 576px) and (max-width: 991px) {
   // Header
   .hotline_firsttop .phone-hotline {

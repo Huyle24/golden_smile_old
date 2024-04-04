@@ -52,23 +52,23 @@ function TourWatched(props) {
     return (
         <Card className={'invoice-list'}>
             <Card.Body>
-                <div className={'px-5'}>
+                <div className={' px-2 px-md-5'}>
                     <Row>
                         <div className={'mb-2 title-card'}>TOUR ĐÃ XEM</div>
                         {listTourWat ? (listTourWat.map((item, idx) => (
                             <Card className={'mt-3'}>
-                                <Card.Body className={'body-card-invoice'}>
-                                    <Row key={idx} className="mt-3 ">
-                                        <Col lg="3">
+                                <Card.Body className={'body-card-invoice '}>
+                                    <Row key={idx} className="mt-lg-3 mt-0">
+                                        <Col lg="3" className={'pe-mobile-0 d-flex justify-content-center'}>
                                             <Link href={"/Tour?tour_type=2" + "&permalink=" + item.permalink}
-                                                  onClick={() => Product_watched(item)}>
+                                                  onClick={() => Product_watched(item)} className={'d-flex justify-content-center'}>
                                                 <img className={'image-invoice'}
                                                      src={item.bucket_img ? item.bucket_img : "https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png"}
                                                      alt="tour"/>
                                             </Link>
                                         </Col>
                                         <Col lg="9">
-                                            <div className={'d-flex justify-content-between'}>
+                                            <div className={'d-flex justify-content-between flex-wrap-mobile'}>
 
                                                 <div className={'tour-name '}
                                                      style={{maxWidth: "85%"}}>
@@ -92,14 +92,14 @@ function TourWatched(props) {
                                                         className={'invoice_code'}>  {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].code : ''}</span>
                                             </div>
 
-                                            <div className="d-flex justify-content-between align-items-center mt-1">
-                                                <div>
+                                            <div className="d-flex justify-content-between align-items-center mt-1 flex-wrap">
+                                                <div style={{minWidth:'200px',maxWidth:'55%'}}>
                                                     <CiLocationOn/>
                                                     <span className=" ms-2">
                                                {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_start : ''} - {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].city_name : ''}
                                                       </span>
                                                 </div>
-                                                <div className={'d-flex flex-wrap align-items-center'}>
+                                                <div style={{minWidth:'200px',maxWidth:'45%'}} className={'d-flex  flex-lg-wrap align-items-center justify-content-lg-end '}>
                                                     <CiTimer/>
                                                     <span className=" ms-2 ">
                                                   {item.tour_open_list && item.tour_open_list.length > 0 ? item.tour_open_list[0].date_type_name : ''}

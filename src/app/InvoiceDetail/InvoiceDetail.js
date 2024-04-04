@@ -26,12 +26,12 @@ function InvoiceDetail(props) {
                 </Card.Header>
                 <Card.Body className={'body-card-invoice'}>
                     <Row>
-                        <Col md={3}>
+                        <Col md={3} className={'d-flex justify-content-center'}>
                             <img className={'image-invoice'}
                                  src={invoice_detail.tour_image ? invoice_detail.tour_image : "https://vigomanager.com/app-assets/mobile/img-huy/golden%20smile%20logo.png"}
                                  alt=""/>
                         </Col>
-                        <Col md={9}>
+                        <Col md={9} className={'px-4 px-lg-2'}>
                             <div className={'d-flex justify-content-between'}>
                                 <div
                                     className={'tour-name-detail'}>{invoice_detail.tour_name ? invoice_detail.tour_name : ""}</div>
@@ -54,24 +54,51 @@ function InvoiceDetail(props) {
             <Card className={'mt-3 booking-card'}>
                 <Card.Header> CHI TIẾT BOOKING</Card.Header>
                 <Card.Body>
-                    <Row>
-                        <Col md={4} className={'label-booking-card'}>
-                            <div>Số booking</div>
-                            <div>Trị giá booking</div>
-                            <div>Số tiền đã thanh toán</div>
-                            <div> Số tiền còn lại</div>
-                            <div>Hình thức thanh toán</div>
-                            <div>Tình trạng thanh toán</div>
-                        </Col>
-                        <Col md={8} className={'content-booking-card'}>
-                            <div ><span className={'order-id'}>{invoice_detail.order_id}</span> (Quý khách vui lòng nhớ số booking để thuận tiện  giao dịch ) </div>
-                            <div>{formatCurrency(invoice_detail.price_total)}</div>
-                            <div>{formatCurrency(invoice_detail.total_paid  ? invoice_detail.total_paid : '')}</div>
-                            <div>{formatCurrency(invoice_detail.remain)}</div>
-                            <div>{invoice_detail.payment_method_name}</div>
-                            <div>{invoice_detail.status}</div>
-                        </Col>
-                    </Row>
+                    <div className={'label-booking-card'}>
+                        <div className={'line-content'}>
+                            <div style={{maxWidth: '50%'}}>Số booking</div>
+                            <div style={{maxWidth: '50%'}}><span
+                                className={'order-id'}>{invoice_detail.order_id}</span>
+                            </div>
+
+                        </div>
+                        <div className={'line-content  text-center text-secondary justify-content-center'}>
+                              <span className={'text-danger'}>*</span> Quý khách vui lòng nhớ số booking để thuận tiện giao dịch
+
+                        </div>
+                        <div className={'line-content'}>
+                            <div style={{maxWidth: '50%'}}>Trị giá booking</div>
+                            <div className={'fw-bold'} style={{maxWidth: '50%'}}>{formatCurrency(invoice_detail.price_total)}
+                            </div>
+
+                        </div>
+                        <div className={'line-content'}>
+                            <div style={{maxWidth: '50%'}}>Số tiền đã thanh toán</div>
+                            <div className={'fw-bold'}
+                                style={{maxWidth: '50%'}}>{formatCurrency(invoice_detail.total_paid ? invoice_detail.total_paid : '')}
+                            </div>
+
+                        </div>
+                        <div className={'line-content'}>
+                            <div style={{maxWidth: '50%'}}> Số tiền còn lại</div>
+                            <div className={'fw-bold'} style={{maxWidth: '50%'}}>{formatCurrency(invoice_detail.remain)}
+                            </div>
+
+                        </div>
+                        <div className={'line-content'}>
+                            <div style={{maxWidth: '50%'}}>Hình thức thanh toán</div>
+                            <div className={'fw-bold'} style={{maxWidth: '50%'}}>{invoice_detail.payment_method_name}
+                            </div>
+
+                        </div>
+                        <div className={'line-content'}>
+                            <div style={{maxWidth: '50%'}}>Tình trạng thanh toán</div>
+                            <div className={'fw-bold'} style={{maxWidth: '50%'}}>{invoice_detail.status}
+                            </div>
+
+                        </div>
+                    </div>
+
                 </Card.Body>
             </Card>
         </>

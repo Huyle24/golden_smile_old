@@ -24,6 +24,7 @@ export default function Home() {
 
     return (
         <main className="{Montserrat.main_home}">
+
             <Advertisement/>
             <Carousels/>
             <Promotion/>

@@ -508,7 +508,7 @@ function PaymentMethod(props) {
                                             <div
                                                 className={'d-flex justify-content-between align-items-center flex-wrap'}>
 
-                                                    <div className={'d-flex  align-items-center flex-wrap'}>
+                                                    <div className={'d-flex  align-items-center flex-nowrap'} style={{maxWidth:'70%'}}>
                                                         <input name="ckb" type="radio" className="momo-payment me-2"
                                                         value={item.id}
                                                         // onChange={() => handleInputChange(item.id)}

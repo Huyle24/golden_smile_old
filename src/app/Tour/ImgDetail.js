@@ -246,11 +246,11 @@ function ImgDetail(props) {
                                 {/*    }}*/}
                                 {/*/>*/}
                                 <Row>
-                                    <Col xl={4}>
-                                        <div className={'text-secondary'}> Chọn ngày khởi hành</div>
+                                    <Col sm={4}>
+                                        <div className={'text-secondary'}>Chọn ngày khởi hành</div>
                                     </Col>
 
-                                    <Col xl={8} className={'d-flex justify-content-end'}>
+                                    <Col sm={8} className={'d-flex justify-content-end'}>
                                         <Form.Select aria-label="Default select example"
                                                      style={{width: '102px', height: '34px', marginRight: '5px'}}
                                                      onChange={(e) => handleMonthChange(e)}>
